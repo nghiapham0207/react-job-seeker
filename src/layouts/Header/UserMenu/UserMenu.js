@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { logout } from '../../../services/authService';
 import { selectAccessToken, selectRefreshToken } from '../../../redux/selector';
+import { getImageUrl } from '../../../utils/helpers';
 
 const cx = classNames.bind(styles);
 
@@ -43,7 +44,7 @@ function UserMenu({ currentUser }) {
         <img className={cx("ProfilePicture")} alt="default user"
           src={
             currentUser.avatar ?
-              `${process.env.REACT_APP_BASE_URL}image/${currentUser.avatar}` :
+              getImageUrl(currentUser) :
               "/static/images/defaultUser.webp"} />
       </a>
       <div className={cx("UserSettingSection")}>
