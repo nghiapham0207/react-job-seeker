@@ -11,7 +11,13 @@ import { useDeferred } from "../../hooks";
 import SearchContainer from "../SearchContainer";
 import { path, post } from "../../utils/axiosAPI";
 import JobList from "../JobList/JobList";
-import { selectFilter, selectLocationWorkings, selectOccupations, selectSearch } from "../../redux/selector";
+import {
+  selectCompanies,
+  selectFilter,
+  selectLocationWorkings,
+  selectOccupations,
+  selectSearch
+} from "../../redux/selector";
 import TagContainer from "../TagStyle/TagContainer";
 import TagContent from "../TagStyle/TagContent";
 
@@ -30,13 +36,16 @@ function ExploreTab() {
   const searchInput = useSelector(selectSearch);
   const occupationsFilter = useSelector(selectOccupations);
   const locationWorkingFilter = useSelector(selectLocationWorkings);
+  const companiesFilter = useSelector(selectCompanies);
   const filter = useSelector(selectFilter);
   const [jobList, setJobList] = useState([]);
   const [isPending, startTransition] = useTransition();
   const filterDeferred = useDeferred(filter, 600);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchJobs = async () => {
+      setIsLoading(true);
       // const dataFilter = {};
       // Object.entries(dataFilter).length === 0
       // dataFilter.key = searchInput;
@@ -52,7 +61,7 @@ function ExploreTab() {
       const dataFilter = {
         key: searchInput,
         idOccupation: occupationsFilter,
-        idCompany: [],
+        idCompany: companiesFilter,
         locationWorking: locationWorkingFilter,
       }
       // console.log(dataFilter);
@@ -60,6 +69,7 @@ function ExploreTab() {
         const res = await post(path.searchJob, dataFilter);
         // const res = await axios.get("https://jsonplaceholder.typicode.com/comments");
         // console.log(res);
+        setIsLoading(false);
         startTransition(() => {
           setJobList(res.data);
         })
@@ -98,10 +108,16 @@ function ExploreTab() {
       <div className={cx("Body")}>
         <FilterContainer />
         <div className={cx("Box__StyledBox", "Flex__StyledFlex", "Flex")}>
-          <div className={cx("CompactJobCardList__JobCardListContainer",
-            "styles__CompactJobCardList")}>
-            <JobList jobList={jobList} />
-          </div>
+          {
+            isLoading ?
+              <InfiniteScrollContainer width="3rem" height="3rem">
+                Đang tải thêm công việc khác
+              </InfiniteScrollContainer> :
+              <div className={cx("CompactJobCardList__JobCardListContainer",
+                "styles__CompactJobCardList")}>
+                <JobList jobList={jobList} />
+              </div>
+          }
           {isPending &&
             <InfiniteScrollContainer width="3rem" height="3rem">
               Đang tải thêm công việc khác

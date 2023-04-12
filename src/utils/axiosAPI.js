@@ -82,6 +82,7 @@ export const path = {
   login: "auth/login",
   logout: "auth/logout",
   changePassword: "auth/change-password",
+  companies: "company/list",
   editProfile: "auth/edit-profile",
   register: "auth/register",
   getUser: "auth/info-user",

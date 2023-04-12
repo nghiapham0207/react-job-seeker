@@ -12,13 +12,17 @@ export const selectLocationWorkings = state => state.filter.locationWorkings;
 
 export const selectOccupations = state => state.filter.occupations;
 
+export const selectCompanies = state => state.filter.companies;
+
 export const selectFilter = createSelector(
   selectOccupations,
   selectLocationWorkings,
-  (occupations, locationWorkings)=>{
+  selectCompanies,
+  (occupations, locationWorkings, companies)=>{
     return {
       occupations,
-      locationWorkings
+      locationWorkings,
+      companies
     }
   }
 )

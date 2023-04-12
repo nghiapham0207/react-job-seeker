@@ -5,7 +5,8 @@ const filterSlice = createSlice({
   initialState: {
     search: "",
     locationWorkings: [],
-    occupations: []
+    occupations: [],
+    companies: []
   },
   reducers: {
     updateSearch(state, action) {
@@ -34,15 +35,27 @@ const filterSlice = createSlice({
           })
         }
       }
+    },
+    updateCompanies(state, action) {
+      if (action.payload.checked) {
+        state.companies.push(action.payload.obj.id);
+      } else {
+        const isInclude = state.companies.includes(action.payload.obj.id);
+        if (isInclude) {
+          state.companies = state.companies.filter((company) => {
+            return company !== action.payload.obj.id;
+          })
+        }
+      }
     }
   }
 })
 
 export const {
   updateSearch,
-  locationWorkingFilterChange,
   updateLocationWorking,
-  updateOccupations
+  updateOccupations,
+  updateCompanies
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

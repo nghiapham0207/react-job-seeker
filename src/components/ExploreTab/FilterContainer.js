@@ -3,7 +3,7 @@ import classNames from "classnames/bind";
 import styles from "./ExploreTab.module.scss";
 import { get, path } from "../../utils/axiosAPI";
 import { ModalDialog } from "../ModalStyle";
-import { updateLocationWorking, updateOccupations } from "../../redux/filterSlice";
+import { updateCompanies, updateLocationWorking, updateOccupations } from "../../redux/filterSlice";
 import {
   CollapsibleContainer,
   CollapsibleContent,
@@ -25,19 +25,26 @@ const cx = classNames.bind(styles);
 
 function FilterContainer() {
   const [occupations, setOccupations] = useState([]);
+  const [companies, setCompanies] = useState([]);
   const dispatch = useDispatch();
   const occupationsChange = (obj, checked) => {
     dispatch(updateOccupations({ obj, checked }))
+  }
+  const companiesChange = (obj, checked) => {
+    dispatch(updateCompanies({ obj, checked }))
   }
   const locationWorkingChange = (obj, checked) => {
     dispatch(updateLocationWorking({ obj, checked }))
   }
   useEffect(() => {
     const fetchOccupations = async () => {
-      // 
-      const resOccupations = await get(path.occupations);
+      const [resOccupations, resCompanies] = await Promise.all([
+        get(path.occupations),
+        get(path.companies)
+      ]);
+      // const resOccupations = await get(path.occupations);
       // console.log(resOccupations);
-      const newArray = resOccupations.data.data.map((occupation) => {
+      const newOccupations = resOccupations.data.data.map((occupation) => {
         return {
           id: occupation._id,
           label: occupation.name,
@@ -46,8 +53,18 @@ function FilterContainer() {
           checked: false
         }
       })
-      // setOccupations([...occupations, ...newArray]);
-      setOccupations(newArray);
+      const newCompanies = resCompanies.data.data.map((occupation) => {
+        return {
+          id: occupation._id,
+          label: occupation.name,
+          ariaLabel: occupation._id,
+          value: occupation._id,
+          checked: false
+        }
+      })
+      // setOccupations([...occupations, ...newOccupations]);
+      setOccupations(newOccupations);
+      setCompanies(newCompanies);
     }
     fetchOccupations();
   }, []);
@@ -79,6 +96,22 @@ function FilterContainer() {
                   {occupations.map((item) => {
                     return <Checkbox key={item.id} obj={item}
                       onChange={occupationsChange}
+                    />
+                  })}
+                </div>
+              </CollapsibleBody>
+            </CollapsibleContent>
+          </CollapsibleContainer>
+
+          <CollapsibleContainer className={cx("styles__Collapsible")}>
+            <CollapsibleContent>
+              <CollapsibleHeader title="Công ty"
+                className={cx("collapsible-title")} />
+              <CollapsibleBody>
+                <div className={cx("styles__CheckboxContainer")}>
+                  {companies.map((item) => {
+                    return <Checkbox key={item.id} obj={item}
+                      onChange={companiesChange}
                     />
                   })}
                 </div>
