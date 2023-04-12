@@ -8,8 +8,10 @@
     line-height: 1.58;
 }
 
-/* .JobDescription__DescriptionContainer {}
-
+.JobDescription__DescriptionContainer {
+    padding-left: 20px;
+}
+/*
 .DraftEditorContainer__DraftEditorContainer {}
 
 .DraftEditor-root {}

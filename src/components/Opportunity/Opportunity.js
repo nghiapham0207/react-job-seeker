@@ -14,12 +14,14 @@ import { useContext } from "react";
 import { JobContext } from "../../pages/DetailJob";
 import ReadMore from "../ReadMore/ReadMore";
 import styles from "./Opportunity.module.scss";
+import { SolidBtnContainer, SolidButton } from "../ButtonStyle";
 
 const cx = classNames.bind(styles);
 
 function Opportunity({ openModal }) {
   // console.log("Render Opportunity");
   const job = useContext(JobContext);
+  console.log(job);
   return <div className={cx("Container")}>
     <main className={cx("Main")}>
       <div className={cx("TopFold__CompanyAndJobInfo")}>
@@ -67,12 +69,18 @@ function Opportunity({ openModal }) {
         <div className={cx("TopFold__ButtonContainer")}>
           <div className={cx("TopFold__ApplyButtonDesktop")}>
             <div className={cx("ApplyButton__ApplyButton")}>
-              <div className={cx("ButtonStyle__SolidBtnContainer")}>
+              {/* <div className={cx("ButtonStyle__SolidBtnContainer")}>
                 <button type="button" className={cx("ButtonStyle__Button", "ButtonStyle__SolidBtn")}
                   onClick={openModal} >
                   Ứng tuyển nhanh
                 </button>
-              </div>
+              </div> */}
+              <SolidBtnContainer>
+                <SolidButton
+                  onClick={openModal} >
+                  Ứng tuyển nhanh
+                </SolidButton>
+              </SolidBtnContainer>
             </div>
           </div>
         </div>
