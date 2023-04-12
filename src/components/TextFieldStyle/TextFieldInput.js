@@ -11,6 +11,7 @@ function TextFieldInput({
   placeholder,
   ariaLabel,
   value,
+  defaultValue,
   maxLength,
   onChange,
   onBlur
@@ -20,8 +21,11 @@ function TextFieldInput({
       required={isRequired}
       // type={showPassword ? "text" : "password"}
       type={type}
-      aria-label={ariaLabel} className={cx("TextFieldInput")}
-      value={value} maxLength={maxLength}
+      aria-label={ariaLabel} 
+      className={cx("TextFieldInput")}
+      value={value}
+      defaultValue={defaultValue}
+      maxLength={maxLength}
       onChange={onChange}
       onBlur={onBlur}
       placeholder={placeholder} />

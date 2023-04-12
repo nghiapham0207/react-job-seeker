@@ -48,6 +48,7 @@ function EditProfilePage() {
     setAvatar(file);
   }
   const editProfile = async () => {
+    console.log("file:", newAvatar);
     const formData = new FormData();
     formData.append("name", nameRef.current.value);
     formData.append("email", emailRef.current.value);
@@ -132,7 +133,7 @@ function EditProfilePage() {
                 <TextFieldContainer className={"aries-textfield"}>
                   <TextFieldInput name="password" ariaLabel="Tên"
                     isRequired
-                    value={currentUser.name}
+                    defaultValue={currentUser.name}
                     ref={nameRef}
                     onChange={() => {
                       setErrorMessage({
@@ -163,7 +164,7 @@ function EditProfilePage() {
                   <TextFieldInput name="password" ariaLabel="Email"
                     type={"email"}
                     isRequired
-                    value={currentUser.email}
+                    defaultValue={currentUser.email}
                     ref={emailRef}
                     onChange={() => {
                       setErrorMessage({
@@ -193,7 +194,7 @@ function EditProfilePage() {
                 <TextFieldContainer className={"aries-textfield"}>
                   <TextFieldInput name="password" ariaLabel="Số điện thoại"
                     isRequired
-                    value={currentUser.phone}
+                    defaultValue={currentUser.phone}
                     ref={phoneRef}
                     onChange={() => {
                       setErrorMessage({
