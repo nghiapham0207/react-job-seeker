@@ -77,8 +77,9 @@ function Opportunity({ openModal }) {
               </div> */}
               <SolidBtnContainer>
                 <SolidButton
+                  disable={job.isApply ? true : false}
                   onClick={openModal} >
-                  Ứng tuyển nhanh
+                  {job.isApply ? "Bạn đã ứng tuyển công việc này!" : "Ứng tuyển nhanh"}
                 </SolidButton>
               </SolidBtnContainer>
             </div>

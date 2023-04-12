@@ -3,6 +3,7 @@ import { useContext } from "react";
 
 import styles from "./OpportunitySticky.module.scss";
 import { JobContext } from "../../pages/DetailJob";
+import { SolidBtnContainer, SolidButton } from "../ButtonStyle";
 
 const cx = classNames.bind(styles);
 
@@ -29,13 +30,20 @@ function OpportunitySticky({ openModal }) {
         </div>
         <div className={cx("StickyButtonContainer")}>
           <div className={cx("ApplyButton__ApplyButton")}>
-            <div className={cx("ButtonStyle__SolidBtnContainer")}>
+            {/* <div className={cx("ButtonStyle__SolidBtnContainer")}>
               <button type="button"
                 className={cx("ButtonStyle__Button", "ButtonStyle__SolidBtn")}
                 onClick={openModal} >
                 Ứng tuyển nhanh
               </button>
-            </div>
+            </div> */}
+            <SolidBtnContainer>
+              <SolidButton
+                disable={job.isApply ? true : false}
+                onClick={openModal} >
+                {job.isApply ? "Bạn đã ứng tuyển công việc này!" : "Ứng tuyển nhanh"}
+              </SolidButton>
+            </SolidBtnContainer>
           </div>
         </div>
       </div>

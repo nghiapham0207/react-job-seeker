@@ -10,6 +10,7 @@ const cx = classNames.bind(styles);
 function ReadMore({ text, maxLength = 300 }) {
   const [isTruncated, setIsTruncated] = useState(text?.length < maxLength);
   const descRef = useRef(null);
+  // console.log(text?.slice(0, maxLength));
   useEffect(()=>{
     descRef.current.innerHTML = isTruncated ? `${text?.slice(0, maxLength)}....` : text;
   }, [text, isTruncated]);

@@ -10,6 +10,8 @@
 
 .JobDescription__DescriptionContainer {
     padding-left: 20px;
+    font-size: 14px;
+    line-height: 1.8;
 }
 /*
 .DraftEditorContainer__DraftEditorContainer {}
