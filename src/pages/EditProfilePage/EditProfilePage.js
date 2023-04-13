@@ -19,6 +19,8 @@ import { GhostBtn, GhostBtnContainer } from "../../components/ButtonStyle";
 import { ProfileInfo, ProfileName, ProfilePictureContainer, ProfilePictureContent } from "../../components/UserProfile";
 import { createAxiosJwt, path } from "../../utils/axiosAPI";
 import { toast } from "react-toastify";
+import { updateUser } from "../../redux/userSlice";
+import { getUser } from "../../services/authService";
 
 const cx = classNames.bind(styles);
 
@@ -27,7 +29,7 @@ function EditProfilePage() {
   const accessToken = useSelector(selectAccessToken);
   const refressToken = useSelector(selectRefreshToken);
   const currentUser = useSelector(selectUser);
-  const [newAvatar, setAvatar] = useState();
+  const [newAvatar, setNewAvatar] = useState();
   const uploadRef = useRef();
   const [errorMessage, setErrorMessage] = useState({
     nameError: "",
@@ -45,7 +47,7 @@ function EditProfilePage() {
     const file = e.target.files[0];
     file.preview = URL.createObjectURL(file);
     console.log(file);
-    setAvatar(file);
+    setNewAvatar(file);
   }
   const editProfile = async () => {
     console.log("file:", newAvatar);
@@ -65,6 +67,17 @@ function EditProfilePage() {
       console.log(res);
       if (res.data.isSuccess) {
         toast.success(res.data.message);
+        // update user
+        console.log(newAvatar);
+        getUser(accessToken, refressToken, dispatch);
+        // dispatch(updateUser({
+        //   _id: currentUser._id,
+        //   name: nameRef.current.value,
+        //   avatar: newAvatar.value,
+        //   phone: phoneRef.current.value,
+        //   email: emailRef.current.value,
+        //   username: currentUser.username
+        // }));
       }
     } catch (error) {
       console.log(error);
