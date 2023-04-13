@@ -7,14 +7,14 @@ import { updateSearch } from "../../redux/filterSlice";
 
 const cx = classNames.bind(styles);
 
-function SearchItemWrapper({ keyword, onClick }) {
+function SearchItemWrapper({ keyword, onSuggestionClick }) {
   const dispatch = useDispatch();
 
   return (
     <li className={cx("SearchItemWrapper")}
       onClick={() => {
-        onClick(false);
-        dispatch(updateSearch(keyword));
+        onSuggestionClick(keyword);
+        // dispatch(updateSearch(keyword));
       }} >
       <SearchIcon />
       <div className={cx("SuggestionItem")}>

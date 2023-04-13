@@ -14,7 +14,7 @@ import styles from './SearchContainer.module.scss';
 import { get, path } from "../../utils/axiosAPI";
 import { useNavigate } from "react-router-dom";
 import routes from "../../config/routes";
-import { useDeferredValue, useEffect, useState } from "react";
+import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { useDeferred } from "../../hooks";
 
 const cx = classNames.bind(styles);
@@ -39,6 +39,8 @@ function SearchContainer(isHomePage = false) {
   // const testArray = useRef(Array.from({ length: 2 }));
   const testArray = pastJobSearch ? [...pastJobSearch] : [];
   const deferredValue = useDeferred(searchInput, 500);
+  const suggestionRef = useRef(null);
+  const inputRef = useRef(null);
   const savePastJobSearch = (keyword) => {
     if (keyword) {
       let isExist = false;
@@ -79,7 +81,7 @@ function SearchContainer(isHomePage = false) {
               keyword: deferredValue
             }
           })
-          console.log(res);
+          // console.log(res);
           setSuggestionKey(res.data);
         } catch (error) {
           console.log(error);
@@ -90,7 +92,8 @@ function SearchContainer(isHomePage = false) {
       setSuggestionKey([]);
     }
   }, [deferredValue])
-  const handleEnter = () => {
+  const handleEnter = (searchInput) => {
+    console.log("Keyword when enter pressed:", searchInput);
     if (isHomePage) {
       navigate(routes.job);
     }
@@ -98,23 +101,46 @@ function SearchContainer(isHomePage = false) {
     dispatch(updateSearch(searchInput));
     setShowSuggestion(false);
   }
+  const handleSuggestionClick = (keyword) => {
+    setShowSuggestion(false);
+    setSearchInput(keyword);
+    handleEnter(keyword);
+  }
+  const handleInputFocus = (e) => {
+    if (e.target.value) {
+      setShowSuggestion(true);
+    }
+  }
+  const handleOutsideClick = (e) => {
+    if (!suggestionRef?.current?.contains(e.target) && e.target !== inputRef.current) {
+      setShowSuggestion(false);
+    }
+  }
+  useEffect(() => {
+    window.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      window.removeEventListener("mousedown", handleOutsideClick);
+    }
+  }, [])
   return (
     <div className={cx("Container")}>
       <div className={cx("FieldWrapper")}>
         <div className={cx("TextFieldStyled__TextFieldContainer")}>
           <input className={cx("TextFieldStyled__TextFieldInput")}
             placeholder="Tìm kiếm việc làm" spellCheck={false}
+            ref={inputRef}
             value={searchInput}
             onChange={(e) => {
               setSearchInput(e.target.value);
+              setShowSuggestion(true);
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 // handleSearch();
-                handleEnter();
+                handleEnter(searchInput);
               }
             }}
-          />
+            onFocus={handleInputFocus} />
           <div className={cx("TextFieldStyled__StartIconContainer")}>
             <SearchIcon className={cx("IconStyle__VerticalCenteredSvg")} />
           </div>
@@ -122,13 +148,16 @@ function SearchContainer(isHomePage = false) {
 
         {/* suggestion here */}
         {
-          searchInput && showSuggestion &&
           <SuggestionDropdownContainer>
-            <SuggestionDropdown>
-              {suggestionKey.map((item) => {
-                return <SearchItemWrapper key={item._id} keyword={item.name}
-                  onClick={setShowSuggestion} />
-              })}
+            <SuggestionDropdown ref={suggestionRef}>
+              {
+                searchInput && showSuggestion &&
+                suggestionKey.map((item) => {
+                  return <SearchItemWrapper key={item._id} keyword={item.name}
+
+                    onSuggestionClick={handleSuggestionClick} />
+                })
+              }
             </SuggestionDropdown>
           </SuggestionDropdownContainer>
         }
@@ -152,7 +181,7 @@ function SearchContainer(isHomePage = false) {
           className={cx("ButtonStyle__Button", "ButtonStyle__SolidBtn")}
           onClick={() => {
             // handleSearch();
-            handleEnter();
+            handleEnter(searchInput);
           }}
         >TÌM KIẾM</button>
       </div>
