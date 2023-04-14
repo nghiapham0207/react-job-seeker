@@ -95,6 +95,7 @@ function SearchContainer(isHomePage = false) {
   const handleEnter = (searchInput) => {
     console.log("Keyword when enter pressed:", searchInput);
     if (isHomePage) {
+      setShowSuggestion(false);
       navigate(routes.job);
     }
     savePastJobSearch(searchInput);

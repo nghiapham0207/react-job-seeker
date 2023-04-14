@@ -8,6 +8,16 @@
     flex: 1 1 0%;
 }
 
+@media screen and (max-width: 1023.98px) {
+    .Container {
+        flex-direction: column;
+    }
+
+    .FieldWrapper {
+        width: 100%;
+    }
+}
+
 .SearchButton .btn {
     color: white;
     background-color: var(--primary-color);
@@ -20,6 +30,6 @@
     border: none;
 }
 
-.SearchButton .btn:active{
+.SearchButton .btn:active {
     opacity: 0.7;
 }

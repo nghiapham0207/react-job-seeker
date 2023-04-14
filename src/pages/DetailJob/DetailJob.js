@@ -1,16 +1,21 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState, createContext } from "react";
 
 import { createAxiosJwt, get } from "../../utils/axiosAPI";
 import GlintContainer from "../../components/GlintContainer";
 import OpportunitySticky from "../../components/OpportunitySticky";
 import Opportunity from "../../components/Opportunity";
-import BreadCrump from "../../components/BreadCrump/BreadCrump";
+import {
+  BreadCrumbContainer,
+  BreadCrumbInner,
+  BreadCrumbItemWrapper
+} from "../../components/BreadCrumb";
 import { useDocumentTitle } from "../../hooks";
 import PsychFlatModal from "../../components/PsychFlatModal";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAccessToken, selectRefreshToken, selectUser } from "../../redux/selector";
 import instance from "../../utils/axiosAPI";
+import config from "../../config";
 
 export const JobContext = createContext();
 
@@ -18,16 +23,20 @@ function DetailJob() {
   // console.log("Render DetailJob");
   useDocumentTitle("Chi Tiết Công Việc");
   const [showPsychFlat, setShowPsychFlat] = useState(false);
-  const handleShowPsychFlat = () => {
-    // check user then login then redirect
-    setShowPsychFlat(!showPsychFlat);
-  }
   const currentUser = useSelector(selectUser);
   const accessToken = useSelector(selectAccessToken);
   const refreshToken = useSelector(selectRefreshToken);
   const dispatch = useDispatch();
   const { _id } = useParams(); // id must match id in url
   const [job, setJob] = useState({});
+  const handleShowPsychFlat = () => {
+    // check user then login then redirect
+    if (currentUser) {
+      setShowPsychFlat(!showPsychFlat);
+    } else {
+      alert("You must login");
+    }
+  }
   useEffect(() => {
     const fetchApi = async () => {
       const axiosInstance = currentUser ?
@@ -50,7 +59,14 @@ function DetailJob() {
   return <>
     <JobContext.Provider value={job}>
       {/* breadcrumpm has not completed yet */}
-      <BreadCrump />
+      <BreadCrumbContainer>
+        <BreadCrumbInner>
+          <BreadCrumbItemWrapper active
+            url={config.routes.job} title={"Việc Làm"} />
+          <BreadCrumbItemWrapper
+            url={`${config.routes.job}/${job._id}`} title={job.name} />
+        </BreadCrumbInner>
+      </BreadCrumbContainer>
       <GlintContainer>
         <Opportunity openModal={handleShowPsychFlat} />
       </GlintContainer>

@@ -13,12 +13,15 @@ function ScrollTopContainer({ isVisible, children }) {
   return (
     <a
       // href="#top"
+
       style={{
         opacity: isVisible ? "1" : "0",
         display: isVisible ? "" : "none"
       }}
-      className={cx("ScrollTopContainer")} aria-label="#top"
-      title='Back to top'
+      className={cx("ScrollTopContainer")}
+      // title='Back to top'
+      aria-label="Top"
+      role="button"
       onClick={handleScroll}
     >
       {children}

@@ -1,4 +1,7 @@
-import InputComponent__InputWrapper from "./InputComponent__InputWrapper";
-import InputComponent__ErrorMessage from "./InputComponent__ErrorMessage";
+import InputWrapper from "./InputWrapper";
+import ErrorMessage from "./ErrorMessage";
 
-export { InputComponent__InputWrapper, InputComponent__ErrorMessage };
+export {
+  InputWrapper,
+  ErrorMessage
+};

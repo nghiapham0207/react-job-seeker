@@ -1,0 +1,38 @@
+.BreadCrumbContainer {
+    display: flex;
+    padding: 1em;
+    background-color: rgb(243, 243, 243);
+}
+
+@media screen and (max-width: 1260px) {
+    .BreadCrumbInner {
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .BreadCrumbInner {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+.BreadCrumbItemWrapper {
+    font-size: 1em;
+    line-height: 1.5;
+
+    &:last-child span {
+        display: none;
+    }
+
+    & span {
+        display: inline;
+        margin: 0px 1em;
+        color: rgb(170, 170, 170);
+    }
+}
+
+.BreadCrumbJobTitle {
+    display: inline-block;
+    color: var(--secondary-color);
+}

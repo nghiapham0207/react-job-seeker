@@ -3,23 +3,23 @@ import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamation } from "@fortawesome/free-solid-svg-icons";
 
-import styles from "./InputComponent.scss";
+import styles from "./InputComponent.module.scss";
 
 const cx = classNames.bind(styles);
 
-function InputComponent__InputWrapper({ id, label, name, type = "text", valid = true,
+function InputWrapper({ id, label, name, type = "text", valid = true,
   value, onChange }) {
   const [floatLabel, setFloatLabel] = useState(false);
   return (
-    <div className={cx("InputComponent__InputWrapper")}>
-      <span className={cx(value || floatLabel ? "InputComponent__InputName--Float" : "InputComponent__InputName")}>
+    <div className={cx("InputWrapper")}>
+      <span className={cx(value || floatLabel ? "InputName--Float" : "InputName")}>
         {label}
       </span>
-      <div className={cx("InputComponent__InputTypeWrapper")}>
+      <div className={cx("InputTypeWrapper")}>
         <input type={type} id={id} value={value}
           placeholder="placeholder" // to remove issue input has no title
           name={name}
-          className={cx("InputComponent__InputType")}
+          className={cx("InputType")}
           onChange={onChange}
           onFocus={() => {
             setFloatLabel(true);
@@ -31,7 +31,7 @@ function InputComponent__InputWrapper({ id, label, name, type = "text", valid = 
               setFloatLabel(false);
             }
           }} />
-        <div className={cx("InputComponent__ValidationIconContainer")}>
+        <div className={cx("ValidationIconContainer")}>
           {!valid
             && <FontAwesomeIcon icon={faExclamation} width={"1em"} height={"1em"}
               className={cx("IconStyle__VerticalCenteredSvg")} />}
@@ -41,4 +41,4 @@ function InputComponent__InputWrapper({ id, label, name, type = "text", valid = 
   )
 }
 
-export default InputComponent__InputWrapper;
+export default InputWrapper;

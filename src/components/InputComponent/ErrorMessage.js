@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 
-import styles from "./InputComponent.scss";
+import styles from "./InputComponent.module.scss";
 
 const cx = classNames.bind(styles);
 

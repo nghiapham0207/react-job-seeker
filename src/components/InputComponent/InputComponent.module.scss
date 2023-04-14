@@ -1,10 +1,10 @@
-.InputComponent__InputWrapper {
+.InputWrapper {
     position: relative;
     display: block;
 }
 
-.InputComponent__InputName,
-.InputComponent__InputName--Float {
+.InputName,
+.InputName--Float {
     position: absolute;
     z-index: 1;
     transition: font-size 200ms ease 0s, padding 200ms ease 0s;
@@ -13,12 +13,12 @@
     font-weight: 300;
 }
 
-.InputComponent__InputName {
+.InputName {
     padding: 1em;
     color: rgb(119, 119, 119);
 }
 
-.InputComponent__InputName--Float {
+.InputName--Float {
     margin-left: 1em;
     padding: 0px 2px;
     background-color: rgb(255, 255, 255);
@@ -27,13 +27,13 @@
     top: -1em;
 }
 
-.InputComponent__InputTypeWrapper {
+.InputTypeWrapper {
     position: relative;
     display: flex;
     margin-bottom: 5px;
 }
 
-.InputComponent__InputType {
+.InputType {
     font-size: 14px;
     color: rgb(101, 101, 101);
     outline: none;
@@ -43,11 +43,11 @@
     // border: 2px solid rgb(236, 39, 43);
 }
 
-.InputComponent__InputType::placeholder {
+.InputType::placeholder {
     color: transparent;
 }
 
-.InputComponent__ValidationIconContainer {
+.ValidationIconContainer {
     position: absolute;
     right: 10px;
     display: flex;
@@ -56,7 +56,7 @@
     height: 100%;
 }
 
-.InputComponent__ValidationIconContainer svg,
-.InputComponent__ErrorMessage {
+.ValidationIconContainer svg,
+.ErrorMessage {
     color: rgb(236, 39, 43);
 }

@@ -2,14 +2,17 @@ import classNames from "classnames/bind";
 
 import styles from "./SignUp.module.scss";
 import { useDocumentTitle } from "../../hooks";
-import { InputComponent__ErrorMessage, InputComponent__InputWrapper } from "../../components/InputComponent";
+import {
+  ErrorMessage,
+  InputWrapper
+} from "../../components/InputComponent";
 import Alerts__ErrorMessage from "../../components/Alerts__ErrorMessage";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { post } from "../../utils/axiosAPI";
 import { login } from "../../services/authService";
 import { useDispatch } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const cx = classNames.bind(styles);
 
@@ -123,67 +126,67 @@ function SignUp() {
               <section className={cx("signupWithEmail__SignUpContainer")}>
                 <div className={cx("signupWithEmail__SignUpTwoCols")}>
                   <div className={cx("signupWithEmail__FormWrapper")}>
-                    <InputComponent__InputWrapper name={"fullName"}
+                    <InputWrapper name={"fullName"}
                       id={"sign-up-form-full-name"} label={"Fullname"}
                       value={formData.fullName}
                       onChange={handleInput}
                       valid={errors.fullName ? false : true} />
                     {errors.fullName
-                      && <InputComponent__ErrorMessage
+                      && <ErrorMessage
                         message={errors.fullName} />}
                   </div>
                   <div className={cx("signupWithEmail__FormWrapper")}>
-                    <InputComponent__InputWrapper name={"username"}
+                    <InputWrapper name={"username"}
                       id={"sign-up-form-username"} label={"Username"}
                       value={formData.username}
                       onChange={handleInput}
                       valid={errors.fullName ? false : true} />
                     {errors.username
-                      && <InputComponent__ErrorMessage
+                      && <ErrorMessage
                         message={errors.username} />}
                   </div>
                 </div>
                 <div className={cx("signupWithEmail__SignUpTwoCols")}>
                   <div className={cx("signupWithEmail__FormWrapper")}>
-                    <InputComponent__InputWrapper name={"email"} type="email"
+                    <InputWrapper name={"email"} type="email"
                       id={"sign-up-form-email"} label={"Email"}
                       value={formData.email}
                       onChange={handleInput}
                       valid={errors.email ? false : true} />
                     {errors.email
-                      && <InputComponent__ErrorMessage
+                      && <ErrorMessage
                         message={errors.email} />}
                   </div>
                   <div className={cx("signupWithEmail__FormWrapper")}>
-                    <InputComponent__InputWrapper type="password" name={"password"}
+                    <InputWrapper type="password" name={"password"}
                       id={"sign-up-form-password"} label={"Password"}
                       value={formData.password}
                       onChange={handleInput}
                       valid={errors.fullName ? false : true} />
                     {errors.password
-                      && <InputComponent__ErrorMessage
+                      && <ErrorMessage
                         message={errors.password} />}
                   </div>
                 </div>
                 <div className={cx("signupWithEmail__SignUpTwoCols")}>
                   <div className={cx("signupWithEmail__FormWrapper")}>
-                    <InputComponent__InputWrapper name={"numberPhone"}
+                    <InputWrapper name={"numberPhone"}
                       id={"sign-up-form-number-phone"} label={"Number Phone"}
                       value={formData.numberPhone}
                       onChange={handleInput}
                       valid={errors.fullName ? false : true} />
                     {errors.numberPhone
-                      && <InputComponent__ErrorMessage
+                      && <ErrorMessage
                         message={errors.numberPhone} />}
                   </div>
                   <div className={cx("signupWithEmail__FormWrapper")}>
-                    <InputComponent__InputWrapper name={"confirmPassword"} type="password"
+                    <InputWrapper name={"confirmPassword"} type="password"
                       id={"sign-up-form-confirm-password"} label={"Confirm Password"}
                       value={formData.confirmPassword}
                       onChange={handleInput}
                       valid={errors.confirmPassword ? false : true} />
                     {errors.confirmPassword
-                      && <InputComponent__ErrorMessage
+                      && <ErrorMessage
                         message={errors.confirmPassword} />}
                   </div>
                 </div>
