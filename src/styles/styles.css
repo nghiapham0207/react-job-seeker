@@ -1,6 +1,10 @@
-@media screen and (min-width: 1024px) {
+.styles__ExploreTabBody {
+    padding-top: 16px !important;
+}
+
+@media (min-width: 1024px) {
     .styles__ExploreTabBody {
-        padding-top: 16px !important;
+        padding-top: 24px !important;
     }
 }
 

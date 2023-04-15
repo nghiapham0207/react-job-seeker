@@ -1,0 +1,31 @@
+.Container {
+    display: flex;
+    justify-content: space-between;
+    -webkit-box-pack: justify;
+    align-items: center;
+    -webkit-box-align: center;
+    height: 70px;
+}
+
+.ContainerRightContent {
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+}
+
+.ContainerRightItem {
+    margin-right: 25px;
+}
+
+.ToggleButton__IconContainer {
+    position: relative;
+    cursor: pointer;
+}
+
+.ToggleButton__IconWrapper {
+    font-size: 25px;
+
+    & label {
+        cursor: pointer;
+    }
+}

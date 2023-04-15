@@ -11,6 +11,7 @@ import { faGear, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { logout } from '../../../services/authService';
 import { selectAccessToken, selectRefreshToken } from '../../../redux/selector';
 import { getImageUrl } from '../../../utils/helpers';
+import config from '../../../config';
 
 const cx = classNames.bind(styles);
 
@@ -62,7 +63,7 @@ function UserMenu({ currentUser }) {
             </div>
             <div className={cx("DropdownStyle__DropdownBody", "DropdownStyle__DropdownBody--Right")}
               style={{ display: showUserMenu ? "block" : "none" }} >
-              <Link to={"/setting"} className={cx("DropdownStyle__DropdownItemWrapper")}>
+              <Link to={config.routes.setting} className={cx("DropdownStyle__DropdownItemWrapper")}>
                 <div className={cx("DropdownWrapper")}>
                   <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faGear} />
                   <span>Cài đặt</span>

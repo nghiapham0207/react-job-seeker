@@ -1,8 +1,8 @@
 import classNames from "classnames/bind";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { Suspense, useDeferredValue, useEffect, useMemo, useState, useTransition } from "react";
+import { faSearch, faSliders } from "@fortawesome/free-solid-svg-icons";
+import { Suspense, useDeferredValue, useEffect, useMemo, useRef, useState, useTransition } from "react";
 
 import styles from "./ExploreTab.module.scss";
 import GlintContainer from "../GlintContainer";
@@ -25,12 +25,13 @@ import { usePastJobSearch } from "../../contexts/pastJobSearchContext";
 import FilterContainer from "./FilterContainer";
 import InfiniteScrollContainer from "../InfiniteScroll/InfiniteScrollContainer";
 import axios from "axios";
+import { ModalBody, ModalContainer, ModalContentArea, ModalDialog, ModalHeader } from "../ModalStyle";
 
 const cx = classNames.bind(styles);
 
 function ExploreTab() {
   // console.log("Render ExploreTab");
-
+  const modalRef = useRef();
   const PastJobSearchContext = usePastJobSearch();
   const { pastJobSearch } = PastJobSearchContext;
   const searchInput = useSelector(selectSearch);
@@ -45,6 +46,7 @@ function ExploreTab() {
 
   useEffect(() => {
     const fetchJobs = async () => {
+      console.log("Call API");
       setIsLoading(true);
       // const dataFilter = {};
       // Object.entries(dataFilter).length === 0
@@ -81,10 +83,23 @@ function ExploreTab() {
   }, [searchInput, filterDeferred]);
 
   return (
-    <GlintContainer className="styles__ExploreTabBody">
+    <GlintContainer className={cx("styles__ExploreTabBody")}>
+      {/* <GlintContainer className={cx("Body")}> */}
       <div className={cx("DesktopSearchBoxWrapper")}>
         <div className={cx("Box__StyledBox")}>
           <SearchContainer />
+        </div>
+        <div className={cx("Box__StyledBox")}>
+          <button type="button"
+            onClick={() => {
+
+            }}
+            className={cx("UnstyleButton", "MobileFilterButton")}>
+            <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" icon={faSliders} />
+            <span>
+              Bộ lọc
+            </span>
+          </button>
         </div>
       </div>
       {/* Tìm kiếm gần đây lưu ở local */}
@@ -106,6 +121,21 @@ function ExploreTab() {
         {jobList.length} việc làm tại Vietnam
       </h1>
       <div className={cx("Body")}>
+        {/* Modal Filter Here */}
+        {/* <ModalContainer modalRef={modalRef}
+          handleShowModal={() => {
+
+          }} >
+          <ModalDialog>
+            <ModalContentArea modalRef={modalRef}>
+              <ModalHeader handleShowModal={() => { }} />
+              <ModalBody>
+                <p>test</p>
+                <FilterContainer />
+              </ModalBody>
+            </ModalContentArea>
+          </ModalDialog>
+        </ModalContainer> */}
         <FilterContainer />
         <div className={cx("Box__StyledBox", "Flex__StyledFlex", "Flex")}>
           {

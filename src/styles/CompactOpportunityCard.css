@@ -8,7 +8,13 @@
 
 .CompactJobCardList__JobCardListContainer {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .CompactJobCardList__JobCardListContainer{
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .CompactOpportunityCard__CompactJobCardWrapper {

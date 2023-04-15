@@ -16,6 +16,8 @@ import { useNavigate } from "react-router-dom";
 import routes from "../../config/routes";
 import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { useDeferred } from "../../hooks";
+import SolidBtnContainer from "../ButtonStyle/SolidBtnContainer";
+import SolidButton from "../ButtonStyle/SolidButton";
 
 const cx = classNames.bind(styles);
 
@@ -29,7 +31,7 @@ function SearchContainer(isHomePage = false) {
   // console.log("Render SearchContainer");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [showSuggestion, setShowSuggestion] = useState(true);
+  const [showSuggestion, setShowSuggestion] = useState(false);
   const [suggestionKey, setSuggestionKey] = useState([]);
   const PastJobSearchContext = usePastJobSearch();
   const { pastJobSearch, updatePastJobSearch } = PastJobSearchContext;
@@ -177,7 +179,7 @@ function SearchContainer(isHomePage = false) {
           </div>
         </div>
       </div>
-      <div className={cx("ButtonStyle__SolidBtnContainer")}>
+      {/* <div className={cx("ButtonStyle__SolidBtnContainer")}>
         <button type="button"
           className={cx("ButtonStyle__Button", "ButtonStyle__SolidBtn")}
           onClick={() => {
@@ -185,7 +187,16 @@ function SearchContainer(isHomePage = false) {
             handleEnter(searchInput);
           }}
         >TÌM KIẾM</button>
-      </div>
+      </div> */}
+      <SolidBtnContainer
+      className={cx("SearchButton")} >
+        <SolidButton
+          onClick={() => {
+            handleEnter(searchInput);
+          }} >
+          TÌM KIẾM
+        </SolidButton>
+      </SolidBtnContainer>
     </div>
   )
 }

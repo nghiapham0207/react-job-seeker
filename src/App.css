@@ -2,12 +2,12 @@
 @import url("./styles/CompactOpportunityCard.css");
 @import url("./styles/ButtonStyle.css");
 @import url("./styles/DropdownStyle.css");
-@import url("./styles/styles.css");
 @import url("./styles/TextFieldStyled.css");
 @import url("./styles/TopFold.css");
 @import url("./styles/SimilarJobsSection.css");
 @import url("./styles/JobDescription.css");
 @import url("./styles/Skills.css");
+@import url("./styles/styles.css");
 
 .Box__StyledBox {
     padding-bottom: 16px;
@@ -96,4 +96,28 @@
 .BookmarkButton__BookmarkOutlineIcon {
     width: 20px;
     height: 20px;
+}
+
+@media not all and (min-width: 640px) {
+    .fresnel-greaterThanOrEqual-mobileL {
+        display: none;
+    }
+}
+
+@media not all and (max-width: 639.98px) {
+    .fresnel-lessThan-mobileL {
+        display: none;
+    }
+}
+
+@media not all and (max-width: 1023.98px) {
+    .fresnel-lessThan-desktopS {
+        display: none;
+    }
+}
+
+@media not all and (min-width: 1024px) {
+    .fresnel-greaterThanOrEqual-desktopS {
+        display: none;
+    }
 }

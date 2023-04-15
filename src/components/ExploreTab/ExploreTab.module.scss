@@ -12,30 +12,71 @@
     position: relative;
     display: flex;
     flex-flow: column;
+    padding-top: 16px;
 }
 
 @media (min-width: 1024px) {
     .Body {
         flex-flow: row;
         align-items: flex-start;
+        padding-top: 24px;
     }
 }
 
 .DesktopStickyFilterContainer {
-    // position: relative;
-    // top: 0;
-    position: sticky;
-    top: 94px;
-    z-index: 1;
-    display: block;
-    min-width: 316px;
-    max-height: calc(100vh - 118px);
-    margin-right: 32px;
-    border: 1px solid rgba(198, 198, 198, 0.6);
-    border-radius: 4px;
-    overflow-y: auto;
+    display: none;
+    // position: sticky;
+    // top: 94px;
+    // z-index: 1;
+    // display: block;
+    // min-width: 316px;
+    // max-height: calc(100vh - 118px);
+    // margin-bottom: 32px;
+    // border: 1px solid rgba(198, 198, 198, 0.6);
+    // border-radius: 4px;
+    // overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+    .DesktopStickyFilterContainer {
+        // position: relative;
+        // top: 0;
+        position: sticky;
+        top: 94px;
+        z-index: 1;
+        display: block;
+        min-width: 316px;
+        max-height: calc(100vh - 118px);
+        margin-right: 32px;
+        border: 1px solid rgba(198, 198, 198, 0.6);
+        border-radius: 4px;
+        overflow-y: auto;
+    }
 }
 
 .Flex {
     width: 100%;
+}
+
+.MobileFilterButton {
+    display: flex;
+    justify-content: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 1px solid rgba(198, 198, 198, 0.6);
+    border-radius: 14.5px;
+    color: var(--secondary-color);
+
+    & span {
+        margin-left: 8px;
+        font-size: 100%;
+        line-height: 1.5;
+    }
+
+    &:active {
+        background-color: rgb(214, 244, 255);
+    }
 }

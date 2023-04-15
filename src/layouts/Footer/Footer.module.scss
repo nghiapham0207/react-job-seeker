@@ -7,7 +7,6 @@
     width: 100%;
     padding-left: 15px;
     padding-right: 15px;
-    display: flex;
 }
 
 .Inner>div {
@@ -16,6 +15,10 @@
 }
 
 @media screen and (min-width: 1024px) {
+    .Inner {
+        display: flex;
+    }
+
     .Inner>div {
         padding-bottom: 40px;
     }
@@ -23,6 +26,7 @@
 
 .CompanyInfo {
     margin: 0px auto;
+    text-align: center;
 }
 
 .BrandContainer {
@@ -73,13 +77,15 @@
     margin-right: 10px;
 }
 
-.Copyright{
+.Copyright {
     margin-top: 30px;
 }
-.DisclaimerPart{
+
+.DisclaimerPart {
     margin-top: 8px;
 }
-.DisclaimerPart a{
+
+.DisclaimerPart a {
     text-decoration: none;
     color: rgb(1, 126, 183);
 }
@@ -102,9 +108,15 @@
 
 .Sections0 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 60px 40px;
     text-align: left;
+}
+
+@media (min-width: 768px) {
+    .Sections0 {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .Section1 ul {

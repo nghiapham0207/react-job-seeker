@@ -2,15 +2,27 @@
     position: relative;
     display: grid;
     justify-content: center;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px 4em;
     margin: 90px auto 0;
     max-width: 1200px;
 }
 
+@media (max-width: 768px) {
+    .Container {
+        grid-template-columns: 1fr;
+    }
+}
+
 .CustomStats {
     min-width: 310px;
     text-align: left;
+}
+
+@media (max-width: 1024px) {
+    .CustomStats{
+        min-width: auto;
+    }
 }
 
 .Label {

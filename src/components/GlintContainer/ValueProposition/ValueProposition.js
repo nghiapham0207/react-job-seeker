@@ -8,17 +8,33 @@ const cx = classNames.bind(styles);
 function ValueProposition() {
     return (
         <div className={cx("ValuePropositionComponentssc__Container", "fybKJF")}>
-            {/* <div className="fresnel-container fresnel-lessThan-mobileL ">
-            </div> */}
-            <div className={cx("fresnel-container", "fresnel-greaterThanOrEqual-mobileL")}>
+            <div className={cx("fresnel-lessThan-mobileL")}>
                 <div className={cx("ValuePropositionComponentssc__TopContainer", "bjHYkK")}>
                     <img className={cx("ValuePropositionComponentssc__BackgroundImage", "cmIRSF")}
                         sizes="400px" alt="value-proposition-desktop"
                         src={images.proposition} />
                     <h1 className={cx("ValuePropositionComponentssc__TextHolder", "gnKIIx")}>
-                        Tham gia Cộng đồng
-                        <span className={cx("ValuePropositionComponentssc__RedText", "hiOqk")}>1.000.000+</span>
-                        ứng viên tài năng
+                        {"Tham gia Cộng đồng "}
+                        <span className={cx("ValuePropositionComponentssc__RedText", "hiOqk")}>
+                            {"1.000.000"}
+                            {"+"}
+                        </span>
+                        {" ứng viên tài năng"}
+                    </h1>
+                </div>
+            </div>
+            <div className={cx("fresnel-greaterThanOrEqual-mobileL")}>
+                <div className={cx("ValuePropositionComponentssc__TopContainer", "bjHYkK")}>
+                    <img className={cx("ValuePropositionComponentssc__BackgroundImage", "cmIRSF")}
+                        sizes="400px" alt="value-proposition-desktop"
+                        src={images.proposition} />
+                    <h1 className={cx("ValuePropositionComponentssc__TextHolder", "gnKIIx")}>
+                        {"Tham gia Cộng đồng "}
+                        <span className={cx("ValuePropositionComponentssc__RedText", "hiOqk")}>
+                            {"1.000.000"}
+                            {"+"}
+                        </span>
+                        {" ứng viên tài năng"}
                     </h1>
                 </div>
             </div>

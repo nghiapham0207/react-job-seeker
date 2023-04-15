@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 function SolidButton({
   as: As = "button",
-  type,
+  type = "button",
   block = false,
   disable = false,
   className,
