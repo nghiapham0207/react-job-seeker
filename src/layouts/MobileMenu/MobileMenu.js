@@ -15,12 +15,20 @@ import {
   NavigationProfileText
 } from "../../components/Navigation";
 import config from '../../config';
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../redux/selector';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAccessToken, selectRefreshToken, selectUser } from '../../redux/selector';
 import { getImageUrl } from '../../utils/helpers';
+import { logout } from '../../services/authService';
 
 function MobileMenu() {
   const currentUser = useSelector(selectUser);
+  const accessToken = useSelector(selectAccessToken);
+  const refreshToken = useSelector(selectRefreshToken);
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    console.log("Logout Mobile");
+    logout(accessToken, refreshToken, dispatch);
+  }
   return (
     <DrawerContainer>
       <DrawerWrapper className="drawer-background" >
@@ -64,7 +72,7 @@ function MobileMenu() {
                   </NavigationTextWrapper>
                 </NavigationPaddingTop>
 
-                <NavigationTextWrapper>
+                <NavigationTextWrapper handleClick={handleLogout} >
                   <NavigationFlexCenter>
                     <FontAwesomeIcon
                       className={("IconStyle__VerticalCenteredSvg")} icon={faPowerOff} />
@@ -109,6 +117,7 @@ function MobileMenu() {
               {"Dành Cho Nhà Tuyển Dụng"}
             </span>
           </NavigationTextWrapper>
+          {/* <LanguageSwitcherContainer /> */}
         </NavigationContainer>
       </DrawerWrapper>
     </DrawerContainer >

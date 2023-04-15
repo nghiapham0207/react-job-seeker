@@ -23,7 +23,6 @@ function UserMenu({ currentUser }) {
   const [showUserMenu, setShowUserMenu] = useState(false);
 
   const handleLogout = () => {
-
     logout(accessToken, refreshToken, dispatch);
   }
 

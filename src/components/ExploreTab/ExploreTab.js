@@ -89,6 +89,8 @@ function ExploreTab() {
         <div className={cx("Box__StyledBox")}>
           <SearchContainer />
         </div>
+      </div>
+      <div className={cx("MobileStickySearchAndFilterContainer")}>
         <div className={cx("Box__StyledBox")}>
           <button type="button"
             onClick={() => {

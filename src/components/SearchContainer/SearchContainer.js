@@ -96,7 +96,7 @@ function SearchContainer(isHomePage = false) {
   }, [deferredValue])
   const handleEnter = (searchInput) => {
     console.log("Keyword when enter pressed:", searchInput);
-    if (isHomePage) {
+    if (isHomePage && searchInput) {
       setShowSuggestion(false);
       navigate(routes.job);
     }
@@ -189,7 +189,7 @@ function SearchContainer(isHomePage = false) {
         >TÌM KIẾM</button>
       </div> */}
       <SolidBtnContainer
-      className={cx("SearchButton")} >
+        className={cx("SearchButton")} >
         <SolidButton
           onClick={() => {
             handleEnter(searchInput);

@@ -10,18 +10,23 @@ function NavigationTextWrapper({
   children,
   url,
   target = "_self",
-  role = "button"
+  role = "button",
+  handleClick
 }) {
   const handleShowMobileMenu = () => {
     const toggle = document.querySelector("#mobile-menu");
     console.log(toggle);
     toggle.checked = false;
+    // 
+    if (handleClick) {
+      handleClick();
+    }
   }
   return (
     <Link
       onClick={handleShowMobileMenu}
       to={url}
-      target={target} >
+      target={target}>
       <div role={role}
         className={cx("TextWrapper")} >
         {children}
