@@ -98,6 +98,7 @@ div.TopFold__JobOverViewInfo a {
 
 .TopFold__ButtonContainer {
     margin-bottom: 32px;
+    display: flex;
 }
 
 .TopFold__ApplyButtonDesktop {

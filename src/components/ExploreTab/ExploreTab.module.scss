@@ -12,14 +12,14 @@
     position: relative;
     display: flex;
     flex-flow: column;
-    padding-top: 16px;
+    // padding-top: 16px;
 }
 
 @media (min-width: 1024px) {
     .Body {
         flex-flow: row;
         align-items: flex-start;
-        padding-top: 24px;
+        // padding-top: 24px;
     }
 }
 

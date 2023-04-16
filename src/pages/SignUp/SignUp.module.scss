@@ -41,7 +41,13 @@
 .SignUpEmailPage__SignUpWrapperExtend {
     margin-bottom: 2em;
     // padding-bottom: 2em;
-    max-width: 800px;
+    max-width: 360px;
+}
+
+@media (min-width: 768px) {
+    .SignUpEmailPage__SignUpWrapperExtend {
+        max-width: 800px;
+    }
 }
 
 .signupWithEmail__SignUpFormWrapper {
@@ -55,7 +61,13 @@
 
 .signupWithEmail__SignUpTwoCols {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
+}
+
+@media (min-width: 768px) {
+    .signupWithEmail__SignUpTwoCols {
+        grid-template-columns: 50% 50%;
+    }
 }
 
 // alert error
@@ -149,9 +161,15 @@
 }
 
 .signupWithEmail__OverlappingBtnExt {
-    width: 50%;
+    width: 100%;
     margin: 2em auto;
     border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+    .signupWithEmail__OverlappingBtnExt {
+        width: 50%;
+    }
 }
 
 .signupWithEmail__OverlappingBtnExt button {
@@ -225,7 +243,8 @@
     margin-left: 4em;
     background-color: rgb(255, 255, 255);
 }
-.OnboardingFooter__StyledFooter{
+
+.OnboardingFooter__StyledFooter {
     margin: 0 auto;
     height: 2rem;
 }

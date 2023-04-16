@@ -38,3 +38,18 @@
 .ModalHeader h3 {
     text-transform: uppercase;
 }
+
+.MobileModal {
+    & .modal-content {
+        width: 100vw;
+        max-width: 100vw;
+        max-height: 100%;
+        margin: 0;
+    }
+
+    & .modal-body{
+        width: 100vw;
+        max-height: 100%;
+        height: 100vh;
+    }
+}

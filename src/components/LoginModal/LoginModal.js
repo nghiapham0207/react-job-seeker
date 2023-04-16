@@ -16,11 +16,15 @@ function LoginModal({ handleShowLogin }) {
 
   return (
     <div className={cx("LoginModalContainer")}>
-      <ModalContainer handleShowModal={handleShowLogin} modalRef={modalRef}>
+      <ModalContainer
+        className={cx("MobileModal")}
+        handleShowModal={handleShowLogin} modalRef={modalRef}>
         <ModalDialog>
-          <ModalContentArea modalRef={modalRef}>
+          <ModalContentArea
+            className={cx("modal-content")}
+            modalRef={modalRef}>
             <ModalHeader header="Login" handleShowModal={handleShowLogin} />
-            <ModalBody>
+            <ModalBody className={cx("modal-body")}>
               <div className={cx("Large-Text")}
                 style={{ padding: " 20px 20px 0px" }} >
                 <span>Đăng nhập Glints để tiếp tục</span>

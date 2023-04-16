@@ -4,9 +4,9 @@ import styles from "./ModalTest.module.scss";
 
 const cx = classNames.bind(styles);
 
-function ModalContentArea({ modalRef, children }) {
+function ModalContentArea({ className, modalRef, children }) {
   return (
-    <div ref={modalRef} className={cx("ModalContentArea")}>
+    <div ref={modalRef} className={cx(className, "ModalContentArea")}>
       {children}
     </div>
   )
