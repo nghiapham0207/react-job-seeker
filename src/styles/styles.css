@@ -53,3 +53,11 @@
 .styles__Checkbox {
     margin-bottom: 8px;
 }
+
+.styles__Header {
+    display: flex;
+}
+
+.styles__Anchor{
+    
+}

@@ -1,0 +1,23 @@
+.SearchBarContainer {
+    max-width: 972px;
+    margin: 30px auto;
+}
+
+@media (min-width: 1024px) {
+    .SearchBarContainer {
+        margin: 40px auto 60px;
+    }
+}
+
+.PaginationContainer {
+    display: flex;
+    justify-content: center;
+    -webkit-box-pack: center;
+}
+
+@media (min-width: 768px) {
+    .PaginationContainer {
+        justify-content: flex-end;
+        -webkit-box-pack: end;
+    }
+}

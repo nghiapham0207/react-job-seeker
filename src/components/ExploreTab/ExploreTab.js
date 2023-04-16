@@ -26,11 +26,13 @@ import FilterContainer from "./FilterContainer";
 import InfiniteScrollContainer from "../InfiniteScroll/InfiniteScrollContainer";
 import axios from "axios";
 import { ModalBody, ModalContainer, ModalContentArea, ModalDialog, ModalHeader } from "../ModalStyle";
+import MobileFilter from "../MobileFilter/MobileFilter";
 
 const cx = classNames.bind(styles);
 
 function ExploreTab() {
   // console.log("Render ExploreTab");
+  const [showMobileFilter, setShowMobileFilter] = useState(false);
   const modalRef = useRef();
   const PastJobSearchContext = usePastJobSearch();
   const { pastJobSearch } = PastJobSearchContext;
@@ -82,6 +84,20 @@ function ExploreTab() {
     fetchJobs();
   }, [searchInput, filterDeferred]);
 
+  useEffect(() => {
+    const handleMediaChange = (e) => {
+      if (e.matches) {
+        setShowMobileFilter(false);
+      } else {
+        setShowMobileFilter(true);
+      }
+    }
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    mediaQuery.addEventListener("change", handleMediaChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaChange);
+    }
+  }, [])
   return (
     <GlintContainer className={cx("styles__ExploreTabBody")}>
       {/* <GlintContainer className={cx("Body")}> */}
@@ -138,7 +154,11 @@ function ExploreTab() {
             </ModalContentArea>
           </ModalDialog>
         </ModalContainer> */}
-        <FilterContainer />
+        {
+          // showMobileFilter ?
+          //   <MobileFilter /> :
+            <FilterContainer />
+        }
         <div className={cx("Box__StyledBox", "Flex__StyledFlex", "Flex")}>
           {
             isLoading ?
