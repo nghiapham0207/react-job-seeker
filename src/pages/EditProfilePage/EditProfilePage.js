@@ -58,7 +58,7 @@ function EditProfilePage() {
     formData.append("avatar", newAvatar);
     const axiosInstance = createAxiosJwt(accessToken, refressToken, dispatch);
     try {
-      const res = await axiosInstance.patch(path.editProfile, formData, {
+      const res = await axiosInstance.put(path.editProfile, formData, {
         headers: {
           Authorization: `Bearer ${accessToken}`,
           "Content-Type": "multipart/form-data"

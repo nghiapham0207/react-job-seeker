@@ -46,8 +46,13 @@ div.TopFold__JobOverViewCompanyName a {
 }
 
 .TopFold__JobOverViewInfoContainer {
-    margin-left: 94px;
     font-size: 16px;
+}
+
+@media (min-width: 1024px) {
+    .TopFold__JobOverViewInfoContainer {
+        margin-left: 94px;
+    }
 }
 
 .TopFold__JobOverViewInfo {
@@ -103,4 +108,9 @@ div.TopFold__JobOverViewInfo a {
 
 .TopFold__ApplyButtonDesktop {
     margin-right: 16px;
+}
+
+.TopFold__DividerContainerMobile {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

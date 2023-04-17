@@ -43,6 +43,11 @@ function Opportunity({ openModal }) {
           </div>
         </div>
       </div>
+      <div className={cx("fresnel-lessThan-desktopS")}>
+        <div className={cx("TopFold__DividerContainerMobile")}>
+          <div className={cx("DividerStyle__DividerContainer")} />
+        </div>
+      </div>
       <div className={cx("TopFold__JobOverViewInfoContainer")}>
         <div className={cx("TopFold__JobOverViewInfo", "TopFold__SalaryJobOverView")}>
           <div>

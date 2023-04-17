@@ -2,12 +2,12 @@ import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom
 import { useSelector } from 'react-redux';
 import PropTypes from "prop-types";
 
-import './App.css';
 import { privateRoutes, publicRoutes } from './routes/routes';
 import DefaultLayout from './layouts/DefaultLayout';
 import { selectUser } from './redux/selector';
 import { ToastContainer } from 'react-toastify';
 import Error from './components/Error/Error';
+import './App.css'; // to prioritize classes passed into component
 
 const ProtectedRoute = ({ user, redirectPath = '/' }) => {
 	if (!user) {
