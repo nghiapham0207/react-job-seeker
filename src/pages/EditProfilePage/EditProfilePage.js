@@ -101,7 +101,8 @@ function EditProfilePage() {
       <ContentSectionMain>
         <form onSubmit={handleSubmit}>
           <div className={cx("ContactInfo__Content")}>
-            <div className={cx("UpdatePassword__Half")}>
+            {/* <div className={cx("UpdatePassword__Half")}> */}
+            <div className={cx("ProfileWrapper")}>
               <aside className={cx("Label__Content")}>
                 <ProfilePictureContainer>
                   <ProfilePictureContent>
@@ -132,6 +133,7 @@ function EditProfilePage() {
                 </div>
                 <input ref={uploadRef} type="file"
                   accept="image/png, image/jpg, image/jpeg"
+                  placeholder="placeholder"
                   onChange={handleFileChange}
                   style={{ display: "none" }} />
               </div>
