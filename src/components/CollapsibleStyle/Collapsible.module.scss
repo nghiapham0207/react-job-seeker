@@ -33,4 +33,17 @@
 .CollapsibleBody {
     padding: 0px 0px 16px;
     cursor: default;
+    animation: appear 0.3s linear 0s 1 normal none;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 10%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
 }

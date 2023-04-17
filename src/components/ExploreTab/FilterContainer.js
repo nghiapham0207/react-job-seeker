@@ -11,21 +11,13 @@ import {
   CollapsibleBody
 } from "../CollapsibleStyle";
 import Checkbox from "../CheckboxStyle";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-
-// create context for it to reset when enter search
-const initLocationWorking = [
-  { id: 1, label: "Hồ Chí Minh", ariaLabel: "hcm", value: "Hồ Chí Minh", checked: false },
-  { id: 2, label: "Hà Nội", ariaLabel: "hn", value: "Hà Nội", checked: false },
-  { id: 3, label: "Đà Nẵng", ariaLabel: "dn", value: "Đà Nẵng", checked: false }
-]
+import { useFilterOptions } from "../../contexts/filterOptionsContext";
 
 const cx = classNames.bind(styles);
 
-function FilterContainer() {
-  const [occupations, setOccupations] = useState([]);
-  const [companies, setCompanies] = useState([]);
+function FilterContainer({ locationWorkings, companies, occupations }) {
   const dispatch = useDispatch();
   const occupationsChange = (obj, checked) => {
     dispatch(updateOccupations({ obj, checked }))
@@ -36,38 +28,7 @@ function FilterContainer() {
   const locationWorkingChange = (obj, checked) => {
     dispatch(updateLocationWorking({ obj, checked }))
   }
-  useEffect(() => {
-    const fetchOccupations = async () => {
-      const [resOccupations, resCompanies] = await Promise.all([
-        get(path.occupations),
-        get(path.companies)
-      ]);
-      // const resOccupations = await get(path.occupations);
-      // console.log(resOccupations);
-      const newOccupations = resOccupations.data.data.map((occupation) => {
-        return {
-          id: occupation._id,
-          label: occupation.name,
-          ariaLabel: occupation._id,
-          value: occupation._id,
-          checked: false
-        }
-      })
-      const newCompanies = resCompanies.data.data.map((occupation) => {
-        return {
-          id: occupation._id,
-          label: occupation.name,
-          ariaLabel: occupation._id,
-          value: occupation._id,
-          checked: false
-        }
-      })
-      // setOccupations([...occupations, ...newOccupations]);
-      setOccupations(newOccupations);
-      setCompanies(newCompanies);
-    }
-    fetchOccupations();
-  }, []);
+
   return (
     <div className={cx("DesktopStickyFilterContainer")}>
       <ModalDialog>
@@ -78,7 +39,7 @@ function FilterContainer() {
                 className={cx("collapsible-title")} />
               <CollapsibleBody>
                 <div className={cx("styles__CheckboxContainer")}>
-                  {initLocationWorking.map((item) => {
+                  {locationWorkings.map((item) => {
                     return <Checkbox key={item.id} obj={item}
                       onChange={locationWorkingChange} />
                   })}
@@ -124,4 +85,50 @@ function FilterContainer() {
   )
 }
 
-export default FilterContainer;
+export default memo(FilterContainer);
+
+
+/*
+// create context for it to reset when enter search
+const initLocationWorking = [
+  { id: 1, label: "Hồ Chí Minh", ariaLabel: "hcm", value: "Hồ Chí Minh", checked: false },
+  { id: 2, label: "Hà Nội", ariaLabel: "hn", value: "Hà Nội", checked: false },
+  { id: 3, label: "Đà Nẵng", ariaLabel: "dn", value: "Đà Nẵng", checked: false }
+]
+
+const [occupations, setOccupations] = useState([]);
+const [companies, setCompanies] = useState([]);
+
+useEffect(() => {
+    const fetchOccupations = async () => {
+      const [resOccupations, resCompanies] = await Promise.all([
+        get(path.occupations),
+        get(path.companies)
+      ]);
+      // const resOccupations = await get(path.occupations);
+      // console.log(resOccupations);
+      const newOccupations = resOccupations.data.data.map((occupation) => {
+        return {
+          id: occupation._id,
+          label: occupation.name,
+          ariaLabel: occupation._id,
+          value: occupation._id,
+          checked: false
+        }
+      })
+      const newCompanies = resCompanies.data.data.map((occupation) => {
+        return {
+          id: occupation._id,
+          label: occupation.name,
+          ariaLabel: occupation._id,
+          value: occupation._id,
+          checked: false
+        }
+      })
+      // setOccupations([...occupations, ...newOccupations]);
+      setOccupations(newOccupations);
+      setCompanies(newCompanies);
+    }
+    fetchOccupations();
+  }, []);
+*/

@@ -9,6 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import { store, persistor } from './redux/store';
 import { PastJobSearchProvider } from './contexts/pastJobSearchContext';
 import { SearchInputProvider } from "./contexts/searchInputContext";
+import { FilterOptionsProvider } from './contexts/filterOptionsContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,7 +18,9 @@ root.render(
 			<PersistGate loading={<p>Loading...</p>} persistor={persistor} >
 				<PastJobSearchProvider>
 					<SearchInputProvider>
-						<App />
+						<FilterOptionsProvider>
+							<App />
+						</FilterOptionsProvider>
 					</SearchInputProvider>
 				</PastJobSearchProvider>
 			</PersistGate>

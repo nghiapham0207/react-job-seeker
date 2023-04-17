@@ -35,6 +35,9 @@
 .Button {
     justify-content: center;
     margin-top: 15px;
+    & [type=button]{
+        width: fit-content;
+    }
 }
 
 .Button a,
