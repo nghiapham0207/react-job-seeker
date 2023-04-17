@@ -14,7 +14,7 @@ export const login = async ({ username, password }, dispatch, navigate) => {
       getUser(res.data.accessToken, res.data.refreshToken, dispatch);
     }
     // handleShowLogin();
-    navigate(config.routes.home);
+    // navigate(config.routes.home);
   } catch (error) {
     console.log(error);
     return error.response.data.message;

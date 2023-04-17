@@ -9,10 +9,13 @@
     border-radius: 50%;
     margin-right: 10px;
     cursor: pointer;
+    object-fit: cover;
 }
-.DropdownWrapper svg{
+
+.DropdownWrapper svg {
     margin-right: 15px;
 }
-.NameHolder{
+
+.NameHolder {
     font-weight: 500;
 }
