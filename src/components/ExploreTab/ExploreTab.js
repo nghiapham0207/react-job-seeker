@@ -31,7 +31,7 @@ const cx = classNames.bind(styles);
 
 function ExploreTab() {
   // console.log("Render ExploreTab");
-  const [showMobileFilter, setShowMobileFilter] = useState(false);
+  // const [showMobileFilter, setShowMobileFilter] = useState(false);
   const [showMobileFilterModal, setShowMobileFilterModal] = useState(false);
   const modalRef = useRef();
   const PastJobSearchContext = usePastJobSearch();
@@ -87,6 +87,7 @@ function ExploreTab() {
   }, []);
 
   const handleShowModal = () => {
+    console.log("it's just work with change viewport");
     setShowMobileFilterModal(!showMobileFilterModal);
   }
   useEffect(() => {
@@ -114,21 +115,6 @@ function ExploreTab() {
     }
     fetchJobs();
   }, [searchInput, filterDeferred]);
-
-  useEffect(() => {
-    const handleMediaChange = (e) => {
-      if (e.matches) {
-        setShowMobileFilter(false);
-      } else {
-        setShowMobileFilter(true);
-      }
-    }
-    const mediaQuery = window.matchMedia("(min-width: 1024px)");
-    mediaQuery.addEventListener("change", handleMediaChange);
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaChange);
-    }
-  }, [])
   return (
     <GlintContainer className={cx("styles__ExploreTabBody")}>
       {/* <GlintContainer className={cx("Body")}> */}
@@ -169,17 +155,19 @@ function ExploreTab() {
       </h1>
       <div className={cx("Body")}>
         {
-          showMobileFilter ?
-            showMobileFilterModal &&
+          // showMobileFilter ?
+          showMobileFilterModal &&
+          <div className="MobileFilterContainer">
             <MobileFilter modalRef={modalRef} handleShowModal={handleShowModal}
               locationWorkings={filterOptions.locationWorkings}
               companies={filterOptions.companies}
-              occupations={filterOptions.occupations} /> :
-            <FilterContainer
-              locationWorkings={filterOptions.locationWorkings}
-              companies={filterOptions.companies}
               occupations={filterOptions.occupations} />
+          </div>
         }
+        <FilterContainer
+          locationWorkings={filterOptions.locationWorkings}
+          companies={filterOptions.companies}
+          occupations={filterOptions.occupations} />
         <div className={cx("Box__StyledBox", "Flex__StyledFlex", "Flex")}>
           {
             isLoading ?

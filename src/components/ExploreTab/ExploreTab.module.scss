@@ -38,6 +38,10 @@
 }
 
 @media (min-width: 1024px) {
+    .MobileFilterContainer {
+        display: none;
+    }
+
     .DesktopStickyFilterContainer {
         // position: relative;
         // top: 0;

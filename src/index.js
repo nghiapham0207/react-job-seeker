@@ -10,19 +10,22 @@ import { store, persistor } from './redux/store';
 import { PastJobSearchProvider } from './contexts/pastJobSearchContext';
 import { SearchInputProvider } from "./contexts/searchInputContext";
 import { FilterOptionsProvider } from './contexts/filterOptionsContext';
+import { UserActionsProvider } from "./contexts/userActionsContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<PersistGate loading={<p>Loading...</p>} persistor={persistor} >
-				<PastJobSearchProvider>
-					<SearchInputProvider>
-						<FilterOptionsProvider>
-							<App />
-						</FilterOptionsProvider>
-					</SearchInputProvider>
-				</PastJobSearchProvider>
+				<UserActionsProvider>
+					<PastJobSearchProvider>
+						<SearchInputProvider>
+							<FilterOptionsProvider>
+								<App />
+							</FilterOptionsProvider>
+						</SearchInputProvider>
+					</PastJobSearchProvider>
+				</UserActionsProvider>
 			</PersistGate>
 		</Provider>
 	</React.StrictMode>

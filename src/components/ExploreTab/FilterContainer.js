@@ -1,7 +1,6 @@
 import classNames from "classnames/bind";
 
 import styles from "./ExploreTab.module.scss";
-import { get, path } from "../../utils/axiosAPI";
 import { ModalDialog } from "../ModalStyle";
 import { updateCompanies, updateLocationWorking, updateOccupations } from "../../redux/filterSlice";
 import {
@@ -11,9 +10,8 @@ import {
   CollapsibleBody
 } from "../CollapsibleStyle";
 import Checkbox from "../CheckboxStyle";
-import { memo, useEffect, useState } from "react";
+import { memo } from "react";
 import { useDispatch } from "react-redux";
-import { useFilterOptions } from "../../contexts/filterOptionsContext";
 
 const cx = classNames.bind(styles);
 

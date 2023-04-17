@@ -6,13 +6,17 @@ import ModalContentArea from "../ModalStyle/ModalContentArea";
 import ModalDialog from "../ModalStyle/ModalDialog";
 import ModalHeader from "../ModalStyle/ModalHeader";
 import LoginForm from "./LoginForm/LoginForm";
+import { useUserActions } from "../../contexts/userActionsContext";
+
 
 import styles from "./LoginModal.module.scss";
 
 const cx = classNames.bind(styles);
 
-function LoginModal({ handleShowLogin }) {
+function LoginModal() {
   const modalRef = useRef();
+  const UserActionsContext = useUserActions();
+  const { handleShowLogin } = UserActionsContext;
 
   return (
     <div className={cx("LoginModalContainer")}>

@@ -83,7 +83,7 @@ function SearchContainer(isHomePage = false) {
               keyword: deferredValue
             }
           })
-          // console.log(res);
+          console.log(res);
           setSuggestionKey(res.data);
         } catch (error) {
           console.log(error);
@@ -155,8 +155,8 @@ function SearchContainer(isHomePage = false) {
             <SuggestionDropdown ref={suggestionRef}>
               {
                 searchInput && showSuggestion &&
-                suggestionKey.map((item) => {
-                  return <SearchItemWrapper key={item._id} keyword={item.name}
+                suggestionKey.map((item, index) => {
+                  return <SearchItemWrapper key={index} keyword={item}
 
                     onSuggestionClick={handleSuggestionClick} />
                 })

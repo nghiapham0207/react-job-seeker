@@ -13,19 +13,18 @@ import { selectUser } from '../../redux/selector';
 import UserMenu from './UserMenu/UserMenu';
 import GlintContainer from '../../components/GlintContainer/GlintContainer';
 import { Container, ContainerRightContent } from './NavigationMobile';
-import LanguageSwitcherContainer from '../../components/LanguageSwitcher/LanguageSwitcherContainer';
+import LanguageSwitcherContainer from '../../components/LanguageSwitcher';
+import { useUserActions } from "../../contexts/userActionsContext";
 
 const cx = classNames.bind(styles);
 
 function Header() {
 	// console.log("Render Header");
 	const currentUser = useSelector(selectUser);
-	const [showLogin, setShowLogin] = useState(false);
+	const UserActionsContext = useUserActions();
+	const { showLogin, handleShowLogin } = UserActionsContext;
 
 	const navigate = useNavigate();
-	const handleShowLogin = () => {
-		setShowLogin(!showLogin);
-	}
 	const handleSignUp = () => {
 		navigate(config.routes.signUp);
 	}
@@ -34,7 +33,7 @@ function Header() {
 		<div className={cx("MainHeader")}>
 			<GlintContainer>
 				{/* LoginModal */}
-				{showLogin && <LoginModal handleShowLogin={handleShowLogin} />}
+				{showLogin && <LoginModal />}
 				<div className={cx("fresnel-lessThan-desktopS")}>
 					{/* mobile menu */}
 					<Container>
