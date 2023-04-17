@@ -100,7 +100,7 @@ function Company() {
 															Quy mô:
 															{
 																company.totalEmployee ?
-																	company.totalEmployee + " Nhân viên" : ""
+																	company.totalEmployee + " Nhân viên" : " 500 Nhân viên"
 															}
 														</Paragraph>
 													</div>
