@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { Suspense, useDeferredValue, useEffect, useMemo, useRef, useState, useTransition } from "react";
 
-import styles from "./ExploreTab.module.scss";
 import GlintContainer from "../GlintContainer";
 import { useDeferred } from "../../hooks";
 
@@ -27,12 +26,14 @@ import InfiniteScrollContainer from "../InfiniteScroll/InfiniteScrollContainer";
 import axios from "axios";
 import { ModalBody, ModalContainer, ModalContentArea, ModalDialog, ModalHeader } from "../ModalStyle";
 import MobileFilter from "../MobileFilter/MobileFilter";
+import styles from "./ExploreTab.module.scss";
 
 const cx = classNames.bind(styles);
 
 function ExploreTab() {
   // console.log("Render ExploreTab");
   const [showMobileFilter, setShowMobileFilter] = useState(false);
+  const [showMobileFilterModal, setShowMobileFilterModal] = useState(false);
   const modalRef = useRef();
   const PastJobSearchContext = usePastJobSearch();
   const { pastJobSearch } = PastJobSearchContext;
@@ -46,22 +47,13 @@ function ExploreTab() {
   const filterDeferred = useDeferred(filter, 600);
   const [isLoading, setIsLoading] = useState(false);
 
+  const handleShowModal = () => {
+    setShowMobileFilterModal(!showMobileFilterModal);
+  }
   useEffect(() => {
     const fetchJobs = async () => {
       console.log("Call API");
       setIsLoading(true);
-      // const dataFilter = {};
-      // Object.entries(dataFilter).length === 0
-      // dataFilter.key = searchInput;
-      // // dataFilter.idCompany = 
-      // dataFilter.idOccupation = occupationsFilter;
-      // dataFilter.locationWorking = locationWorkingFilter;
-      // if (occupationsFilter.length) {
-      //   dataFilter.idOccupation = occupationsFilter;
-      // }
-      // if (locationWorkingFilter.length) {
-      //   dataFilter.localWorking = locationWorkingFilter;
-      // }
       const dataFilter = {
         key: searchInput,
         idOccupation: occupationsFilter,
@@ -109,9 +101,7 @@ function ExploreTab() {
       <div className={cx("MobileStickySearchAndFilterContainer")}>
         <div className={cx("Box__StyledBox")}>
           <button type="button"
-            onClick={() => {
-
-            }}
+            onClick={handleShowModal}
             className={cx("UnstyleButton", "MobileFilterButton")}>
             <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" icon={faSliders} />
             <span>
@@ -139,24 +129,9 @@ function ExploreTab() {
         {jobList.length} việc làm tại Vietnam
       </h1>
       <div className={cx("Body")}>
-        {/* Modal Filter Here */}
-        {/* <ModalContainer modalRef={modalRef}
-          handleShowModal={() => {
-
-          }} >
-          <ModalDialog>
-            <ModalContentArea modalRef={modalRef}>
-              <ModalHeader handleShowModal={() => { }} />
-              <ModalBody>
-                <p>test</p>
-                <FilterContainer />
-              </ModalBody>
-            </ModalContentArea>
-          </ModalDialog>
-        </ModalContainer> */}
         {
-          // showMobileFilter ?
-          //   <MobileFilter /> :
+          showMobileFilter ?
+            showMobileFilterModal && <MobileFilter modalRef={modalRef} handleShowModal={handleShowModal} /> :
             <FilterContainer />
         }
         <div className={cx("Box__StyledBox", "Flex__StyledFlex", "Flex")}>

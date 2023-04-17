@@ -64,9 +64,10 @@
     -webkit-box-pack: center;
     align-items: center;
     width: 100%;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    border: 1px solid rgba(198, 198, 198, 0.6);
+    // padding-top: 4px;
+    // padding-bottom: 4px;
+    padding: 10px 20px;
+    border: 1px solid rgba(198, 198, 198, 0.6) !important;
     border-radius: 14.5px;
     color: var(--secondary-color);
 
