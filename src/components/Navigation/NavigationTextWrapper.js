@@ -13,10 +13,12 @@ function NavigationTextWrapper({
   role = "button",
   handleClick
 }) {
-  const handleShowMobileMenu = () => {
+  const handleShowMobileMenu = (e) => {
+    e.stopPropagation();
     const toggle = document.querySelector("#mobile-menu");
-    console.log(toggle);
+    // console.log(toggle);
     toggle.checked = false;
+    // toggle.checked = !toggle.checked;
     // 
     if (handleClick) {
       handleClick();

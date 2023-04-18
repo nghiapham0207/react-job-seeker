@@ -11,9 +11,12 @@ function DrawerContainer({ children }) {
       <input type="checkbox" placeholder="placeholder"
         className={cx("mobile-menu")}
         onChange={(e) => {
-          console.log(e.target.checked);
+          // console.log(e.target.checked);
         }} id="mobile-menu" style={{ display: "none" }} />
-      <label htmlFor="mobile-menu" className={cx("DrawerContainer")} >
+      <label htmlFor="mobile-menu" className={cx("DrawerContainer")}
+        onClick={(e) => {
+          // e.preventDefault();
+        }} >
         {/* <div className={cx("DrawerContainer")}> */}
         {children}
         {/* </div> */}

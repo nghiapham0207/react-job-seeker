@@ -22,3 +22,10 @@
     padding-left: 32px;
     padding-right: 32px;
 }
+
+.SearchField {
+    & input {
+        background-image: none;
+        background-color: rgb(235, 245, 250);
+    }
+}

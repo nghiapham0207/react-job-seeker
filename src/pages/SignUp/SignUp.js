@@ -1,3 +1,6 @@
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 import classNames from "classnames/bind";
 
 import styles from "./SignUp.module.scss";
@@ -8,11 +11,10 @@ import {
 } from "../../components/InputComponent";
 import Alerts__ErrorMessage from "../../components/Alerts__ErrorMessage";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { post } from "../../utils/axiosAPI";
 import { login } from "../../services/authService";
-import { useDispatch } from "react-redux";
-import { toast } from "react-toastify";
+import { useUserActions } from "../../contexts/userActionsContext";
+import config from "../../config";
 
 const cx = classNames.bind(styles);
 
@@ -20,6 +22,8 @@ function SignUp() {
   console.log("Render SignUp");
   useDocumentTitle("Sign-up");
   const navigate = useNavigate();
+  const UserActionsContext = useUserActions();
+  const { handleShowLogin } = UserActionsContext;
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -202,9 +206,10 @@ function SignUp() {
                       {/* Link login page or forgot password */}
                       {"Tài khoản này đã tồn tại!"}
                       {"Có lẽ bạn muốn "}
-                      <a href="/">đăng nhập</a>
+                      <Link to="/"
+                        onClick={handleShowLogin} >đăng nhập</Link>
                       {" hoặc "}
-                      <a href="/forgot-password">lấy lại mật khẩu</a>
+                      <Link to={config.routes.forgotPassword}>lấy lại mật khẩu</Link>
                       {" ?"}
                     </p>}
                 </Alerts__ErrorMessage>
@@ -242,6 +247,7 @@ function SignUp() {
           <div className={cx("signupWithEmail__AlreadyHaveAccount")}>
             <label>Bạn đã có tài khoản Glints? </label>
             <Link to="/"
+              onClick={handleShowLogin}
               className={cx("buttons__DefaultBtn",
                 "buttons__GhostBtn",
                 "signupWithEmail__GhostBtnExt")}>

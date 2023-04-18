@@ -11,7 +11,7 @@ function SearchSection() {
             <h5 className={cx("SectionHeader")}>Khám phá <b>5000+</b> việc làm mới hàng tháng!</h5>
             <div className={cx("SectionSearchContainer")}>
                 <div></div>
-                <div>
+                <div className={cx("SearchField")}>
                     <SearchContainer />
                 </div>
             </div>
