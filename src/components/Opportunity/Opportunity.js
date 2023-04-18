@@ -15,6 +15,7 @@ import { JobContext } from "../../pages/DetailJob";
 import ReadMore from "../ReadMore/ReadMore";
 import styles from "./Opportunity.module.scss";
 import { SolidBtnContainer, SolidButton } from "../ButtonStyle";
+import { dateToString } from "../../utils/helpers";
 
 const cx = classNames.bind(styles);
 
@@ -66,9 +67,9 @@ function Opportunity({ openModal }) {
         <div className={cx("TopFold__BadgesAndJobOverViewTimeContainer")}>
           <div className={cx("TopFold__JobOverViewTime")}>
             <FontAwesomeIcon icon={faClock} />
-            <span className={cx("TopFold__PostedAt")}>{job.postingDate}</span>
+            <span className={cx("TopFold__PostedAt")}>{"Ngày đăng"}</span>
             <FontAwesomeIcon width={4} height={4} className={cx("IconStyle__VerticalCenteredSvg")} icon={faCircle} />
-            <span className={cx("TopFold__UpdateAt")}>Cập nhật tháng trước</span>
+            <span className={cx("TopFold__UpdateAt")}>{dateToString(job.postingDate)}</span>
           </div>
         </div>
         <div className={cx("TopFold__ButtonContainer")}>

@@ -18,3 +18,15 @@ export const getImageUrl = (user) => {
   }
   return `${process.env.REACT_APP_BASE_URL}image/${user.avatar}`;
 }
+
+export const dateToString = (stringDate) => {
+  const date = new Date(stringDate);
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  // const hours = date.getHours();
+  // const minutes = date.getMinutes();
+  // const seconds = date.getSeconds();
+  // return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`
+  return `${day}/${month}/${year}`
+}

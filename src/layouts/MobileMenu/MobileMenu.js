@@ -86,8 +86,8 @@ function MobileMenu() {
               <>
                 <NavigationPaddingTop>
                   <NavigationTextWrapper
-                    handleClick={handleShowLogin}
-                    url={config.routes.home}>
+                    // url={config.routes.home}
+                    handleClick={handleShowLogin}>
                     <span>
                       {"Đăng Nhập"}
                     </span>

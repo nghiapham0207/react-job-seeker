@@ -54,6 +54,7 @@
 .SimilarJobCard__InfoWrapper {
     margin-top: 4px;
     font-size: 12px;
+    color: var(--secondary-color);
 }
 
 .SimilarJobCard__InfoWrapper svg {

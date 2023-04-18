@@ -26,6 +26,7 @@ import InfiniteScrollContainer from "../InfiniteScroll/InfiniteScrollContainer";
 import MobileFilter from "../MobileFilter/MobileFilter";
 import styles from "./ExploreTab.module.scss";
 import { useFilterOptions } from "../../contexts/filterOptionsContext";
+import axios from "axios";
 
 const cx = classNames.bind(styles);
 
@@ -92,7 +93,7 @@ function ExploreTab() {
   }
   useEffect(() => {
     const fetchJobs = async () => {
-      console.log("Call API");
+      // console.log("Call API");
       setIsLoading(true);
       const dataFilter = {
         key: searchInput,
@@ -103,7 +104,7 @@ function ExploreTab() {
       // console.log(dataFilter);
       try {
         const res = await post(path.searchJob, dataFilter);
-        // const res = await axios.get("https://jsonplaceholder.typicode.com/comments");
+        // const res = await axios.get("https://jsonplaceholder.typicode.com/users");
         // console.log(res);
         setIsLoading(false);
         startTransition(() => {

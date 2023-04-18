@@ -60,6 +60,7 @@ div.TopFold__JobOverViewCompanyName a {
     align-items: center;
     -webkit-box-align: center;
     margin-bottom: 8px;
+    color: var(--secondary-color);
 }
 
 .TopFold__JobOverViewInfo svg {

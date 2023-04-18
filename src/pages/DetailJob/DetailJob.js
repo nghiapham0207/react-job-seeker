@@ -16,6 +16,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAccessToken, selectRefreshToken, selectUser } from "../../redux/selector";
 import instance from "../../utils/axiosAPI";
 import config from "../../config";
+import Error from "../../components/Error";
+import { dateToString } from "../../utils/helpers";
+import InfiniteScrollContainer from "../../components/InfiniteScroll/InfiniteScrollContainer";
 
 export const JobContext = createContext();
 
@@ -23,6 +26,8 @@ function DetailJob() {
   // console.log("Render DetailJob");
   useDocumentTitle("Chi Tiết Công Việc");
   const [showPsychFlat, setShowPsychFlat] = useState(false);
+  const [notFound, setNotFound] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const currentUser = useSelector(selectUser);
   const accessToken = useSelector(selectAccessToken);
   const refreshToken = useSelector(selectRefreshToken);
@@ -39,6 +44,7 @@ function DetailJob() {
   }
   useEffect(() => {
     const fetchApi = async () => {
+      setIsLoading(true);
       const axiosInstance = currentUser ?
         createAxiosJwt(accessToken, refreshToken, dispatch) : instance;
       try {
@@ -51,30 +57,44 @@ function DetailJob() {
         setJob(res.data);
       } catch (error) {
         console.log(error);
+        setNotFound(true);
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchApi();
   }, []);
   // check if job not found caused by change url
-  return <>
-    <JobContext.Provider value={job}>
-      {/* breadcrumpm has not completed yet */}
-      <BreadCrumbContainer>
-        <BreadCrumbInner>
-          <BreadCrumbItemWrapper active
-            url={config.routes.job} title={"Việc Làm"} />
-          <BreadCrumbItemWrapper
-            url={`${config.routes.job}/${job._id}`} title={job.name} />
-        </BreadCrumbInner>
-      </BreadCrumbContainer>
-      <GlintContainer>
-        <Opportunity openModal={handleShowPsychFlat} />
-      </GlintContainer>
-      <OpportunitySticky openModal={handleShowPsychFlat} />
-      {/* modal here */}
-      {showPsychFlat && <PsychFlatModal handleShowPsychFlat={handleShowPsychFlat} />}
-    </JobContext.Provider>
-  </>
+  return (
+    notFound ? <Error /> :
+      <>
+        {
+          isLoading ?
+            <div>
+              <InfiniteScrollContainer width="3rem" height="3rem">
+                Đang tải
+              </InfiniteScrollContainer>
+            </div> :
+            <JobContext.Provider value={job}>
+              {/* breadcrumpm has not completed yet */}
+              <BreadCrumbContainer>
+                <BreadCrumbInner>
+                  <BreadCrumbItemWrapper active
+                    url={config.routes.job} title={"Việc Làm"} />
+                  <BreadCrumbItemWrapper
+                    url={`${config.routes.job}/${job._id}`} title={job.name} />
+                </BreadCrumbInner>
+              </BreadCrumbContainer>
+              <GlintContainer>
+                <Opportunity openModal={handleShowPsychFlat} />
+              </GlintContainer>
+              <OpportunitySticky openModal={handleShowPsychFlat} />
+              {/* modal here */}
+              {showPsychFlat && <PsychFlatModal handleShowPsychFlat={handleShowPsychFlat} />}
+            </JobContext.Provider>
+        }
+      </>
+  )
 }
 
 export default DetailJob;

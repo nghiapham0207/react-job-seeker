@@ -21,7 +21,7 @@ function UserMenu({ currentUser }) {
   const refreshToken = useSelector(selectRefreshToken);
   const dispatch = useDispatch();
   const [showUserMenu, setShowUserMenu] = useState(false);
-
+  // console.log(currentUser);
   const handleLogout = () => {
     logout(accessToken, refreshToken, dispatch);
   }
@@ -45,7 +45,11 @@ function UserMenu({ currentUser }) {
           src={
             currentUser.avatar ?
               getImageUrl(currentUser) :
-              "/static/images/defaultUser.webp"} />
+              "/static/images/defaultUser.webp"}
+          onError={(e) => {
+            // console.log(e);
+            e.target.src = "/static/images/defaultUser.webp";
+          }} />
       </a>
       <div className={cx("UserSettingSection")}>
         <div className={cx("DropdownStyle__DropdownContainer")}>
