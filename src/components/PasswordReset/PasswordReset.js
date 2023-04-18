@@ -31,8 +31,8 @@ function PasswordReset() {
     } else {
       // call api here
       const fetchApi = async () => {
+        const idToast = toast.loading("Vui lòng đợi một lát!");
         try {
-          const idToast = toast.loading("Vui lòng đợi một lát!");
           const res = await post(path.forgotPassword, {
             input: email
           });
@@ -49,7 +49,13 @@ function PasswordReset() {
             }
           });
         } catch (error) {
-          toast.error(error.response.data);
+          toast.update(idToast, {
+            render: error.response.date.message,
+            closeButton: true,
+            autoClose: 3000,
+            type: "error",
+            isLoading: false
+          })
           console.log(error);
         }
       }
