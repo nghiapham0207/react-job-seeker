@@ -9,7 +9,7 @@ import {
   ErrorMessage,
   InputWrapper
 } from "../../components/InputComponent";
-import Alerts__ErrorMessage from "../../components/Alerts__ErrorMessage";
+import AlertsErrorMessage from "../../components/AlertsErrorMessage";
 import { useState } from "react";
 import { post } from "../../utils/axiosAPI";
 import { login } from "../../services/authService";
@@ -199,7 +199,7 @@ function SignUp() {
                 </div>
               </section>
               {resError &&
-                <Alerts__ErrorMessage
+                <AlertsErrorMessage
                   messageHeader={resError} >
                   {false &&
                     <p>
@@ -212,7 +212,7 @@ function SignUp() {
                       <Link to={config.routes.forgotPassword}>lấy lại mật khẩu</Link>
                       {" ?"}
                     </p>}
-                </Alerts__ErrorMessage>
+                </AlertsErrorMessage>
               }
               <div className={cx("signupWithEmail__SubmitWrapper")}>
                 <div className={cx("Checkbox__CheckboxWrapper")}>
@@ -234,7 +234,7 @@ function SignUp() {
                 </div>
                 <span>
                   {"Bạn là nhà tuyển dụng? Hãy nhấn vào "}
-                  <a href="https://employers.glints.vn/" target="_blank">
+                  <a href="https://employers.glints.vn/" target="_blank" rel="noreferrer">
                     <span>đây</span>
                   </a>
                 </span>

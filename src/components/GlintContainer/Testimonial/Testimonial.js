@@ -9,7 +9,7 @@ function Testimonial() {
 	return (
 		<div className={cx("Container")}>
 			<div className={cx("FlexCenter")}>
-				<h1 role="heading" className={cx("HeadingContainer")}>
+				<h1 className={cx("HeadingContainer")}>
 					<span className="heading-text">Người Dùng Glints Nói Gì?</span>
 				</h1>
 			</div>

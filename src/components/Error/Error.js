@@ -5,7 +5,6 @@ import classNames from "classnames/bind";
 import styles from "./Error.module.scss";
 import GlintContainer from "../GlintContainer";
 import { SolidBtnContainer, SolidButton } from "../ButtonStyle";
-import { redirect } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 

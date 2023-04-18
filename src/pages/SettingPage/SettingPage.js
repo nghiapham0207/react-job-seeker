@@ -1,21 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { Fragment } from "react";
-import { useSelector } from "react-redux";
 import classNames from "classnames/bind";
 
 import styles from "./SettingPage.module.scss";
 import GlintContainer from "../../components/GlintContainer";
 import { SidebarItem, SidebarTab, SidebarWrapper } from "../../components/Sidebar";
-import {
-  UserProfileWrapper,
-  ProfilePictureWrapper,
-  ProfilePictureContainer,
-  ProfilePictureContent,
-  ProfileInfo,
-  ProfileName,
-  ProfileText
-} from "../../components/UserProfile";
-import { selectUser } from "../../redux/selector";
 import EditProfilePage from "../EditProfilePage/EditProfilePage";
 
 const cx = classNames.bind(styles);
@@ -26,7 +15,7 @@ const initTab = [
 ]
 
 function SettingPage({ url, children = <EditProfilePage /> }) {
-  const currentUser = useSelector(selectUser);
+  // const currentUser = useSelector(selectUser);
   const currentPathName = window.location.pathname;
   console.log(currentPathName);
   console.log(url);

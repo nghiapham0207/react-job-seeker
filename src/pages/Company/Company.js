@@ -14,19 +14,19 @@ import { faHotel } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(styles);
 
-function PaginationItem({ id, handleItemClick, active, children }) {
-	return (
-		<div
-			id={id}
-			onClick={handleItemClick}
-			style={{
-				backgroundColor: active ? "red" : "orange",
-				cursor: "pointer"
-			}} >
-			{children}
-		</div>
-	)
-}
+// function PaginationItem({ id, handleItemClick, active, children }) {
+// 	return (
+// 		<div
+// 			id={id}
+// 			onClick={handleItemClick}
+// 			style={{
+// 				backgroundColor: active ? "red" : "orange",
+// 				cursor: "pointer"
+// 			}} >
+// 			{children}
+// 		</div>
+// 	)
+// }
 
 function Company() {
 	useDocumentTitle("Danh Sách Công Ty");
@@ -72,7 +72,7 @@ function Company() {
 								{
 									companies.map((company) => (
 										<Fragment key={company.id}>
-											<a className={cx("styles__Anchor")}>
+											<div className={cx("styles__Anchor")}>
 												<div className={cx("styles__Card")}>
 													<div className={cx("styles__CardHeader")}>
 														<img alt={company.name}
@@ -105,7 +105,7 @@ function Company() {
 														</Paragraph>
 													</div>
 												</div>
-											</a>
+											</div>
 										</Fragment>
 									))
 								}

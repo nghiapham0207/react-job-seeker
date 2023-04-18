@@ -14,7 +14,7 @@ import styles from './SearchContainer.module.scss';
 import { get, path } from "../../utils/axiosAPI";
 import { useNavigate } from "react-router-dom";
 import routes from "../../config/routes";
-import { useDeferredValue, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDeferred } from "../../hooks";
 import SolidBtnContainer from "../ButtonStyle/SolidBtnContainer";
 import SolidButton from "../ButtonStyle/SolidButton";

@@ -9,7 +9,7 @@ function PressFeatures() {
 	return (
 		<div className={cx("Container")}>
 			<div className={cx("FlexCenter")}>
-				<h1 role="heading" className={cx("HeadingContainer")}>
+				<h1 className={cx("HeadingContainer")}>
 					<span className="heading-text">
 						<span>Glints Trên Truyền Thông</span>
 					</span>

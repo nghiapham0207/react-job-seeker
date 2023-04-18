@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState, createContext } from "react";
 
 import { createAxiosJwt, get } from "../../utils/axiosAPI";
@@ -17,7 +17,6 @@ import { selectAccessToken, selectRefreshToken, selectUser } from "../../redux/s
 import instance from "../../utils/axiosAPI";
 import config from "../../config";
 import Error from "../../components/Error";
-import { dateToString } from "../../utils/helpers";
 import InfiniteScrollContainer from "../../components/InfiniteScroll/InfiniteScrollContainer";
 import { useUserActions } from "../../contexts/userActionsContext";
 

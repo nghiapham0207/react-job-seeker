@@ -1,10 +1,10 @@
 import classNames from "classnames/bind";
 
-import styles from "./Alerts__ErrorMessage.scss";
+import styles from "./AlertsErrorMessage.scss";
 
 const cx = classNames.bind(styles);
 
-function Alerts__ErrorMessage({ messageHeader, children }) {
+function AlertsErrorMessage({ messageHeader, children }) {
   return (
     <div className={cx("alerts__ErrorMessage")}>
       <div className={cx("alerts__ErrorMessageHeader")}>
@@ -15,4 +15,4 @@ function Alerts__ErrorMessage({ messageHeader, children }) {
   )
 }
 
-export default Alerts__ErrorMessage;
+export default AlertsErrorMessage;

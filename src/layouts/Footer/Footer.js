@@ -75,57 +75,57 @@ function Footer() {
 						</p>
 						<ul>
 							<li className={cx("SectionListItem")}>
-								<a href="/vn/about" className={cx("ListItemAnchor")}>
+								<a href="/vn/about" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Về chúng tôi</span>
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="/vn/about/team" className={cx("ListItemAnchor")}>
+								<a href="/vn/about/team" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Đội ngũ lãnh đạo</span>
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="/vn/blog/" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="/vn/blog/" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Blog</span>
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="/sg/inside/" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="/sg/inside/" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Những điều thú vị tại Glints</span>
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="https://tech.glints.com/" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="https://tech.glints.com/" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Tech Blog</span>
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="/vn/careers" className={cx("ListItemAnchor")}>
+								<a href="/vn/careers" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Cơ hội nghề nghiệp</span>
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="https://security.glints.com/" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="https://security.glints.com/" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Report Vulnerability</span>
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="https://s3-ap-southeast-1.amazonaws.com/glints-dashboard/docs/terms-and-conditions-vn.pdf" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="https://s3-ap-southeast-1.amazonaws.com/glints-dashboard/docs/terms-and-conditions-vn.pdf" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Điều khoản sử dụng</span>
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="https://s3-ap-southeast-1.amazonaws.com/glints-dashboard/docs/operation-regulation-vn.pdf" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="https://s3-ap-southeast-1.amazonaws.com/glints-dashboard/docs/operation-regulation-vn.pdf" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Quy Chế Hoạt Động Website Cung Cấp Dịch vụ TMĐT Glints.com/vn</span>
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="https://s3-ap-southeast-1.amazonaws.com/glints-dashboard/docs/Information-security-policy-vn.pdf" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="https://s3-ap-southeast-1.amazonaws.com/glints-dashboard/docs/Information-security-policy-vn.pdf" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Chính Sách Bảo Mật</span>
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="https://s3-ap-southeast-1.amazonaws.com/glints-dashboard/docs/dispute-settlement-mechanism-vn.pdf" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="https://s3-ap-southeast-1.amazonaws.com/glints-dashboard/docs/dispute-settlement-mechanism-vn.pdf" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Cơ Chế Giải Quyết Các Tranh Chấp</span>
 								</a>
 							</li>
@@ -137,7 +137,7 @@ function Footer() {
 						</p>
 						<ul>
 							<li className={cx("SectionListItem")}>
-								<a href="https://help.glints.com/hc/vi" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="https://help.glints.com/hc/vi" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Help Center</span>
 								</a>
 							</li>
@@ -174,7 +174,7 @@ function Footer() {
 						</p>
 						<ul>
 							<li className={cx("SectionListItem")}>
-								<a href="https://employers.glints.vn" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="https://employers.glints.vn" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Dành cho Nhà tuyển dụng</span>
 								</a>
 							</li>
@@ -184,12 +184,12 @@ function Footer() {
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="https://employers.glints.vn/recruitment" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="https://employers.glints.vn/recruitment" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Recruitment</span>
 								</a>
 							</li>
 							<li className={cx("SectionListItem")}>
-								<a href="https://employers.glints.vn/managed-talent" target="_blank" className={cx("ListItemAnchor")}>
+								<a href="https://employers.glints.vn/managed-talent" target="_blank" rel="noreferrer" className={cx("ListItemAnchor")}>
 									<span>Managed Talent</span>
 								</a>
 							</li>

@@ -1,7 +1,6 @@
 import { loginSuccess, logoutSuccess } from "../redux/authSlice";
-import { createAxiosJwt, get, patch, post } from "../utils/axiosAPI";
+import { createAxiosJwt, post } from "../utils/axiosAPI";
 import { path } from "../utils/axiosAPI";
-import config from "../config";
 import { updateUser } from "../redux/userSlice";
 import jwtDecode from "jwt-decode";
 

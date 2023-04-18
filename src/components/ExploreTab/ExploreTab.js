@@ -26,7 +26,6 @@ import InfiniteScrollContainer from "../InfiniteScroll/InfiniteScrollContainer";
 import MobileFilter from "../MobileFilter/MobileFilter";
 import styles from "./ExploreTab.module.scss";
 import { useFilterOptions } from "../../contexts/filterOptionsContext";
-import axios from "axios";
 
 const cx = classNames.bind(styles);
 

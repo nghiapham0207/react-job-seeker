@@ -11,9 +11,9 @@ function ReadMore({ text, maxLength = 300 }) {
   const [isTruncated, setIsTruncated] = useState(text?.length < maxLength);
   const descRef = useRef(null);
   // console.log(text?.slice(0, maxLength));
-  useEffect(()=>{
+  useEffect(() => {
     descRef.current.innerHTML = isTruncated ? `${text?.slice(0, maxLength)}....` : text;
-  }, [text, isTruncated]);
+  }, [text, isTruncated, maxLength]);
   return (
     <>
       <div className={cx("JobDescription__DescriptionContainer")}>
@@ -36,15 +36,3 @@ function ReadMore({ text, maxLength = 300 }) {
 }
 
 export default ReadMore;
-
-{/* <div className={cx("JobDescription__DescriptionContainer")}>
-  <div className={cx("DraftEditorContainer__DraftEditorContainer")}>
-    <div className={cx("DraftEditor-root")}>
-      <div className={cx("DraftEditor-editorContainer")}>
-        <div className={cx("public-DraftEditor-content")}>
-          {text}
-        </div>
-      </div>
-    </div>
-  </div>
-</div> */}

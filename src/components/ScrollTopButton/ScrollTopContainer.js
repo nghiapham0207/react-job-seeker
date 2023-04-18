@@ -29,7 +29,7 @@ function ScrollTopContainer({ isVisible, children }) {
   //   return false;
   // }
   return (
-    <a
+    <div
       ref={scrollTopRef}
       // href="#top"
       id="test"
@@ -45,7 +45,7 @@ function ScrollTopContainer({ isVisible, children }) {
       onClick={handleScroll}
     >
       {children}
-    </a>
+    </div>
   )
 }
 

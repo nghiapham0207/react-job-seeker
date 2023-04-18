@@ -11,7 +11,7 @@ function CareersGrid() {
 	return (
 		<div className={cx("Container")}>
 			<div className={cx("FlexCenter")}>
-				<h1 role="heading" className={cx("HeadingContainer")}>
+				<h1 className={cx("HeadingContainer")}>
 					<span className="heading-text">
 						<span>KHÁM PHÁ NGHỀ NGHIỆP MƠ ƯỚC</span>
 					</span>
