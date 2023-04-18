@@ -8,7 +8,6 @@ import {
 
 import styles from "./ChangePasswordPage.module.scss";
 import { GhostBtn, GhostBtnContainer } from "../../components/ButtonStyle";
-import { InputComponent__ErrorMessage, InputComponent__InputWrapper } from "../../components/InputComponent";
 import { TextFieldContainer, TextFieldInput, TextFieldLabel } from "../../components/TextFieldStyle";
 import { Paragraph } from "../../components/ParagraphStyle";
 import { useRef, useState } from "react";

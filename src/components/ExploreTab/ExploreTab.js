@@ -84,6 +84,7 @@ function ExploreTab() {
       })
     }
     fetchOccupations();
+    // eslint-disable-next-line
   }, []);
 
   const handleShowModal = () => {
@@ -112,8 +113,12 @@ function ExploreTab() {
       } catch (error) {
         console.log(error);
       }
+      finally {
+        setIsLoading(false);
+      }
     }
     fetchJobs();
+    // eslint-disable-next-line
   }, [searchInput, filterDeferred]);
   return (
     <GlintContainer className={cx("styles__ExploreTabBody")}>

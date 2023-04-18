@@ -4,7 +4,6 @@ import { DropdownIcon } from '../../../components/Icon';
 import { useDispatch, useSelector } from 'react-redux';
 
 import styles from './UserMenu.module.scss';
-import { logoutSuccess } from '../../../redux/authSlice';
 import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear, faPowerOff } from '@fortawesome/free-solid-svg-icons';
@@ -40,7 +39,7 @@ function UserMenu({ currentUser }) {
 
   return (
     <div className={cx("UserMenuContainer")}>
-      <a>
+      <div>
         <img className={cx("ProfilePicture")} alt="default user"
           src={
             currentUser.avatar ?
@@ -50,7 +49,7 @@ function UserMenu({ currentUser }) {
             // console.log(e);
             e.target.src = "/static/images/defaultUser.webp";
           }} />
-      </a>
+      </div>
       <div className={cx("UserSettingSection")}>
         <div className={cx("DropdownStyle__DropdownContainer")}>
           <div className={cx("DropdownStyle__DropdownWrapper")}>

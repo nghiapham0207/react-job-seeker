@@ -66,7 +66,8 @@ function DetailJob() {
       }
     }
     fetchApi();
-  }, []);
+    // eslint-disable-next-line
+  }, [_id]);
   // check if job not found caused by change url
   return (
     notFound ? <Error /> :

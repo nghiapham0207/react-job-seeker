@@ -16,6 +16,7 @@ import ReadMore from "../ReadMore/ReadMore";
 import styles from "./Opportunity.module.scss";
 import { SolidBtnContainer, SolidButton } from "../ButtonStyle";
 import { dateToString } from "../../utils/helpers";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -126,7 +127,8 @@ function Opportunity({ openModal }) {
         <div className={cx("SimilarJobsSection__JobCardWrapper")}>
           <div className={cx("SimilarJobCard__Card")}>
             {/* Modal here */}
-            <a target="_blank" href="/kkk" className={cx("CompactOpportunityCard__CardAnchorWrapper")}></a>
+            {/* <a target="_blank" href="/" className={cx("CompactOpportunityCard__CardAnchorWrapper")}></a> */}
+            <Link target="_blank" to="/" className={cx("CompactOpportunityCard__CardAnchorWrapper")}></Link>
             <div>
               <div className={cx("SimilarJobCard__Container")}>
                 <div className={cx("SimilarJobCard__Logo")}>

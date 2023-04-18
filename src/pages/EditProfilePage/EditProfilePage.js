@@ -19,7 +19,6 @@ import { GhostBtn, GhostBtnContainer } from "../../components/ButtonStyle";
 import { ProfileInfo, ProfileName, ProfilePictureContainer, ProfilePictureContent } from "../../components/UserProfile";
 import { createAxiosJwt, path } from "../../utils/axiosAPI";
 import { toast } from "react-toastify";
-import { updateUser } from "../../redux/userSlice";
 import { getUser } from "../../services/authService";
 
 const cx = classNames.bind(styles);

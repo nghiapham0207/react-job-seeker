@@ -9,7 +9,7 @@ function useDeferred(value, delay = 100) {
     return () => {
       clearTimeout(id);
     }
-  }, [value])
+  }, [value, delay])
   return deferredValue;
 }
 

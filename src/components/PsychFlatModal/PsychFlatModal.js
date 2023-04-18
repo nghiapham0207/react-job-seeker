@@ -14,8 +14,7 @@ import {
 import { JobContext } from "../../pages/DetailJob";
 import { SolidBtnContainer, SolidButton } from "../ButtonStyle";
 import styles from "./PsychFlatModal.module.scss";
-import { convertSizeFile } from "../../utils/helpers";
-import { post } from "../../utils/axiosAPI";
+import { convertSizeFile, getImageUrl } from "../../utils/helpers";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAccessToken, selectRefreshToken, selectUser } from "../../redux/selector";
 import { applyJob } from "../../services/jobService";
@@ -84,10 +83,19 @@ function PsychFlatModal({ handleShowPsychFlat }) {
             </p>
             <div className={cx("ModalImageWrapper")}>
               <div className={cx("ModalImage", "left")}>
-                <img alt="Company Image" sizes="100px" src="/static/images/defaultImageCompany.webp" />
+                <img alt="Company" sizes="100px" src="/static/images/defaultImageCompany.webp" />
               </div>
               <div className={cx("ModalImage", "right")}>
-                <img alt="User Image" sizes="100px" src="/static/images/defaultUser.webp" />
+                {/* <img alt="User Image" sizes="100px" src="/static/images/defaultUser.webp" /> */}
+                <img alt="User" sizes="100px"
+                  src={
+                    currentUser.avatar ?
+                      getImageUrl(currentUser) :
+                      "/static/images/defaultUser.webp"}
+                  onError={(e) => {
+                    // console.log(e);
+                    e.target.src = "/static/images/defaultUser.webp";
+                  }} />
               </div>
             </div>
             <form onSubmit={handleSubmit}>

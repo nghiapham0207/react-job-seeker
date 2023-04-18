@@ -66,7 +66,7 @@ function ResetPasswordPage() {
     if (!email) {
       navigate(config.routes.forgotPassword);
     }
-  }, [])
+  })
   return (
     <div className={cx("GlintContainer")}>
       <section className={cx("Section")}>
