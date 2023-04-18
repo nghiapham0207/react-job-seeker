@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Header from "../Header/Header";
@@ -14,6 +14,7 @@ const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
 	const [gotoTop, setGoToTop] = useState(false);
+	// const ref = useRef();
 	useEffect(() => {
 		const handleScroll = () => {
 			if (window.scrollY > 300) {

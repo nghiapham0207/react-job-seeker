@@ -114,7 +114,11 @@ function EditProfilePage() {
                           src={
                             currentUser.avatar ?
                               `${process.env.REACT_APP_BASE_URL}image/${currentUser.avatar}` :
-                              "/static/images/defaultUser.webp"} />
+                              "/static/images/defaultUser.webp"}
+                          onError={(e) => {
+                            // console.log(e);
+                            e.target.src = "/static/images/defaultUser.webp";
+                          }} />
                     }
                   </ProfilePictureContent>
                 </ProfilePictureContainer>

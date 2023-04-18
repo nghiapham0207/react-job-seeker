@@ -58,7 +58,11 @@ function MobileMenu() {
                       src={
                         currentUser.avatar ?
                           getImageUrl(currentUser) :
-                          "/static/images/defaultUser.webp"} />
+                          "/static/images/defaultUser.webp"}
+                      onError={(e) => {
+                        // console.log(e);
+                        e.target.src = "/static/images/defaultUser.webp";
+                      }} />
                   </NavigationProfileWrapper>
                   <NavigationProfileText>
                     {currentUser.username}

@@ -19,12 +19,15 @@ import config from "../../config";
 import Error from "../../components/Error";
 import { dateToString } from "../../utils/helpers";
 import InfiniteScrollContainer from "../../components/InfiniteScroll/InfiniteScrollContainer";
+import { useUserActions } from "../../contexts/userActionsContext";
 
 export const JobContext = createContext();
 
 function DetailJob() {
   // console.log("Render DetailJob");
   useDocumentTitle("Chi Tiết Công Việc");
+  const UserActionsContext = useUserActions();
+  const { handleShowLogin } = UserActionsContext;
   const [showPsychFlat, setShowPsychFlat] = useState(false);
   const [notFound, setNotFound] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -39,7 +42,8 @@ function DetailJob() {
     if (currentUser) {
       setShowPsychFlat(!showPsychFlat);
     } else {
-      alert("You must login");
+      // alert("You must login");
+      handleShowLogin();
     }
   }
   useEffect(() => {

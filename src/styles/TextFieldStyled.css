@@ -22,11 +22,11 @@
 
     border-radius: 8px;
     border: unset;
-    background: linear-gradient(to left, rgba(136, 190, 219, 0.25), rgb(234, 248, 255) 40%);
+    background: linear-gradient(to left, rgba(145, 182, 202, 0.25), rgb(235, 245, 250) 20%);
 }
 
 .TextFieldStyled__TextFieldInput:focus {
-    background: linear-gradient(to left, rgba(151, 216, 253, 0.25), rgb(160, 218, 247) 40%);
+    background: linear-gradient(to left, rgb(194, 224, 238), rgb(194, 224, 238) 20%);
 }
 
 .TextFieldStyled__StartIconContainer {
