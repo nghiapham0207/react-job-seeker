@@ -34,6 +34,13 @@ export function PastJobSearchProvider({ children }) {
   // const [pastJobSearch, setPastJobSearch] = useImmer(initState);
   // useRef
   const updatePastJobSearch = (newSearch) => {
+    // setPastJobSearch(prev => {
+    //   if (prev?.length >= 3) {
+    //     prev?.shift();
+    //   }
+    //   prev?.push(newSearch);
+    //   return prev;
+    // })
     setPastJobSearch(prev => {
       if (prev?.length >= 3) {
         return prev.filter((item, index) => index !== 0)
@@ -41,12 +48,16 @@ export function PastJobSearchProvider({ children }) {
         return prev;
       }
     })
-    // setPastJobSearch(pastJobSearch.map((item, index) => {
-    //   if (condition) {
+    // // setPastJobSearch(pastJobSearch.map((item, index) => {
+    // //   if (condition) {
 
-    //   }
+    // //   }
     setPastJobSearch(prev => {
-      return [...prev, newSearch];
+      if (prev?.length) {
+        return [...prev, newSearch];
+      } else {
+        return [newSearch];
+      }
     })
     // }))
     // console.log("set new array");

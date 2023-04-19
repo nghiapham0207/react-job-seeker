@@ -34,7 +34,7 @@ function PasswordReset() {
         const idToast = toast.loading("Vui lòng đợi một lát!");
         try {
           const res = await post(path.forgotPassword, {
-            input: email
+            email: email
           });
           toast.update(idToast, {
             render: res.message,
@@ -50,7 +50,7 @@ function PasswordReset() {
           });
         } catch (error) {
           toast.update(idToast, {
-            render: error.response.date.message,
+            render: error.response.data.message,
             closeButton: true,
             autoClose: 3000,
             type: "error",
