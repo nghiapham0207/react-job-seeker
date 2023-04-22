@@ -16,7 +16,7 @@ export const getImageUrl = (user) => {
   if (!user.avatar) {
     throw new Error("Not Found user.avatar: " + user.avatar);
   }
-  return `${process.env.REACT_APP_BASE_URL}image/${user.avatar}`;
+  return `${process.env.REACT_APP_BASE_URL}images/${user.avatar}`;
 }
 
 export const dateToString = (stringDate) => {

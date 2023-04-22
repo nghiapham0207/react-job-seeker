@@ -17,8 +17,8 @@ const initTab = [
 function SettingPage({ url, children = <EditProfilePage /> }) {
   // const currentUser = useSelector(selectUser);
   const currentPathName = window.location.pathname;
-  console.log(currentPathName);
-  console.log(url);
+  // console.log(currentPathName);
+  // console.log(url);
   const navigate = useNavigate();
   const handleClick = (url) => {
     navigate(url);

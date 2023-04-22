@@ -20,6 +20,7 @@ import { ProfileInfo, ProfileName, ProfilePictureContainer, ProfilePictureConten
 import { createAxiosJwt, path } from "../../utils/axiosAPI";
 import { toast } from "react-toastify";
 import { getUser } from "../../services/authService";
+import { getImageUrl } from "../../utils/helpers";
 
 const cx = classNames.bind(styles);
 
@@ -49,7 +50,7 @@ function EditProfilePage() {
     setNewAvatar(file);
   }
   const editProfile = async () => {
-    console.log("file:", newAvatar);
+    // console.log("file:", newAvatar);
     const formData = new FormData();
     formData.append("name", nameRef.current.value);
     formData.append("email", emailRef.current.value);
@@ -67,7 +68,7 @@ function EditProfilePage() {
       if (res.data.isSuccess) {
         toast.success(res.data.message);
         // update user
-        console.log(newAvatar);
+        // console.log(newAvatar);
         getUser(accessToken, refressToken, dispatch);
         // dispatch(updateUser({
         //   _id: currentUser._id,
@@ -109,15 +110,24 @@ function EditProfilePage() {
                       newAvatar ?
                         <img alt={currentUser.username}
                           src={newAvatar.preview} /> :
-                        <img alt={currentUser.username}
+                        <img alt="default user"
                           src={
                             currentUser.avatar ?
-                              `${process.env.REACT_APP_BASE_URL}image/${currentUser.avatar}` :
+                              getImageUrl(currentUser) :
                               "/static/images/defaultUser.webp"}
                           onError={(e) => {
                             // console.log(e);
                             e.target.src = "/static/images/defaultUser.webp";
                           }} />
+                      // <img alt={currentUser.username}
+                      //   src={
+                      //     currentUser.avatar ?
+                      //       `${process.env.REACT_APP_BASE_URL}image/${currentUser.avatar}` :
+                      //       "/static/images/defaultUser.webp"}
+                      //   onError={(e) => {
+                      //     // console.log(e);
+                      //     e.target.src = "/static/images/defaultUser.webp";
+                      //   }} />
                     }
                   </ProfilePictureContent>
                 </ProfilePictureContainer>
