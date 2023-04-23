@@ -21,6 +21,7 @@ import { createAxiosJwt, path } from "../../utils/axiosAPI";
 import { toast } from "react-toastify";
 import { getUser } from "../../services/authService";
 import { getImageUrl } from "../../utils/helpers";
+import { phoneRegex } from "../../utils/regex";
 
 const cx = classNames.bind(styles);
 
@@ -32,9 +33,9 @@ function EditProfilePage() {
   const [newAvatar, setNewAvatar] = useState();
   const uploadRef = useRef();
   const [errorMessage, setErrorMessage] = useState({
-    nameError: "",
-    emailError: "",
-    phoneError: ""
+    name: "",
+    email: "",
+    phone: ""
   });
   const nameRef = useRef();
   const emailRef = useRef();
@@ -50,39 +51,37 @@ function EditProfilePage() {
     setNewAvatar(file);
   }
   const editProfile = async () => {
-    // console.log("file:", newAvatar);
-    const formData = new FormData();
-    formData.append("name", nameRef.current.value);
-    formData.append("email", emailRef.current.value);
-    formData.append("phone", phoneRef.current.value);
-    formData.append("avatar", newAvatar);
-    const axiosInstance = createAxiosJwt(accessToken, refressToken, dispatch);
-    try {
-      const res = await axiosInstance.put(path.editProfile, formData, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "multipart/form-data"
+    const hasErrors = {}
+    if (!(phoneRegex.test(phoneRef.current.value.trim()))) {
+      hasErrors.phone = "Số điện thoại không đúng định dạng! Ví dụ: 0334569829";
+    }
+    if (Object.keys(hasErrors).length) {
+      setErrorMessage(hasErrors);
+    } else {
+      setErrorMessage({});
+      const formData = new FormData();
+      formData.append("name", nameRef.current.value);
+      formData.append("email", emailRef.current.value);
+      formData.append("phone", phoneRef.current.value);
+      formData.append("avatar", newAvatar);
+      const axiosInstance = createAxiosJwt(accessToken, refressToken, dispatch);
+      try {
+        const res = await axiosInstance.put(path.editProfile, formData, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "multipart/form-data"
+          }
+        })
+        console.log(res);
+        if (res.data.isSuccess) {
+          toast.success(res.data.message);
+          getUser(accessToken, refressToken, dispatch);
         }
-      })
-      console.log(res);
-      if (res.data.isSuccess) {
-        toast.success(res.data.message);
-        // update user
-        // console.log(newAvatar);
-        getUser(accessToken, refressToken, dispatch);
-        // dispatch(updateUser({
-        //   _id: currentUser._id,
-        //   name: nameRef.current.value,
-        //   avatar: newAvatar.value,
-        //   phone: phoneRef.current.value,
-        //   email: emailRef.current.value,
-        //   username: currentUser.username
-        // }));
-      }
-    } catch (error) {
-      console.log(error);
-      if (!error.response.data.isSuccess) {
-        toast.error(error.response.data.message);
+      } catch (error) {
+        console.log(error);
+        if (!error.response.data.isSuccess) {
+          toast.error(error.response.data.message);
+        }
       }
     }
   }
@@ -116,18 +115,8 @@ function EditProfilePage() {
                               getImageUrl(currentUser) :
                               "/static/images/defaultUser.webp"}
                           onError={(e) => {
-                            // console.log(e);
                             e.target.src = "/static/images/defaultUser.webp";
                           }} />
-                      // <img alt={currentUser.username}
-                      //   src={
-                      //     currentUser.avatar ?
-                      //       `${process.env.REACT_APP_BASE_URL}image/${currentUser.avatar}` :
-                      //       "/static/images/defaultUser.webp"}
-                      //   onError={(e) => {
-                      //     // console.log(e);
-                      //     e.target.src = "/static/images/defaultUser.webp";
-                      //   }} />
                     }
                   </ProfilePictureContent>
                 </ProfilePictureContainer>
@@ -166,7 +155,7 @@ function EditProfilePage() {
                     onChange={() => {
                       setErrorMessage({
                         ...errorMessage,
-                        nameError: ""
+                        name: ""
                       })
                     }}
                     placeholder={"Tên"} />
@@ -176,7 +165,7 @@ function EditProfilePage() {
                 </TextFieldContainer>
                 <Paragraph color="#EC272B"
                   className={cx("aries-typography-paragraph", "FieldError")}>
-                  {errorMessage.nameError}
+                  {errorMessage.name}
                 </Paragraph>
               </div>
             </div>
@@ -197,7 +186,7 @@ function EditProfilePage() {
                     onChange={() => {
                       setErrorMessage({
                         ...errorMessage,
-                        emailError: ""
+                        email: ""
                       })
                     }}
                     placeholder={"Email"} />
@@ -207,7 +196,7 @@ function EditProfilePage() {
                 </TextFieldContainer>
                 <Paragraph color="#EC272B"
                   className={cx("aries-typography-paragraph", "FieldError")}>
-                  {errorMessage.emailError}
+                  {errorMessage.email}
                 </Paragraph>
               </div>
             </div>
@@ -227,7 +216,7 @@ function EditProfilePage() {
                     onChange={() => {
                       setErrorMessage({
                         ...errorMessage,
-                        phoneError: ""
+                        phone: ""
                       })
                     }}
                     placeholder={"Số điện thoại"} />
@@ -237,7 +226,7 @@ function EditProfilePage() {
                 </TextFieldContainer>
                 <Paragraph color="#EC272B"
                   className={cx("aries-typography-paragraph", "FieldError")}>
-                  {errorMessage.phoneError}
+                  {errorMessage.phone}
                 </Paragraph>
               </div>
             </div>
