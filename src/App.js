@@ -10,11 +10,8 @@ import './App.css'; // to prioritize classes passed into component
 import { memo } from 'react';
 
 const ProtectedRoute = memo(({ user, redirectPath = '/' }) => {
-	// console.log("render ProtectedRoute");
 	const currentPathName = window.location.pathname;
-	// useEffect(()=>{})
 	if (!user) {
-		toast.info("Trang bạn đang truy cập yêu cầu đăng nhập!");
 		return <Navigate to={`${redirectPath}?next=${encodeURIComponent(currentPathName)}`}
 			replace
 			state={{ showLogin: true }} />;

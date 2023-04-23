@@ -20,6 +20,7 @@ import { selectAccessToken, selectRefreshToken, selectUser } from '../../redux/s
 import { getImageUrl } from '../../utils/helpers';
 import { logout } from '../../services/authService';
 import { useUserActions } from "../../contexts/userActionsContext";
+import { useLocation } from 'react-router-dom';
 
 function MobileMenu() {
   const currentUser = useSelector(selectUser);
@@ -28,8 +29,10 @@ function MobileMenu() {
   const UserActionsContext = useUserActions();
   const { handleShowLogin } = UserActionsContext;
   const dispatch = useDispatch();
+  const location = useLocation();
+  // console.log(location.state);
   const handleLogout = () => {
-    console.log("Logout Mobile");
+    // console.log("Logout Mobile");
     logout(accessToken, refreshToken, dispatch);
   }
   return (
@@ -90,7 +93,7 @@ function MobileMenu() {
               <>
                 <NavigationPaddingTop>
                   <NavigationTextWrapper
-                    // url={config.routes.home}
+                    url={`${location.pathname}${location.search}`}
                     handleClick={handleShowLogin}>
                     <span>
                       {"Đăng Nhập"}

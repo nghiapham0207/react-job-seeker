@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
@@ -14,6 +14,7 @@ import GlintContainer from '../../components/GlintContainer/GlintContainer';
 import { Container, ContainerRightContent } from './NavigationMobile';
 import LanguageSwitcherContainer from '../../components/LanguageSwitcher';
 import { useUserActions } from "../../contexts/userActionsContext";
+import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
@@ -22,17 +23,27 @@ function Header() {
 	const currentUser = useSelector(selectUser);
 	const UserActionsContext = useUserActions();
 	const { showLogin, handleShowLogin } = UserActionsContext;
+	const { state } = useLocation();
 
 	const navigate = useNavigate();
 	const handleSignUp = () => {
 		navigate(config.routes.signUp);
 	}
+	useEffect(() => {
+		if (state?.showLogin) {
+			handleShowLogin(true);
+		}
+		// eslint-disable-next-line
+	}, [])
 
 	return (
 		<div className={cx("MainHeader")}>
 			<GlintContainer>
 				{/* LoginModal */}
-				{showLogin && <LoginModal />}
+				{showLogin && <LoginModal
+					message={state?.showLogin ?
+						<span style={{ color: 'red' }}>Trang bạn truy cập yêu cầu đăng nhập để tiếp tục</span> :
+						undefined} />}
 				<div className={cx("fresnel-lessThan-desktopS")}>
 					{/* mobile menu */}
 					<Container>

@@ -13,7 +13,7 @@ import styles from "./LoginModal.module.scss";
 
 const cx = classNames.bind(styles);
 
-function LoginModal() {
+function LoginModal({ message = "Đăng nhập Glints để tiếp tục" }) {
   const modalRef = useRef();
   const UserActionsContext = useUserActions();
   const { handleShowLogin } = UserActionsContext;
@@ -29,7 +29,7 @@ function LoginModal() {
             <ModalBody>
               <div className={cx("Large-Text")}
                 style={{ padding: " 20px 20px 0px" }} >
-                <span>Đăng nhập Glints để tiếp tục</span>
+                <span>{message}</span>
               </div>
               <div>
                 <LoginForm handleShowLogin={handleShowLogin} />
