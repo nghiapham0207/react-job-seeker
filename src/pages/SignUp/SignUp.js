@@ -20,6 +20,8 @@ const cx = classNames.bind(styles);
 
 function SignUp() {
   console.log("Render SignUp");
+  // console.log(/^0[1-9]{1}[0-9]{8,9}$/.test("0345694931"));
+  // console.log(/^[0-9]{1,2}$/.test("0111"));
   useDocumentTitle("Sign-up");
   const navigate = useNavigate();
   const UserActionsContext = useUserActions();
@@ -47,17 +49,18 @@ function SignUp() {
     if (!formData.fullName) {
       errs.fullName = "Vui lòng nhập họ tên!";
     }
-    // else {
-    //   delete errs.fullName;
-    // }
     if (!formData.numberPhone) {
       errs.numberPhone = "Vui lòng nhập số điện thoại!";
+    } else if (!(/^0[1-9]{1}[0-9]{8,9}$/.test(formData.numberPhone))) {
+      errs.numberPhone = "Số điện thoại không đúng định dạng! Ví dụ: 0234242524";
     }
     if (!formData.email) {
       errs.email = "Vui lòng nhập email";
     }
     if (!formData.username) {
       errs.username = "Vui lòng nhập tên đăng nhập";
+    } else if(!(/^[a-z0-9]+$/.test(formData.username))){
+      errs.username = "Tên đăng nhập chỉ chứa ký tự [a-z] [0-9]";
     }
     if (!formData.password) {
       errs.password = "Vui lòng nhập mật khẩu";
@@ -70,6 +73,7 @@ function SignUp() {
     return errs;
   }
   const register = async (formData) => {
+    const idToast = toast.loading("Đang xử lý!");
     try {
       const res = await post("/auth/register", {
         name: formData.fullName,
@@ -80,16 +84,31 @@ function SignUp() {
         role: "user",
         username: formData.username
       });
-      toast(res.message, {
-        position: "top-center"
-      });
+      // toast.success(res.message);
+      toast.update(idToast, {
+        render: res.message,
+        closeButton: true,
+        autoClose: 2000,
+        type: "success",
+        isLoading: false
+      })
       login({
         username: formData.username,
         password: formData.password
       }, dispatch, navigate);
+      navigate(config.routes.home);
+      handleShowLogin();
     } catch (error) {
-      console.log(error.response.data);
+      // console.log(error.response.data);
+      toast.update(idToast, {
+        render: "Đăng ký không thành công!",
+        closeButton: true,
+        autoClose: 2000,
+        type: "error",
+        isLoading: false
+      })
       setResError(error.response.data.message);
+    } finally {
     }
   }
   const handleSubmit = (e) => {
@@ -144,7 +163,7 @@ function SignUp() {
                       id={"sign-up-form-username"} label={"Username"}
                       value={formData.username}
                       onChange={handleInput}
-                      valid={errors.fullName ? false : true} />
+                      valid={errors.username ? false : true} />
                     {errors.username
                       && <ErrorMessage
                         message={errors.username} />}
@@ -166,7 +185,7 @@ function SignUp() {
                       id={"sign-up-form-password"} label={"Password"}
                       value={formData.password}
                       onChange={handleInput}
-                      valid={errors.fullName ? false : true} />
+                      valid={errors.password ? false : true} />
                     {errors.password
                       && <ErrorMessage
                         message={errors.password} />}
@@ -176,9 +195,10 @@ function SignUp() {
                   <div className={cx("signupWithEmail__FormWrapper")}>
                     <InputWrapper name={"numberPhone"}
                       id={"sign-up-form-number-phone"} label={"Number Phone"}
+                      type="tel"
                       value={formData.numberPhone}
                       onChange={handleInput}
-                      valid={errors.fullName ? false : true} />
+                      valid={errors.numberPhone ? false : true} />
                     {errors.numberPhone
                       && <ErrorMessage
                         message={errors.numberPhone} />}
@@ -246,7 +266,7 @@ function SignUp() {
           </div>
           <div className={cx("signupWithEmail__AlreadyHaveAccount")}>
             <label>Bạn đã có tài khoản Glints? </label>
-            <Link to="/"
+            <Link
               onClick={handleShowLogin}
               className={cx("buttons__DefaultBtn",
                 "buttons__GhostBtn",

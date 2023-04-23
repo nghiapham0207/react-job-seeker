@@ -10,6 +10,7 @@ const cx = classNames.bind(styles);
 function InputWrapper({ id, label, name, type = "text", valid = true,
   value, onChange }) {
   const [floatLabel, setFloatLabel] = useState(false);
+  // console.log(name, "valid:", valid);
   return (
     <div className={cx("InputWrapper")}>
       <span className={cx(value || floatLabel ? "InputName--Float" : "InputName")}>
@@ -19,6 +20,7 @@ function InputWrapper({ id, label, name, type = "text", valid = true,
         <input type={type} id={id} value={value}
           placeholder="placeholder" // to remove issue input has no title
           name={name}
+          style={{ borderColor: !valid ? "red" : "" }}
           className={cx("InputType")}
           onChange={onChange}
           onFocus={() => {
