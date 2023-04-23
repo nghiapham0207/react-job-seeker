@@ -16,6 +16,7 @@ import { login } from "../../services/authService";
 import { useUserActions } from "../../contexts/userActionsContext";
 import config from "../../config";
 import { selectUser } from "../../redux/selector";
+import { phoneRegex, usernameRegex } from "../../utils/regex";
 
 const cx = classNames.bind(styles);
 
@@ -53,7 +54,7 @@ function SignUp() {
     }
     if (!formData.numberPhone) {
       errs.numberPhone = "Vui lòng nhập số điện thoại!";
-    } else if (!(/^0[1-9]{1}[0-9]{8,9}$/.test(formData.numberPhone))) {
+    } else if (!(phoneRegex.test(formData.numberPhone))) {
       errs.numberPhone = "Số điện thoại không đúng định dạng! Ví dụ: 0234242524";
     }
     if (!formData.email) {
@@ -61,7 +62,7 @@ function SignUp() {
     }
     if (!formData.username) {
       errs.username = "Vui lòng nhập tên đăng nhập";
-    } else if (!(/^[a-z0-9]+$/.test(formData.username))) {
+    } else if (!(usernameRegex.test(formData.username))) {
       errs.username = "Tên đăng nhập chỉ chứa ký tự [a-z] [0-9]";
     }
     if (!formData.password) {

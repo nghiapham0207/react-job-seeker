@@ -9,6 +9,8 @@ import styles from "./LoginForm.module.scss";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../../services/authService";
 import config from "../../../config";
+import { usernameRegex } from "../../../utils/regex";
+import { toast } from "react-toastify";
 
 const cx = classNames.bind(styles);
 
@@ -35,18 +37,41 @@ function LoginForm({ handleShowLogin }) {
       setUsernameError("Chưa nhập tài khoản"); // set many time cause re-render
       usernameRef.current.focus();
       return;
+    } else if (!(usernameRegex.test(username))) {
+      setUsernameError("Tên đăng nhập chỉ chứa ký tự [a-z] [0-9]");
+      usernameRef.current.focus();
+      return;
     }
     if (password === "") {
       setPasswordError("Chưa nhập mật khẩu");
       passwordRef.current.focus();
       return;
+    } else if (password.length < 6) {
+      setPasswordError("Mật khẩu tối thiểu 6 ký tự!");
+      passwordRef.current.focus();
+      return;
     }
     const loginRequest = async () => {
+      const idToast = toast.loading("Đang xử lý!");
       const hasErr = await login({ username, password }, dispatch, navigate);
       if (hasErr) {
         setErrorMessage(hasErr);
+        toast.update(idToast, {
+          render: "Đăng nhập thất bại!",
+          type: "error",
+          closeButton: true,
+          autoClose: 1000,
+          isLoading: false
+        });
       } else {
         handleShowLogin();
+        toast.update(idToast, {
+          render: "Đăng nhập thành công!",
+          type: "success",
+          closeButton: true,
+          autoClose: 1000,
+          isLoading: false
+        });
       }
     }
     loginRequest();
@@ -81,10 +106,10 @@ function LoginForm({ handleShowLogin }) {
           </div>
           <div className={cx("ForgotPasswordLinkWrapper")}>
             <button type="button" className={cx("ForgotPasswordLink")}
-            onClick={()=>{
-              handleShowLogin();
-              navigate(config.routes.forgotPassword);
-            }} >Quên mật khẩu?</button>
+              onClick={() => {
+                handleShowLogin();
+                navigate(config.routes.forgotPassword);
+              }} >Quên mật khẩu?</button>
           </div>
           {errorMessage && <div className={cx("ErrorMessage")}>
             <p className={cx("MessageHeader")}>{errorMessage}</p>
