@@ -71,7 +71,7 @@ function UserMenu({ currentUser }) {
                   <span>Cài đặt</span>
                 </div>
               </Link>
-              <Link to={"/"} className={cx("DropdownStyle__DropdownItemWrapper")}
+              <Link className={cx("DropdownStyle__DropdownItemWrapper")}
                 onClick={handleLogout} >
                 <div className={cx("DropdownWrapper")}>
                   <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faPowerOff} />

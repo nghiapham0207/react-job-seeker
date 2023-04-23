@@ -21,46 +21,51 @@ function ResetPasswordPage() {
   const { state } = useLocation();
   const navigate = useNavigate();
   const email = state?.email;
-  const [verifyCode, setVerifyCode] = useState("");
-  const [password, setPassword] = useState("");
-  const [pwConfirm, setPwConfirm] = useState("");
-  const [verifyCodeError, setVerifyCodeError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-  const [pwConfirmError, setPwConfirmError] = useState("");
+  const [errors, setErrors] = useState({
+    verifyCode: "",
+    password: "",
+    pwConfirm: ""
+  });
   const verifyCodeRef = useRef();
   const passwordRef = useRef();
   const pwConfirmRef = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!verifyCode) {
-      setVerifyCodeError("Bắt buộc!");
-    } else {
-
+    const hasErrors = {}
+    if (!verifyCodeRef.current.value.trim()) {
+      hasErrors.verifyCode = "Bắt buộc!";
     }
-    if (!password) {
-      setPasswordError("Bắt buộc!");
+    if (!passwordRef.current.value) {
+      hasErrors.password = "Bắt buộc!";
+    } else if (passwordRef.current.value.length < 6) {
+      hasErrors.password = "Mật khẩu tối thiểu 6 ký tự!";
     }
-    if (!pwConfirm) {
-      setPwConfirmError("Bắt buộc!");
-    } else if (pwConfirm !== password) {
-      setPwConfirmError("Mật khẩu xác nhận không khớp!");
+    if (!pwConfirmRef.current.value) {
+      hasErrors.pwConfirm = "Bắt buộc!";
+    } else if (pwConfirmRef.current.value !== passwordRef.current.value) {
+      hasErrors.pwConfirm = "Mật khẩu xác nhận không khớp!";
     }
-    const fetchApi = async () => {
-      try {
-        const res = await put(path.resetPassword, {
-          newPassword: password,
-          confirmPasswordCode: verifyCode,
-          email: email
-        });
-        toast.success(res.message);
-        // handle show login
-        navigate(config.routes.home);
-      } catch (error) {
-        toast.error(error.response.data.message);
-        console.log(error);
+    console.log(Object.keys(hasErrors));
+    if (!(Object.keys(hasErrors).length)) {
+      setErrors({});
+      const fetchApi = async () => {
+        try {
+          const res = await put(path.resetPassword, {
+            newPassword: passwordRef.current.value,
+            confirmPasswordCode: verifyCodeRef.current.value,
+            email: email
+          });
+          toast.success(res.message);
+          navigate(config.routes.home);
+        } catch (error) {
+          toast.error(error.response.data.message);
+          // console.log(error);
+        }
       }
+      fetchApi();
+    } else {
+      setErrors(hasErrors);
     }
-    fetchApi();
   }
   useEffect(() => {
     if (!email) {
@@ -80,11 +85,12 @@ function ResetPasswordPage() {
             onSubmit={handleSubmit}>
             <TextFieldContainer className={"aries-textfield"}>
               <TextFieldInput name="password" ariaLabel="Mã xác nhận"
-                value={verifyCode}
                 ref={verifyCodeRef}
-                onChange={e => {
-                  setVerifyCode(e.target.value);
-                  setVerifyCodeError("");
+                onChange={() => {
+                  setErrors({
+                    ...errors,
+                    verifyCode: ""
+                  })
                 }}
                 placeholder={"Mã xác nhận"} />
               <TextFieldLabel>
@@ -93,16 +99,17 @@ function ResetPasswordPage() {
             </TextFieldContainer>
             <Paragraph color="#EC272B"
               className={cx("aries-typography-paragraph", "FieldError")}>
-              {verifyCodeError}
+              {errors.verifyCode}
             </Paragraph>
             <br />
             <TextFieldContainer className={"aries-textfield"}>
               <TextFieldInput type="password" name="password" ariaLabel="Mật khẩu"
-                value={password}
                 ref={passwordRef}
-                onChange={e => {
-                  setPassword(e.target.value);
-                  setPasswordError("");
+                onChange={() => {
+                  setErrors({
+                    ...errors,
+                    password: ""
+                  })
                 }}
                 placeholder={"Địa chỉ email"} />
               <TextFieldLabel>
@@ -111,16 +118,17 @@ function ResetPasswordPage() {
             </TextFieldContainer>
             <Paragraph color="#EC272B"
               className={cx("aries-typography-paragraph", "FieldError")}>
-              {passwordError}
+              {errors.password}
             </Paragraph>
             <br />
             <TextFieldContainer className={"aries-textfield"}>
               <TextFieldInput type="password" name="password" ariaLabel="Mật khẩu"
-                value={pwConfirm}
                 ref={pwConfirmRef}
-                onChange={e => {
-                  setPwConfirm(e.target.value);
-                  setPwConfirmError("");
+                onChange={() => {
+                  setErrors({
+                    ...errors,
+                    pwConfirm: ""
+                  })
                 }}
                 placeholder={"Địa chỉ email"} />
               <TextFieldLabel>
@@ -129,7 +137,7 @@ function ResetPasswordPage() {
             </TextFieldContainer>
             <Paragraph color="#EC272B"
               className={cx("aries-typography-paragraph", "FieldError")}>
-              {pwConfirmError}
+              {errors.pwConfirm}
             </Paragraph>
             <SolidBtnContainer className={cx("aries-solid-btn", "SubmitBtn")}>
               <SolidButton type="submit" block
