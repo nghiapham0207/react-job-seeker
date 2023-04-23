@@ -18,6 +18,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDeferred } from "../../hooks";
 import SolidBtnContainer from "../ButtonStyle/SolidBtnContainer";
 import SolidButton from "../ButtonStyle/SolidButton";
+import IconContainer from "../TextFieldStyle/IconContainer";
 
 const cx = classNames.bind(styles);
 
@@ -46,13 +47,6 @@ function SearchContainer(isHomePage = false) {
   const savePastJobSearch = (keyword) => {
     if (keyword) {
       let isExist = false;
-      // for (let index = 0; index < testArray.length; index++) {
-      //   const element = testArray[index];
-      //   if (element.keyword === keyword) {
-      //     isExist = true;
-      //     return;
-      //   }
-      // }
       isExist = testArray.some((item) => {
         return item.keyword === keyword;
       });
@@ -147,6 +141,14 @@ function SearchContainer(isHomePage = false) {
           <div className={cx("TextFieldStyled__StartIconContainer")}>
             <SearchIcon className={cx("IconStyle__VerticalCenteredSvg")} />
           </div>
+          {
+            searchInput &&
+            <IconContainer onClick={() => {
+              setSearchInput("");
+            }}>
+              <CloseIcon className={cx("IconStyle__VerticalCenteredSvg")} />
+            </IconContainer>
+          }
         </div>
 
         {/* suggestion here */}

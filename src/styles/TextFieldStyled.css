@@ -9,6 +9,10 @@
     padding-bottom: 8px;
 }
 
+.TextFieldStyled__TextFieldContainer svg {
+    fill: var(--secondary-color);
+}
+
 .TextFieldStyled__TextFieldInput {
     position: relative;
     width: 100%;

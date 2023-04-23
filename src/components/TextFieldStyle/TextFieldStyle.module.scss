@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+.TextFieldContainer svg {
+    fill: var(--secondary-color);
+}
+
 // .TextFieldContainer input {
 //     padding-top: 8px;
 //     padding-bottom: 8px;

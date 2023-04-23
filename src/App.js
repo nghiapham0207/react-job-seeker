@@ -7,9 +7,9 @@ import { privateRoutes, publicRoutes } from './routes/routes';
 import DefaultLayout from './layouts/DefaultLayout';
 import { selectUser } from './redux/selector';
 import './App.css'; // to prioritize classes passed into component
-import { memo } from 'react';
 
-const ProtectedRoute = memo(({ user, redirectPath = '/' }) => {
+const ProtectedRoute = (({ user, redirectPath = '/' }) => {
+	console.log("render ProtectedRoute");
 	const currentPathName = window.location.pathname;
 	if (!user) {
 		return <Navigate to={`${redirectPath}?next=${encodeURIComponent(currentPathName)}`}
