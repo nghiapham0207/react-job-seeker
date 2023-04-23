@@ -20,9 +20,6 @@ import { toast } from "react-toastify";
 const cx = classNames.bind(styles);
 
 function ChangePasswordPage() {
-  // const [pwError, setPwError] = useState();
-  // const [newPwError, setNewPwError] = useState();
-  // const [confirmPwError, setConfirmPwError] = useState();
   const dispatch = useDispatch();
   const accessToken = useSelector(selectAccessToken);
   const refressToken = useSelector(selectRefreshToken);
@@ -34,11 +31,6 @@ function ChangePasswordPage() {
   const passwordRef = useRef();
   const newPasswordRef = useRef();
   const confirmPasswordRef = useRef();
-  const handleCheckConfirm = () => {
-    if (newPasswordRef.current.value) {
-
-    }
-  }
   const handleChangePassword = async () => {
     const axiosInstance = createAxiosJwt(accessToken, refressToken, dispatch);
     try {
@@ -52,9 +44,7 @@ function ChangePasswordPage() {
       })
       console.log(res);
       if (res.data.isSuccess) {
-        toast.success(res.data.message, {
-          position: "top-center"
-        });
+        toast.success(res.data.message);
         passwordRef.current.value = "";
         newPasswordRef.current.value = "";
         confirmPasswordRef.current.value = "";
@@ -62,26 +52,29 @@ function ChangePasswordPage() {
     } catch (error) {
       console.log(error.response.data);
       if (!error.response.data.isSuccess) {
-        toast.error(error.response.data.message, {
-          position: "top-center"
-        })
+        toast.error(error.response.data.message)
       }
     }
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-    const error = {};
-    if (newPasswordRef.current.value) {
-      if (confirmPasswordRef.current.value !== newPasswordRef.current.value) {
-        error.confirmPwError = "Mật khẩu xác nhận không khớp!";
-      }
+    const hasErrors = {};
+    if (passwordRef.current.value.length < 6) {
+      hasErrors.pwError = "Mật khẩu cũ tối thiểu 6 ký tự!";
     }
-    if (Object.keys(error).length) {
+    if (newPasswordRef.current.value.length < 6) {
+      hasErrors.newPwError = "Mật khẩu mới tối thiểu 6 ký tự!";
+    }
+    if (confirmPasswordRef.current.value !== newPasswordRef.current.value) {
+      hasErrors.confirmPwError = "Mật khẩu xác nhận không khớp!";
+    }
+    if (Object.keys(hasErrors).length) {
       setErrorMessage({
         ...errorMessage,
-        ...error
+        ...hasErrors
       });
     } else {
+      setErrorMessage({});
       handleChangePassword();
     }
   }
@@ -163,9 +156,7 @@ function ChangePasswordPage() {
                     <TextFieldInput name="password" ariaLabel="Xác nhận mật khẩu mới"
                       type={"password"}
                       isRequired
-                      // value={verifyCode}
                       ref={confirmPasswordRef}
-                      onBlur={handleCheckConfirm}
                       onChange={() => {
                         setErrorMessage({
                           ...errorMessage,
