@@ -10,7 +10,6 @@ import Testimonial from "../../components/GlintContainer/Testimonial/Testimonial
 import { useDocumentTitle } from "../../hooks";
 import { useUserActions } from "../../contexts/userActionsContext";
 import { useEffect } from "react";
-import { toast } from "react-toastify";
 
 function Home() {
     useDocumentTitle("Glints - Kênh Tuyển Dụng", true);

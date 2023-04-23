@@ -164,7 +164,7 @@ function LoginForm({ handleShowLogin }) {
       <div className={cx("Content")}>
         <p>
           {"Nếu là nhà tuyển dụng, hãy "}
-          <a target="_blank" className={cx()} href={config.routes.recruitment}>
+          <a target="_blank"  rel="noreferrer" className={cx()} href={config.routes.recruitment}>
             {"nhấn vào đây."}
           </a>
         </p>

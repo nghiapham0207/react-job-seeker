@@ -3,7 +3,6 @@ import { loginSuccess, logoutSuccess } from "../redux/authSlice";
 import { createAxiosJwt, post } from "../utils/axiosAPI";
 import { path } from "../utils/axiosAPI";
 import { updateUser } from "../redux/userSlice";
-import config from "../config";
 
 export const login = async ({ username, password }, dispatch, navigate, next) => {
   try {
