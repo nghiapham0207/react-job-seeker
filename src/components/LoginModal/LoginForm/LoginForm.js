@@ -76,18 +76,18 @@ function LoginForm({ handleShowLogin }) {
             render: "Đăng nhập thành công!",
             type: "success",
             closeButton: true,
-            autoClose: 1000,
+            autoClose: 2000,
             isLoading: false
           });
-        }
-        if (next) {
-          toast.info("Đang chuyển hướng!", {
-            autoClose: 1000
-          });
-          // navigate(next);
-          setTimeout(() => {
-            navigate(next);
-          }, 1000);
+          if (next) {
+            toast.info("Đang chuyển hướng!", {
+              autoClose: 2000
+            });
+            // navigate(next);
+            setTimeout(() => {
+              navigate(next);
+            }, 1000);
+          }
         }
       }
       loginRequest();
@@ -164,7 +164,7 @@ function LoginForm({ handleShowLogin }) {
       <div className={cx("Content")}>
         <p>
           {"Nếu là nhà tuyển dụng, hãy "}
-          <a target="_blank"  rel="noreferrer" className={cx()} href={config.routes.recruitment}>
+          <a target="_blank" rel="noreferrer" className={cx()} href={config.routes.recruitment}>
             {"nhấn vào đây."}
           </a>
         </p>
