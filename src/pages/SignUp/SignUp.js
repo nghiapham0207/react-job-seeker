@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import classNames from "classnames/bind";
 
@@ -10,19 +10,21 @@ import {
   InputWrapper
 } from "../../components/InputComponent";
 import AlertsErrorMessage from "../../components/AlertsErrorMessage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { post } from "../../utils/axiosAPI";
 import { login } from "../../services/authService";
 import { useUserActions } from "../../contexts/userActionsContext";
 import config from "../../config";
+import { selectUser } from "../../redux/selector";
 
 const cx = classNames.bind(styles);
 
 function SignUp() {
-  console.log("Render SignUp");
+  // console.log("Render SignUp");
   // console.log(/^0[1-9]{1}[0-9]{8,9}$/.test("0345694931"));
   // console.log(/^[0-9]{1,2}$/.test("0111"));
   useDocumentTitle("Sign-up");
+  const currentUser = useSelector(selectUser);
   const navigate = useNavigate();
   const UserActionsContext = useUserActions();
   const { handleShowLogin } = UserActionsContext;
@@ -59,7 +61,7 @@ function SignUp() {
     }
     if (!formData.username) {
       errs.username = "Vui lòng nhập tên đăng nhập";
-    } else if(!(/^[a-z0-9]+$/.test(formData.username))){
+    } else if (!(/^[a-z0-9]+$/.test(formData.username))) {
       errs.username = "Tên đăng nhập chỉ chứa ký tự [a-z] [0-9]";
     }
     if (!formData.password) {
@@ -131,6 +133,12 @@ function SignUp() {
       [name]: value
     })
   }
+  useEffect(() => {
+    if (currentUser) {
+      navigate(config.routes.job);
+    }
+    // eslint-disable-next-line
+  }, [currentUser])
   return (
     <section className={cx("global__Background")}>
       <div className={cx("global__TitleWrapper")}>
