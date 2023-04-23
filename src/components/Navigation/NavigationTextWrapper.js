@@ -28,6 +28,7 @@ function NavigationTextWrapper({
     <Link
       onClick={handleShowMobileMenu}
       to={url}
+      // to={url ? url : null}
       target={target}>
       <div role={role}
         className={cx("TextWrapper")} >

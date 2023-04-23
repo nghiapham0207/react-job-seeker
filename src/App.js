@@ -1,3 +1,4 @@
+import { ToastContainer, toast } from 'react-toastify';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PropTypes from "prop-types";
@@ -5,19 +6,24 @@ import PropTypes from "prop-types";
 import { privateRoutes, publicRoutes } from './routes/routes';
 import DefaultLayout from './layouts/DefaultLayout';
 import { selectUser } from './redux/selector';
-import { ToastContainer } from 'react-toastify';
-import Error from './components/Error/Error';
 import './App.css'; // to prioritize classes passed into component
+import { memo } from 'react';
 
-const ProtectedRoute = ({ user, redirectPath = '/' }) => {
+const ProtectedRoute = memo(({ user, redirectPath = '/' }) => {
+	// console.log("render ProtectedRoute");
+	const currentPathName = window.location.pathname;
+	// useEffect(()=>{})
 	if (!user) {
-		alert("Chưa đăng nhập!");
-		return <Navigate to={redirectPath} replace />;
+		toast.info("Trang bạn đang truy cập yêu cầu đăng nhập!");
+		return <Navigate to={`${redirectPath}?next=${encodeURIComponent(currentPathName)}`}
+			replace
+			state={{ showLogin: true }} />;
 	}
 	return <Outlet />;
-};
+});
 
 function App() {
+	// console.log("render App");
 	const currentUser = useSelector(selectUser);
 	return (
 		<BrowserRouter>
@@ -60,16 +66,7 @@ function App() {
 										element={<Layout><Page /></Layout>} />
 								)
 							}
-							// return (
-							// 	<Route key={index} path={route.path}
-							// 		element={<Layout><Page /></Layout>} />
-							// )
 						})}
-					</Route>
-					<Route path="test" element={<ProtectedRoute user={currentUser} />}>
-						<Route index element={<p>setting</p>} />
-						<Route path="cc" element={<p>test</p>} />
-						<Route path="*" element={<Error />} />
 					</Route>
 				</Routes>
 			</div>

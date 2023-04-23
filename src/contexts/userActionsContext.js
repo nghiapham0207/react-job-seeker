@@ -3,8 +3,13 @@ import { createContext, useContext, useState } from "react";
 const UserActionsContext = createContext();
 export function UserActionsProvider({ children }) {
   const [showLogin, setShowLogin] = useState(false);
-  const handleShowLogin = () => {
-    setShowLogin(!showLogin);
+  const handleShowLogin = (isRequired = false) => {
+    // if (isRequired) {
+    //   setShowLogin(true);
+    // } else {
+    //   setShowLogin(!showLogin);
+    // }
+      setShowLogin(!showLogin);
   }
   return (
     <UserActionsContext.Provider value={{ showLogin, handleShowLogin }}>

@@ -129,6 +129,7 @@ function SignUp() {
   }
   const handleInput = (e) => {
     const { name, value } = e.target;
+    setErrors({...errors, [name]: ""});
     setFormData({
       ...formData,
       [name]: value

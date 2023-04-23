@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
@@ -6,22 +7,30 @@ import { useDispatch } from "react-redux";
 import 'react-toastify/dist/ReactToastify.css';
 
 import styles from "./LoginForm.module.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { login } from "../../../services/authService";
 import config from "../../../config";
 import { usernameRegex } from "../../../utils/regex";
-import { toast } from "react-toastify";
 
 const cx = classNames.bind(styles);
 
 function LoginForm({ handleShowLogin }) {
   // console.log("Render Login Form");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [usernameError, setUsernameError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
+  const location = useLocation();
+  // console.log("location", location);
+  // const { next } = useParams();
+  const searchParams = new URLSearchParams(location.search);
+  // console.log(searchParams);
+  const next = searchParams.get("next");
+  // console.log("next", next);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [errors, setErrors] = useState({
+    username: "",
+    password: ""
+  });
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -33,48 +42,58 @@ function LoginForm({ handleShowLogin }) {
   }
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username === "") {
-      setUsernameError("Chưa nhập tài khoản"); // set many time cause re-render
-      usernameRef.current.focus();
-      return;
-    } else if (!(usernameRegex.test(username))) {
-      setUsernameError("Tên đăng nhập chỉ chứa ký tự [a-z] [0-9]");
-      usernameRef.current.focus();
-      return;
+    const hasErrors = {}
+    if (usernameRef.current.value === "") {
+      hasErrors.username = "Chưa nhập tài khoản";
+    } else if (!(usernameRegex.test(usernameRef.current.value))) {
+      hasErrors.username = "Tên đăng nhập chỉ chứa ký tự [a-z] [0-9]";
     }
-    if (password === "") {
-      setPasswordError("Chưa nhập mật khẩu");
-      passwordRef.current.focus();
-      return;
-    } else if (password.length < 6) {
-      setPasswordError("Mật khẩu tối thiểu 6 ký tự!");
-      passwordRef.current.focus();
-      return;
+    if (passwordRef.current.value === "") {
+      hasErrors.password = "Chưa nhập mật khẩu";
+    } else if (passwordRef.current.value.length < 6) {
+      hasErrors.password = "Mật khẩu tối thiểu 6 ký tự!";
     }
-    const loginRequest = async () => {
-      const idToast = toast.loading("Đang xử lý!");
-      const hasErr = await login({ username, password }, dispatch, navigate);
-      if (hasErr) {
-        setErrorMessage(hasErr);
-        toast.update(idToast, {
-          render: "Đăng nhập thất bại!",
-          type: "error",
-          closeButton: true,
-          autoClose: 1000,
-          isLoading: false
-        });
-      } else {
-        handleShowLogin();
-        toast.update(idToast, {
-          render: "Đăng nhập thành công!",
-          type: "success",
-          closeButton: true,
-          autoClose: 1000,
-          isLoading: false
-        });
+    if (!Object.keys(hasErrors).length) {
+      setErrors({});
+      const loginRequest = async () => {
+        const idToast = toast.loading("Đang xử lý!");
+        const hasErr = await login({
+          username: usernameRef.current.value,
+          password: passwordRef.current.value
+        }, dispatch, navigate, next);
+        if (hasErr) {
+          setErrorMessage(hasErr);
+          toast.update(idToast, {
+            render: "Đăng nhập thất bại!",
+            type: "error",
+            closeButton: true,
+            autoClose: 1000,
+            isLoading: false
+          });
+        } else {
+          handleShowLogin();
+          toast.update(idToast, {
+            render: "Đăng nhập thành công!",
+            type: "success",
+            closeButton: true,
+            autoClose: 1000,
+            isLoading: false
+          });
+        }
+        if (next) {
+          toast.info("Đang chuyển hướng!", {
+            autoClose: 1000
+          });
+          // navigate(next);
+          setTimeout(() => {
+            navigate(next);
+          }, 1000);
+        }
       }
+      loginRequest();
+    } else {
+      setErrors(hasErrors);
     }
-    loginRequest();
   }
   return (
     <div className={cx("Body")}>
@@ -85,24 +104,31 @@ function LoginForm({ handleShowLogin }) {
               <input ref={usernameRef} type="text" aria-label="Tên tài khoản"
                 placeholder="Tên tài khoản"
                 className={cx("TextFieldInput")}
-                value={username}
-                onChange={(e) => { setUsername(e.target.value); setUsernameError("") }} />
+                // value={username}
+                onChange={(e) => {
+                  // setUsername(e.target.value);
+                  setErrors({ ...errors, username: "" });
+                }} />
               <label className={cx("TextFieldLabel")}>Tên tài khoản</label>
             </div>
-            {usernameError && <p className={cx("ValidationError")}>{usernameError}</p>}
+            {errors.username && <p className={cx("ValidationError")}>{errors.username}</p>}
           </div>
           <div className={cx("Field")}>
             <div className={cx("TextFieldContainer")}>
               <input ref={passwordRef} type={showPassword ? "text" : "password"}
                 aria-label="Mật khẩu" className={cx("TextFieldInput")}
-                value={password} maxLength="30"
-                onChange={(e) => { setPassword(e.target.value); setPasswordError("") }}
+                // value={password} 
+                maxLength="30"
+                onChange={(e) => {
+                  // setPassword(e.target.value);
+                  setErrors({ ...errors, password: "" });
+                }}
                 placeholder="Mật khẩu" />
               <label className={cx("TextFieldLabel")}>Mật khẩu</label>
               <div onClick={handleShowPassword} className={cx("IconContainer")}>
                 <span className="">{showPassword ? <FontAwesomeIcon icon={faEyeSlash} /> : <FontAwesomeIcon icon={faEye} />}</span></div>
             </div>
-            {passwordError && <p className={cx("ValidationError")}>{passwordError}</p>}
+            {errors.password && <p className={cx("ValidationError")}>{errors.password}</p>}
           </div>
           <div className={cx("ForgotPasswordLinkWrapper")}>
             <button type="button" className={cx("ForgotPasswordLink")}
@@ -125,11 +151,23 @@ function LoginForm({ handleShowLogin }) {
       </div>
       <div className={cx("ContentWrapper")}>
         <div className={cx("SignupLink")}>
-          Chưa có tài khoản <span className={cx("Highlight")}>nhấn vào đây</span> để đăng ký.
+          {"Chưa có tài khoản "}
+          <span className={cx("Highlight")}
+            onClick={handleShowLogin} >
+            <Link to={config.routes.signUp}>
+              {"nhấn vào đây"}
+            </Link>
+          </span>
+          {" để đăng ký."}
         </div>
       </div>
       <div className={cx("Content")}>
-        <p>Nếu là nhà tuyển dụng, hãy <a className={cx()} href="/">nhấn vào đây.</a></p>
+        <p>
+          {"Nếu là nhà tuyển dụng, hãy "}
+          <a target="_blank" className={cx()} href={config.routes.recruitment}>
+            {"nhấn vào đây."}
+          </a>
+        </p>
       </div>
     </div>
   )

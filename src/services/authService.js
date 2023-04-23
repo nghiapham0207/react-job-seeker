@@ -1,10 +1,11 @@
+import jwtDecode from "jwt-decode";
 import { loginSuccess, logoutSuccess } from "../redux/authSlice";
 import { createAxiosJwt, post } from "../utils/axiosAPI";
 import { path } from "../utils/axiosAPI";
 import { updateUser } from "../redux/userSlice";
-import jwtDecode from "jwt-decode";
+import config from "../config";
 
-export const login = async ({ username, password }, dispatch, navigate) => {
+export const login = async ({ username, password }, dispatch, navigate, next) => {
   try {
     const res = await post(path.login, { username, password });
     // console.log("res - login", res);
@@ -13,7 +14,11 @@ export const login = async ({ username, password }, dispatch, navigate) => {
       getUser(res.data.accessToken, res.data.refreshToken, dispatch);
     }
     // handleShowLogin();
-    // navigate(config.routes.home);
+    // navigate(config.routes.setting);
+    // if (next) {
+    //   console.log("next in login", next);
+    //   navigate(next);
+    // }
   } catch (error) {
     console.log(error);
     return error.response.data.message;
