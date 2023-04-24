@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 import { JobContext } from "../../pages/DetailJob";
 import ReadMore from "../ReadMore/ReadMore";
@@ -23,7 +23,11 @@ const cx = classNames.bind(styles);
 function Opportunity({ openModal }) {
   // console.log("Render Opportunity");
   const job = useContext(JobContext);
-  console.log(job);
+  const requirementRef = useRef(null);
+  useEffect(() => {
+    requirementRef.current.innerHTML = job.requirement;
+  }, [job]);
+  // console.log(job);
   return <div className={cx("Container")}>
     <main className={cx("Main")}>
       <div className={cx("TopFold__CompanyAndJobInfo")}>
@@ -100,10 +104,13 @@ function Opportunity({ openModal }) {
         <div className={cx("Skills__TitleContainer")}>
           <h2 className={cx("Skills__Title")}>Skills</h2>
         </div>
-        <div className={cx("SkillsTagOverride", "TagStyle__TagContainer")}>
+        {/* <div className={cx("SkillsTagOverride", "TagStyle__TagContainer")}>
           <label className={cx("TagStyle__TagContent")}>
             {job.requirement}
           </label>
+        </div> */}
+        <div style={{ paddingLeft: 20 }} ref={requirementRef}>
+          {/* {job.requirement} */}
         </div>
       </div>
       <div className={cx("JobDescriptionContainer")}>
