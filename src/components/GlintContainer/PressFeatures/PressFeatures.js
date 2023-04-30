@@ -2,12 +2,50 @@ import classNames from "classnames/bind";
 
 import styles from "./PressFeatures.module.scss";
 import images from "../../../assets/images";
+import { useEffect } from "react";
+import { useRef } from "react";
 
 const cx = classNames.bind(styles);
 
 function PressFeatures() {
+	const pressFeaturesContainerRef = useRef();
+
+	useEffect(() => {
+		// JavaScript
+		const element = pressFeaturesContainerRef.current;
+		// console.log({ element });
+		const isInViewport = (element) => {
+			var bounding = element.getBoundingClientRect(),
+				myElementHeight = element.offsetHeight,
+				myElementWidth = element.offsetWidth; // var declaration
+			console.log(bounding);
+			if (bounding.top >= -myElementHeight
+				&& bounding.left >= -myElementWidth
+				&& bounding.right <= (window.innerWidth || document.documentElement.clientWidth) + myElementWidth
+				&& bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) + myElementHeight) {
+				return true;
+			} else {
+				return false;
+			}
+		};
+		const onScroll = () => {
+			if (isInViewport(element)) {
+				element.style.animation = "fadeInBottom 0.6s ease-in-out 0s 1 normal ";
+				element.style.visibility = "visible";
+			} else {
+				element.style.animation = "none";
+				element.style.visibility = "hidden";
+			}
+		};
+
+		window.addEventListener("scroll", onScroll);
+		return () => {
+			window.removeEventListener("scroll", onScroll);
+		}
+		// eslint-disable-next-line
+	}, [])
 	return (
-		<div className={cx("Container")}>
+		<div ref={pressFeaturesContainerRef} className={cx("Container")}>
 			<div className={cx("FlexCenter")}>
 				<h1 className={cx("HeadingContainer")}>
 					<span className="heading-text">

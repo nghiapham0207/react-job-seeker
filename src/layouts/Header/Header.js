@@ -68,11 +68,11 @@ function Header() {
 								className={(nav) => cx({ Active: nav.isActive })}
 							>danh sách công ty</NavLink>
 						</div>
-						<div className={cx("MenuItem")}>
+						{/* <div className={cx("MenuItem")}>
 							<NavLink to={config.routes.blog}
 								className={(nav) => cx({ Active: nav.isActive })}
 							>blog</NavLink>
-						</div>
+						</div> */}
 						<div className={cx("RightMenuContainer")}>
 							<div className={cx("UserMenuItem")}>
 								<LanguageSwitcherContainer />

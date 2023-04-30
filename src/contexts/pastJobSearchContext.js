@@ -33,6 +33,13 @@ export function PastJobSearchProvider({ children }) {
   const [pastJobSearch, setPastJobSearch] = useState(initState);
   // const [pastJobSearch, setPastJobSearch] = useImmer(initState);
   // useRef
+  /*
+    nên code các hàm action vào đây luôn các action sẽ gọi dispatch,
+    nếu có nhiều provide thì có nhiều dispatch sẽ trùng tên,
+    hoặc là phải đổi tên dispatch,
+    hơn nữa nếu dispatch thì p import 2 thứ, còn code action vào đây chỉ cần
+    import context này
+  */
   const updatePastJobSearch = (newSearch) => {
     // setPastJobSearch(prev => {
     //   if (prev?.length >= 3) {

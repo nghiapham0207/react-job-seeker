@@ -131,48 +131,54 @@ function Opportunity({ openModal }) {
             Việc làm tương tự
           </div>
         </div>
-        <div className={cx("SimilarJobsSection__JobCardWrapper")}>
-          <div className={cx("SimilarJobCard__Card")}>
-            {/* Modal here */}
-            {/* <a target="_blank" href="/" className={cx("CompactOpportunityCard__CardAnchorWrapper")}></a> */}
-            <Link target="_blank" to="/" className={cx("CompactOpportunityCard__CardAnchorWrapper")}></Link>
-            <div>
-              <div className={cx("SimilarJobCard__Container")}>
-                <div className={cx("SimilarJobCard__Logo")}>
-                  <img alt="Logo Company" src="/static/images/defaultImageCompany.webp" />
+        {
+          job.relatedJob.length > 0 ? job.relatedJob.map((relJob) => (
+            <div className={cx("SimilarJobsSection__JobCardWrapper")}
+              key={relJob._id}>
+              <div className={cx("SimilarJobCard__Card")}>
+                {/* Modal here */}
+                {/* <a target="_blank" href="/" className={cx("CompactOpportunityCard__CardAnchorWrapper")}></a> */}
+                <Link target="_blank" to="/" className={cx("CompactOpportunityCard__CardAnchorWrapper")}></Link>
+                <div>
+                  <div className={cx("SimilarJobCard__Container")}>
+                    <div className={cx("SimilarJobCard__Logo")}>
+                      <img alt="Logo Company" src="/static/images/defaultImageCompany.webp" />
+                    </div>
+                    <div className={cx("SimilarJobCard__Detail")}>
+                      <div className={cx("SimilarJobCard__Title")}>
+                        {relJob.name}
+                      </div>
+                      <a alt="Company Name" href="/abc" >{relJob.idCompany._id}</a>
+                      <div className={cx("SimilarJobCard__InfoWrapper")}>
+                        <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faLocation} />
+                        <span>{relJob.locationWorking}</span>
+                      </div>
+                      <div className={cx("SimilarJobCard__InfoWrapper", "SimilarJobCard__SalaryInfoContainer")}>
+                        <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faDollar} />
+                        <span>{relJob.salary}</span>
+                      </div>
+                    </div>
+                    <div className={cx("SimilarJobCard__Bookmark")}>
+                      <div className={cx("BookmarkButton__ButtonWrapper")}>
+                        <FontAwesomeIcon
+                          className={cx("IconStyle__VerticalCenteredSvg", "BookmarkButton__BookmarkOutlineIcon")}
+                          icon={faBookmark} />
+                      </div>
+                    </div>
+                  </div>
+                  <div className={cx("SimilarJobCard__DividerContainer")}>
+                    <div className={cx("DividerStyle__DividerContainer")}></div>
+                  </div>
+                  <div className={cx("SimilarJobCard__Footer")}>
+                    <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faClock} />
+                    <span>Hạn nộp hồ sơ: {dateToString(relJob.deadline)}</span>
+                  </div>
                 </div>
-                <div className={cx("SimilarJobCard__Detail")}>
-                  <div className={cx("SimilarJobCard__Title")}>
-                    Job name here
-                  </div>
-                  <a alt="Company Name" href="/abc" >Company here</a>
-                  <div className={cx("SimilarJobCard__InfoWrapper")}>
-                    <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faLocation} />
-                    <span>Hồ Chí Minh, Việt nam</span>
-                  </div>
-                  <div className={cx("SimilarJobCard__InfoWrapper", "SimilarJobCard__SalaryInfoContainer")}>
-                    <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faDollar} />
-                    <span>Salary here</span>
-                  </div>
-                </div>
-                <div className={cx("SimilarJobCard__Bookmark")}>
-                  <div className={cx("BookmarkButton__ButtonWrapper")}>
-                    <FontAwesomeIcon
-                      className={cx("IconStyle__VerticalCenteredSvg", "BookmarkButton__BookmarkOutlineIcon")}
-                      icon={faBookmark} />
-                  </div>
-                </div>
-              </div>
-              <div className={cx("SimilarJobCard__DividerContainer")}>
-                <div className={cx("DividerStyle__DividerContainer")}></div>
-              </div>
-              <div className={cx("SimilarJobCard__Footer")}>
-                <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faClock} />
-                <span>Cập nhật tháng trước</span>
               </div>
             </div>
-          </div>
-        </div>
+          )) :
+          "Không tìm thấy việc làm tương tự"
+        }
       </div>
     </aside>
   </div>

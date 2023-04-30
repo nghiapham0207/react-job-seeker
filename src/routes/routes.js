@@ -3,7 +3,7 @@ import config from "../config";
 import Home from "../pages/Home";
 import JobPage from "../pages/JobPage";
 import Company from "../pages/Company";
-import BlogPage from "../pages/BlogPage";
+// import BlogPage from "../pages/BlogPage";
 import DetailJob from "../pages/DetailJob";
 import ErrorPage from "../pages/ErrorPage";
 import SignUp from "../pages/SignUp";
@@ -24,7 +24,7 @@ const settingRoutes = [
 export const publicRoutes = [
     { key: "1", path: config.routes.home, component: Home },
     { key: "2", path: config.routes.company, component: Company },
-    { key: "3", path: config.routes.blog, component: BlogPage },
+    // { key: "3", path: config.routes.blog, component: BlogPage },
     { key: "4", path: config.routes.error, component: ErrorPage },
     { key: "5", path: config.routes.job, component: JobPage },
     { key: "6", path: config.routes.detailJob, component: DetailJob },

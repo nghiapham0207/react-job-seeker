@@ -121,3 +121,12 @@
         display: none;
     }
 }
+
+@keyframes fadeInBottom {
+    0%{
+        transform: translateX(20%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
