@@ -8,7 +8,6 @@ import {
   SolidBtnContainer, SolidButton
 } from "../../components/ButtonStyle";
 import { get, path } from "../../utils/axiosAPI";
-import { config } from "../../config";
 import { dateToString } from "../../utils/helpers";
 
 const cx = classNames.bind(styles);
@@ -135,7 +134,7 @@ function DetailCompany() {
             <main className={cx("CompanyPage__CardContent")}>
               <div>
                 <div className={cx("Gallery__HeaderWrapper")}>
-                  <img src="/static/images/lib1.webp" />
+                  <img src="/static/images/lib1.webp" alt={company.name} />
                 </div>
               </div>
             </main>
