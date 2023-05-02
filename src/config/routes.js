@@ -3,6 +3,7 @@ const routes = {
     home: "/",
     detailJob: "/job/:_id",
     company: "/company",
+    detailCompany: "/company/:_id",
     blog: "/blog",
     signUp: "/sign-up",
     forgotPassword: "/forgot-password",

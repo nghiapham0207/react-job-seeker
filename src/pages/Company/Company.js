@@ -1,40 +1,29 @@
+import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 
 import styles from "./Company.module.scss";
 import { useDocumentTitle } from "../../hooks";
 import GlintContainer from "../../components/GlintContainer";
 import { Fragment, useEffect, useRef, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import { Pagination } from "../../components/Pagination";
 import InfiniteScrollContainer from "../../components/InfiniteScroll";
 import { Paragraph } from "../../components/ParagraphStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHotel } from "@fortawesome/free-solid-svg-icons";
-
+import { get, path } from "../../utils/axiosAPI";
+import config from "../../config";
 
 const cx = classNames.bind(styles);
 
-// function PaginationItem({ id, handleItemClick, active, children }) {
-// 	return (
-// 		<div
-// 			id={id}
-// 			onClick={handleItemClick}
-// 			style={{
-// 				backgroundColor: active ? "red" : "orange",
-// 				cursor: "pointer"
-// 			}} >
-// 			{children}
-// 		</div>
-// 	)
-// }
-
 function Company() {
 	useDocumentTitle("Danh Sách Công Ty");
-	console.log("Company Page");
+	// console.log("Company Page");
 	const [currentPage, setCurrentPage] = useState(1);
 	const [companies, setCompanies] = useState([]);
 	const [loading, setLoading] = useState(true);
-	const pageSizeRef = useRef(10);
+	const pageSizeRef = useRef(0);
+	const pageLimit = useRef(0);
 	const handlePageChange = (page) => {
 		setCurrentPage(page);
 	}
@@ -43,9 +32,16 @@ function Company() {
 			setLoading(true);
 			window.scrollTo(0, 0);
 			try {
-				const res = await axios.get(`https://jsonplaceholder.typicode.com/comments?_page=${currentPage}&_limit=${pageSizeRef.current}`);
-				console.log(res);
-				setCompanies(res.data);
+				// const res = await axios.get(`https://jsonplaceholder.typicode.com/comments?_page=${currentPage}&_limit=${pageSizeRef.current}`);
+				// console.log(res);
+				const res = await get(path.companies, {
+					params: {
+						page: currentPage - 1
+					}
+				});
+				pageSizeRef.current = res.data.total_page;
+				pageLimit.current = res.data.page_limit;
+				setCompanies(res.data.data);
 			} catch (error) {
 				console.log(error);
 			} finally {
@@ -71,8 +67,9 @@ function Company() {
 							<div className={cx("CompanyCardGrid")}>
 								{
 									companies.map((company) => (
-										<Fragment key={company.id}>
-											<div className={cx("styles__Anchor")}>
+										<Fragment key={company._id}>
+											<Link to={`${config.routes.company}/${company._id}`}
+												className={cx("styles__Anchor")}>
 												<div className={cx("styles__Card")}>
 													<div className={cx("styles__CardHeader")}>
 														<img alt={company.name}
@@ -85,34 +82,35 @@ function Company() {
 																{company.name}
 															</Paragraph>
 															<Paragraph>
-																{company.location || "Address"}
+																{company.location || "Chưa cập nhật địa chỉ"}
 															</Paragraph>
 														</div>
 													</div>
 													<div className={cx("styles__Row", "styles__InfoRow")}>
 														<FontAwesomeIcon icon={faHotel} />
 														<Paragraph>
-															{company.type || "Loại công ty"}
+															{company.type || "Chưa cập nhật loại công ty"}
 														</Paragraph>
 													</div>
 													<div className={cx("styles__Row", "styles__InfoRow")}>
 														<Paragraph>
-															Quy mô:
+															{"Quy mô: "}
 															{
 																company.totalEmployee ?
-																	company.totalEmployee + " Nhân viên" : " 500 Nhân viên"
+																	company.totalEmployee + " Nhân viên" : " Chưa cập nhật số lượng nhân viên"
 															}
 														</Paragraph>
 													</div>
 												</div>
-											</div>
+											</Link>
 										</Fragment>
 									))
 								}
 							</div>
 							<div className={cx("PaginationContainer")}>
 								<Pagination
-									totalCount={50 * pageSizeRef.current}
+									totalCount={pageLimit.current * pageSizeRef.current}
+									totalPage={pageSizeRef.current}
 									onPageChange={handlePageChange}
 									currentPage={currentPage}
 									pageSize={pageSizeRef.current} />

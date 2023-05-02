@@ -5,6 +5,7 @@ const DOTS = "...";
 // return range
 function usePagination(
   totalCount,
+  totalPage = 0,
   pageSize,
   siblingCount = 1,
   currentPage
@@ -16,7 +17,8 @@ function usePagination(
     return Array.from({ length }, (_, index) => (index + start));
   }
   const paginationRange = useMemo(() => {
-    const totalPageCount = Math.ceil(totalCount / pageSize);
+    // const totalPageCount = Math.ceil(totalCount / pageSize);
+    const totalPageCount = totalPage;
     // siblingCount + firstPage + lastPage + currentPage + 2*DOTS
     const totalPageNumbers = siblingCount + 5; // UI
     /*
@@ -64,7 +66,7 @@ function usePagination(
       let middleRange = range(leftSiblingIndex, rightSiblingIndex);
       return [firstPageIndex, DOTS + "L", ...middleRange, DOTS + "R", lastPageIndex];
     }
-  }, [totalCount, pageSize, siblingCount, currentPage]);
+  }, [totalPage, siblingCount, currentPage]);
   return paginationRange;
 }
 

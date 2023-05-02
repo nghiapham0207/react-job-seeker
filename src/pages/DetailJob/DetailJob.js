@@ -24,7 +24,7 @@ export const JobContext = createContext();
 
 function DetailJob() {
   // console.log("Render DetailJob");
-  useDocumentTitle("Chi Tiết Công Việc");
+  useDocumentTitle("Chi Tiết Công Việc", true);
   const UserActionsContext = useUserActions();
   const { handleShowLogin } = UserActionsContext;
   const [showPsychFlat, setShowPsychFlat] = useState(false);

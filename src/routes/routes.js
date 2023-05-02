@@ -15,6 +15,7 @@ import HeaderOnly from "../layouts/HeaderOnly";
 import SidebarSetting from "../layouts/SidebarSetting/SidebarSetting";
 import ChangePasswordPage from "../pages/ChangePasswordPage/ChangePasswordPage";
 import EditProfilePage from "../pages/EditProfilePage/EditProfilePage";
+import DetailCompany from "../pages/DetailCompany/DetailCompany";
 
 const settingRoutes = [
     { key: "change-password", path: "change-password", component: ChangePasswordPage },
@@ -24,6 +25,7 @@ const settingRoutes = [
 export const publicRoutes = [
     { key: "1", path: config.routes.home, component: Home },
     { key: "2", path: config.routes.company, component: Company },
+    { path: config.routes.detailCompany, component: DetailCompany },
     // { key: "3", path: config.routes.blog, component: BlogPage },
     { key: "4", path: config.routes.error, component: ErrorPage },
     { key: "5", path: config.routes.job, component: JobPage },

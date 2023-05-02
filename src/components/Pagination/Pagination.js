@@ -10,12 +10,14 @@ const cx = classNames.bind(styles);
 function Pagination({
   onPageChange,
   totalCount,
+  totalPage = 0,
   siblingCount = 1,
   currentPage,
   pageSize,
   className
 }) {
-  const paginationRange = usePagination(totalCount, pageSize, siblingCount, currentPage);
+  // console.log(totalCount);
+  const paginationRange = usePagination(totalCount, totalPage, pageSize, siblingCount, currentPage);
   const onPrevious = () => {
     console.log("onPrevious");
     onPageChange(currentPage - 1);

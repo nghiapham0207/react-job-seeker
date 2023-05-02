@@ -1,0 +1,224 @@
+.CompanyPage__Container {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.CompanyPage__Header {
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .CompanyPage__Header {
+        text-align: initial;
+    }
+}
+
+.CompanyPage__BannerContainer {
+    position: relative;
+    overflow: hidden;
+    padding-top: 50%;
+}
+
+@media (min-width: 768px) {
+    .CompanyPage__BannerContainer {
+        padding-top: 30%;
+    }
+}
+
+.CompanyPage__BannerPicture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.CompanyPage__Card {
+    padding: 25px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+    &+.CompanyPage__Card {
+        margin-top: 22px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .CompanyPage__OverviewCard {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "logo overview" "footer footer";
+    }
+}
+
+.CompanyPage__CardTitle {
+    margin-top: 5px;
+}
+
+.CompanyPage__CardSubTitle {
+    font-size: 16px;
+}
+
+.CompanyPage__HorizontalRuler {
+    border: none;
+    height: 2px;
+    background-color: rgb(243, 243, 243);
+    margin-block: 0.5em;
+}
+
+.CompanyPage__CardContent {
+    margin-top: 20px;
+}
+
+.CompanyPage__Logo {
+    display: block;
+    width: 180px;
+    height: 180px;
+    margin: 3px auto;
+    object-fit: contain;
+}
+
+.CompanyPage__Overview {
+    margin-top: 17px;
+}
+
+@media (min-width: 1024px) {
+    .CompanyPage__Overview {
+        margin-top: 0;
+        margin-left: 30px;
+    }
+}
+
+.CompanyPage__Name {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.CompanyPage__Tagline {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.CompanyPage__AttributeList {
+    margin-top: 40px;
+    margin-bottom: 14px;
+}
+
+@media (min-width:1024px) {
+    .CompanyPage__Tagline {
+        margin: 0;
+    }
+
+    .CompanyPage__AttributeList {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: 100px 1fr 100px 1fr;
+        grid-template-rows: auto;
+        gap: 15px 16px;
+    }
+}
+
+.CompanyPage__AttributeKey {
+    font-size: 14px;
+    color: var(--secondary-color);
+}
+
+.CompanyPage__AttributeValue {
+    font-size: 16px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &+.CompanyPage__AttributeKey {
+        margin-top: 15px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .CompanyPage__AttributeValue {
+        &+.CompanyPage__AttributeKey {
+            margin-top: 0;
+        }
+    }
+
+    .CompanyPage__OverviewFooter {
+        grid-area: footer/footer/footer/footer;
+        display: flex;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+        padding-top: 30px;
+        margin-top: 22px;
+        border-top: 1px solid rgb(221, 221, 221);
+    }
+}
+
+.CompanyPage__ViewJobsButton {
+    margin-top: 30px;
+}
+
+.CompanyPage__Main {
+    margin-top: 22px;
+}
+
+.CompanyPage__JobListItem {
+    position: relative;
+    padding: 20px 0;
+    list-style-type: none;
+
+    &:first-child,
+    &+.CompanyPage__JobListItem {
+        border-top: 1px solid rgb(221, 221, 221);
+    }
+
+    &:last-child {
+        border-bottom: 1px solid rgb(221, 221, 221);
+    }
+
+    & a {
+        display: block;
+    }
+}
+
+.CompanyPage__JobLocation {
+    margin: 0px;
+    font-size: 14px;
+    line-height: 22.4px;
+    color: rgb(119, 119, 119);
+}
+
+.CompanyPage__JobPostedDate {
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 22.4px;
+    color: rgb(119, 119, 119);
+}
+
+.CompanyPage__RightColumn {
+    margin-top: 20px;
+}
+
+.Gallery__HeaderWrapper {
+    & img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width:1024px) {
+    .CompanyPage__ViewJobsButton {
+        margin-top: 0;
+    }
+
+    .CompanyPage__Main {
+        display: grid;
+        grid-template: "left right" / auto 340px;
+        column-gap: 30px;
+    }
+
+    .CompanyPage__RightColumn {
+        margin: 0;
+        grid-area: right/right/right/right;
+    }
+}
