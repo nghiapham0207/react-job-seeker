@@ -11,12 +11,6 @@
     grid-template-columns: 1fr;
 }
 
-@media (min-width: 768px) {
-    .CompactJobCardList__JobCardListContainer{
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 .CompactOpportunityCard__CompactJobCardWrapper {
     min-width: 100%;
 }
@@ -133,4 +127,14 @@
 .CompactOpportunityCard__UpdatedAtMessage {
     color: rgb(0, 132, 100);
     font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    .CompactJobCardList__JobCardListContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .CompactOpportunityCard__CompactJobCard {
+        height: 100%;
+    }
 }
