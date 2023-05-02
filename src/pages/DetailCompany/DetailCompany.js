@@ -9,6 +9,8 @@ import {
 } from "../../components/ButtonStyle";
 import { get, path } from "../../utils/axiosAPI";
 import { dateToString } from "../../utils/helpers";
+import Error from "../../components/Error";
+import InfiniteScrollContainer from "../../components/InfiniteScroll/InfiniteScrollContainer";
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +19,8 @@ function DetailCompany() {
   const jobListRef = useRef();
   const [company, setCompany] = useState({});
   const [jobById, setJobById] = useState([]);
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,11 +36,22 @@ function DetailCompany() {
         setJobById(jobByIdRes.data);
       } catch (error) {
         console.log(error);
+        setError(true);
+      } finally {
+        setIsLoading(false);
       }
     }
     fetchData();
     // eslint-disable-next-line
   }, []);
+  if (isLoading) {
+    return <>
+      <InfiniteScrollContainer width="4rem" height="4rem" />
+    </>
+  }
+  if (error) {
+    return <Error />
+  }
   return (
     <GlintContainer className={cx("CompanyPage__Container")}>
       <header className={cx("CompanyPage__Header")}>

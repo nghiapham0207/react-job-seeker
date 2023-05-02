@@ -35,11 +35,10 @@ function JobList({ jobList }) {
                     </h3>
                     <span className={cx("CompactOpportunityCard__CompanyLinkContainer")}>
                       <div className={cx("CompactOpportunityCard__Ellipsis")}>
-                        <a className={cx("CompactOpportunityCard__CompanyLink")}
-                          href="www.google.com" >
-                          {/* code findOne company here */}
+                        <Link className={cx("CompactOpportunityCard__CompanyLink")}
+                          to={`/company/${job.idCompany?._id}`} >
                           {job.idCompany?.name}
-                        </a>
+                        </Link>
                       </div>
                     </span>
                   </div>

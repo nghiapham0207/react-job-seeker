@@ -148,7 +148,7 @@ function Opportunity({ openModal }) {
                       <div className={cx("SimilarJobCard__Title")}>
                         {relJob.name}
                       </div>
-                      <a alt="Company Name" href="/abc" >{relJob.idCompany._id}</a>
+                      <Link to={`/company/${relJob.idCompany._id}`}>{relJob.idCompany.name}</Link>
                       <div className={cx("SimilarJobCard__InfoWrapper")}>
                         <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faLocation} />
                         <span>{relJob.locationWorking}</span>
@@ -177,7 +177,7 @@ function Opportunity({ openModal }) {
               </div>
             </div>
           )) :
-          "Không tìm thấy việc làm tương tự"
+            "Không tìm thấy việc làm tương tự"
         }
       </div>
     </aside>
