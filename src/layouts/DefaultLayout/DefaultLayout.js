@@ -9,11 +9,11 @@ import Footer from '../Footer/Footer';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import ScrollTopContainer from '../../components/ScrollTopButton/ScrollTopContainer';
 import MobileMenu from '../MobileMenu/MobileMenu';
-import ModalContainer from '../../components/ModalStyle/ModalContainer';
-import ModalHeader from '../../components/ModalStyle/ModalHeader';
-import ModalDialog from '../../components/ModalStyle/ModalDialog';
-import ModalContentArea from '../../components/ModalStyle/ModalContentArea';
-import { toast } from 'react-toastify';
+// import ModalContainer from '../../components/ModalStyle/ModalContainer';
+// import ModalHeader from '../../components/ModalStyle/ModalHeader';
+// import ModalDialog from '../../components/ModalStyle/ModalDialog';
+// import ModalContentArea from '../../components/ModalStyle/ModalContentArea';
+// import { toast } from 'react-toastify';
 
 const cx = classNames.bind(styles);
 
