@@ -44,7 +44,7 @@ function Opportunity({ openModal }) {
             <div className={cx("TopFold__JobOverViewCompanyInfo")}>
               <div className={cx("TopFold__JobOverViewCompanyName")}>
                 {/* <a href="https://www.google.com">{job?.idCompany?.name}</a> */}
-                <Link to={`/company/${job.idCompany?._id}`}>{job?.idOccupation?.name}</Link>
+                <Link to={`/company/${job.idCompany?._id}`}>{job?.idCompany?.name}</Link>
               </div>
             </div>
           </div>
