@@ -8,7 +8,7 @@ import {
   SolidBtnContainer, SolidButton
 } from "../../components/ButtonStyle";
 import { get, path } from "../../utils/axiosAPI";
-import { dateToString } from "../../utils/helpers";
+import { dateDiff, dateString } from "../../utils/helpers";
 import Error from "../../components/Error";
 import InfiniteScrollContainer from "../../components/InfiniteScroll/InfiniteScrollContainer";
 
@@ -133,8 +133,7 @@ function DetailCompany() {
                         {job.locationWorking}
                       </p>
                       <time className={cx("CompanyPage__JobPostedDate")}>
-                        {"Ngày đăng: "}
-                        {dateToString(job.postingDate)}
+                        {dateString(dateDiff(job.postingDate), "Đăng ")}
                       </time>
                     </Link>
                   </li>

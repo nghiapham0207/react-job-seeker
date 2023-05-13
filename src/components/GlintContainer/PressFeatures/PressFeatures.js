@@ -18,7 +18,7 @@ function PressFeatures() {
 			var bounding = element.getBoundingClientRect(),
 				myElementHeight = element.offsetHeight,
 				myElementWidth = element.offsetWidth; // var declaration
-			console.log(bounding);
+			// console.log(bounding);
 			if (bounding.top >= -myElementHeight
 				&& bounding.left >= -myElementWidth
 				&& bounding.right <= (window.innerWidth || document.documentElement.clientWidth) + myElementWidth

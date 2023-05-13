@@ -4,26 +4,15 @@ import { useContext } from "react";
 import styles from "./OpportunitySticky.module.scss";
 import { JobContext } from "../../pages/DetailJob";
 import { SolidBtnContainer, SolidButton } from "../ButtonStyle";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
 function OpportunitySticky({ openModal }) {
-  // const [showJobOverView, setShowJobOverView] = useState(true);
   const job = useContext(JobContext);
   return <div className={cx("OpportunityStickyContainer")}>
     <div className={cx("GlintContainer", "StyledGlintContainer")}>
       <div className={cx("FlexingContainer")}>
-        {/* {
-          window.matchMedia("(min-width: 640px)").addEventListener("change", (e) => {
-            if (e.matches) {
-              setShowJobOverView(true);
-            } else {
-              setShowJobOverView(false);
-            }
-          })
-        } */}
-        {/* {
-          showJobOverView && */}
         < div className={cx("JobOverViewContainer")}>
           <div>
             <div className={cx("JobOverViewHeader")}>
@@ -34,22 +23,14 @@ function OpportunitySticky({ openModal }) {
             <div className={cx("BadgesAndCompanyInfoContainer")}>
               <div className={cx("JobOverViewCompanyInfo")}>
                 <div className={cx("JobOverViewCompanyName")}>
-                  <a href="/company/sadsdas">{job?.idCompany?.name}</a>
+                  <Link to={`/company/${job.idCompany?._id}`}>{job?.idOccupation?.name}</Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {/* } */}
         <div className={cx("StickyButtonContainer")}>
           <div className={cx("ApplyButton__ApplyButton")}>
-            {/* <div className={cx("ButtonStyle__SolidBtnContainer")}>
-              <button type="button"
-                className={cx("ButtonStyle__Button", "ButtonStyle__SolidBtn")}
-                onClick={openModal} >
-                Ứng tuyển nhanh
-              </button>
-            </div> */}
             <SolidBtnContainer>
               <SolidButton
                 disable={job.isApply ? true : false}

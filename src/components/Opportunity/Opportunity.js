@@ -1,3 +1,5 @@
+import { useContext, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import {
   faBookmark,
   faCircle,
@@ -9,14 +11,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
-import { useContext, useEffect, useRef } from "react";
 
 import { JobContext } from "../../pages/DetailJob";
 import ReadMore from "../ReadMore/ReadMore";
 import styles from "./Opportunity.module.scss";
 import { SolidBtnContainer, SolidButton } from "../ButtonStyle";
-import { dateToString } from "../../utils/helpers";
-import { Link } from "react-router-dom";
+import { dateDiff, dateString } from "../../utils/helpers";
 
 const cx = classNames.bind(styles);
 
@@ -43,7 +43,8 @@ function Opportunity({ openModal }) {
             </div>
             <div className={cx("TopFold__JobOverViewCompanyInfo")}>
               <div className={cx("TopFold__JobOverViewCompanyName")}>
-                <a href="https://www.google.com">{job?.idCompany?.name}</a>
+                {/* <a href="https://www.google.com">{job?.idCompany?.name}</a> */}
+                <Link to={`/company/${job.idCompany?._id}`}>{job?.idOccupation?.name}</Link>
               </div>
             </div>
           </div>
@@ -63,7 +64,7 @@ function Opportunity({ openModal }) {
         </div>
         <div className={cx("TopFold__JobOverViewInfo")}>
           <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faHotel} />
-          <a href="https://google.com">{job?.idOccupation?.name}</a>
+          {job?.idOccupation?.name}
         </div>
         <div className={cx("TopFold__JobOverViewInfo")}>
           <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faHourglassStart} />
@@ -72,20 +73,14 @@ function Opportunity({ openModal }) {
         <div className={cx("TopFold__BadgesAndJobOverViewTimeContainer")}>
           <div className={cx("TopFold__JobOverViewTime")}>
             <FontAwesomeIcon icon={faClock} />
-            <span className={cx("TopFold__PostedAt")}>{"Ngày đăng"}</span>
+            <span className={cx("TopFold__PostedAt")}>{dateString(dateDiff(job.postingDate), "Đăng ")}</span>
             <FontAwesomeIcon width={4} height={4} className={cx("IconStyle__VerticalCenteredSvg")} icon={faCircle} />
-            <span className={cx("TopFold__UpdateAt")}>{dateToString(job.postingDate)}</span>
+            <span className={cx("TopFold__UpdateAt")}>{dateString(dateDiff(job.updateDate))}</span>
           </div>
         </div>
         <div className={cx("TopFold__ButtonContainer")}>
           <div className={cx("TopFold__ApplyButtonDesktop")}>
             <div className={cx("ApplyButton__ApplyButton")}>
-              {/* <div className={cx("ButtonStyle__SolidBtnContainer")}>
-                <button type="button" className={cx("ButtonStyle__Button", "ButtonStyle__SolidBtn")}
-                  onClick={openModal} >
-                  Ứng tuyển nhanh
-                </button>
-              </div> */}
               <SolidBtnContainer>
                 <SolidButton
                   disable={job.isApply ? true : false}
@@ -171,7 +166,7 @@ function Opportunity({ openModal }) {
                   </div>
                   <div className={cx("SimilarJobCard__Footer")}>
                     <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faClock} />
-                    <span>Hạn nộp hồ sơ: {dateToString(relJob.deadline)}</span>
+                    <span>{dateString(dateDiff(job.postingDate))}</span>
                   </div>
                 </div>
               </div>

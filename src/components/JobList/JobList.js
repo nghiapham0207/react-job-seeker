@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import styles from "./JobList.module.scss";
-import { dateToString } from "../../utils/helpers";
+import { dateDiff, dateString } from "../../utils/helpers";
 
 const cx = classNames.bind(styles);
 
@@ -75,7 +75,7 @@ function JobList({ jobList }) {
                     <div className={cx("CompactOpportunityCard__UpdatedTimeContainer")}>
                       <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faClock} />
                       <span className={cx("CompactOpportunityCard__UpdatedAtMessage")}>
-                        {"Ngày đăng: " + dateToString(job.postingDate)}
+                        {dateString(dateDiff(job.updateDate))}
                       </span>
                     </div>
                   </div>

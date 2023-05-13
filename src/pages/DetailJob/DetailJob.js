@@ -56,7 +56,7 @@ function DetailJob() {
             Authorization: currentUser ? `Bearer ${accessToken}` : null
           }
         }, axiosInstance);
-        console.log(res);
+        // console.log(res);
         setJob(res.data);
       } catch (error) {
         console.log(error);
@@ -80,7 +80,6 @@ function DetailJob() {
               </InfiniteScrollContainer>
             </div> :
             <JobContext.Provider value={job}>
-              {/* breadcrumpm has not completed yet */}
               <BreadCrumbContainer>
                 <BreadCrumbInner>
                   <BreadCrumbItemWrapper active

@@ -30,3 +30,37 @@ export const dateToString = (stringDate) => {
   // return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`
   return `${day}/${month}/${year}`
 }
+
+export const dateDiff = (dateString) => {
+  const date = new Date(dateString);
+  const dateNow = Date.now();
+  const diff = Math.abs(dateNow - date.getTime());
+  // console.log(typeof diff);
+  return diff;
+}
+
+export const dateString = (dateDiff, message = "Cập nhật ") => {
+  const second = Math.round(dateDiff / 1000);
+  const minute = Math.round(second / 60);
+  const hour = Math.round(minute / 60);
+  const day = Math.round(hour / 24);
+  const month = Math.round(day / 30);
+  const year = Math.round(month / 12);
+  let result = message;
+  if (year !== 0) {
+    result += year + " năm trước";
+  } else if (month !== 0) {
+    result += month + " tháng trước";
+  } else if (day !== 0) {
+    if (day === 1) {
+      result += "Hôm qua";
+    } else {
+      result += day + " ngày trước";
+    }
+  } else if (hour !== 0) {
+    result += hour + " giờ trước";
+  } else {
+    result = "Vừa mới " + message.toLowerCase();
+  }
+  return result;
+}

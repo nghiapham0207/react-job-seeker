@@ -9,11 +9,21 @@ import Footer from '../Footer/Footer';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import ScrollTopContainer from '../../components/ScrollTopButton/ScrollTopContainer';
 import MobileMenu from '../MobileMenu/MobileMenu';
+import ModalContainer from '../../components/ModalStyle/ModalContainer';
+import ModalHeader from '../../components/ModalStyle/ModalHeader';
+import ModalDialog from '../../components/ModalStyle/ModalDialog';
+import ModalContentArea from '../../components/ModalStyle/ModalContentArea';
+import { toast } from 'react-toastify';
 
 const cx = classNames.bind(styles);
 
 function DefaultLayout({ children }) {
 	const [gotoTop, setGoToTop] = useState(false);
+	// toast.info("Server sẽ tự động tắt sau một thời gian không sử dụng, vui lòng đợi phản hồi từ server", {
+	// 	position: "top-center",
+	// 	autoClose: false,
+	// 	closeButton: true
+	// });
 	// const ref = useRef();
 	useEffect(() => {
 		const handleScroll = () => {
@@ -31,6 +41,13 @@ function DefaultLayout({ children }) {
 	return (
 		<div>
 			{/* Modal here */}
+			{/* <ModalContainer>
+				<ModalDialog>
+					<ModalContentArea>
+						<ModalHeader header={"Server sẽ tự động tắt sau một thời gian không sử dụng, vui lòng đợi phản hồi từ server"}/>
+					</ModalContentArea>
+				</ModalDialog>
+			</ModalContainer> */}
 			<div className={cx("DrawerContainer")}>
 				<div className={cx("fresnel-lessThan-desktopS")}>
 					<MobileMenu />

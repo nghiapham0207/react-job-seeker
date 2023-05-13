@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHotel } from "@fortawesome/free-solid-svg-icons";
 import { get, path } from "../../utils/axiosAPI";
 import config from "../../config";
+import { toast } from "react-toastify";
 
 const cx = classNames.bind(styles);
 
@@ -33,7 +34,6 @@ function Company() {
 			window.scrollTo(0, 0);
 			try {
 				// const res = await axios.get(`https://jsonplaceholder.typicode.com/comments?_page=${currentPage}&_limit=${pageSizeRef.current}`);
-				// console.log(res);
 				const res = await get(path.companies, {
 					params: {
 						page: currentPage - 1
@@ -43,7 +43,7 @@ function Company() {
 				pageLimit.current = res.data.page_limit;
 				setCompanies(res.data.data);
 			} catch (error) {
-				console.log(error);
+				toast.error(error.response.data.message);
 			} finally {
 				setLoading(false);
 			}

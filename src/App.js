@@ -1,4 +1,4 @@
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PropTypes from "prop-types";
@@ -9,7 +9,7 @@ import { selectUser } from './redux/selector';
 import './App.css'; // to prioritize classes passed into component
 
 const ProtectedRoute = (({ user, redirectPath = '/' }) => {
-	console.log("render ProtectedRoute");
+	// console.log("render ProtectedRoute");
 	const currentPathName = window.location.pathname;
 	if (!user) {
 		return <Navigate to={`${redirectPath}?next=${encodeURIComponent(currentPathName)}`}
@@ -20,7 +20,6 @@ const ProtectedRoute = (({ user, redirectPath = '/' }) => {
 });
 
 function App() {
-	// console.log("render App");
 	const currentUser = useSelector(selectUser);
 	return (
 		<BrowserRouter>
