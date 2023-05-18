@@ -9,8 +9,7 @@ const cx = classNames.bind(styles);
 
 function TagContainer({ keyword, isClickable = false, className, tabIndex = 0, children }) {
   const dispatch = useDispatch();
-  const SearchInputContext = useSearchInput();
-  const { setSearchInput } = SearchInputContext;
+  const { setSearchInput } = useSearchInput();
   return (
     <div tabIndex={tabIndex}
       onClick={() => {

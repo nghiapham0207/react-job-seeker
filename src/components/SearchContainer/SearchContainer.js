@@ -77,7 +77,6 @@ function SearchContainer(isHomePage = false) {
               keyword: deferredValue
             }
           })
-          console.log(res);
           setSuggestionKey(res.data);
         } catch (error) {
           console.log(error);
@@ -89,7 +88,6 @@ function SearchContainer(isHomePage = false) {
     }
   }, [deferredValue])
   const handleEnter = (searchInput) => {
-    console.log("Keyword when enter pressed:", searchInput);
     if (isHomePage && searchInput) {
       setShowSuggestion(false);
       navigate(routes.job);
@@ -108,12 +106,12 @@ function SearchContainer(isHomePage = false) {
       setShowSuggestion(true);
     }
   }
-  const handleOutsideClick = (e) => {
-    if (!suggestionRef?.current?.contains(e.target) && e.target !== inputRef.current) {
-      setShowSuggestion(false);
-    }
-  }
   useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (!suggestionRef?.current?.contains(e.target) && e.target !== inputRef.current) {
+        setShowSuggestion(false);
+      }
+    }
     window.addEventListener("mousedown", handleOutsideClick);
     return () => {
       window.removeEventListener("mousedown", handleOutsideClick);

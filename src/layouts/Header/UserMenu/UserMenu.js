@@ -20,7 +20,6 @@ function UserMenu({ currentUser }) {
   const refreshToken = useSelector(selectRefreshToken);
   const dispatch = useDispatch();
   const [showUserMenu, setShowUserMenu] = useState(false);
-  // console.log(currentUser);
   const handleLogout = () => {
     logout(accessToken, refreshToken, dispatch);
   }

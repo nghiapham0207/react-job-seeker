@@ -19,6 +19,9 @@ const cx = classNames.bind(styles);
 
 function Company() {
 	useDocumentTitle("Danh Sách Công Ty");
+	const a = get;
+	const b = get;
+	console.log("cc", a === b);
 	// console.log("Company Page");
 	const [currentPage, setCurrentPage] = useState(1);
 	const [companies, setCompanies] = useState([]);
@@ -64,49 +67,56 @@ function Company() {
 							</InfiniteScrollContainer>
 						</div> :
 						<>
-							<div className={cx("CompanyCardGrid")}>
-								{
-									companies.map((company) => (
-										<Fragment key={company._id}>
-											<Link to={`${config.routes.company}/${company._id}`}
-												className={cx("styles__Anchor")}>
-												<div className={cx("styles__Card")}>
-													<div className={cx("styles__CardHeader")}>
-														<img alt={company.name}
-															className={cx("styles__CompanyLogo")}
-															src={company.avatar ?
-																company.avatar :
-																"/static/images/defaultImageCompany.webp"} />
-														<div className={cx("styles__TextWrapper")}>
-															<Paragraph bold="500" className={cx("styles__CompanyName")}>
-																{company.name}
-															</Paragraph>
-															<Paragraph>
-																{company.location || "Chưa cập nhật địa chỉ"}
-															</Paragraph>
+							{
+								companies?.length <= 0 ?
+									<div className={cx("EmptyView")}>
+										{"Không có dữ liệu"}
+									</div> :
+									<div className={cx("CompanyCardGrid")}>
+										{
+											companies.map((company) => (
+												<Fragment key={company._id}>
+													<Link to={`${config.routes.company}/${company._id}`}
+														className={cx("styles__Anchor")}>
+														<div className={cx("styles__Card")}>
+															<div className={cx("styles__CardHeader")}>
+																<img alt={company.name}
+																	className={cx("styles__CompanyLogo")}
+																	src={company.avatar ?
+																		company.avatar :
+																		"/static/images/defaultImageCompany.webp"} />
+																<div className={cx("styles__TextWrapper")}>
+																	<Paragraph bold="500" className={cx("styles__CompanyName")}>
+																		{company.name}
+																	</Paragraph>
+																	<Paragraph>
+																		{company.location || "Chưa cập nhật địa chỉ"}
+																	</Paragraph>
+																</div>
+															</div>
+															<div className={cx("styles__Row", "styles__InfoRow")}>
+																<FontAwesomeIcon icon={faHotel} />
+																<Paragraph>
+																	{company.type || "Chưa cập nhật loại công ty"}
+																</Paragraph>
+															</div>
+															<div className={cx("styles__Row", "styles__InfoRow")}>
+																<Paragraph>
+																	{"Quy mô: "}
+																	{
+																		company.totalEmployee ?
+																			company.totalEmployee + " Nhân viên" : " Chưa cập nhật số lượng nhân viên"
+																	}
+																</Paragraph>
+															</div>
 														</div>
-													</div>
-													<div className={cx("styles__Row", "styles__InfoRow")}>
-														<FontAwesomeIcon icon={faHotel} />
-														<Paragraph>
-															{company.type || "Chưa cập nhật loại công ty"}
-														</Paragraph>
-													</div>
-													<div className={cx("styles__Row", "styles__InfoRow")}>
-														<Paragraph>
-															{"Quy mô: "}
-															{
-																company.totalEmployee ?
-																	company.totalEmployee + " Nhân viên" : " Chưa cập nhật số lượng nhân viên"
-															}
-														</Paragraph>
-													</div>
-												</div>
-											</Link>
-										</Fragment>
-									))
-								}
-							</div>
+													</Link>
+												</Fragment>
+											))
+										}
+									</div>
+
+							}
 							<div className={cx("PaginationContainer")}>
 								<Pagination
 									totalCount={pageLimit.current * pageSizeRef.current}

@@ -10,7 +10,6 @@ function LanguageSwitcherContainer() {
     const handleLanguageMenuMousedown = (e) => {
       if (!languageRef.current?.contains(e.target)) {
         setShowLanguageMenu(false);
-        // setShowLanguageMenu(!showLanguageMenu);
       }
     }
     window.addEventListener("click", handleLanguageMenuMousedown);

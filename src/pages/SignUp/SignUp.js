@@ -21,9 +21,6 @@ import { phoneRegex, usernameRegex } from "../../utils/regex";
 const cx = classNames.bind(styles);
 
 function SignUp() {
-  // console.log("Render SignUp");
-  // console.log(/^0[1-9]{1}[0-9]{8,9}$/.test("0345694931"));
-  // console.log(/^[0-9]{1,2}$/.test("0111"));
   useDocumentTitle("Sign-up");
   const currentUser = useSelector(selectUser);
   const navigate = useNavigate();
@@ -99,8 +96,8 @@ function SignUp() {
         username: formData.username,
         password: formData.password
       }, dispatch, navigate);
-      navigate(config.routes.home);
-      handleShowLogin();
+      // navigate(config.routes.home);
+      // handleShowLogin();
     } catch (error) {
       // console.log(error.response.data);
       toast.update(idToast, {
@@ -139,8 +136,7 @@ function SignUp() {
     if (currentUser) {
       navigate(config.routes.job);
     }
-    // eslint-disable-next-line
-  }, [currentUser])
+  }, [currentUser, navigate])
   return (
     <section className={cx("global__Background")}>
       <div className={cx("global__TitleWrapper")}>

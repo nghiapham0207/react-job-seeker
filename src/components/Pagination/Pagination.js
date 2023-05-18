@@ -27,6 +27,9 @@ function Pagination({
     onPageChange(currentPage + 1);
   }
   const lastPage = paginationRange[paginationRange.length - 1];
+  if (totalPage <= 0) {
+    return null;
+  }
   return (
     <ul className={cx(className, "Container")}>
       <li className={cx("Arrow", { disabled: currentPage === 1 })}

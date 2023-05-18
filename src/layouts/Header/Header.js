@@ -14,12 +14,10 @@ import GlintContainer from '../../components/GlintContainer/GlintContainer';
 import { Container, ContainerRightContent } from './NavigationMobile';
 import LanguageSwitcherContainer from '../../components/LanguageSwitcher';
 import { useUserActions } from "../../contexts/userActionsContext";
-import { useEffect } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Header() {
-	// console.log("Render Header");
 	const currentUser = useSelector(selectUser);
 	const UserActionsContext = useUserActions();
 	const { showLogin, handleShowLogin } = UserActionsContext;
@@ -29,12 +27,19 @@ function Header() {
 	const handleSignUp = () => {
 		navigate(config.routes.signUp);
 	}
-	useEffect(() => {
-		if (state?.showLogin) {
-			handleShowLogin(true);
-		}
-		// eslint-disable-next-line
-	}, [])
+	if (state?.showLogin) {
+		// handleShowLogin(true);
+		// toast.info("Trang bạn truy cập yêu cầu đăng nhập!");
+	}
+	//  else {
+	// 	// handleShowLogin(false);
+	// }
+	// stupid code
+	// useEffect(() => {
+	// 	if (state?.showLogin) {
+	// 		handleShowLogin(true);
+	// 	}
+	// }, [state, handleShowLogin]);
 
 	return (
 		<div className={cx("MainHeader")}>

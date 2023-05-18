@@ -11,14 +11,11 @@ function PressFeatures() {
 	const pressFeaturesContainerRef = useRef();
 
 	useEffect(() => {
-		// JavaScript
 		const element = pressFeaturesContainerRef.current;
-		// console.log({ element });
 		const isInViewport = (element) => {
 			var bounding = element.getBoundingClientRect(),
 				myElementHeight = element.offsetHeight,
 				myElementWidth = element.offsetWidth; // var declaration
-			// console.log(bounding);
 			if (bounding.top >= -myElementHeight
 				&& bounding.left >= -myElementWidth
 				&& bounding.right <= (window.innerWidth || document.documentElement.clientWidth) + myElementWidth
@@ -42,7 +39,6 @@ function PressFeatures() {
 		return () => {
 			window.removeEventListener("scroll", onScroll);
 		}
-		// eslint-disable-next-line
 	}, [])
 	return (
 		<div ref={pressFeaturesContainerRef} className={cx("Container")}>

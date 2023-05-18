@@ -17,6 +17,11 @@
     cursor: pointer;
 }
 
+.BookmarkButton__ButtonWrapper svg {
+    width: 20px;
+    height: 20px;
+}
+
 .Flex__StyledFlex {
     display: flex;
     flex-flow: column nowrap;
@@ -123,10 +128,11 @@
 }
 
 @keyframes fadeInBottom {
-    0%{
+    0% {
         transform: translateX(20%);
     }
-    100%{
+
+    100% {
         transform: translateX(0);
     }
 }

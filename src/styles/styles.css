@@ -2,12 +2,6 @@
     padding-top: 16px !important;
 }
 
-@media (min-width: 1024px) {
-    .styles__ExploreTabBody {
-        padding-top: 24px !important;
-    }
-}
-
 .styles__Container {
     display: flex;
     flex-wrap: wrap;
@@ -71,12 +65,7 @@
     cursor: pointer;
 }
 
-@media (min-width: 768px) {
-    .styles__Card {
-        height: 200px;
-        padding: 20px 20px 15px;
-    }
-}
+
 
 .styles__Card:hover {
     box-shadow: 0 4px 10px 0 var(--primary-color);
@@ -106,11 +95,52 @@
     text-transform: capitalize;
 }
 
-@media (min-width: 768px) {
-    .styles__CompanyLogo {
-        width: 60px;
-        height: 60px;
-    }
+
+.styles__JobTabList {
+    position: sticky !important;
+    top: 71px;
+    z-index: 100;
+}
+
+.styles__JobTabList .tabs-header {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid rgb(198, 198, 198);
+    background: rgb(243, 243, 243);
+}
+
+.styles__JobTabList .tabs-list {
+    height: -webkit-fill-available;
+    margin: auto;
+}
+
+.styles__JobTabList .tabs-list li a {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    color: var(--secondary-color);
+}
+
+.styles__JobTabList .tabs-list>li>a {
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.styles__JobTabList .tabs-list li.active a,
+.styles__JobTabList .tabs-list li.active a svg {
+    color: rgb(1, 126, 183);
+}
+
+.styles__JobTabList .tabs-list li.active.horizontal-tab.active {
+    border-bottom: 4px solid rgb(1, 126, 183);
+}
+
+.styles__JobTabList .tabs-list li a svg {
+    color: var(--secondary-color);
+}
+
+.styles__JobTabList .tabs-list>li>a>svg {
+    margin-right: 10px;
 }
 
 .styles__TextWrapper {
@@ -133,4 +163,42 @@
 .styles__InfoRow svg {
     margin-right: 10px;
     color: var(--secondary-color);
+}
+
+@media (min-width: 480px) {
+    .styles__JobTabList .tabs-list {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media (min-width: 640px) {
+    .styles__JobTabList .tabs-list {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media (min-width: 768px) {
+    .styles__Card {
+        height: 200px;
+        padding: 20px 20px 15px;
+    }
+
+    .styles__CompanyLogo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .styles__JobTabList .tabs-list {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .styles__ExploreTabBody {
+        padding-top: 24px !important;
+    }
 }

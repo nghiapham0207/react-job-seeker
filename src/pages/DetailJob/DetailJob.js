@@ -23,7 +23,6 @@ import { useUserActions } from "../../contexts/userActionsContext";
 export const JobContext = createContext();
 
 function DetailJob() {
-  // console.log("Render DetailJob");
   useDocumentTitle("Chi Tiết Công Việc", true);
   const UserActionsContext = useUserActions();
   const { handleShowLogin } = UserActionsContext;
@@ -66,8 +65,8 @@ function DetailJob() {
       }
     }
     fetchApi();
-    // eslint-disable-next-line
-  }, [_id]);
+    
+  }, [_id, accessToken, refreshToken, dispatch, currentUser]);
   // check if job not found caused by change url
   return (
     notFound ? <Error /> :

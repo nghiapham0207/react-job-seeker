@@ -11,6 +11,8 @@ import { PastJobSearchProvider } from './contexts/pastJobSearchContext';
 import { SearchInputProvider } from "./contexts/searchInputContext";
 import { FilterOptionsProvider } from './contexts/filterOptionsContext';
 import { UserActionsProvider } from "./contexts/userActionsContext";
+// either remove .module or use !important
+import './App.css'; // to prioritize classes passed into component
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -21,13 +21,11 @@ import { dateDiff, dateString } from "../../utils/helpers";
 const cx = classNames.bind(styles);
 
 function Opportunity({ openModal }) {
-  // console.log("Render Opportunity");
   const job = useContext(JobContext);
   const requirementRef = useRef(null);
   useEffect(() => {
     requirementRef.current.innerHTML = job.requirement;
   }, [job]);
-  // console.log(job);
   return <div className={cx("Container")}>
     <main className={cx("Main")}>
       <div className={cx("TopFold__CompanyAndJobInfo")}>
@@ -43,7 +41,6 @@ function Opportunity({ openModal }) {
             </div>
             <div className={cx("TopFold__JobOverViewCompanyInfo")}>
               <div className={cx("TopFold__JobOverViewCompanyName")}>
-                {/* <a href="https://www.google.com">{job?.idCompany?.name}</a> */}
                 <Link to={`/company/${job.idCompany?._id}`}>{job?.idCompany?.name}</Link>
               </div>
             </div>
@@ -132,7 +129,6 @@ function Opportunity({ openModal }) {
               key={relJob._id}>
               <div className={cx("SimilarJobCard__Card")}>
                 {/* Modal here */}
-                {/* <a target="_blank" href="/" className={cx("CompactOpportunityCard__CardAnchorWrapper")}></a> */}
                 <Link target="_blank" to="/" className={cx("CompactOpportunityCard__CardAnchorWrapper")}></Link>
                 <div>
                   <div className={cx("SimilarJobCard__Container")}>
@@ -166,7 +162,7 @@ function Opportunity({ openModal }) {
                   </div>
                   <div className={cx("SimilarJobCard__Footer")}>
                     <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faClock} />
-                    <span>{dateString(dateDiff(job.postingDate))}</span>
+                    <span>{dateString(dateDiff(job.updateDate))}</span>
                   </div>
                 </div>
               </div>

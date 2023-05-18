@@ -42,8 +42,7 @@ function DetailCompany() {
       }
     }
     fetchData();
-    // eslint-disable-next-line
-  }, []);
+  }, [_id]);
   if (isLoading) {
     return <>
       <InfiniteScrollContainer width="4rem" height="4rem" />
