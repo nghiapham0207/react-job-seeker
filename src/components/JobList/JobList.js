@@ -9,7 +9,7 @@ import JobCardWrapper from "../JobCard/JobCardWrapper";
 
 const cx = classNames.bind(styles);
 
-function JobList({ jobList, isLoading }) {
+function JobList({ jobList, isLoading, className }) {
   if (isLoading) {
     return (
       <div className={cx("Box__StyledBox", "Flex__StyledFlex", "Flex")}>
@@ -21,7 +21,7 @@ function JobList({ jobList, isLoading }) {
   }
   return (
     <div className={cx("CompactJobCardList__JobCardListContainer",
-      "styles__CompactJobCardList")}>
+      "styles__CompactJobCardList", className)}>
       {
         jobList?.map((job, index) => {
           return (

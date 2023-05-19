@@ -56,6 +56,7 @@ export const getUser = async (accessToken, refreshToken, dispatch) => {
             Authorization: `bearer ${accessToken}`
           },
         })
+        console.log(res);
         const user = res.data;
         dispatch(updateUser({
           _id: user._id,

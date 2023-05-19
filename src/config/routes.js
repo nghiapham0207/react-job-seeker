@@ -12,7 +12,8 @@ const routes = {
     error: "*",
     // private
     job: "/job",
-    test: "test",
+    opportunities: "/opportunities",
+    test: "/test",
     setting: "/setting",
 }
 

@@ -1,0 +1,19 @@
+.EmptyTabView {
+    text-align: center;
+    margin-top: 60px;
+
+    & img {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+.Title {
+    margin: 30px 0;
+}
+
+@media (min-width: 1024px) {
+    .EmptyTabView {
+        margin-top: 30px;
+    }
+}

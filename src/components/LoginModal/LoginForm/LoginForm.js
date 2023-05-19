@@ -105,6 +105,7 @@ function LoginForm({ handleShowLogin }) {
                 placeholder="Tên tài khoản"
                 className={cx("TextFieldInput")}
                 // value={username}
+                value={"nghia"}
                 onChange={(e) => {
                   // setUsername(e.target.value);
                   setErrors({ ...errors, username: "" });
@@ -117,7 +118,8 @@ function LoginForm({ handleShowLogin }) {
             <div className={cx("TextFieldContainer")}>
               <input ref={passwordRef} type={showPassword ? "text" : "password"}
                 aria-label="Mật khẩu" className={cx("TextFieldInput")}
-                // value={password} 
+                // value={password}
+                value={"123123"}
                 maxLength="30"
                 onChange={(e) => {
                   // setPassword(e.target.value);

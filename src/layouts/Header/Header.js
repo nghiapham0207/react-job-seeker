@@ -31,15 +31,6 @@ function Header() {
 		// handleShowLogin(true);
 		// toast.info("Trang bạn truy cập yêu cầu đăng nhập!");
 	}
-	//  else {
-	// 	// handleShowLogin(false);
-	// }
-	// stupid code
-	// useEffect(() => {
-	// 	if (state?.showLogin) {
-	// 		handleShowLogin(true);
-	// 	}
-	// }, [state, handleShowLogin]);
 
 	return (
 		<div className={cx("MainHeader")}>
@@ -64,9 +55,15 @@ function Header() {
 							<img src={"/static/images/logo.webp"} alt="icon" className={cx("Logo")} />
 						</NavLink>
 						<div className={cx("MenuItem")}>
-							<NavLink to={config.routes.job}
-								className={(nav) => cx({ Active: nav.isActive })}
-							>tìm việc làm</NavLink>
+							{
+								currentUser ?
+									<NavLink to={config.routes.opportunities + "/explore"}
+										className={(nav) => cx({ Active: nav.isActive })}
+									>tìm việc làm</NavLink> :
+									<NavLink to={config.routes.job}
+										className={(nav) => cx({ Active: nav.isActive })}
+									>tìm việc làm</NavLink>
+							}
 						</div>
 						<div className={cx("MenuItem")}>
 							<NavLink to={config.routes.company}

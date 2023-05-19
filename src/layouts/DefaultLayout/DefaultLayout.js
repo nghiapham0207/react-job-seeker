@@ -9,7 +9,6 @@ import Footer from '../Footer/Footer';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import ScrollTopContainer from '../../components/ScrollTopButton/ScrollTopContainer';
 import MobileMenu from '../MobileMenu/MobileMenu';
-import { toast } from 'react-toastify';
 // import ModalContainer from '../../components/ModalStyle/ModalContainer';
 // import ModalHeader from '../../components/ModalStyle/ModalHeader';
 // import ModalDialog from '../../components/ModalStyle/ModalDialog';
@@ -21,12 +20,6 @@ const cx = classNames.bind(styles);
 function DefaultLayout({ children }) {
 	const [gotoTop, setGoToTop] = useState(false);
 	useEffect(() => {
-		toast.info("Server sẽ tự động tắt sau một thời gian không sử dụng, dữ liệu có thể tải chậm trong lần đầu!", {
-			position: "top-center",
-			autoClose: 10000,
-			closeButton: true
-		});
-
 		const handleScroll = () => {
 			if (window.scrollY > 300) {
 				setGoToTop(true);

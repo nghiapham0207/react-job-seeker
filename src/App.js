@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 import { privateRoutes, publicRoutes } from './routes/routes';
 import DefaultLayout from './layouts/DefaultLayout';
 import { selectUser } from './redux/selector';
+import { useEffect } from 'react';
+import { get, path } from './utils/axiosAPI';
 
 const ProtectedRoute = (({ user, redirectPath = '/' }) => {
 	// console.log("render ProtectedRoute");
@@ -20,6 +22,19 @@ const ProtectedRoute = (({ user, redirectPath = '/' }) => {
 
 function App() {
 	const currentUser = useSelector(selectUser);
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const res = await get(path.companies);
+				console.log(res.message);
+			} catch (error) {
+				console.log(error);
+			} finally {
+
+			}
+		}
+		fetchData();
+	}, []);
 	return (
 		<BrowserRouter>
 			<div className="App">

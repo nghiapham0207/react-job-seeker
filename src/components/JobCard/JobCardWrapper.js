@@ -4,8 +4,29 @@ import { faBookmark, faBriefcase, faClock, faDollarSign, faLocationDot, faStar }
 
 import { BookmarkOutlineIcon } from "../Icon";
 import { dateDiff, dateString } from "../../utils/helpers";
+import { createAxiosJwt, patch, path } from "../../utils/axiosAPI";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAccessToken, selectRefreshToken } from "../../redux/selector";
 
 export default function JobCardWrapper({ job, index }) {
+  const dispatch = useDispatch();
+  const accessToken = useSelector(selectAccessToken);
+  const refressToken = useSelector(selectRefreshToken);
+  const handleBookmark = async () => {
+    const axiosInstance = createAxiosJwt(accessToken, refressToken, dispatch);
+    try {
+      const res = await patch(path.favouriteJobList, {
+        "jobId": job._id
+      }, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      }, axiosInstance);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <div className={("JobCard__JobCardWrapper")}>
       <Link to={`/job/${job._id}`}
@@ -40,7 +61,8 @@ export default function JobCardWrapper({ job, index }) {
                   className={("IconStyle__VerticalCenteredSvg")} />
               </div> : ""}
             <div className={("CompactOpportunityCard__BookmarkIconContainer")}>
-              <div className={("BookmarkButton__ButtonWrapper")}>
+              <div className={("BookmarkButton__ButtonWrapper")}
+                onClick={handleBookmark} >
                 {
                   true ?
                     <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" style={{

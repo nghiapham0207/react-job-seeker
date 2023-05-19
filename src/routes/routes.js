@@ -16,10 +16,17 @@ import SidebarSetting from "../layouts/SidebarSetting/SidebarSetting";
 import ChangePasswordPage from "../pages/ChangePasswordPage/ChangePasswordPage";
 import EditProfilePage from "../pages/EditProfilePage/EditProfilePage";
 import DetailCompany from "../pages/DetailCompany/DetailCompany";
+import ExploreTabLayout from "../layouts/ExploreTabLayout/ExploreTabLayout";
+import BookmarkedPage from "../pages/BookmarkedPage/BookmarkedPage";
 
 const settingRoutes = [
     { key: "change-password", path: "change-password", component: ChangePasswordPage },
     { key: "edit", path: "edit", component: EditProfilePage },
+]
+
+const exploreRoutes = [
+    { key: "explore", path: "explore", component: JobPage },
+    { key: "bookmarked", path: "bookmarked", component: BookmarkedPage },
 ]
 
 export const publicRoutes = [
@@ -39,9 +46,17 @@ export const publicRoutes = [
 export const privateRoutes = [
     { key: "", path: "test", component: () => (<p>test privateRoutes</p>) },
     {
-        key: "", path: config.routes.setting,
+        key: "",
+        path: config.routes.setting,
         component: SettingPage,
         layout: SidebarSetting,
         children: settingRoutes
     },
+    {
+        key: "",
+        path: config.routes.opportunities,
+        component: JobPage,
+        layout: ExploreTabLayout,
+        children: exploreRoutes
+    }
 ];

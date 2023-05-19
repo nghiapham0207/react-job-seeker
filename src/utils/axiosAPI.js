@@ -90,6 +90,7 @@ export const path = {
   jobList: "job/list/sort-by-date",
   jobListByCompany: "job/list/company",
   jobListFilter: "job/list/filter",
+  favouriteJobList: "job/list-job-favourite",
   searchJob: "job/list/search",
   searchSuggestion: "job/search-by-key",
   applyJob: "application/create",

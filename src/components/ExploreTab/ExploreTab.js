@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark, faCompass, faSearch, faSliders } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faSliders } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState, useTransition } from "react";
 
 import GlintContainer from "../GlintContainer";
@@ -15,7 +15,8 @@ import {
   selectFilter,
   selectLocationWorkings,
   selectOccupations,
-  selectSearch
+  selectSearch,
+  selectUser
 } from "../../redux/selector";
 import TagContainer from "../TagStyle/TagContainer";
 import TagContent from "../TagStyle/TagContent";
@@ -28,7 +29,6 @@ import styles from "./ExploreTab.module.scss";
 import { useFilterOptions } from "../../contexts/filterOptionsContext";
 import TabsContainer from "../TabsStyle/TabsContainer";
 import TabsHeader from "../TabsStyle/TabsHeader";
-import { Link } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -36,6 +36,7 @@ function ExploreTab() {
   console.log("render");
   // const [showMobileFilter, setShowMobileFilter] = useState(false);
   const [showMobileFilterModal, setShowMobileFilterModal] = useState(false);
+  const currentUser = useSelector(selectUser);
   const modalRef = useRef();
   const PastJobSearchContext = usePastJobSearch();
   const { pastJobSearch } = PastJobSearchContext;
@@ -126,24 +127,13 @@ function ExploreTab() {
   }, [searchInput, filterDeferred]);
   return (
     <>
-      <TabsContainer className={"styles__JobTabList"}>
-        <TabsHeader className={"tabs-header"}>
-          <ul className="tabs-list horizontal-tabs-list">
-            <li className="horizontal-tab active">
-              <Link>
-                <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" icon={faCompass} />
-                khám phá ngay
-              </Link>
-            </li>
-            <li className="horizontal-tab">
-              <Link>
-                <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" icon={faBookmark} />
-                đã lưu
-              </Link>
-            </li>
-          </ul>
-        </TabsHeader>
-      </TabsContainer>
+      {
+        currentUser ?
+          <TabsContainer className={"styles__JobTabList"}>
+            <TabsHeader className={"tabs-header"} />
+          </TabsContainer> :
+          null
+      }
       <GlintContainer className={cx("styles__ExploreTabBody")}>
         {/* <GlintContainer className={cx("Body")}> */}
         <div className={cx("DesktopSearchBoxWrapper")}>

@@ -131,6 +131,10 @@
     color: rgb(1, 126, 183);
 }
 
+.styles__JobTabList .tabs-list li.active a div {
+    background-color: rgb(237, 147, 0);
+}
+
 .styles__JobTabList .tabs-list li.active.horizontal-tab.active {
     border-bottom: 4px solid rgb(1, 126, 183);
 }
