@@ -93,11 +93,11 @@ function Testimonial() {
 							</div>
 						</div>
 						<div disabled data-testid="slider_left-arrow" className={cx("LeftArrowContainer")}>
-							<svg data-testid="icon-svg" className={cx("VerticalCenteredSvg")} width="1em" height="1em" fill="#c7c7c7" viewBox="0 0 100 100">
+							<svg data-testid="icon-svg" className={cx("")} width="1em" height="1em" fill="#c7c7c7" viewBox="0 0 100 100">
 								<path d="M81 88.4L42.6 50 81 11.8 69.2 0l-50 50 50 50z" /></svg>
 						</div>
 						<div data-testid="slider_right-arrow" className={cx("RightArrowContainer")}>
-							<svg data-testid="icon-svg" className={cx("VerticalCenteredSvg")} width="1em" height="1em" fill="#000000" viewBox="0 0 100 100">
+							<svg data-testid="icon-svg" className={cx("")} width="1em" height="1em" fill="#000000" viewBox="0 0 100 100">
 								<path d="M19 88.4L57.4 50 19 11.8 30.8 0l50 50-50 50z" /></svg>
 						</div>
 						<ul className={cx("NavigationContainer")}>

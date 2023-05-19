@@ -42,8 +42,11 @@
 .BlockquoteContainer {
     position: relative;
     width: 50%;
-    margin-right: 60px;
     transition: all 0.2s ease 0s;
+}
+
+.BlockquoteContainer:first-child {
+    margin-right: 60px;
 }
 
 .BlockquoteContainer .VerticalCenteredSvg {
@@ -135,6 +138,7 @@ div:disabled svg {
 .VerticalCenteredSvg {
     position: absolute;
     top: -20px;
+    left: 120px;
     font-size: 1em;
 }
 

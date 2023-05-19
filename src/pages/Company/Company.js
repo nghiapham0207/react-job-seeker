@@ -21,7 +21,7 @@ function Company() {
 	useDocumentTitle("Danh Sách Công Ty");
 	const a = get;
 	const b = get;
-	console.log("cc", a === b);
+	console.log("test", a === b);
 	// console.log("Company Page");
 	const [currentPage, setCurrentPage] = useState(1);
 	const [companies, setCompanies] = useState([]);
