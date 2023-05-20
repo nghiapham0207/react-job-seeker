@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectAccessToken, selectRefreshToken, selectUser } from "../../redux/selector";
 import { addBookmark, removeBookmark } from "../../redux/userSlice";
 import InfiniteScrollContainer from "../../components/InfiniteScroll";
+import { useUserActions } from "../../contexts/userActionsContext";
 
 export default function JobCardWrapper({ job, index }) {
   const dispatch = useDispatch();
@@ -17,29 +18,34 @@ export default function JobCardWrapper({ job, index }) {
   const refressToken = useSelector(selectRefreshToken);
   const currentUser = useSelector(selectUser);
   const [isLoading, setIsLoading] = useState(false);
+  const { handleShowLogin } = useUserActions();
   const handleBookmark = async () => {
-    const axiosInstance = createAxiosJwt(accessToken, refressToken, dispatch);
-    try {
-      setIsLoading(true);
-      const res = await patch(path.favouriteJobList, {
-        "jobId": job._id
-      }, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
+    if (currentUser) {
+      const axiosInstance = createAxiosJwt(accessToken, refressToken, dispatch);
+      try {
+        setIsLoading(true);
+        const res = await patch(path.favouriteJobList, {
+          "jobId": job._id
+        }, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          }
+        }, axiosInstance);
+        console.log(res);
+        if (res.isSuccess) {
+          if (currentUser.savedJobs.some((savedJob) => (savedJob.jobId._id === job._id))) {
+            dispatch(removeBookmark({ _id: job._id }));
+          } else {
+            dispatch(addBookmark({ job }))
+          }
         }
-      }, axiosInstance);
-      console.log(res);
-      if (res.isSuccess) {
-        if (currentUser.savedJobs.some((savedJob) => (savedJob.jobId._id === job._id))) {
-          dispatch(removeBookmark({ _id: job._id }));
-        } else {
-          dispatch(addBookmark({ job }))
-        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
       }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
+    } else {
+      handleShowLogin();
     }
   }
   return (
@@ -82,7 +88,7 @@ export default function JobCardWrapper({ job, index }) {
                   isLoading ?
                     <InfiniteScrollContainer width="1.5em" height="1.5em"
                       style={{ margin: "0px" }} /> :
-                    currentUser.savedJobs.some((savedJob) => (savedJob.jobId._id === job._id)) ?
+                    currentUser?.savedJobs.some((savedJob) => (savedJob.jobId._id === job._id)) ?
                       <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" style={{
                         color: "rgb(1, 126, 183)"
                       }} icon={faBookmark} /> :

@@ -1,13 +1,11 @@
 import { useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
-  faBookmark,
   faCircle,
   faClock,
   faDollar,
   faHotel,
   faHourglassStart,
-  faLocation
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
@@ -17,6 +15,9 @@ import ReadMore from "../ReadMore/ReadMore";
 import styles from "./Opportunity.module.scss";
 import { SolidBtnContainer, SolidButton } from "../ButtonStyle";
 import { dateDiff, dateString } from "../../utils/helpers";
+import {
+  JobCardWrapper
+} from "../../components/JobCard";
 
 const cx = classNames.bind(styles);
 
@@ -125,48 +126,7 @@ function Opportunity({ openModal }) {
         </div>
         {
           job.relatedJob.length > 0 ? job.relatedJob.map((relJob) => (
-            <div className={cx("SimilarJobsSection__JobCardWrapper")}
-              key={relJob._id}>
-              <div className={cx("SimilarJobCard__Card")}>
-                {/* Modal here */}
-                <Link target="_blank" to="/" className={cx("CompactOpportunityCard__CardAnchorWrapper")}></Link>
-                <div>
-                  <div className={cx("SimilarJobCard__Container")}>
-                    <div className={cx("SimilarJobCard__Logo")}>
-                      <img alt="Logo Company" src="/static/images/defaultImageCompany.webp" />
-                    </div>
-                    <div className={cx("SimilarJobCard__Detail")}>
-                      <div className={cx("SimilarJobCard__Title")}>
-                        {relJob.name}
-                      </div>
-                      <Link to={`/company/${relJob.idCompany._id}`}>{relJob.idCompany.name}</Link>
-                      <div className={cx("SimilarJobCard__InfoWrapper")}>
-                        <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faLocation} />
-                        <span>{relJob.locationWorking}</span>
-                      </div>
-                      <div className={cx("SimilarJobCard__InfoWrapper", "SimilarJobCard__SalaryInfoContainer")}>
-                        <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faDollar} />
-                        <span>{relJob.salary}</span>
-                      </div>
-                    </div>
-                    <div className={cx("SimilarJobCard__Bookmark")}>
-                      <div className={cx("BookmarkButton__ButtonWrapper")}>
-                        <FontAwesomeIcon
-                          className={cx("IconStyle__VerticalCenteredSvg", "BookmarkButton__BookmarkOutlineIcon")}
-                          icon={faBookmark} />
-                      </div>
-                    </div>
-                  </div>
-                  <div className={cx("SimilarJobCard__DividerContainer")}>
-                    <div className={cx("DividerStyle__DividerContainer")}></div>
-                  </div>
-                  <div className={cx("SimilarJobCard__Footer")}>
-                    <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faClock} />
-                    <span>{dateString(dateDiff(job.updateDate))}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <JobCardWrapper key={relJob._id} job={relJob} />
           )) :
             "Không tìm thấy việc làm tương tự"
         }
