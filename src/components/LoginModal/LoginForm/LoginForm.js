@@ -33,6 +33,8 @@ function LoginForm({ handleShowLogin }) {
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const cc = useDispatch();
+  console.log(cc === dispatch);
 
   const usernameRef = useRef();
   const passwordRef = useRef();
@@ -76,12 +78,12 @@ function LoginForm({ handleShowLogin }) {
             render: "Đăng nhập thành công!",
             type: "success",
             closeButton: true,
-            autoClose: 2000,
+            autoClose: 1000,
             isLoading: false
           });
           if (next) {
             toast.info("Đang chuyển hướng!", {
-              autoClose: 2000
+              autoClose: 1000
             });
             // navigate(next);
             setTimeout(() => {

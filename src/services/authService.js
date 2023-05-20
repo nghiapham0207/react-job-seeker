@@ -3,6 +3,7 @@ import { loginSuccess, logoutSuccess } from "../redux/authSlice";
 import { createAxiosJwt, post } from "../utils/axiosAPI";
 import { path } from "../utils/axiosAPI";
 import { updateUser } from "../redux/userSlice";
+import { SET_BOOKMARK } from "../reducers/actions";
 
 export const login = async ({ username, password }, dispatch, navigate, next) => {
   try {
@@ -10,19 +11,23 @@ export const login = async ({ username, password }, dispatch, navigate, next) =>
     // console.log("res - login", res);
     if (res.success) {
       dispatch(loginSuccess(res.data));
-      getUser(res.data.accessToken, res.data.refreshToken, dispatch);
+      const resUser = await getUser(res.data.accessToken, res.data.refreshToken, dispatch);
+      console.log(resUser);
+      if (resUser.isSuccess) {
+        dispatch(updateUser({
+          _id: resUser.data._id,
+          name: resUser.data.name,
+          avatar: resUser.data.avatar,
+          phone: resUser.data.phone,
+          email: resUser.data.email,
+          username: resUser.data.username,
+          savedJobs: resUser.data.jobFavourite
+        }));
+      }
     }
-    // handleShowLogin();
-    // navigate(config.routes.setting);
-    // if (next) {
-    //   console.log("next in login", next);
-    //   navigate(next);
-    // }
   } catch (error) {
     console.log(error);
     return error.response.data.message;
-    // return "test";
-    // setErrorMessage(error.response.data.message);
   }
 }
 
@@ -33,7 +38,6 @@ export const logout = async (accessToken, refreshToken, dispatch) => {
       headers: {
         Authorization: `bearer ${accessToken}`
       },
-      // withCredentials: true
     })
     if (res.data.isSuccess) {
       dispatch(logoutSuccess());
@@ -56,18 +60,14 @@ export const getUser = async (accessToken, refreshToken, dispatch) => {
             Authorization: `bearer ${accessToken}`
           },
         })
-        console.log(res);
-        const user = res.data;
-        dispatch(updateUser({
-          _id: user._id,
-          name: user.name,
-          avatar: user.avatar,
-          phone: user.phone,
-          email: user.email,
-          username: user.username
-        }));
+        return {
+          isSuccess: true,
+          data: res.data
+        }
       } catch (error) {
-        console.log(error);
+        return {
+          data: error.response.data
+        };
       }
     }
   }

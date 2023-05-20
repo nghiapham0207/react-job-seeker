@@ -42,7 +42,7 @@ export const createAxiosJwt = (accessToken, refreshToken, dispatch, navigate) =>
       // console.log("date", date.getTime());
       if (decodedToken.exp < date.getTime() / 1000) {
         const data = await getNewAccessToken(refreshToken);
-        console.log("data", data);
+        // console.log("data", data);
         if (data.isSuccess) {
           dispatch(loginSuccess(data));
           config.headers["Authorization"] = `Bearer ${data.accessToken}`

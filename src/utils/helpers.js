@@ -24,10 +24,6 @@ export const dateToString = (stringDate) => {
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
   const day = date.getDate();
-  // const hours = date.getHours();
-  // const minutes = date.getMinutes();
-  // const seconds = date.getSeconds();
-  // return `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`
   return `${day}/${month}/${year}`
 }
 
@@ -35,7 +31,6 @@ export const dateDiff = (dateString) => {
   const date = new Date(dateString);
   const dateNow = Date.now();
   const diff = Math.abs(dateNow - date.getTime());
-  // console.log(typeof diff);
   return diff;
 }
 
@@ -63,4 +58,8 @@ export const dateString = (dateDiff, message = "Cập nhật ") => {
     result = "Vừa mới " + message.toLowerCase();
   }
   return result;
+}
+
+export const checkExist = () => {
+
 }

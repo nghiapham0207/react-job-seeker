@@ -6,12 +6,14 @@ import { BookmarkOutlineIcon } from "../Icon";
 import { dateDiff, dateString } from "../../utils/helpers";
 import { createAxiosJwt, patch, path } from "../../utils/axiosAPI";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAccessToken, selectRefreshToken } from "../../redux/selector";
+import { selectAccessToken, selectRefreshToken, selectUser } from "../../redux/selector";
+import { addBookmark, removeBookmark } from "../../redux/userSlice";
 
 export default function JobCardWrapper({ job, index }) {
   const dispatch = useDispatch();
   const accessToken = useSelector(selectAccessToken);
   const refressToken = useSelector(selectRefreshToken);
+  const currentUser = useSelector(selectUser);
   const handleBookmark = async () => {
     const axiosInstance = createAxiosJwt(accessToken, refressToken, dispatch);
     try {
@@ -23,6 +25,13 @@ export default function JobCardWrapper({ job, index }) {
         }
       }, axiosInstance);
       console.log(res);
+      if (res.isSuccess) {
+        if (currentUser.savedJobs.some((savedJob) => (savedJob.jobId._id === job._id))) {
+          dispatch(removeBookmark({ _id: job._id }));
+        } else {
+          dispatch(addBookmark({ job }))
+        }
+      }
     } catch (error) {
       console.log(error);
     }
@@ -64,7 +73,7 @@ export default function JobCardWrapper({ job, index }) {
               <div className={("BookmarkButton__ButtonWrapper")}
                 onClick={handleBookmark} >
                 {
-                  true ?
+                  currentUser.savedJobs.some((savedJob) => (savedJob.jobId._id === job._id)) ?
                     <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" style={{
                       color: "rgb(1, 126, 183)"
                     }} icon={faBookmark} /> :

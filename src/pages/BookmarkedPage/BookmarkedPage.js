@@ -5,6 +5,8 @@ import EmptyTabView from "../../components/EmptyTabView/EmptyTabView";
 import GlintContainer from "../../components/GlintContainer/GlintContainer";
 import JobList from "../../components/JobList";
 import { TabsContainer, TabsHeader } from "../../components/TabsStyle";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/selector";
 
 const cx = classNames.bind(styles);
 
@@ -78,6 +80,10 @@ const initState = [
 ]
 
 export default function BookmarkedPage() {
+  const currentUser = useSelector(selectUser);
+  console.log(currentUser);
+  const savedJobs = currentUser.savedJobs.map((job) => ({ ...job.jobId }));
+  console.log(savedJobs);
   return (
     <>
       <TabsContainer className={"styles__JobTabList"}>
@@ -85,14 +91,14 @@ export default function BookmarkedPage() {
       </TabsContainer>
       <GlintContainer className={cx("JobTabBody")}>
         {
-          true ?
+          savedJobs.length > 0 ?
             <>
               <header>
                 <h2 className={cx("Title")}>
-                  Công việc đã lưu ({initState.length})
+                  Công việc đã lưu ({savedJobs.length})
                 </h2>
               </header>
-              <JobList jobList={initState} className={cx("BookmarkJobCardList")} />
+              <JobList jobList={savedJobs} className={cx("BookmarkJobCardList")} />
             </> :
             <EmptyTabView />
         }

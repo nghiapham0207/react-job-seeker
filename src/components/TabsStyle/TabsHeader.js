@@ -7,11 +7,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faCompass } from "@fortawesome/free-solid-svg-icons";
 // import { useState } from "react";
 import BadgeContainer from "../BadgeStyle/BadgeContainer";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/selector";
 
 const cx = classNames.bind(styles);
 
 export default function TabsHeader({ className }) {
   // const [activeTab, setActiveTab] = useState("explore");
+  const currentUser = useSelector(selectUser);
+  const totalJobs = currentUser.savedJobs.length;
   const currentPathName = window.location.pathname;
   return (
     <div className={cx("TabsHeader", className)}>
@@ -32,9 +36,12 @@ export default function TabsHeader({ className }) {
             className={(nav) => cx({ active: nav.isActive })}>
             <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" icon={faBookmark} />
             đã lưu
-            <BadgeContainer>
-              <span>1</span>
-            </BadgeContainer>
+            {
+              totalJobs > 0 &&
+              <BadgeContainer>
+                <span>{totalJobs}</span>
+              </BadgeContainer>
+            }
           </NavLink>
         </li>
       </ul>
