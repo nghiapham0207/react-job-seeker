@@ -2,18 +2,22 @@ import classNames from "classnames/bind";
 
 import styles from "./SearchField.module.scss";
 import { SearchIcon } from "../Icon";
-// import { useDispatch } from "react-redux";
+import { forwardRef } from "react";
+import { flushSync } from "react-dom";
 
 const cx = classNames.bind(styles);
 
-function SearchItemWrapper({ keyword, onSuggestionClick }) {
-  // const dispatch = useDispatch();
-
+function SearchItemWrapper({ keyword, onSuggestionClick, isActive, onHover, index }, ref) {
   return (
-    <li className={cx("SearchItemWrapper")}
+    <li className={cx("SearchItemWrapper", { active: isActive })}
+      ref={ref}
+      onMouseEnter={() => {
+        flushSync(() => {
+          onHover(index);
+        })
+      }}
       onClick={() => {
         onSuggestionClick(keyword);
-        // dispatch(updateSearch(keyword));
       }} >
       <SearchIcon />
       <div className={cx("SuggestionItem")}>
@@ -23,4 +27,4 @@ function SearchItemWrapper({ keyword, onSuggestionClick }) {
   )
 }
 
-export default SearchItemWrapper;
+export default forwardRef(SearchItemWrapper);

@@ -56,7 +56,6 @@ function ExploreTab() {
         get(path.occupations),
         get(path.companies)
       ]);
-      console.log(resOccupations);
       const newOccupations = resOccupations?.data?.data.map((occupation) => {
         return {
           id: occupation._id,
@@ -99,7 +98,6 @@ function ExploreTab() {
         idCompany: companiesFilter,
         locationWorking: locationWorkingFilter,
       }
-      console.log(filterDeferred);
       try {
         const res = await post(path.searchJob, dataFilter);
         setIsLoading(false);

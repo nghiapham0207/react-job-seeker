@@ -19,6 +19,7 @@ import { useDeferred } from "../../hooks";
 import SolidBtnContainer from "../ButtonStyle/SolidBtnContainer";
 import SolidButton from "../ButtonStyle/SolidButton";
 import IconContainer from "../TextFieldStyle/IconContainer";
+import { flushSync } from "react-dom";
 
 const cx = classNames.bind(styles);
 
@@ -32,18 +33,25 @@ function SearchContainer(isHomePage = false) {
   // console.log("Render SearchContainer");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [currentActive, setCurrentActive] = useState(-1);
+  const selectedRef = useRef(null);
   const [showSuggestion, setShowSuggestion] = useState(false);
   const [suggestionKey, setSuggestionKey] = useState([]);
   const PastJobSearchContext = usePastJobSearch();
   const { pastJobSearch, updatePastJobSearch } = PastJobSearchContext;
   const SearchInputContext = useSearchInput();
   const { searchInput, setSearchInput } = SearchInputContext;
-  // const [userInput, setUserInput] = useState("");
-  // const testArray = useRef(Array.from({ length: 2 }));
   const testArray = pastJobSearch ? [...pastJobSearch] : [];
   const deferredValue = useDeferred(searchInput, 500);
   const suggestionRef = useRef(null);
   const inputRef = useRef(null);
+  const scrollIntoView = (node) => {
+    node?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    });
+  }
   const savePastJobSearch = (keyword) => {
     if (keyword) {
       let isExist = false;
@@ -78,6 +86,7 @@ function SearchContainer(isHomePage = false) {
             }
           })
           setSuggestionKey(res.data);
+          setCurrentActive(-1);
         } catch (error) {
           console.log(error);
         }
@@ -131,8 +140,29 @@ function SearchContainer(isHomePage = false) {
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                // handleSearch();
-                handleEnter(searchInput);
+                if (currentActive >= 0 && currentActive <= suggestionKey.length - 1) {
+                  handleSuggestionClick(selectedRef.current.innerText)
+                } else {
+                  handleSuggestionClick(searchInput);
+                }
+              } else if (e.key === "ArrowUp") {
+                flushSync(() => {
+                  if (currentActive === 0) {
+                    setCurrentActive(suggestionKey.length - 1);
+                  } else {
+                    setCurrentActive(currentActive - 1);
+                  }
+                })
+                scrollIntoView(selectedRef.current);
+              } else if (e.key === "ArrowDown") {
+                flushSync(() => {
+                  if (currentActive < suggestionKey.length - 1) {
+                    setCurrentActive(currentActive + 1);
+                  } else {
+                    setCurrentActive(0);
+                  }
+                })
+                scrollIntoView(selectedRef.current);
               }
             }}
             onFocus={handleInputFocus} />
@@ -151,13 +181,16 @@ function SearchContainer(isHomePage = false) {
 
         {/* suggestion here */}
         {
-          <SuggestionDropdownContainer>
-            <SuggestionDropdown ref={suggestionRef}>
+          <SuggestionDropdownContainer ref={suggestionRef}>
+            <SuggestionDropdown>
               {
                 searchInput && showSuggestion &&
                 suggestionKey.map((item, index) => {
                   return <SearchItemWrapper key={index} keyword={item}
-
+                    ref={currentActive === index ? selectedRef : null}
+                    index={index}
+                    isActive={currentActive === index}
+                    onHover={setCurrentActive}
                     onSuggestionClick={handleSuggestionClick} />
                 })
               }
@@ -179,15 +212,6 @@ function SearchContainer(isHomePage = false) {
           </div>
         </div>
       </div>
-      {/* <div className={cx("ButtonStyle__SolidBtnContainer")}>
-        <button type="button"
-          className={cx("ButtonStyle__Button", "ButtonStyle__SolidBtn")}
-          onClick={() => {
-            // handleSearch();
-            handleEnter(searchInput);
-          }}
-        >TÌM KIẾM</button>
-      </div> */}
       <SolidBtnContainer
         className={cx("SearchButton")} >
         <SolidButton

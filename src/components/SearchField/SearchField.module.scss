@@ -6,6 +6,8 @@
     position: absolute;
     width: 100%;
     z-index: 10;
+    max-height: 80px;
+    overflow-y: auto;
     background-color: white;
     box-shadow: 0 5px 10px 0 rgb(0 0 0 /30%);
 }
@@ -17,10 +19,14 @@
     padding: 8px;
     padding-inline-start: 0;
     cursor: pointer;
+
+    &.active {
+        background-color: rgb(230, 243, 255);
+    }
 }
 
-.SearchItemWrapper:hover{
-    background-color: aliceblue;
+.SearchItemWrapper:hover {
+    background-color: rgb(230, 243, 255);
 }
 
 .SearchItemWrapper svg {
