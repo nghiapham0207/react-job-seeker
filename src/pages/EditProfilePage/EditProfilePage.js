@@ -22,6 +22,7 @@ import { toast } from "react-toastify";
 import { getUser } from "../../services/authService";
 import { getImageUrl } from "../../utils/helpers";
 import { phoneRegex } from "../../utils/regex";
+import { updateUser } from "../../redux/userSlice";
 
 const cx = classNames.bind(styles);
 
@@ -74,8 +75,20 @@ function EditProfilePage() {
         })
         console.log(res);
         if (res.data.isSuccess) {
-          toast.success(res.data.message);
-          getUser(accessToken, refressToken, dispatch);
+          toast.success(res.data.message, {autoClose: 1000});
+          // getUser(accessToken, refressToken, dispatch);
+          const resUser = await getUser(accessToken, refressToken, dispatch);
+          if (resUser.isSuccess) {
+            dispatch(updateUser({
+              _id: resUser.data._id,
+              name: resUser.data.name,
+              avatar: resUser.data.avatar,
+              phone: resUser.data.phone,
+              email: resUser.data.email,
+              username: resUser.data.username,
+              savedJobs: resUser.data.jobFavourite
+            }));
+          }
         }
       } catch (error) {
         console.log(error);
