@@ -33,8 +33,6 @@ import TabsHeader from "../TabsStyle/TabsHeader";
 const cx = classNames.bind(styles);
 
 function ExploreTab() {
-  console.log("render");
-  // const [showMobileFilter, setShowMobileFilter] = useState(false);
   const [showMobileFilterModal, setShowMobileFilterModal] = useState(false);
   const currentUser = useSelector(selectUser);
   const modalRef = useRef();
@@ -58,7 +56,8 @@ function ExploreTab() {
         get(path.occupations),
         get(path.companies)
       ]);
-      const newOccupations = resOccupations.data.data.map((occupation) => {
+      console.log(resOccupations);
+      const newOccupations = resOccupations?.data?.data.map((occupation) => {
         return {
           id: occupation._id,
           label: occupation.name,
@@ -67,7 +66,7 @@ function ExploreTab() {
           checked: false
         }
       })
-      const newCompanies = resCompanies.data.data.map((occupation) => {
+      const newCompanies = resCompanies?.data?.data.map((occupation) => {
         return {
           id: occupation._id,
           label: occupation.name,
@@ -89,7 +88,6 @@ function ExploreTab() {
   }, [setFilterOptions]);
 
   const handleShowModal = () => {
-    console.log("it's just work with change viewport");
     setShowMobileFilterModal(!showMobileFilterModal);
   }
   useEffect(() => {
@@ -101,12 +99,6 @@ function ExploreTab() {
         idCompany: companiesFilter,
         locationWorking: locationWorkingFilter,
       }
-      // const dataFilter = {
-      //   key: searchInput,
-      //   idOccupation: filterDeferred.occupations,
-      //   idCompany: filterDeferred.companies,
-      //   locationWorking: filterDeferred.locationWorking,
-      // }
       console.log(filterDeferred);
       try {
         const res = await post(path.searchJob, dataFilter);

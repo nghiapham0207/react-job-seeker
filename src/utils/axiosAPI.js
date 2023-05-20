@@ -60,6 +60,7 @@ export const createAxiosJwt = (accessToken, refreshToken, dispatch, navigate) =>
 
 export const get = async (path, config = {}, axiosInstance = instance) => {
   const response = await axiosInstance.get(path, config);
+  console.log(response);
   return response.data;
 }
 

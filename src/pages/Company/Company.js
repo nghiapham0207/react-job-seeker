@@ -42,9 +42,9 @@ function Company() {
 						page: currentPage - 1
 					}
 				});
-				pageSizeRef.current = res.data.total_page;
-				pageLimit.current = res.data.page_limit;
-				setCompanies(res.data.data);
+				pageSizeRef.current = res?.data.total_page;
+				pageLimit.current = res?.data.page_limit;
+				setCompanies(res?.data.data);
 			} catch (error) {
 				toast.error(error.response.data.message);
 			} finally {
