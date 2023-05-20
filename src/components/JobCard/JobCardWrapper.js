@@ -7,8 +7,8 @@ import { BookmarkOutlineIcon } from "../Icon";
 import { dateDiff, dateString } from "../../utils/helpers";
 import { createAxiosJwt, patch, path } from "../../utils/axiosAPI";
 import { useDispatch, useSelector } from "react-redux";
-import { selectAccessToken, selectRefreshToken, selectUser } from "../../redux/selector";
-import { addBookmark, removeBookmark } from "../../redux/userSlice";
+import { selectAccessToken, selectRefreshToken, selectSavedJobs, selectUser } from "../../redux/selector";
+import { addBookmark, removeBookmark } from "../../redux/savedJobsSlice";
 import InfiniteScrollContainer from "../../components/InfiniteScroll";
 import { useUserActions } from "../../contexts/userActionsContext";
 
@@ -17,6 +17,7 @@ export default function JobCardWrapper({ job, index }) {
   const accessToken = useSelector(selectAccessToken);
   const refressToken = useSelector(selectRefreshToken);
   const currentUser = useSelector(selectUser);
+  const savedJobs = useSelector(selectSavedJobs);
   const [isLoading, setIsLoading] = useState(false);
   const { handleShowLogin } = useUserActions();
   const handleBookmark = async () => {
@@ -33,7 +34,7 @@ export default function JobCardWrapper({ job, index }) {
         }, axiosInstance);
         console.log(res);
         if (res.isSuccess) {
-          if (currentUser.savedJobs.some((savedJob) => (savedJob.jobId._id === job._id))) {
+          if (savedJobs.some((savedJob) => (savedJob.jobId._id === job._id))) {
             dispatch(removeBookmark({ _id: job._id }));
           } else {
             dispatch(addBookmark({ job }))
@@ -88,7 +89,7 @@ export default function JobCardWrapper({ job, index }) {
                   isLoading ?
                     <InfiniteScrollContainer width="1.5em" height="1.5em"
                       style={{ margin: "0px" }} /> :
-                    currentUser?.savedJobs.some((savedJob) => (savedJob.jobId._id === job._id)) ?
+                    savedJobs.some((savedJob) => (savedJob.jobId._id === job._id)) ?
                       <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" style={{
                         color: "rgb(1, 126, 183)"
                       }} icon={faBookmark} /> :

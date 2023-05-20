@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { memo, useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   faCircle,
@@ -125,7 +125,7 @@ function Opportunity({ openModal }) {
           </div>
         </div>
         {
-          job.relatedJob.length > 0 ? job.relatedJob.map((relJob) => (
+          job.relatedJob?.length > 0 ? job.relatedJob.map((relJob) => (
             <JobCardWrapper key={relJob._id} job={relJob} />
           )) :
             "Không tìm thấy việc làm tương tự"
@@ -135,4 +135,5 @@ function Opportunity({ openModal }) {
   </div>
 }
 
-export default Opportunity;
+// export default Opportunity;
+export default memo(Opportunity);

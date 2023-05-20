@@ -3,6 +3,7 @@ import { loginSuccess, logoutSuccess } from "../redux/authSlice";
 import { createAxiosJwt, post } from "../utils/axiosAPI";
 import { path } from "../utils/axiosAPI";
 import { updateUser } from "../redux/userSlice";
+import { setBookmark } from "../redux/savedJobsSlice";
 
 export const login = async ({ username, password }, dispatch, navigate, next) => {
   try {
@@ -20,6 +21,9 @@ export const login = async ({ username, password }, dispatch, navigate, next) =>
           phone: resUser.data.phone,
           email: resUser.data.email,
           username: resUser.data.username,
+          // savedJobs: resUser.data.jobFavourite
+        }));
+        dispatch(setBookmark({
           savedJobs: resUser.data.jobFavourite
         }));
       }

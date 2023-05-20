@@ -6,14 +6,13 @@ import GlintContainer from "../../components/GlintContainer/GlintContainer";
 import JobList from "../../components/JobList";
 import { TabsContainer, TabsHeader } from "../../components/TabsStyle";
 import { useSelector } from "react-redux";
-import { selectUser } from "../../redux/selector";
+import { selectSavedJobs } from "../../redux/selector";
 
 const cx = classNames.bind(styles);
 
 export default function BookmarkedPage() {
-  const currentUser = useSelector(selectUser);
-  console.log(currentUser);
-  const savedJobs = currentUser.savedJobs.map((job) => ({ ...job.jobId }));
+  const savedJobsState = useSelector(selectSavedJobs);
+  const savedJobs = savedJobsState.map((job) => ({ ...job.jobId }));
   console.log(savedJobs);
   return (
     <>

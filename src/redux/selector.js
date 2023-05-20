@@ -14,6 +14,8 @@ export const selectOccupations = state => state.filter.occupations;
 
 export const selectCompanies = state => state.filter.companies;
 
+export const selectSavedJobs = state => state.savedJobs.savedJobs
+
 export const selectFilter = createSelector(
   selectOccupations,
   selectLocationWorkings,

@@ -28,7 +28,7 @@ function DetailJob() {
   const { handleShowLogin } = UserActionsContext;
   const [showPsychFlat, setShowPsychFlat] = useState(false);
   const [notFound, setNotFound] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const currentUser = useSelector(selectUser);
   const accessToken = useSelector(selectAccessToken);
   const refreshToken = useSelector(selectRefreshToken);
@@ -45,6 +45,8 @@ function DetailJob() {
     }
   }
   useEffect(() => {
+    console.log("cc");
+    let active = true;
     const fetchApi = async () => {
       setIsLoading(true);
       const axiosInstance = currentUser ?
@@ -56,7 +58,9 @@ function DetailJob() {
           }
         }, axiosInstance);
         // console.log(res);
-        setJob(res.data);
+        if (active) {
+          setJob(res.data);
+        }
       } catch (error) {
         console.log(error);
         setNotFound(true);
@@ -65,37 +69,35 @@ function DetailJob() {
       }
     }
     fetchApi();
-    
+    return () => active = false;
   }, [_id, accessToken, refreshToken, dispatch, currentUser]);
   // check if job not found caused by change url
+  if (notFound) {
+    return <Error />;
+  }
   return (
-    notFound ? <Error /> :
-      <>
-        {
-          isLoading ?
-            <div>
-              <InfiniteScrollContainer width="3rem" height="3rem">
-                Đang tải
-              </InfiniteScrollContainer>
-            </div> :
-            <JobContext.Provider value={job}>
-              <BreadCrumbContainer>
-                <BreadCrumbInner>
-                  <BreadCrumbItemWrapper active
-                    url={config.routes.job} title={"Việc Làm"} />
-                  <BreadCrumbItemWrapper
-                    url={`${config.routes.job}/${job._id}`} title={job.name} />
-                </BreadCrumbInner>
-              </BreadCrumbContainer>
-              <GlintContainer>
-                <Opportunity openModal={handleShowPsychFlat} />
-              </GlintContainer>
-              <OpportunitySticky openModal={handleShowPsychFlat} />
-              {/* modal here */}
-              {showPsychFlat && <PsychFlatModal handleShowPsychFlat={handleShowPsychFlat} />}
-            </JobContext.Provider>
-        }
-      </>
+    isLoading ?
+      <div>
+        <InfiniteScrollContainer width="3rem" height="3rem">
+          Đang tải
+        </InfiniteScrollContainer>
+      </div> :
+      <JobContext.Provider value={job}>
+        <BreadCrumbContainer>
+          <BreadCrumbInner>
+            <BreadCrumbItemWrapper active
+              url={config.routes.job} title={"Việc Làm"} />
+            <BreadCrumbItemWrapper
+              url={`${config.routes.job}/${job._id}`} title={job.name} />
+          </BreadCrumbInner>
+        </BreadCrumbContainer>
+        <GlintContainer>
+          <Opportunity openModal={handleShowPsychFlat} />
+        </GlintContainer>
+        <OpportunitySticky openModal={handleShowPsychFlat} />
+        {/* modal here */}
+        {showPsychFlat && <PsychFlatModal handleShowPsychFlat={handleShowPsychFlat} />}
+      </JobContext.Provider>
   )
 }
 

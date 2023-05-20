@@ -15,12 +15,13 @@ import userSlice from "./userSlice";
 import authSlice from "./authSlice";
 import filterSlice from "./filterSlice";
 import jobListSlice from "./jobListSlice";
+import savedJobsSlice from "./savedJobsSlice";
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["auth", "user"]
+  whitelist: ["auth", "user", "savedJobs"]
 }
 
 const rootReducer = combineReducers({
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   auth: authSlice,
   filter: filterSlice,
   jobList: jobListSlice,
+  savedJobs: savedJobsSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
