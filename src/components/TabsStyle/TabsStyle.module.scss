@@ -5,14 +5,22 @@
 .TabsHeader {
     position: relative;
 
+    & ul::-webkit-scrollbar {
+        display: none;
+        width: 4px;
+        height: 4px;
+    }
+
     & ul {
         position: relative;
         display: flex;
         font-size: 1em;
-        padding: 0px;
-        overflow: auto;
-        list-style: none;
         overflow: hidden;
+        overflow-x: auto;
+        white-space: nowrap;
+        list-style: none;
+        padding-left: 15px;
+        padding-right: 15px;
 
         & .horizontal-tab {
             margin: 0 10px;

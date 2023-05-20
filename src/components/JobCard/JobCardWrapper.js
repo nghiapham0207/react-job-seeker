@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faBriefcase, faClock, faDollarSign, faLocationDot, faStar } from "@fortawesome/free-solid-svg-icons";
@@ -8,15 +9,18 @@ import { createAxiosJwt, patch, path } from "../../utils/axiosAPI";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAccessToken, selectRefreshToken, selectUser } from "../../redux/selector";
 import { addBookmark, removeBookmark } from "../../redux/userSlice";
+import InfiniteScrollContainer from "../../components/InfiniteScroll";
 
 export default function JobCardWrapper({ job, index }) {
   const dispatch = useDispatch();
   const accessToken = useSelector(selectAccessToken);
   const refressToken = useSelector(selectRefreshToken);
   const currentUser = useSelector(selectUser);
+  const [isLoading, setIsLoading] = useState(false);
   const handleBookmark = async () => {
     const axiosInstance = createAxiosJwt(accessToken, refressToken, dispatch);
     try {
+      setIsLoading(true);
       const res = await patch(path.favouriteJobList, {
         "jobId": job._id
       }, {
@@ -34,6 +38,8 @@ export default function JobCardWrapper({ job, index }) {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   }
   return (
@@ -73,11 +79,14 @@ export default function JobCardWrapper({ job, index }) {
               <div className={("BookmarkButton__ButtonWrapper")}
                 onClick={handleBookmark} >
                 {
-                  currentUser.savedJobs.some((savedJob) => (savedJob.jobId._id === job._id)) ?
-                    <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" style={{
-                      color: "rgb(1, 126, 183)"
-                    }} icon={faBookmark} /> :
-                    <BookmarkOutlineIcon className="IconStyle__VerticalCenteredSvg" />
+                  isLoading ?
+                    <InfiniteScrollContainer width="1.5em" height="1.5em"
+                      style={{ margin: "0px" }} /> :
+                    currentUser.savedJobs.some((savedJob) => (savedJob.jobId._id === job._id)) ?
+                      <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" style={{
+                        color: "rgb(1, 126, 183)"
+                      }} icon={faBookmark} /> :
+                      <BookmarkOutlineIcon className="IconStyle__VerticalCenteredSvg" />
                 }
               </div>
             </div>

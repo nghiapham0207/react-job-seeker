@@ -4,12 +4,12 @@ import styles from "./InfiniteScroll.module.scss";
 
 const cx = classNames.bind(styles);
 
-function InfiniteScrollContainer({ isVisible = false, width = "2rem", height = "2rem", children }) {
-  // alert("test");
+function InfiniteScrollContainer({ width = "2rem", height = "2rem", style, children }) {
   return (
-    <div className={cx("InfiniteScrollContainer")}>
+    <div className={cx("InfiniteScrollContainer")}
+      style={{ ...style }} >
       <div
-        style={{ width: width, height: height }}
+        style={{ ...style, width: width, height: height }}
       ></div>
       <span>{children}</span>
     </div>
