@@ -18,6 +18,7 @@ import EditProfilePage from "../pages/EditProfilePage/EditProfilePage";
 import DetailCompany from "../pages/DetailCompany/DetailCompany";
 import ExploreTabLayout from "../layouts/ExploreTabLayout/ExploreTabLayout";
 import BookmarkedPage from "../pages/BookmarkedPage/BookmarkedPage";
+import LoginPage from "../pages/LoginPage/LoginPage";
 
 const settingRoutes = [
     { key: "change-password", path: "change-password", component: ChangePasswordPage },
@@ -30,6 +31,7 @@ const exploreRoutes = [
 ]
 
 export const publicRoutes = [
+    { key: "0", path: config.routes.login, component: LoginPage },
     { key: "1", path: config.routes.home, component: Home },
     { key: "2", path: config.routes.company, component: Company },
     { path: config.routes.detailCompany, component: DetailCompany },

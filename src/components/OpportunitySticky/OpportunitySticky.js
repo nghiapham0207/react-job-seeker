@@ -23,7 +23,7 @@ function OpportunitySticky({ openModal }) {
             <div className={cx("BadgesAndCompanyInfoContainer")}>
               <div className={cx("JobOverViewCompanyInfo")}>
                 <div className={cx("JobOverViewCompanyName")}>
-                  <Link to={`/company/${job.idCompany?._id}`}>{job?.idOccupation?.name}</Link>
+                  <Link to={`/company/${job.idCompany?._id}`}>{job?.idCompany?.name}</Link>
                 </div>
               </div>
             </div>

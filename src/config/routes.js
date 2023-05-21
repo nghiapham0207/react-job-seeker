@@ -1,5 +1,6 @@
 const routes = {
     // public
+    login: "/login",
     home: "/",
     detailJob: "/job/:_id",
     company: "/company",

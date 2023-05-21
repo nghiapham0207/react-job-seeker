@@ -10,7 +10,6 @@ import { useEffect } from 'react';
 import { get, path } from './utils/axiosAPI';
 
 const ProtectedRoute = (({ user, redirectPath = '/' }) => {
-	// console.log("render ProtectedRoute");
 	const currentPathName = window.location.pathname;
 	if (!user) {
 		return <Navigate to={`${redirectPath}?next=${encodeURIComponent(currentPathName)}`}

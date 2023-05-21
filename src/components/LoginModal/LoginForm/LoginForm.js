@@ -15,16 +15,10 @@ import { usernameRegex } from "../../../utils/regex";
 const cx = classNames.bind(styles);
 
 function LoginForm({ handleShowLogin }) {
-  // console.log("Render Login Form");
-  // const [username, setUsername] = useState("");
-  // const [password, setPassword] = useState("");
   const location = useLocation();
-  // console.log("location", location);
   // const { next } = useParams();
   const searchParams = new URLSearchParams(location.search);
-  // console.log(searchParams);
   const next = searchParams.get("next");
-  // console.log("next", next);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [errors, setErrors] = useState({
@@ -108,8 +102,7 @@ function LoginForm({ handleShowLogin }) {
                 className={cx("TextFieldInput")}
                 // value={username}
                 value={"nghia"}
-                onChange={(e) => {
-                  // setUsername(e.target.value);
+                onChange={() => {
                   setErrors({ ...errors, username: "" });
                 }} />
               <label className={cx("TextFieldLabel")}>Tên tài khoản</label>

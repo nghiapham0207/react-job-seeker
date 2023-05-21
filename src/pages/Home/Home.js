@@ -8,20 +8,20 @@ import Testimonial from "../../components/GlintContainer/Testimonial/Testimonial
 import { useDocumentTitle } from "../../hooks";
 
 function Home() {
-    // console.log("Render Home");
-    useDocumentTitle("Glints - Kênh Tuyển Dụng", true);
-    return (
-        <div className="Landing">
-            <SearchSection />
-            <GlintContainer>
-                <StatisticDisplay />
-                <CareersGrid />
-                <ValueProposition />
-                <PressFeatures />
-                <Testimonial />
-            </GlintContainer>
-        </div>
-    )
+	// console.log("Render Home");
+	useDocumentTitle("Glints - Kênh Tuyển Dụng", true);
+	return (
+		<div className="Landing">
+			<SearchSection />
+			<GlintContainer>
+				<StatisticDisplay />
+				<CareersGrid />
+				<ValueProposition />
+				<PressFeatures />
+				<Testimonial />
+			</GlintContainer>
+		</div>
+	)
 }
 
 export default Home;
