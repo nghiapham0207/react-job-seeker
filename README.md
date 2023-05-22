@@ -1,6 +1,6 @@
 # Demo Link
-1 [https://job-seeker-fe.netlify.app/](https://job-seeker-fe.netlify.app/)
-2 [https://job-seeker-0dbfe7.netlify.app/](https://job-seeker-0dbfe7.netlify.app/)
+1. [https://job-seeker-fe.netlify.app/](https://job-seeker-fe.netlify.app/)
+2. [https://job-seeker-0dbfe7.netlify.app/](https://job-seeker-0dbfe7.netlify.app/)
 
 # Getting Started with Create React App
 
