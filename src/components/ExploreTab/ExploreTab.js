@@ -2,13 +2,13 @@ import classNames from "classnames/bind";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faSliders } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef, useState, useTransition } from "react";
+import { useRef, useState, useTransition } from "react";
 
 import GlintContainer from "../GlintContainer";
 import { useDeferred } from "../../hooks";
 
 import SearchContainer from "../SearchContainer";
-import { get, path, post } from "../../utils/axiosAPI";
+import { path, post } from "../../utils/axiosAPI";
 import JobList from "../JobList/JobList";
 import {
   // selectCompanies,
