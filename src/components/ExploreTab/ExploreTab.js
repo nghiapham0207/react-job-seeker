@@ -11,10 +11,10 @@ import SearchContainer from "../SearchContainer";
 import { get, path, post } from "../../utils/axiosAPI";
 import JobList from "../JobList/JobList";
 import {
-  selectCompanies,
+  // selectCompanies,
+  // selectLocationWorkings,
+  // selectOccupations,
   selectFilter,
-  selectLocationWorkings,
-  selectOccupations,
   selectSearch,
   selectUser
 } from "../../redux/selector";
@@ -26,95 +26,54 @@ import FilterContainer from "./FilterContainer";
 import InfiniteScrollContainer from "../InfiniteScroll/InfiniteScrollContainer";
 import MobileFilter from "../MobileFilter/MobileFilter";
 import styles from "./ExploreTab.module.scss";
-import { useFilterOptions } from "../../contexts/filterOptionsContext";
 import TabsContainer from "../TabsStyle/TabsContainer";
 import TabsHeader from "../TabsStyle/TabsHeader";
+import { useQuery } from "@tanstack/react-query";
 
 const cx = classNames.bind(styles);
 
 function ExploreTab() {
+  console.log("xx");
   const [showMobileFilterModal, setShowMobileFilterModal] = useState(false);
   const currentUser = useSelector(selectUser);
   const modalRef = useRef();
   const PastJobSearchContext = usePastJobSearch();
   const { pastJobSearch } = PastJobSearchContext;
   const searchInput = useSelector(selectSearch);
-  const occupationsFilter = useSelector(selectOccupations);
-  const locationWorkingFilter = useSelector(selectLocationWorkings);
-  const companiesFilter = useSelector(selectCompanies);
   const filter = useSelector(selectFilter);
-  const [jobList, setJobList] = useState([]);
   const [isPending, startTransition] = useTransition();
   const filterDeferred = useDeferred(filter, 600);
-  const [isLoading, setIsLoading] = useState(false);
-  // console.log(filterDeferred);
-  const { filterOptions, setFilterOptions } = useFilterOptions();
 
-  useEffect(() => {
-    const fetchOccupations = async () => {
-      const [resOccupations, resCompanies] = await Promise.all([
-        get(path.occupations),
-        get(path.companies)
-      ]);
-      const newOccupations = resOccupations?.data?.data.map((occupation) => {
-        return {
-          id: occupation._id,
-          label: occupation.name,
-          ariaLabel: occupation._id,
-          value: occupation._id,
-          checked: false
-        }
-      })
-      const newCompanies = resCompanies?.data?.data.map((occupation) => {
-        return {
-          id: occupation._id,
-          label: occupation.name,
-          ariaLabel: occupation._id,
-          value: occupation._id,
-          checked: false
-        }
-      })
-      setFilterOptions((pre) => {
-        return {
-          ...pre,
-          companies: newCompanies,
-          occupations: newOccupations
-        }
-      })
-    }
-    fetchOccupations();
-    // Not
-  }, [setFilterOptions]);
+
 
   const handleShowModal = () => {
     setShowMobileFilterModal(!showMobileFilterModal);
   }
-  useEffect(() => {
-    const fetchJobs = async () => {
-      setIsLoading(true);
+  const jobsState = useQuery({
+    queryKey: ["jobs", searchInput, filterDeferred],
+    queryFn: async () => {
       const dataFilter = {
         key: searchInput,
-        idOccupation: occupationsFilter,
-        idCompany: companiesFilter,
-        locationWorking: locationWorkingFilter,
+        idOccupation: filterDeferred.occupations,
+        idCompany: filterDeferred.companies,
+        locationWorking: filterDeferred.locationWorkings,
       }
       try {
         const res = await post(path.searchJob, dataFilter);
-        setIsLoading(false);
         startTransition(() => {
-          setJobList(res.data);
+          // setJobList(res.data);
         })
+        return res;
       } catch (error) {
-        console.log(error);
+        return Promise.reject(error);
       }
-      finally {
-        setIsLoading(false);
-      }
-    }
-    fetchJobs();
-    // }, [searchInput, companiesFilter, locationWorkingFilter, occupationsFilter]);
-    // eslint-disable-next-line
-  }, [searchInput, filterDeferred]);
+    },
+    staleTime: 3 * 60 * 1000,
+    refetchOnWindowFocus: false,
+    enabled: !!filterDeferred
+  })
+  // console.log(jobsState);
+  const jobList = jobsState?.data?.data;
   return (
     <>
       {
@@ -159,25 +118,19 @@ function ExploreTab() {
         </div>
         {/* end past job search */}
         <h1 className={cx("JobCount")}>
-          {jobList.length} việc làm tại Vietnam
+          {jobList?.length} việc làm tại Vietnam
         </h1>
         <div className={cx("Body")}>
           {
             // showMobileFilter ?
             showMobileFilterModal &&
             <div className="MobileFilterContainer">
-              <MobileFilter modalRef={modalRef} handleShowModal={handleShowModal}
-                locationWorkings={filterOptions.locationWorkings}
-                companies={filterOptions.companies}
-                occupations={filterOptions.occupations} />
+              <MobileFilter modalRef={modalRef} handleShowModal={handleShowModal} />
             </div>
           }
-          <FilterContainer
-            locationWorkings={filterOptions.locationWorkings}
-            companies={filterOptions.companies}
-            occupations={filterOptions.occupations} />
+          <FilterContainer />
           <div className={cx("Box__StyledBox", "Flex__StyledFlex", "Flex")}>
-            <JobList jobList={jobList} isLoading={isLoading} />
+            <JobList jobList={jobList} isLoading={jobsState.isFetching} />
             {isPending &&
               <InfiniteScrollContainer width="3rem" height="3rem">
                 Đang tải thêm công việc khác

@@ -41,7 +41,6 @@ function Company() {
 		keepPreviousData: true,
 		refetchOnWindowFocus: false
 	})
-	console.log(error);
 	if (error) {
 		return (
 			<div style={{ marginTop: 40 }}>

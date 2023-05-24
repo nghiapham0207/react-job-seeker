@@ -18,8 +18,10 @@ import {
   CollapsibleHeader
 } from "../CollapsibleStyle";
 import Checkbox from "../CheckboxStyle/Checkbox";
+import { useFilterOptions } from "../../contexts/filterOptionsContext";
 
-function MobileFilter({ handleShowModal, modalRef, locationWorkings, companies, occupations }) {
+function MobileFilter({ handleShowModal, modalRef }) {
+  const { filterOptions } = useFilterOptions();
   const dispatch = useDispatch();
   const occupationsChange = (obj, checked) => {
     dispatch(updateOccupations({ obj, checked }))
@@ -47,7 +49,7 @@ function MobileFilter({ handleShowModal, modalRef, locationWorkings, companies, 
                     className={("collapsible-title")} />
                   <CollapsibleBody>
                     <div className={("styles__CheckboxContainer")}>
-                      {locationWorkings.map((item) => {
+                      {filterOptions.locationWorkings.map((item) => {
                         return <Checkbox key={item.id} obj={item}
                           onChange={locationWorkingChange} />
                       })}
@@ -62,7 +64,7 @@ function MobileFilter({ handleShowModal, modalRef, locationWorkings, companies, 
                     className={("collapsible-title")} />
                   <CollapsibleBody>
                     <div className={("styles__CheckboxContainer")}>
-                      {occupations.map((item) => {
+                      {filterOptions.occupations.map((item) => {
                         return <Checkbox key={item.id} obj={item}
                           onChange={occupationsChange}
                         />
@@ -78,7 +80,7 @@ function MobileFilter({ handleShowModal, modalRef, locationWorkings, companies, 
                     className={("collapsible-title")} />
                   <CollapsibleBody>
                     <div className={("styles__CheckboxContainer")}>
-                      {companies.map((item) => {
+                      {filterOptions.companies.map((item) => {
                         return <Checkbox key={item.id} obj={item}
                           onChange={companiesChange}
                         />

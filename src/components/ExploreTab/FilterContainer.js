@@ -2,6 +2,7 @@ import classNames from "classnames/bind";
 
 import styles from "./ExploreTab.module.scss";
 import { ModalDialog } from "../ModalStyle";
+import { useFilterOptions } from "../../contexts/filterOptionsContext";
 import { updateCompanies, updateLocationWorking, updateOccupations } from "../../redux/filterSlice";
 import {
   CollapsibleContainer,
@@ -10,12 +11,15 @@ import {
   CollapsibleBody
 } from "../CollapsibleStyle";
 import Checkbox from "../CheckboxStyle";
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { get, path } from "../../utils/axiosAPI";
 
 const cx = classNames.bind(styles);
 
-function FilterContainer({ locationWorkings, companies, occupations }) {
+function FilterContainer() {
+  const { filterOptions, setFilterOptions } = useFilterOptions();
+  console.log(filterOptions);
   const dispatch = useDispatch();
   const occupationsChange = (obj, checked) => {
     dispatch(updateOccupations({ obj, checked }))
@@ -26,7 +30,41 @@ function FilterContainer({ locationWorkings, companies, occupations }) {
   const locationWorkingChange = (obj, checked) => {
     dispatch(updateLocationWorking({ obj, checked }))
   }
-
+  useEffect(() => {
+    const fetchOccupations = async () => {
+      const [resOccupations, resCompanies] = await Promise.all([
+        get(path.occupations),
+        get(path.companies)
+      ]);
+      const newOccupations = resOccupations?.data?.data.map((occupation) => {
+        return {
+          id: occupation._id,
+          label: occupation.name,
+          ariaLabel: occupation._id,
+          value: occupation._id,
+          checked: false
+        }
+      })
+      const newCompanies = resCompanies?.data?.data.map((occupation) => {
+        return {
+          id: occupation._id,
+          label: occupation.name,
+          ariaLabel: occupation._id,
+          value: occupation._id,
+          checked: false
+        }
+      })
+      setFilterOptions((pre) => {
+        return {
+          ...pre,
+          companies: newCompanies,
+          occupations: newOccupations
+        }
+      })
+    }
+    fetchOccupations();
+    // Not
+  }, [setFilterOptions]);
   return (
     <div className={cx("DesktopStickyFilterContainer")}>
       <ModalDialog>
@@ -37,7 +75,7 @@ function FilterContainer({ locationWorkings, companies, occupations }) {
                 className={cx("collapsible-title")} />
               <CollapsibleBody>
                 <div className={cx("styles__CheckboxContainer")}>
-                  {locationWorkings.map((item) => {
+                  {filterOptions.locationWorkings.map((item) => {
                     return <Checkbox key={item.id} obj={item}
                       onChange={locationWorkingChange} />
                   })}
@@ -52,7 +90,7 @@ function FilterContainer({ locationWorkings, companies, occupations }) {
                 className={cx("collapsible-title")} />
               <CollapsibleBody>
                 <div className={cx("styles__CheckboxContainer")}>
-                  {occupations.map((item) => {
+                  {filterOptions.occupations.map((item) => {
                     return <Checkbox key={item.id} obj={item}
                       onChange={occupationsChange}
                     />
@@ -68,7 +106,7 @@ function FilterContainer({ locationWorkings, companies, occupations }) {
                 className={cx("collapsible-title")} />
               <CollapsibleBody>
                 <div className={cx("styles__CheckboxContainer")}>
-                  {companies.map((item) => {
+                  {filterOptions.companies.map((item) => {
                     return <Checkbox key={item.id} obj={item}
                       onChange={companiesChange}
                     />
