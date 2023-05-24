@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 import './index.css';
 import App from './App';
@@ -13,6 +14,9 @@ import { FilterOptionsProvider } from './contexts/filterOptionsContext';
 import { UserActionsProvider } from "./contexts/userActionsContext";
 // either remove .module or use !important
 import './App.css'; // to prioritize classes passed into component
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,7 +27,10 @@ root.render(
 					<PastJobSearchProvider>
 						<SearchInputProvider>
 							<FilterOptionsProvider>
-								<App />
+								<QueryClientProvider client={queryClient}>
+									<App />
+									<ReactQueryDevtools initialIsOpen={false} />
+								</QueryClientProvider>
 							</FilterOptionsProvider>
 						</SearchInputProvider>
 					</PastJobSearchProvider>

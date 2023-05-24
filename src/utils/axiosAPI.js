@@ -79,24 +79,30 @@ export const patch = async (path, data = {}, config = {}, axiosInstance = instan
 }
 
 export const path = {
+  // auth
   login: "auth/login",
   logout: "auth/logout",
   changePassword: "auth/change-password",
-  companies: "company/list",
-  company: "company/detail",
   editProfile: "auth/edit-profile",
   register: "auth/register",
   getUser: "auth/info-user",
+  forgotPassword: "auth/forgot-password",
+  resetPassword: "auth/confirm-password",
+  refreshToken: "auth/refresh-token",
+  // company
+  companies: "company/list",
+  company: "company/detail",
+  // job
   jobList: "job/list/sort-by-date",
   jobListByCompany: "job/list/company",
   jobListFilter: "job/list/filter",
   favouriteJobList: "job/list-job-favourite",
   searchJob: "job/list/search",
   searchSuggestion: "job/search-by-key",
+  // application
   applyJob: "application/create",
-  forgotPassword: "auth/forgot-password",
-  resetPassword: "auth/confirm-password",
-  refreshToken: "auth/refresh-token",
+  application: "application/get-by-userid",
+  // occupation
   occupations: "occupation/list"
 }
 

@@ -1,13 +1,13 @@
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from "prop-types";
 
 import { privateRoutes, publicRoutes } from './routes/routes';
 import DefaultLayout from './layouts/DefaultLayout';
-import { selectUser } from './redux/selector';
+import { selectAccessToken, selectRefreshToken, selectUser } from './redux/selector';
 import { useEffect } from 'react';
-import { get, path } from './utils/axiosAPI';
+import { createAxiosJwt, get, path } from './utils/axiosAPI';
 
 const ProtectedRoute = (({ user, redirectPath = '/' }) => {
 	const currentPathName = window.location.pathname;
@@ -21,6 +21,9 @@ const ProtectedRoute = (({ user, redirectPath = '/' }) => {
 
 function App() {
 	const currentUser = useSelector(selectUser);
+	const dispatch = useDispatch();
+	const accessToken = useSelector(selectAccessToken);
+	const refressToken = useSelector(selectRefreshToken);
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -34,6 +37,24 @@ function App() {
 		}
 		fetchData();
 	}, []);
+	useEffect(() => {
+		const fetchData = async () => {
+			const axiosInstance = createAxiosJwt(accessToken, refressToken, dispatch);
+			try {
+				const res = await get(path.application, {
+					headers: {
+						Authorization: `Bearer ${accessToken}`
+					}
+				}, axiosInstance);
+				console.log(res.message);
+			} catch (error) {
+				// console.log(error);
+			} finally {
+
+			}
+		}
+		fetchData();
+	}, [accessToken, refressToken, dispatch]);
 	return (
 		<BrowserRouter>
 			<div className="App">

@@ -4,8 +4,7 @@ import classNames from "classnames/bind";
 import styles from "./Company.module.scss";
 import { useDocumentTitle } from "../../hooks";
 import GlintContainer from "../../components/GlintContainer";
-import { Fragment, useEffect, useRef, useState } from "react";
-// import axios from "axios";
+import { Fragment, useState } from "react";
 import { Pagination } from "../../components/Pagination";
 import InfiniteScrollContainer from "../../components/InfiniteScroll";
 import { Paragraph } from "../../components/ParagraphStyle";
@@ -13,54 +12,57 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHotel } from "@fortawesome/free-solid-svg-icons";
 import { get, path } from "../../utils/axiosAPI";
 import config from "../../config";
-import { toast } from "react-toastify";
+import { useQuery } from "@tanstack/react-query";
 
 const cx = classNames.bind(styles);
 
 function Company() {
 	useDocumentTitle("Danh Sách Công Ty");
-	const a = get;
-	const b = get;
-	console.log("test", a === b);
-	// console.log("Company Page");
 	const [currentPage, setCurrentPage] = useState(1);
-	const [companies, setCompanies] = useState([]);
-	const [loading, setLoading] = useState(true);
-	const pageSizeRef = useRef(0);
-	const pageLimit = useRef(0);
 	const handlePageChange = (page) => {
 		setCurrentPage(page);
 	}
-	useEffect(() => {
-		const fetchCompanies = async () => {
-			setLoading(true);
+	const { isLoading, data, error } = useQuery({
+		queryKey: ["companies", currentPage],
+		queryFn: async () => {
 			window.scrollTo(0, 0);
 			try {
-				// const res = await axios.get(`https://jsonplaceholder.typicode.com/comments?_page=${currentPage}&_limit=${pageSizeRef.current}`);
 				const res = await get(path.companies, {
 					params: {
 						page: currentPage - 1
 					}
 				});
-				pageSizeRef.current = res?.data.total_page;
-				pageLimit.current = res?.data.page_limit;
-				setCompanies(res?.data.data);
+				return res;
 			} catch (error) {
-				toast.error(error.response.data.message);
-			} finally {
-				setLoading(false);
+				return Promise.reject(error);
 			}
-		}
-		fetchCompanies();
-	}, [currentPage])
+		},
+		staleTime: 3 * 60 * 1000,
+		keepPreviousData: true,
+		refetchOnWindowFocus: false
+	})
+	console.log(error);
+	if (error) {
+		return (
+			<div style={{ marginTop: 40 }}>
+				<GlintContainer>
+					<div className={cx("EmptyView")}>
+						{"Error: " + error.response.data.message}
+					</div>
+				</GlintContainer>
+			</div>
+		)
+	}
+	const companies = data?.data.data;
+	const totalPage = data?.data.total_page;
+	const pageLimit = data?.data.page_limit;
 	return (
 		<>
 			<div className={cx("SearchBarContainer")}>
-
 			</div>
 			<GlintContainer>
 				{
-					loading ?
+					isLoading ?
 						<div className={cx("EmptyView")}>
 							<InfiniteScrollContainer width="3em" height="3em">
 								Đang tải
@@ -115,15 +117,14 @@ function Company() {
 											))
 										}
 									</div>
-
 							}
 							<div className={cx("PaginationContainer")}>
 								<Pagination
-									totalCount={pageLimit.current * pageSizeRef.current}
-									totalPage={pageSizeRef.current}
+									totalCount={pageLimit * totalPage}
+									totalPage={totalPage}
 									onPageChange={handlePageChange}
-									currentPage={currentPage}
-									pageSize={pageSizeRef.current} />
+									pageSize={totalPage}
+									currentPage={currentPage} />
 							</div>
 						</>
 				}
