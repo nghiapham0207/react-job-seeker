@@ -20,9 +20,7 @@ const cx = classNames.bind(styles);
 function Header() {
 	const currentUser = useSelector(selectUser);
 	const UserActionsContext = useUserActions();
-	const currentPathName = window.location.pathname;
 	const { showLogin, handleShowLogin } = UserActionsContext;
-
 	const navigate = useNavigate();
 	const handleSignUp = () => {
 		navigate(config.routes.signUp);
@@ -96,11 +94,7 @@ function Header() {
 								</> :
 								<>
 									<div onClick={handleSignUp} className={cx("MenuItem")}>đăng ký</div>
-									<div onClick={() => {
-										if (!currentPathName.includes("login")) {
-											handleShowLogin();
-										}
-									}} className={cx("MenuItem")}>đăng nhập</div>
+									<div onClick={handleShowLogin} className={cx("MenuItem")}>đăng nhập</div>
 									<div className={cx("EmployersButton")}>
 										<Link
 											to={config.routes.recruitment}
