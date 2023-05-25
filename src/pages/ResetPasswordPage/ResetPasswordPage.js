@@ -59,7 +59,6 @@ function ResetPasswordPage() {
           navigate(config.routes.home);
         } catch (error) {
           toast.error(error.response.data.message);
-          // console.log(error);
         }
       }
       fetchApi();

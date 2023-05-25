@@ -8,11 +8,9 @@ import { setBookmark } from "../redux/savedJobsSlice";
 export const login = async ({ username, password }, dispatch, navigate, next) => {
   try {
     const res = await post(path.login, { username, password });
-    // console.log("res - login", res);
     if (res.success) {
       dispatch(loginSuccess(res.data));
       const resUser = await getUser(res.data.accessToken, res.data.refreshToken, dispatch);
-      console.log(resUser);
       if (resUser.isSuccess) {
         dispatch(updateUser({
           _id: resUser.data._id,

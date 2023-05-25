@@ -12,7 +12,6 @@ export const applyJob = async (formData, accessToken, refreshToken, dispatch, na
       }
     }, axiosJwt);
     toast.success(res.message);
-    // console.log(res);
     navigate(config.routes.job);
   } catch (error) {
     console.log(error);

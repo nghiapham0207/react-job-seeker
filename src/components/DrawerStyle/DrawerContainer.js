@@ -11,7 +11,6 @@ function DrawerContainer({ children }) {
       <input type="checkbox" placeholder="placeholder"
         className={cx("mobile-menu")}
         onChange={(e) => {
-          // console.log(e.target.checked);
         }} id="mobile-menu" style={{ display: "none" }} />
       <label htmlFor="mobile-menu" className={cx("DrawerContainer")}
         onClick={(e) => {

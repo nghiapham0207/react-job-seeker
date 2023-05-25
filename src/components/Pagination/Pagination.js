@@ -16,14 +16,11 @@ function Pagination({
   pageSize,
   className
 }) {
-  // console.log(totalCount);
   const paginationRange = usePagination(totalCount, totalPage, pageSize, siblingCount, currentPage);
   const onPrevious = () => {
-    console.log("onPrevious");
     onPageChange(currentPage - 1);
   }
   const onNext = () => {
-    console.log("onNext");
     onPageChange(currentPage + 1);
   }
   const lastPage = paginationRange[paginationRange.length - 1];

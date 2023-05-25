@@ -56,7 +56,6 @@ function DetailJob() {
             Authorization: currentUser ? `Bearer ${accessToken}` : null
           }
         }, axiosInstance);
-        // console.log(res);
         if (active) {
           setJob(res.data);
         }

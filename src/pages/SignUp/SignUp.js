@@ -99,7 +99,6 @@ function SignUp() {
       // navigate(config.routes.home);
       // handleShowLogin();
     } catch (error) {
-      // console.log(error.response.data);
       toast.update(idToast, {
         render: "Đăng ký không thành công!",
         closeButton: true,

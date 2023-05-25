@@ -53,12 +53,9 @@ function PsychFlatModal({ handleShowPsychFlat }) {
       setSelectedFile(file);
     }
   }
-  // const date = new Date("2023-03-28T04:31:14.000+00:00");
-  // console.log({ date });
   const handleSubmit = (e) => {
     e.preventDefault();
     const date = new Date();
-    console.log({ date });
     const formData = new FormData();
     formData.append("idJobSeeker", currentUser._id);
     formData.append("idJob", job._id);
@@ -93,7 +90,6 @@ function PsychFlatModal({ handleShowPsychFlat }) {
                       getImageUrl(currentUser) :
                       "/static/images/defaultUser.webp"}
                   onError={(e) => {
-                    // console.log(e);
                     e.target.src = "/static/images/defaultUser.webp";
                   }} />
               </div>

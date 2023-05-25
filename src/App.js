@@ -1,13 +1,13 @@
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from "prop-types";
 
 import { privateRoutes, publicRoutes } from './routes/routes';
 import DefaultLayout from './layouts/DefaultLayout';
-import { selectAccessToken, selectRefreshToken, selectUser } from './redux/selector';
+import { selectUser } from './redux/selector';
 import { useEffect } from 'react';
-import { createAxiosJwt, get, path } from './utils/axiosAPI';
+import { get, path } from './utils/axiosAPI';
 
 const ProtectedRoute = (({ user, redirectPath = '/login' }) => {
 	const currentPathName = window.location.pathname;

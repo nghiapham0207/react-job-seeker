@@ -16,9 +16,7 @@ function NavigationTextWrapper({
   const handleShowMobileMenu = (e) => {
     e.stopPropagation();
     const toggle = document.querySelector("#mobile-menu");
-    // console.log(toggle);
     toggle.checked = false;
-    // toggle.checked = !toggle.checked;
     // 
     if (handleClick) {
       handleClick();

@@ -30,7 +30,6 @@ const cx = classNames.bind(styles);
 // ]
 
 function SearchContainer(isHomePage = false) {
-  // console.log("Render SearchContainer");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [currentActive, setCurrentActive] = useState(-1);

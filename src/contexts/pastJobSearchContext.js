@@ -41,13 +41,6 @@ export function PastJobSearchProvider({ children }) {
     import context này
   */
   const updatePastJobSearch = (newSearch) => {
-    // setPastJobSearch(prev => {
-    //   if (prev?.length >= 3) {
-    //     prev?.shift();
-    //   }
-    //   prev?.push(newSearch);
-    //   return prev;
-    // })
     setPastJobSearch(prev => {
       if (prev?.length >= 3) {
         return prev.filter((item, index) => index !== 0)
@@ -55,10 +48,6 @@ export function PastJobSearchProvider({ children }) {
         return prev;
       }
     })
-    // // setPastJobSearch(pastJobSearch.map((item, index) => {
-    // //   if (condition) {
-
-    // //   }
     setPastJobSearch(prev => {
       if (prev?.length) {
         return [...prev, newSearch];
@@ -67,7 +56,6 @@ export function PastJobSearchProvider({ children }) {
       }
     })
     // }))
-    // console.log("set new array");
     // localStorage.setItem("pastJobSearch", JSON.stringify(pastJobSearch));
     // setPastJobSearch([...pastJobSearch, newArray]);
   }

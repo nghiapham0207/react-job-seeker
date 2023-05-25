@@ -30,9 +30,7 @@ function MobileMenu() {
   const { handleShowLogin } = UserActionsContext;
   const dispatch = useDispatch();
   const location = useLocation();
-  // console.log(location.state);
   const handleLogout = () => {
-    // console.log("Logout Mobile");
     logout(accessToken, refreshToken, dispatch);
   }
   return (

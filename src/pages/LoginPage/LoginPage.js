@@ -24,7 +24,7 @@ export default function LoginPage() {
         navigate(config.routes.job);
       }
     }
-  }, [currentUser, navigate])
+  }, [currentUser, navigate, next])
   return (
     <div className={cx("Container")}>
       <div className={cx("HeaderWrapper")}>

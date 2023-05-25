@@ -1,7 +1,6 @@
 import { ADD_BOOKMARK, REMOVE_BOOKMARK, SET_BOOKMARK } from "./actions";
 
 export default function bookmarkedReducer(state, action) {
-  console.log(action);
   switch (action.type) {
     case SET_BOOKMARK:
       return [

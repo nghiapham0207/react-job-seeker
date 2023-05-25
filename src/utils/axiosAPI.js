@@ -12,14 +12,11 @@ const getNewAccessToken = async (refreshToken) => {
     throw new Error("refreshToken is not found in refreshToken function");
   }
   try {
-    console.log("refreshToken", refreshToken);
-    console.log("refreshToken", path.refreshToken);
     const res = await instance.post(path.refreshToken, {}, {
       headers: {
         Authorization: `bearer ${refreshToken}`
       }
     })
-    console.log("getNewAccessToken", res);
     return res.data;
   } catch (error) {
     console.log("refreshToken", error);
@@ -39,10 +36,8 @@ export const createAxiosJwt = (accessToken, refreshToken, dispatch, navigate) =>
         // set token null then show login, and then redirect path before
       }
       const decodedToken = jwtDecode(accessToken);
-      // console.log("date", date.getTime());
       if (decodedToken.exp < date.getTime() / 1000) {
         const data = await getNewAccessToken(refreshToken);
-        // console.log("data", data);
         if (data.isSuccess) {
           dispatch(loginSuccess(data));
           config.headers["Authorization"] = `Bearer ${data.accessToken}`

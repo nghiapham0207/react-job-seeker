@@ -71,7 +71,6 @@ function ExploreTab() {
     refetchOnWindowFocus: false,
     enabled: !!filterDeferred
   })
-  // console.log(jobsState);
   const jobList = jobsState?.data?.data;
   return (
     <>

@@ -48,7 +48,6 @@ function EditProfilePage() {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     file.preview = URL.createObjectURL(file);
-    console.log(file);
     setNewAvatar(file);
   }
   const editProfile = async () => {
