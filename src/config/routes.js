@@ -16,6 +16,7 @@ const routes = {
     opportunities: "/opportunities",
     test: "/test",
     setting: "/setting",
+    myApplications: "/applications"
 }
 
 export default routes;

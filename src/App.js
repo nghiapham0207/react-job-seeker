@@ -9,7 +9,7 @@ import { selectAccessToken, selectRefreshToken, selectUser } from './redux/selec
 import { useEffect } from 'react';
 import { createAxiosJwt, get, path } from './utils/axiosAPI';
 
-const ProtectedRoute = (({ user, redirectPath = '/' }) => {
+const ProtectedRoute = (({ user, redirectPath = '/login' }) => {
 	const currentPathName = window.location.pathname;
 	if (!user) {
 		return <Navigate to={`${redirectPath}?next=${encodeURIComponent(currentPathName)}`}
@@ -21,9 +21,6 @@ const ProtectedRoute = (({ user, redirectPath = '/' }) => {
 
 function App() {
 	const currentUser = useSelector(selectUser);
-	const dispatch = useDispatch();
-	const accessToken = useSelector(selectAccessToken);
-	const refressToken = useSelector(selectRefreshToken);
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -37,24 +34,6 @@ function App() {
 		}
 		fetchData();
 	}, []);
-	useEffect(() => {
-		const fetchData = async () => {
-			const axiosInstance = createAxiosJwt(accessToken, refressToken, dispatch);
-			try {
-				const res = await get(path.application, {
-					headers: {
-						Authorization: `Bearer ${accessToken}`
-					}
-				}, axiosInstance);
-				console.log(res.message);
-			} catch (error) {
-				// console.log(error);
-			} finally {
-
-			}
-		}
-		fetchData();
-	}, [accessToken, refressToken, dispatch]);
 	return (
 		<BrowserRouter>
 			<div className="App">

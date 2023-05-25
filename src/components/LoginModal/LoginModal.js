@@ -5,7 +5,7 @@ import ModalContainer from "../ModalStyle/ModalContainer";
 import ModalContentArea from "../ModalStyle/ModalContentArea";
 import ModalDialog from "../ModalStyle/ModalDialog";
 import ModalHeader from "../ModalStyle/ModalHeader";
-import LoginForm from "./LoginForm/LoginForm";
+import LoginForm from "../LoginForm";
 import { useUserActions } from "../../contexts/userActionsContext";
 
 

@@ -33,7 +33,6 @@ import { useQuery } from "@tanstack/react-query";
 const cx = classNames.bind(styles);
 
 function ExploreTab() {
-  console.log("xx");
   const [showMobileFilterModal, setShowMobileFilterModal] = useState(false);
   const currentUser = useSelector(selectUser);
   const modalRef = useRef();

@@ -8,13 +8,14 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import styles from "./LoginForm.module.scss";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { login } from "../../../services/authService";
-import config from "../../../config";
-import { usernameRegex } from "../../../utils/regex";
+import { login } from "../../services/authService";
+import config from "../../config";
+import { usernameRegex } from "../../utils/regex";
+import WarningMessage from "../Message/WarningMessage";
 
 const cx = classNames.bind(styles);
 
-function LoginForm({ handleShowLogin }) {
+function LoginForm({ handleShowLogin = () => { } }) {
   const location = useLocation();
   // const { next } = useParams();
   const searchParams = new URLSearchParams(location.search);
@@ -27,9 +28,6 @@ function LoginForm({ handleShowLogin }) {
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const cc = useDispatch();
-  console.log(cc === dispatch);
-
   const usernameRef = useRef();
   const passwordRef = useRef();
 
@@ -94,14 +92,18 @@ function LoginForm({ handleShowLogin }) {
   return (
     <div className={cx("Body")}>
       <div className={cx("ContentWrapper")}>
-        <form>
+        <form style={{ paddingTop: 2 }}>
+          {
+            next &&
+            <WarningMessage title={"Yêu cầu đăng nhập"} subTitle={"Trang bạn đang cố truy cập yêu cầu bạn đăng nhập."} />
+          }
           <div className={cx("Field")}>
             <div className={cx("TextFieldContainer")}>
               <input ref={usernameRef} type="text" aria-label="Tên tài khoản"
                 placeholder="Tên tài khoản"
                 className={cx("TextFieldInput")}
                 // value={username}
-                value={"nghia"}
+                defaultValue={"nghia"}
                 onChange={() => {
                   setErrors({ ...errors, username: "" });
                 }} />
@@ -114,7 +116,7 @@ function LoginForm({ handleShowLogin }) {
               <input ref={passwordRef} type={showPassword ? "text" : "password"}
                 aria-label="Mật khẩu" className={cx("TextFieldInput")}
                 // value={password}
-                value={"123123"}
+                defaultValue={"123123"}
                 maxLength="30"
                 onChange={(e) => {
                   // setPassword(e.target.value);

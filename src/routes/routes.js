@@ -19,6 +19,7 @@ import DetailCompany from "../pages/DetailCompany/DetailCompany";
 import ExploreTabLayout from "../layouts/ExploreTabLayout/ExploreTabLayout";
 import BookmarkedPage from "../pages/BookmarkedPage/BookmarkedPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
+import MyApplicationsPage from "../pages/MyApplicationsPage/MyApplicationsPage";
 
 const settingRoutes = [
     { key: "change-password", path: "change-password", component: ChangePasswordPage },
@@ -31,7 +32,7 @@ const exploreRoutes = [
 ]
 
 export const publicRoutes = [
-    { key: "0", path: config.routes.login, component: LoginPage },
+    { key: "0", path: config.routes.login, component: LoginPage, layout: HeaderOnly },
     { key: "1", path: config.routes.home, component: Home },
     { key: "2", path: config.routes.company, component: Company },
     { path: config.routes.detailCompany, component: DetailCompany },
@@ -47,6 +48,7 @@ export const publicRoutes = [
 // must login
 export const privateRoutes = [
     { key: "", path: "test", component: () => (<p>test privateRoutes</p>) },
+    { key: "", path: config.routes.myApplications, component: MyApplicationsPage },
     {
         key: "",
         path: config.routes.setting,

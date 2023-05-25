@@ -45,7 +45,6 @@ function DetailJob() {
     }
   }
   useEffect(() => {
-    console.log("cc");
     let active = true;
     const fetchApi = async () => {
       setIsLoading(true);

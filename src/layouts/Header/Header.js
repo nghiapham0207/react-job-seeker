@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
@@ -20,26 +20,25 @@ const cx = classNames.bind(styles);
 function Header() {
 	const currentUser = useSelector(selectUser);
 	const UserActionsContext = useUserActions();
+	const currentPathName = window.location.pathname;
+	console.log(currentPathName);
 	const { showLogin, handleShowLogin } = UserActionsContext;
-	const { state } = useLocation();
 
 	const navigate = useNavigate();
 	const handleSignUp = () => {
 		navigate(config.routes.signUp);
 	}
-	if (state?.showLogin) {
-		// handleShowLogin(true);
-		// toast.info("Trang bạn truy cập yêu cầu đăng nhập!");
-	}
-
 	return (
 		<div className={cx("MainHeader")}>
 			<GlintContainer>
 				{/* LoginModal */}
-				{showLogin && <LoginModal
-					message={state?.showLogin ?
-						<span style={{ color: 'red' }}>Trang bạn truy cập yêu cầu đăng nhập để tiếp tục</span> :
-						undefined} />}
+				{
+					showLogin && <LoginModal
+					// message={state?.showLogin ?
+					// 	<span style={{ color: 'red' }}>Trang bạn truy cập yêu cầu đăng nhập để tiếp tục</span> :
+					// 	undefined}
+					/>
+				}
 				<div className={cx("fresnel-lessThan-desktopS")}>
 					{/* mobile menu */}
 					<Container>
@@ -98,7 +97,11 @@ function Header() {
 								</> :
 								<>
 									<div onClick={handleSignUp} className={cx("MenuItem")}>đăng ký</div>
-									<div onClick={handleShowLogin} className={cx("MenuItem")}>đăng nhập</div>
+									<div onClick={() => {
+										if (!currentPathName.includes("login")) {
+											handleShowLogin();
+										}
+									}} className={cx("MenuItem")}>đăng nhập</div>
 									<div className={cx("EmployersButton")}>
 										<Link
 											to={config.routes.recruitment}
