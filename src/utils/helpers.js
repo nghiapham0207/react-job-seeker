@@ -1,3 +1,6 @@
+import { Outlet, Route } from "react-router-dom";
+import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
+
 export const convertSizeFile = (size) => {
   /**
    * default, size of file will limit at 5MB
@@ -60,6 +63,37 @@ export const dateString = (dateDiff, message = "Cập nhật ") => {
   return result;
 }
 
-export const checkExist = () => {
-
+export const renderRoutes = (routes) => {
+  let reactElements = null;
+  if (Array.isArray(routes)) {
+    reactElements = routes.map((route, index) => {
+      const Layout = route.layout ?? DefaultLayout; // null or undefined
+      const Page = route?.component;
+      const children = route.children;
+      if (children?.length) {
+        return (
+          <Route key={index} path={route.path} element={<Outlet />} >
+            <Route index element={<Layout></Layout>} />
+            {children.map((childRoute) => {
+              const ChildPage = childRoute.component;
+              return (
+                <Route
+                  key={childRoute.key}
+                  path={childRoute.path}
+                  element={<Layout><ChildPage /></Layout>} />
+              )
+            })}
+          </Route>
+        )
+      } else {
+        return (
+          <Route key={index} path={route.path}
+            element={<Layout><Page /></Layout>} />
+        )
+      }
+    })
+    return reactElements;
+  } else {
+    throw new Error("Routes must be an array!");
+  }
 }

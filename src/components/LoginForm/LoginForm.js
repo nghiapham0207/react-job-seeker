@@ -74,9 +74,9 @@ function LoginForm({ handleShowLogin = () => { } }) {
             isLoading: false
           });
           if (next) {
-            toast.info("Đang chuyển hướng!", {
-              autoClose: 1000
-            });
+            // toast.info("Đang chuyển hướng!", {
+            //   autoClose: 1000
+            // });
             // navigate(next);
             setTimeout(() => {
               navigate(next);

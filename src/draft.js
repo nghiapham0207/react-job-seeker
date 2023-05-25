@@ -1,3 +1,46 @@
+{/* public routes */ }
+{/* {
+			publicRoutes.map((route, index) => {
+				const Layout = route.layout ?? DefaultLayout; // null or undefined
+				const Page = route?.component;
+				return (
+					<Route key={index} path={route.path}
+						element={<Layout><Page /></Layout>} />
+				)
+			})
+		} */}
+{/* private route */ }
+{/* <Route element={<ProtectedRoute />} >
+			{
+				privateRoutes.map((route, index) => {
+					const Layout = route.layout ?? DefaultLayout; // null or undefined
+					const Page = route?.component;
+					const children = route.children;
+					if (children?.length) {
+						return (
+							<Route key={index} path={route.path} element={<Outlet />} >
+								<Route index element={<Layout></Layout>} />
+								{children.map((childRoute) => {
+									const ChildPage = childRoute.component;
+									return (
+										<Route
+											key={childRoute.key}
+											path={childRoute.path}
+											element={<Layout><ChildPage /></Layout>} />
+									)
+								})}
+							</Route>
+						)
+					} else {
+						return (
+							<Route key={index} path={route.path}
+								element={<Layout><Page /></Layout>} />
+						)
+					}
+				})
+			}
+		</Route> */}
+
 // const initJobList = [
 //   {
 //     "_id": "64168368eb7ad99a3466e6b9",
