@@ -44,11 +44,6 @@
     max-width: 360px;
 }
 
-@media (min-width: 768px) {
-    .SignUpEmailPage__SignUpWrapperExtend {
-        max-width: 800px;
-    }
-}
 
 .signupWithEmail__SignUpFormWrapper {
     padding: 1em 2em;
@@ -62,12 +57,6 @@
 .signupWithEmail__SignUpTwoCols {
     display: grid;
     grid-template-columns: 100%;
-}
-
-@media (min-width: 768px) {
-    .signupWithEmail__SignUpTwoCols {
-        grid-template-columns: 50% 50%;
-    }
 }
 
 // alert error
@@ -166,11 +155,6 @@
     border-radius: 4px;
 }
 
-@media (min-width: 768px) {
-    .signupWithEmail__OverlappingBtnExt {
-        width: 50%;
-    }
-}
 
 .signupWithEmail__OverlappingBtnExt button {
     display: flex;
@@ -247,4 +231,18 @@
 .OnboardingFooter__StyledFooter {
     margin: 0 auto;
     height: 2rem;
+}
+
+@media (min-width: 768px) {
+    .SignUpEmailPage__SignUpWrapperExtend {
+        max-width: 800px;
+    }
+
+    .signupWithEmail__SignUpTwoCols {
+        grid-template-columns: 50% 50%;
+    }
+
+    .signupWithEmail__OverlappingBtnExt {
+        width: 50%;
+    }
 }

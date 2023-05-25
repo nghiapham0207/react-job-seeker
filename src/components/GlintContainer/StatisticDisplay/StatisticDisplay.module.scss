@@ -8,21 +8,9 @@
     max-width: 1200px;
 }
 
-@media (max-width: 768px) {
-    .Container {
-        grid-template-columns: 1fr;
-    }
-}
-
 .CustomStats {
     min-width: 310px;
     text-align: left;
-}
-
-@media (max-width: 1024px) {
-    .CustomStats{
-        min-width: auto;
-    }
 }
 
 .Label {
@@ -33,4 +21,16 @@
 div.Label b {
     color: rgb(236, 39, 43);
     font-size: 50px;
+}
+
+@media (max-width: 768px) {
+    .Container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    .CustomStats {
+        min-width: auto;
+    }
 }

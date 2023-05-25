@@ -3,12 +3,6 @@
     margin: 30px auto;
 }
 
-@media (min-width: 1024px) {
-    .SearchBarContainer {
-        margin: 40px auto 60px;
-    }
-}
-
 .CompanyCardGrid {
     display: grid;
     grid-template-columns: minmax(0px, 1fr);
@@ -17,10 +11,25 @@
     margin: 30px auto;
 }
 
+.PaginationContainer {
+    display: flex;
+    justify-content: center;
+    -webkit-box-pack: center;
+}
+
+.EmptyView {
+    text-align: center;
+}
+
 @media (min-width: 768px) {
     .CompanyCardGrid {
         grid-template-columns: repeat(2, minmax(0px, 1fr));
         gap: 30px;
+    }
+
+    .PaginationContainer {
+        justify-content: flex-end;
+        -webkit-box-pack: end;
     }
 }
 
@@ -28,21 +37,8 @@
     .CompanyCardGrid {
         grid-template-columns: repeat(3, minmax(0px, 1fr));
     }
-}
 
-.PaginationContainer {
-    display: flex;
-    justify-content: center;
-    -webkit-box-pack: center;
-}
-
-@media (min-width: 768px) {
-    .PaginationContainer {
-        justify-content: flex-end;
-        -webkit-box-pack: end;
+    .SearchBarContainer {
+        margin: 40px auto 60px;
     }
-}
-
-.EmptyView {
-    text-align: center;
 }

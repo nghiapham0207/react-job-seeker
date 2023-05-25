@@ -5,24 +5,12 @@
     margin-bottom: 20px;
 }
 
-@media screen and (min-width: 1024px) {
-    .Title {
-        // margin-top: 60px;
-        margin-top: 40px;
-    }
-}
-
 .Wrapper {
     display: flex;
     flex-direction: column;
     margin-bottom: 60px;
 }
 
-@media screen and (min-width: 1024px) {
-    .Wrapper{
-        flex-direction: row;
-    }
-}
 
 .SidebarWrapper {
     width: 100%;
@@ -30,19 +18,28 @@
     margin-bottom: 40px;
 }
 
-@media screen and (min-width: 1024px) {
-    .SidebarWrapper{
-        width: 30%;
-        margin-right: 30px;
-        margin-bottom: 0;
-    }
-}
-.ContentWrapper{
+
+.ContentWrapper {
     width: 100%;
 }
 
 @media screen and (min-width: 1024px) {
-    .ContentWrapper{
+    .Title {
+        // margin-top: 60px;
+        margin-top: 40px;
+    }
+
+    .Wrapper {
+        flex-direction: row;
+    }
+
+    .SidebarWrapper {
+        width: 30%;
+        margin-right: 30px;
+        margin-bottom: 0;
+    }
+
+    .ContentWrapper {
         width: calc(70% - 30px);
         min-height: 200px;
         // min-height: 800px;

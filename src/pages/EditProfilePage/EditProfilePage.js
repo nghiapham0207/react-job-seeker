@@ -72,7 +72,6 @@ function EditProfilePage() {
             "Content-Type": "multipart/form-data"
           }
         })
-        console.log(res);
         if (res.data.isSuccess) {
           toast.success(res.data.message, {autoClose: 1000});
           // getUser(accessToken, refressToken, dispatch);

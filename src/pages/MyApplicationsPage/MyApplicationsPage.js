@@ -17,7 +17,7 @@ export default function MyApplicationsPage() {
             Authorization: `Bearer ${accessToken}`
           }
         }, axiosInstance);
-        console.log(res.message);
+        console.log(res);
       } catch (error) {
         console.log(error);
       } finally {

@@ -19,7 +19,6 @@ const cx = classNames.bind(styles);
 
 function FilterContainer() {
   const { filterOptions, setFilterOptions } = useFilterOptions();
-  console.log(filterOptions);
   const dispatch = useDispatch();
   const occupationsChange = (obj, checked) => {
     dispatch(updateOccupations({ obj, checked }))

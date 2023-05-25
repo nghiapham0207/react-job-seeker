@@ -47,13 +47,29 @@
     text-transform: capitalize;
 }
 
+
+
+.Uploader span {
+    display: inline;
+    color: rgb(0, 149, 246);
+    text-overflow: ellipsis;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.Uploader span:hover {
+    color: rgb(0, 55, 107);
+}
+
 @media (max-width: 640px) {
-    .ProfileWrapper{
-        & .Input__Container{
+    .ProfileWrapper {
+        & .Input__Container {
             padding: 0px;
             margin: 0;
         }
     }
+
     .UpdatePassword__Half {
         flex-direction: column;
     }
@@ -70,17 +86,4 @@
         padding-left: 0;
         text-align: left;
     }
-}
-
-.Uploader span {
-    display: inline;
-    color: rgb(0, 149, 246);
-    text-overflow: ellipsis;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.Uploader span:hover {
-    color: rgb(0, 55, 107);
 }

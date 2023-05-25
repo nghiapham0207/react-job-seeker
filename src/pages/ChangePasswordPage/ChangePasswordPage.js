@@ -42,7 +42,6 @@ function ChangePasswordPage() {
           Authorization: `Bearer ${accessToken}`
         }
       })
-      console.log(res);
       if (res.data.isSuccess) {
         toast.success(res.data.message);
         passwordRef.current.value = "";

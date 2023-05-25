@@ -11,7 +11,6 @@ function DrawerWrapper({ className, children }) {
     <div className={cx(className, "DrawerWrapper")}
       ref={ref}
       onClick={(e) => {
-        console.log("clcicck");
         e.stopPropagation();
       }} >
       {children}

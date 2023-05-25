@@ -21,7 +21,6 @@ function Header() {
 	const currentUser = useSelector(selectUser);
 	const UserActionsContext = useUserActions();
 	const currentPathName = window.location.pathname;
-	console.log(currentPathName);
 	const { showLogin, handleShowLogin } = UserActionsContext;
 
 	const navigate = useNavigate();

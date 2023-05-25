@@ -30,12 +30,6 @@
     width: 100%;
 }
 
-@media not (min-width: 640px) {
-    .JobOverViewContainer {
-        display: none;
-    }
-}
-
 .JobOverViewHeader {
     display: grid;
     max-width: 50%;
@@ -85,4 +79,10 @@
     line-height: 1.5;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+@media not (min-width: 640px) {
+    .JobOverViewContainer {
+        display: none;
+    }
 }

@@ -14,15 +14,6 @@
     padding-bottom: 65px;
 }
 
-@media screen and (min-width: 1024px) {
-    .Inner {
-        display: flex;
-    }
-
-    .Inner>div {
-        padding-bottom: 40px;
-    }
-}
 
 .CompanyInfo {
     margin: 0px auto;
@@ -90,13 +81,7 @@
     color: rgb(1, 126, 183);
 }
 
-@media screen and (min-width: 1024px) {
-    .CompanyInfo {
-        max-width: 600px;
-        margin-right: 80px;
-        text-align: left;
-    }
-}
+
 
 .Paragraph {
     color: rgb(255, 255, 255);
@@ -113,11 +98,6 @@
     text-align: left;
 }
 
-@media (min-width: 768px) {
-    .Sections0 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
 
 .Section1 ul {
     margin-top: 10px;
@@ -139,4 +119,26 @@ a:visited {
     line-height: 1.6;
     color: rgb(255, 255, 255);
     opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+    .Sections0 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .Inner {
+        display: flex;
+    }
+
+    .Inner>div {
+        padding-bottom: 40px;
+    }
+
+    .CompanyInfo {
+        max-width: 600px;
+        margin-right: 80px;
+        text-align: left;
+    }
 }

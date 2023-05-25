@@ -4,26 +4,12 @@
     height: 100%;
 }
 
-@media screen and (min-width: 1024px) {
-    .Wrapper {
-        border-right: 1px solid rgb(198, 198, 198);
-    }
-}
-
 .Tab {
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid rgb(198, 198, 198);
     border-right: none;
     overflow-x: auto;
-}
-
-@media screen and (min-width: 1024px) {
-    .Tab {
-        border-right: 1px solid rgb(198, 198, 198);
-        border-bottom: none;
-        flex-direction: column;
-    }
 }
 
 .Item {
@@ -50,7 +36,17 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .SelectedItem{
+    .Wrapper {
+        border-right: 1px solid rgb(198, 198, 198);
+    }
+
+    .Tab {
+        border-right: 1px solid rgb(198, 198, 198);
+        border-bottom: none;
+        flex-direction: column;
+    }
+
+    .SelectedItem {
         border-right: 4px solid rgb(0, 0, 0);
         border-bottom: none;
     }

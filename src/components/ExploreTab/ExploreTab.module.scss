@@ -15,47 +15,8 @@
     // padding-top: 16px;
 }
 
-@media (min-width: 1024px) {
-    .Body {
-        flex-flow: row;
-        align-items: flex-start;
-        // padding-top: 24px;
-    }
-}
-
 .DesktopStickyFilterContainer {
     display: none;
-    // position: sticky;
-    // top: 94px;
-    // z-index: 1;
-    // display: block;
-    // min-width: 316px;
-    // max-height: calc(100vh - 118px);
-    // margin-bottom: 32px;
-    // border: 1px solid rgba(198, 198, 198, 0.6);
-    // border-radius: 4px;
-    // overflow-y: auto;
-}
-
-@media (min-width: 1024px) {
-    .MobileFilterContainer {
-        display: none;
-    }
-
-    .DesktopStickyFilterContainer {
-        // position: relative;
-        // top: 0;
-        position: sticky;
-        top: 94px;
-        z-index: 1;
-        display: block;
-        min-width: 316px;
-        max-height: calc(100vh - 118px);
-        margin-right: 32px;
-        border: 1px solid rgba(198, 198, 198, 0.6);
-        border-radius: 4px;
-        overflow-y: auto;
-    }
 }
 
 .Flex {
@@ -68,8 +29,6 @@
     -webkit-box-pack: center;
     align-items: center;
     width: 100%;
-    // padding-top: 4px;
-    // padding-bottom: 4px;
     padding: 10px 20px;
     border: 1px solid rgba(198, 198, 198, 0.6) !important;
     border-radius: 14.5px;
@@ -86,8 +45,32 @@
     }
 }
 
-
 @media (min-width: 1024px) {
+    .Body {
+        flex-flow: row;
+        align-items: flex-start;
+        // padding-top: 24px;
+    }
+
+    .DesktopStickyFilterContainer {
+        // position: relative;
+        // top: 0;
+        position: sticky;
+        top: 94px;
+        z-index: 1;
+        display: block;
+        min-width: 316px;
+        max-height: calc(100vh - 118px);
+        margin-right: 32px;
+        border: 1px solid rgba(198, 198, 198, 0.6);
+        border-radius: 4px;
+        overflow-y: auto;
+    }
+
+    .MobileFilterContainer {
+        display: none;
+    }
+
     .MobileStickySearchAndFilterContainer {
         display: none;
     }

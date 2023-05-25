@@ -6,12 +6,6 @@
     width: 100%;
 }
 
-@media (min-width: 1024px) {
-    .Main {
-        width: 770px;
-    }
-}
-
 .DividerContainer {
     margin-bottom: 24px;
 }
@@ -19,17 +13,6 @@
 .DesktopAside {
     margin-left: 48px;
     width: 352px;
-}
-
-@media (max-width: 1023.98px) {
-    .Container {
-        flex-direction: column;
-    }
-
-    .DesktopAside {
-        margin-left: 0;
-        width: 100%;
-    }
 }
 
 .DesktopSimilarJobsWrapper {
@@ -43,4 +26,21 @@
 
 .JobDescriptionContainer {
     margin-bottom: 32px;
+}
+
+@media (max-width: 1023.98px) {
+    .Container {
+        flex-direction: column;
+    }
+
+    .DesktopAside {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .Main {
+        width: 770px;
+    }
 }

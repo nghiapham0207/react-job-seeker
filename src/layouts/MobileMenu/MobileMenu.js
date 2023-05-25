@@ -61,7 +61,6 @@ function MobileMenu() {
                           getImageUrl(currentUser) :
                           "/static/images/defaultUser.webp"}
                       onError={(e) => {
-                        // console.log(e);
                         e.target.src = "/static/images/defaultUser.webp";
                       }} />
                   </NavigationProfileWrapper>

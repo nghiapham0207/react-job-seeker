@@ -45,7 +45,6 @@ function ResetPasswordPage() {
     } else if (pwConfirmRef.current.value !== passwordRef.current.value) {
       hasErrors.pwConfirm = "Mật khẩu xác nhận không khớp!";
     }
-    console.log(Object.keys(hasErrors));
     if (!(Object.keys(hasErrors).length)) {
       setErrors({});
       const fetchApi = async () => {

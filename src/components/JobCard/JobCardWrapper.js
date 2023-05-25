@@ -32,7 +32,6 @@ export default function JobCardWrapper({ job, index }) {
             Authorization: `Bearer ${accessToken}`
           }
         }, axiosInstance);
-        console.log(res);
         if (res.isSuccess) {
           if (savedJobs.some((savedJob) => (savedJob.jobId._id === job._id))) {
             dispatch(removeBookmark({ _id: job._id }));
