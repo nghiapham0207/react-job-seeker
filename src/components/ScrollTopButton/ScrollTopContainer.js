@@ -11,23 +11,7 @@ function ScrollTopContainer({ isVisible, children }) {
       top: 0,
       behavior: "smooth"
     })
-    // document.querySelector("html, body").scrollTop = 0;
-    // document.querySelector("html, body").animate([
-    //   {
-    //     scrollTop: 0
-    //   }
-    // ], 1500);
   }
-  // const test = document.querySelector("#test");
-  // test.animate()
-  // const handleScroll = () => {
-  //   window.scrollTo({
-  //     top: 0
-  //   })
-  // console.log({ "test": document.querySelector("html, body") });
-  //   document.querySelector("body").animate({scrollTop: 0}, 1500, 'easeInOutExpo');
-  //   return false;
-  // }
   return (
     <div
       ref={scrollTopRef}

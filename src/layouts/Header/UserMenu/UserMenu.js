@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './UserMenu.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { faFile, faGear, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { logout } from '../../../services/authService';
 import { selectAccessToken, selectRefreshToken } from '../../../redux/selector';
 import { getImageUrl } from '../../../utils/helpers';
@@ -67,6 +67,12 @@ function UserMenu({ currentUser }) {
                 <div className={cx("DropdownWrapper")}>
                   <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faGear} />
                   <span>Cài đặt</span>
+                </div>
+              </Link>
+              <Link to={config.routes.myApplications} className={cx("DropdownStyle__DropdownItemWrapper")}>
+                <div className={cx("DropdownWrapper")}>
+                  <FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faFile} />
+                  <span>Đơn ứng tuyển của tôi</span>
                 </div>
               </Link>
               <Link className={cx("DropdownStyle__DropdownItemWrapper")}

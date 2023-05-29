@@ -8,7 +8,8 @@ const routes = {
     blog: "/blog",
     signUp: "/sign-up",
     forgotPassword: "/forgot-password",
-    recruitment: "https://employers.glints.vn/",
+    recruitment: "https://starlit-gaufre-55c628.netlify.app/",
+    // recruitment: "https://employers.glints.vn/",
     resetPassword: "/reset-password",
     error: "*",
     // private

@@ -12,7 +12,7 @@ import { addBookmark, removeBookmark } from "../../redux/savedJobsSlice";
 import InfiniteScrollContainer from "../../components/InfiniteScroll";
 import { useUserActions } from "../../contexts/userActionsContext";
 
-export default function JobCardWrapper({ job, index }) {
+export default function JobCardWrapper({ job, index, className = "" }) {
   const dispatch = useDispatch();
   const accessToken = useSelector(selectAccessToken);
   const refressToken = useSelector(selectRefreshToken);
@@ -49,7 +49,7 @@ export default function JobCardWrapper({ job, index }) {
     }
   }
   return (
-    <div className={("JobCard__JobCardWrapper")}>
+    <div className={("JobCard__JobCardWrapper " + className)}>
       <Link to={`/job/${job._id}`}
         aria-label={"Click to view job detail"}
         className={("CompactOpportunityCard__CardAnchorWrapper")}

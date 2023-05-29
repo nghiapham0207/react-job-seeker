@@ -13,13 +13,24 @@ function PressFeatures() {
 	useEffect(() => {
 		const element = pressFeaturesContainerRef.current;
 		const isInViewport = (element) => {
-			var bounding = element.getBoundingClientRect(),
-				myElementHeight = element.offsetHeight,
-				myElementWidth = element.offsetWidth; // var declaration
-			if (bounding.top >= -myElementHeight
-				&& bounding.left >= -myElementWidth
-				&& bounding.right <= (window.innerWidth || document.documentElement.clientWidth) + myElementWidth
-				&& bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) + myElementHeight) {
+			// var bounding = element.getBoundingClientRect(),
+			// 	myElementHeight = element.offsetHeight,
+			// 	myElementWidth = element.offsetWidth; // var declaration
+			// if (bounding.top >= -myElementHeight
+			// 	&& bounding.left >= -myElementWidth
+			// 	&& bounding.right <= (window.innerWidth || document.documentElement.clientWidth) + myElementWidth
+			// 	&& bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) + myElementHeight) {
+			// 	return true;
+			// } else {
+			// 	return false;
+			// }
+
+			// 
+			var windowHeight = window.innerHeight;
+			var elementTop = element.getBoundingClientRect().top;
+			var elementVisible = 150;
+
+			if (elementTop < windowHeight - elementVisible) {
 				return true;
 			} else {
 				return false;
@@ -27,7 +38,7 @@ function PressFeatures() {
 		};
 		const onScroll = () => {
 			if (isInViewport(element)) {
-				element.style.animation = "fadeInBottom 0.6s ease-in-out 0s 1 normal ";
+				element.style.animation = "fadeInBottom 1s ease-in 0s 1 normal ";
 				element.style.visibility = "visible";
 			} else {
 				element.style.animation = "none";

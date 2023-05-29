@@ -1,5 +1,6 @@
 import { Outlet, Route } from "react-router-dom";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
+import Error from "../components/Error/Error";
 
 export const convertSizeFile = (size) => {
   /**
@@ -73,7 +74,7 @@ export const renderRoutes = (routes) => {
       if (children?.length) {
         return (
           <Route key={index} path={route.path} element={<Outlet />} >
-            <Route index element={<Layout></Layout>} />
+            <Route index element={<Layout><Error /></Layout>} />
             {children.map((childRoute) => {
               const ChildPage = childRoute.component;
               return (
