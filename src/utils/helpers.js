@@ -74,7 +74,7 @@ export const renderRoutes = (routes) => {
       if (children?.length) {
         return (
           <Route key={index} path={route.path} element={<Outlet />} >
-            <Route index element={<Layout><Error /></Layout>} />
+            <Route index element={<Layout></Layout>} />
             {children.map((childRoute) => {
               const ChildPage = childRoute.component;
               return (

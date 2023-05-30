@@ -21,7 +21,6 @@ const ProtectedRoute = (({ redirectPath = '/login' }) => {
 });
 
 function App() {
-	console.log("render App");
 	useEffect(() => {
 		const fetchData = async () => {
 			try {

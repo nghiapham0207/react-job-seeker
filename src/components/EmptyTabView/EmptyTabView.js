@@ -7,7 +7,7 @@ import config from "../../config";
 
 const cx = classNames.bind(styles);
 
-export default function EmptyTabView() {
+export default function EmptyTabView({ title = "Chưa có việc nào được lưu." }) {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(config.routes.opportunities + "/explore");
@@ -15,7 +15,7 @@ export default function EmptyTabView() {
   return (
     <section className={cx("EmptyTabView")}>
       <img src="/static/images/empty-tab-view.webp" alt="empty-tab-view" />
-      <h2 className={cx("Title")}>Chưa có việc nào được lưu.</h2>
+      <h2 className={cx("Title")}>{title}</h2>
       <SolidBtnContainer block={false}>
         <SolidButton onClick={handleClick}>
           Khám phá các việc làm mới!

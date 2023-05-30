@@ -60,7 +60,6 @@ function PsychFlatModal({ handleShowPsychFlat }) {
     formData.append("idJobSeeker", currentUser._id);
     formData.append("idJob", job._id);
     formData.append("cv", selectedFile);
-    // formData.append("cv", "https://drive.google.com/file/d/1UTOD8vErIeFYKYQgHPotGCS4L-douLeG/view?usp=sharing");
     formData.append("submitDate", date);
     applyJob(formData, accessToken, refreshToken, dispatch, navigate);
   }
