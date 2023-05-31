@@ -10,7 +10,7 @@ import { Pagination } from "../../components/Pagination";
 import InfiniteScrollContainer from "../../components/InfiniteScroll";
 import { Paragraph } from "../../components/ParagraphStyle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHotel } from "@fortawesome/free-solid-svg-icons";
+import { faBriefcase, faHotel } from "@fortawesome/free-solid-svg-icons";
 import { get, path } from "../../utils/axiosAPI";
 import config from "../../config";
 import {
@@ -24,6 +24,9 @@ function Company() {
 	const [currentPage, setCurrentPage] = useState(1);
 	const companyName = useRef();
 	const handlePageChange = (page) => {
+		window.scrollTo({
+			top: 0
+		})
 		setCurrentPage(page);
 	}
 	const { isLoading, data, error, refetch, isRefetching } = useQuery({
@@ -120,14 +123,10 @@ function Company() {
 																			{company.type || "Chưa cập nhật loại công ty"}
 																		</Paragraph>
 																	</div>
-																	<div className={cx("styles__Row", "styles__InfoRow")}>
-																		<Paragraph>
-																			{"Quy mô: "}
-																			{
-																				company.totalEmployee ?
-																					company.totalEmployee + " Nhân viên" : " Chưa cập nhật số lượng nhân viên"
-																			}
-																		</Paragraph>
+																	<div className={cx("styles__Row", "styles__InfoRow",
+																		"styles__JobCountRow")} >
+																		<FontAwesomeIcon icon={faBriefcase} />
+																		<span>{`${company.numJob} vị trí đang tuyển`}</span>
 																	</div>
 																</div>
 															</Link>
