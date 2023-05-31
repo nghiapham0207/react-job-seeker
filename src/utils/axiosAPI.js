@@ -85,7 +85,7 @@ export const path = {
   resetPassword: "auth/confirm-password",
   refreshToken: "auth/refresh-token",
   // company
-  companies: "company/list",
+  companies: "company/list/",
   company: "company/detail",
   // job
   jobList: "job/list/sort-by-date",

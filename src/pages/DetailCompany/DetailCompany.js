@@ -45,7 +45,7 @@ function DetailCompany() {
   }, [_id]);
   if (isLoading) {
     return <>
-      <InfiniteScrollContainer width="4rem" height="4rem" />
+      <InfiniteScrollContainer size="4rem" />
     </>
   }
   if (error) {

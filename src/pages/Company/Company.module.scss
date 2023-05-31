@@ -1,6 +1,10 @@
 .SearchBarContainer {
-    max-width: 972px;
+    // max-width: 972px;
+    max-width: 800px;
     margin: 30px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .CompanyCardGrid {
@@ -40,5 +44,6 @@
 
     .SearchBarContainer {
         margin: 40px auto 60px;
+        // padding: 0 100px;
     }
 }

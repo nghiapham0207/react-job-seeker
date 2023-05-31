@@ -130,7 +130,7 @@ function ExploreTab() {
           <div className={cx("Box__StyledBox", "Flex__StyledFlex", "Flex")}>
             <JobList jobList={jobList} isLoading={jobsState.isFetching} />
             {isPending &&
-              <InfiniteScrollContainer width="3rem" height="3rem">
+              <InfiniteScrollContainer size="3rem">
                 Đang tải thêm công việc khác
               </InfiniteScrollContainer>}
           </div>

@@ -13,7 +13,7 @@ function JobList({ jobList, isLoading, className }) {
   if (isLoading) {
     return (
       <div className={cx("Box__StyledBox", "Flex__StyledFlex", "Flex")}>
-        <InfiniteScrollContainer width="3rem" height="3rem">
+        <InfiniteScrollContainer size="3rem">
           Đang tải thêm công việc khác
         </InfiniteScrollContainer>
       </div>

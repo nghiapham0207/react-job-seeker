@@ -86,7 +86,7 @@ export default function JobCardWrapper({ job, index, className = "" }) {
                 onClick={handleBookmark} >
                 {
                   isLoading ?
-                    <InfiniteScrollContainer width="1.5em" height="1.5em"
+                    <InfiniteScrollContainer size="1.5rem"
                       style={{ margin: "0px" }} /> :
                     savedJobs.some((savedJob) => (savedJob.jobId._id === job._id)) ?
                       <FontAwesomeIcon className="IconStyle__VerticalCenteredSvg" style={{

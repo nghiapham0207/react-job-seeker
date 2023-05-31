@@ -76,7 +76,7 @@ function DetailJob() {
   return (
     isLoading ?
       <div>
-        <InfiniteScrollContainer width="3rem" height="3rem">
+        <InfiniteScrollContainer size="3rem">
           Đang tải
         </InfiniteScrollContainer>
       </div> :
