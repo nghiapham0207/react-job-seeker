@@ -10,28 +10,35 @@ import EditProfilePage from "../EditProfilePage/EditProfilePage";
 const cx = classNames.bind(styles);
 
 const initTab = [
-  { key: "edit", label: "Thông tin cá nhân", isActive: true, url: "/setting/edit" },
-  { key: "change-password", label: "Thay đổ mật khẩu", isActive: false, url: "/setting/change-password" },
-]
+	{
+		key: "edit",
+		label: "Thông tin cá nhân",
+		isActive: true,
+		url: "/setting/edit",
+	},
+	{
+		key: "change-password",
+		label: "Thay đổ mật khẩu",
+		isActive: false,
+		url: "/setting/change-password",
+	},
+];
 
 function SettingPage({ url, children = <EditProfilePage /> }) {
-  // const currentUser = useSelector(selectUser);
-  const currentPathName = window.location.pathname;
-  const navigate = useNavigate();
-  const handleClick = (url) => {
-    navigate(url);
-    // tạo layout cho setting chỉ thay thế phần content
-  }
-  return (
-    <GlintContainer>
-      <div className={cx("Title")}>
-        Cài đặt tài khoản
-      </div>
-      <div className={cx("Wrapper")}>
-        <div className={cx("SidebarWrapper")}>
-          <SidebarWrapper>
-            
-            {/* <UserProfileWrapper>
+	// const currentUser = useSelector(selectUser);
+	const currentPathName = window.location.pathname;
+	const navigate = useNavigate();
+	const handleClick = (url) => {
+		navigate(url);
+		// tạo layout cho setting chỉ thay thế phần content
+	};
+	return (
+		<GlintContainer>
+			<div className={cx("Title")}>Cài đặt tài khoản</div>
+			<div className={cx("Wrapper")}>
+				<div className={cx("SidebarWrapper")}>
+					<SidebarWrapper>
+						{/* <UserProfileWrapper>
               <ProfilePictureWrapper>
                 <ProfilePictureContainer>
                   <ProfilePictureContent>
@@ -50,25 +57,25 @@ function SettingPage({ url, children = <EditProfilePage /> }) {
               </ProfileInfo>
             </UserProfileWrapper> */}
 
-            <SidebarTab>
-              {initTab.map((tab) => (
-                <Fragment key={tab.key}>
-                  <SidebarItem label={tab.label}
-                    // isActive={tab.isActive}
-                    isActive={tab.url === currentPathName}
-                    url={tab.url}
-                    onClick={handleClick} />
-                </Fragment>
-              ))}
-            </SidebarTab>
-          </SidebarWrapper>
-        </div>
-        <div className={cx("ContentWrapper")}>
-          {children}
-        </div>
-      </div>
-    </GlintContainer>
-  )
+						<SidebarTab>
+							{initTab.map((tab) => (
+								<Fragment key={tab.key}>
+									<SidebarItem
+										label={tab.label}
+										// isActive={tab.isActive}
+										isActive={tab.url === currentPathName}
+										url={tab.url}
+										onClick={handleClick}
+									/>
+								</Fragment>
+							))}
+						</SidebarTab>
+					</SidebarWrapper>
+				</div>
+				<div className={cx("ContentWrapper")}>{children}</div>
+			</div>
+		</GlintContainer>
+	);
 }
 
 export default SettingPage;

@@ -1,76 +1,76 @@
 .SolidBtnContainer {
-    position: relative;
-    display: flex;
-    z-index: 1;
-    border-radius: 0px;
+	position: relative;
+	display: flex;
+	z-index: 1;
+	border-radius: 0px;
 }
 
 .Button {
-    display: flex;
-    position: relative;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    border: none;
-    text-transform: uppercase;
-    outline: none;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 1.5;
-    padding: 10px 20px;
-    background: transparent;
-    transition: all 0.2s ease 0s;
-    text-decoration: none;
+	display: flex;
+	position: relative;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	justify-content: center;
+	border: none;
+	text-transform: uppercase;
+	outline: none;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 1.5;
+	padding: 10px 20px;
+	background: transparent;
+	transition: all 0.2s ease 0s;
+	text-decoration: none;
 }
 
 .Button:disabled {
-    cursor: not-allowed;
+	cursor: not-allowed;
 }
 
 .SolidBtn {
-    width: 100%;
-    border-radius: 0px;
-    background-color: var(--primary-color);
-    color: rgb(255, 255, 255);
+	width: 100%;
+	border-radius: 0px;
+	background-color: var(--primary-color);
+	color: rgb(255, 255, 255);
 }
 
 .SolidBtn:active {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
 }
 
 .SolidBtn:disabled {
-    background-color: rgb(198, 198, 198);
-    color: rgb(255, 255, 255);
+	background-color: rgb(198, 198, 198);
+	color: rgb(255, 255, 255);
 }
 
 .GhostBtnContainer {
-    position: relative;
-    display: flex;
-    z-index: 1;
+	position: relative;
+	display: flex;
+	z-index: 1;
 }
 
 .GhostBtn {
-    // transition: background-color 0.5s ease 0s;
-    width: 100%;
-    background: rgb(255, 255, 255);
-    padding: 8px 18px;
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    border-radius: 0px;
+	// transition: background-color 0.5s ease 0s;
+	width: 100%;
+	background: rgb(255, 255, 255);
+	padding: 8px 18px;
+	border: 2px solid var(--primary-color);
+	color: var(--primary-color);
+	border-radius: 0px;
 }
 
 .GhostBtn:hover {
-    // transition: background-color 0.5s ease 0s;
-    text-decoration: none;
-    background-color: var(--primary-color);
-    color: rgb(255, 255, 255);
+	// transition: background-color 0.5s ease 0s;
+	text-decoration: none;
+	background-color: var(--primary-color);
+	color: rgb(255, 255, 255);
 }
 
 .GhostBtn:active {
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    border: 2px solid rgb(0, 0, 0);
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+	border: 2px solid rgb(0, 0, 0);
 }

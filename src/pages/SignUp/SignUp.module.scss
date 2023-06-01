@@ -1,248 +1,244 @@
 .global__Background {
-    background-color: rgb(250, 250, 250);
-    background-image: url("../../../public/static/images/oval.svg");
-    background-repeat: no-repeat;
-    background-position: bottom right -5em;
-    background-size: 200px;
-    background-attachment: fixed;
-    min-height: 100vh;
+	background-color: rgb(250, 250, 250);
+	background-image: url("../../../public/static/images/oval.svg");
+	background-repeat: no-repeat;
+	background-position: bottom right -5em;
+	background-size: 200px;
+	background-attachment: fixed;
+	min-height: 100vh;
 }
 
 .global__TitleWrapper h1 {
-    top: 2em;
+	top: 2em;
 }
 
 .TitleStyles__Title {
-    margin: 0;
-    color: rgb(0, 0, 0);
+	margin: 0;
+	color: rgb(0, 0, 0);
 }
 
 .SignUpPage__Title {
-    position: relative;
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-    line-height: 48px;
+	position: relative;
+	font-size: 28px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 48px;
 }
 
 .SignUpPage__Psychedelic {
-    margin-left: 4px;
-    text-shadow: -2px 2px rgb(255 242 64), -4px 4px rgb(11 174 236);
-    letter-spacing: 2px;
+	margin-left: 4px;
+	text-shadow: -2px 2px rgb(255 242 64), -4px 4px rgb(11 174 236);
+	letter-spacing: 2px;
 }
 
 .signupWithEmail__SignUpWrapper {
-    position: relative;
-    background-color: rgb(255, 255, 255);
-    margin: 6em auto auto;
-    z-index: 0;
+	position: relative;
+	background-color: rgb(255, 255, 255);
+	margin: 6em auto auto;
+	z-index: 0;
 }
 
 .SignUpEmailPage__SignUpWrapperExtend {
-    margin-bottom: 2em;
-    // padding-bottom: 2em;
-    max-width: 360px;
+	margin-bottom: 2em;
+	// padding-bottom: 2em;
+	max-width: 360px;
 }
 
-
 .signupWithEmail__SignUpFormWrapper {
-    padding: 1em 2em;
+	padding: 1em 2em;
 }
 
 .signupWithEmail__SignUpContainer {
-    position: relative;
-    display: block;
+	position: relative;
+	display: block;
 }
 
 .signupWithEmail__SignUpTwoCols {
-    display: grid;
-    grid-template-columns: 100%;
+	display: grid;
+	grid-template-columns: 100%;
 }
 
 // alert error
 
 .signupWithEmail__FormWrapper {
-    padding: 1em;
+	padding: 1em;
 }
 
-
 .signupWithEmail__SubmitWrapper {
-    display: initial;
-    position: relative;
-    padding: 1em;
+	display: initial;
+	position: relative;
+	padding: 1em;
 }
 
 .Checkbox__CheckboxWrapper {
-    display: flex;
-    position: relative;
-    justify-content: left;
+	display: flex;
+	position: relative;
+	justify-content: left;
 }
 
 .Checkbox__Input {
-    display: none;
-    z-index: 2;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    top: 2px;
-    cursor: pointer;
+	display: none;
+	z-index: 2;
+	width: 20px;
+	height: 20px;
+	position: relative;
+	top: 2px;
+	cursor: pointer;
 }
 
-.Checkbox__Input+label {
-    position: relative;
-    cursor: pointer;
+.Checkbox__Input + label {
+	position: relative;
+	cursor: pointer;
 }
 
-.Checkbox__Input+label span {
-    padding-left: 2em;
+.Checkbox__Input + label span {
+	padding-left: 2em;
 }
 
 .Checkbox__Label {
-    color: rgb(119, 119, 119);
-    font-size: 12px;
-    font-family: Poppins, sans-serif;
+	color: rgb(119, 119, 119);
+	font-size: 12px;
+	font-family: Poppins, sans-serif;
 }
 
-.Checkbox__Input+label::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    border: 1px solid black;
-    background-color: rgb(255, 255, 255);
+.Checkbox__Input + label::before {
+	content: " ";
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 20px;
+	height: 20px;
+	border: 1px solid black;
+	background-color: rgb(255, 255, 255);
 }
 
-.Checkbox__Input+label::after {
-    content: "";
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    display: block;
-    opacity: 0;
-    transform: scale(0);
-    transition: transform 0.3s ease 0s;
-    width: 15px;
-    height: 15px;
-    background: url("../../../public/static/images/checkbox.svg");
+.Checkbox__Input + label::after {
+	content: "";
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	display: block;
+	opacity: 0;
+	transform: scale(0);
+	transition: transform 0.3s ease 0s;
+	width: 15px;
+	height: 15px;
+	background: url("../../../public/static/images/checkbox.svg");
 }
 
-.Checkbox__Input:checked+label::before {
-    border: 2px solid black;
-    ;
+.Checkbox__Input:checked + label::before {
+	border: 2px solid black;
 }
 
-.Checkbox__Input:checked+label::after {
-    transform: scale(1);
-    opacity: 1;
+.Checkbox__Input:checked + label::after {
+	transform: scale(1);
+	opacity: 1;
 }
 
 .buttons__OverlappingBtn {
-    position: relative;
-    background-color: rgb(236, 39, 43);
-    margin-left: 1em;
-    outline: none;
+	position: relative;
+	background-color: rgb(236, 39, 43);
+	margin-left: 1em;
+	outline: none;
 }
 
 .buttons__OverlappingBtn:hover {
-    opacity: 0.8;
+	opacity: 0.8;
 }
 
 .signupWithEmail__OverlappingBtnExt {
-    width: 100%;
-    margin: 2em auto;
-    border-radius: 4px;
+	width: 100%;
+	margin: 2em auto;
+	border-radius: 4px;
 }
 
-
 .signupWithEmail__OverlappingBtnExt button {
-    display: flex;
-    background-color: transparent;
-    border: none;
-    border-radius: 4px;
-    font-family: Poppins, sans-serif;
-    font-weight: 600;
-    color: rgb(255, 255, 255);
-    text-transform: uppercase;
-    width: 100%;
-    padding: 1em;
-    cursor: pointer;
+	display: flex;
+	background-color: transparent;
+	border: none;
+	border-radius: 4px;
+	font-family: Poppins, sans-serif;
+	font-weight: 600;
+	color: rgb(255, 255, 255);
+	text-transform: uppercase;
+	width: 100%;
+	padding: 1em;
+	cursor: pointer;
 }
 
 .signupWithEmail__OverlappingBtnExt button:focus {
-    box-shadow: 0 0 0 .25rem var(--primary-color);
+	box-shadow: 0 0 0 0.25rem var(--primary-color);
 }
 
 .signupWithEmail__BtnSubmit {
-    position: relative;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
+	position: relative;
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
 }
 
-.signupWithEmail__SubmitWrapper>span {
-    display: block;
-    margin-bottom: 1em;
-    text-align: center;
-    color: rgb(119, 119, 119);
-    font-size: 13px;
-    font-family: Poppins, sans-serif;
-    font-weight: 300;
+.signupWithEmail__SubmitWrapper > span {
+	display: block;
+	margin-bottom: 1em;
+	text-align: center;
+	color: rgb(119, 119, 119);
+	font-size: 13px;
+	font-family: Poppins, sans-serif;
+	font-weight: 300;
 }
 
 .signupWithEmail__SubmitWrapper a,
 .signupWithEmail__SubmitWrapper a:visited {
-    text-decoration: none;
-    color: var(--primary-color);
+	text-decoration: none;
+	color: var(--primary-color);
 }
 
 .signupWithEmail__AlreadyHaveAccount {
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
 }
 
 .signupWithEmail__AlreadyHaveAccount label {
-    align-self: center;
-    color: rgb(119, 119, 119);
+	align-self: center;
+	color: rgb(119, 119, 119);
 }
 
 .buttons__DefaultBtn {
-    position: relative;
-    display: flex;
-    border: none;
-    cursor: pointer;
+	position: relative;
+	display: flex;
+	border: none;
+	cursor: pointer;
 }
 
 .buttons__GhostBtn {
-    align-self: center;
-    border: 2px solid rgb(236, 39, 43);
+	align-self: center;
+	border: 2px solid rgb(236, 39, 43);
 }
 
 .signupWithEmail__GhostBtnExt {
-    padding: 0.4em 0.6em;
-    margin-left: 4em;
-    background-color: rgb(255, 255, 255);
+	padding: 0.4em 0.6em;
+	margin-left: 4em;
+	background-color: rgb(255, 255, 255);
 }
 
 .OnboardingFooter__StyledFooter {
-    margin: 0 auto;
-    height: 2rem;
+	margin: 0 auto;
+	height: 2rem;
 }
 
 @media (min-width: 768px) {
-    .SignUpEmailPage__SignUpWrapperExtend {
-        max-width: 800px;
-    }
+	.SignUpEmailPage__SignUpWrapperExtend {
+		max-width: 800px;
+	}
 
-    .signupWithEmail__SignUpTwoCols {
-        grid-template-columns: 50% 50%;
-    }
+	.signupWithEmail__SignUpTwoCols {
+		grid-template-columns: 50% 50%;
+	}
 
-    .signupWithEmail__OverlappingBtnExt {
-        width: 50%;
-    }
+	.signupWithEmail__OverlappingBtnExt {
+		width: 50%;
+	}
 }

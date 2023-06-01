@@ -1,40 +1,40 @@
 .SuggestionDropdownContainer {
-    position: relative;
+	position: relative;
 }
 
 .SuggestionDropdown {
-    position: absolute;
-    width: 100%;
-    z-index: 10;
-    max-height: 120px;
-    overflow-y: auto;
-    background-color: white;
-    box-shadow: 0 5px 10px 0 rgb(0 0 0 /30%);
+	position: absolute;
+	width: 100%;
+	z-index: 10;
+	max-height: 120px;
+	overflow-y: auto;
+	background-color: white;
+	box-shadow: 0 5px 10px 0 rgb(0 0 0 /30%);
 }
 
 .SearchItemWrapper {
-    display: flex;
-    align-items: center;
-    -webkit-box-align: center;
-    padding: 8px;
-    padding-inline-start: 0;
-    cursor: pointer;
+	display: flex;
+	align-items: center;
+	-webkit-box-align: center;
+	padding: 8px;
+	padding-inline-start: 0;
+	cursor: pointer;
 
-    &.active {
-        background-color: rgb(230, 243, 255);
-    }
+	&.active {
+		background-color: rgb(230, 243, 255);
+	}
 }
 
 .SearchItemWrapper:hover {
-    background-color: rgb(230, 243, 255);
+	background-color: rgb(230, 243, 255);
 }
 
 .SearchItemWrapper svg {
-    fill: var(--secondary-color);
-    margin: 0 8px;
-    opacity: 0.6;
+	fill: var(--secondary-color);
+	margin: 0 8px;
+	opacity: 0.6;
 }
 
 .SuggestionItem {
-    margin-left: 8px;
+	margin-left: 8px;
 }

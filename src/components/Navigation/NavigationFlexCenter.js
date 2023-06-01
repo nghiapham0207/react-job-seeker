@@ -5,11 +5,7 @@ import styles from "./Navigation.module.scss";
 const cx = classNames.bind(styles);
 
 function NavigationFlexCenter({ children }) {
-  return (
-    <div className={cx("FlexCenter")}>
-      {children}
-    </div>
-  )
+	return <div className={cx("FlexCenter")}>{children}</div>;
 }
 
 export default NavigationFlexCenter;

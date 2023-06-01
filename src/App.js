@@ -1,24 +1,23 @@
-import { ToastContainer } from 'react-toastify';
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { ToastContainer } from "react-toastify";
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
-import { privateRoutes, publicRoutes } from './routes/routes';
-import { selectUser } from './redux/selector';
-import { useEffect } from 'react';
-import { get, path } from './utils/axiosAPI';
-import { renderRoutes } from './utils/helpers';
+import { privateRoutes, publicRoutes } from "./routes/routes";
+import { selectUser } from "./redux/selector";
+import { useEffect } from "react";
+import { get, path } from "./utils/axiosAPI";
+import { renderRoutes } from "./utils/helpers";
 
-const ProtectedRoute = (({ redirectPath = '/login' }) => {
+const ProtectedRoute = ({ redirectPath = "/login" }) => {
 	console.log("ProtectedRoute");
 	const currentUser = useSelector(selectUser);
 	const currentPathName = window.location.pathname;
 	if (!currentUser) {
-		return <Navigate to={`${redirectPath}?next=${encodeURIComponent(currentPathName)}`}
-			replace />;
+		return <Navigate to={`${redirectPath}?next=${encodeURIComponent(currentPathName)}`} replace />;
 	}
 	return <Outlet />;
-});
+};
 
 function App() {
 	useEffect(() => {
@@ -29,9 +28,8 @@ function App() {
 			} catch (error) {
 				console.log(error);
 			} finally {
-
 			}
-		}
+		};
 		fetchData();
 	}, []);
 	return (
@@ -39,16 +37,8 @@ function App() {
 			<div className="App">
 				<ToastContainer />
 				<Routes>
-					{
-						renderRoutes(publicRoutes)
-					}
-					{
-						<Route element={<ProtectedRoute />} >
-							{
-								renderRoutes(privateRoutes)
-							}
-						</Route>
-					}
+					{renderRoutes(publicRoutes)}
+					{<Route element={<ProtectedRoute />}>{renderRoutes(privateRoutes)}</Route>}
 				</Routes>
 			</div>
 		</BrowserRouter>
@@ -57,6 +47,6 @@ function App() {
 
 ProtectedRoute.propTypes = {
 	user: PropTypes.object,
-}
+};
 
 export default App;

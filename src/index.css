@@ -1,60 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 :root {
-    --primary-color: rgb(1, 126, 183);
-    --secondary-color: rgb(119, 119, 119);
-    --menu-height: 70px;
+	--primary-color: rgb(1, 126, 183);
+	--secondary-color: rgb(119, 119, 119);
+	--menu-height: 70px;
 }
 
 html {
-    font-size: 14px;
-    scroll-behavior: smooth;
+	font-size: 14px;
+	scroll-behavior: smooth;
 }
 
 /* custome scrollbar */
 ::-webkit-scrollbar {
-    width: 10px;
+	width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+	background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 8px;
-    transition: color 0.2s ease 0s;
+	background: var(--primary-color);
+	border-radius: 8px;
+	transition: color 0.2s ease 0s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #0d37a1;
+	background: #0d37a1;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    /* overflow-y: overlay; */
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+	font-family: "Poppins", sans-serif;
+	/* overflow-y: overlay; */
+	overflow-x: hidden;
+	scroll-behavior: smooth;
 }
 
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 /* custom css */
 input[type="password"]::-ms-reveal {
-    display: none;
+	display: none;
 }
 
 a,
 a:visited {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 a {
-    color: var(--primary-color);
+	color: var(--primary-color);
 }

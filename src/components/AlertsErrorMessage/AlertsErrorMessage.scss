@@ -1,20 +1,20 @@
 .alerts__ErrorMessage {
-    position: relative;
-    margin: 1em 0em;
-    padding: 1em 1.5em;
-    color: rgb(159, 58, 56);
-    background-color: rgb(255, 246, 246);
+	position: relative;
+	margin: 1em 0em;
+	padding: 1em 1.5em;
+	color: rgb(159, 58, 56);
+	background-color: rgb(255, 246, 246);
 }
 
 .alerts__ErrorMessage a,
 .alerts__ErrorMessage a:visited {
-    text-decoration: none;
-    color: rgb(1, 126, 183);
+	text-decoration: none;
+	color: rgb(1, 126, 183);
 }
 
 .alerts__ErrorMessageHeader {
-    font-family: Poppins, sans-serif;
-    font-weight: 600;
-    color: rgb(145, 45, 43);
-    padding-bottom: 0.5em;
+	font-family: Poppins, sans-serif;
+	font-weight: 600;
+	color: rgb(145, 45, 43);
+	padding-bottom: 0.5em;
 }

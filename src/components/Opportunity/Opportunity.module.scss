@@ -1,46 +1,46 @@
 .Container {
-    display: flex;
+	display: flex;
 }
 
 .Main {
-    width: 100%;
+	width: 100%;
 }
 
 .DividerContainer {
-    margin-bottom: 24px;
+	margin-bottom: 24px;
 }
 
 .DesktopAside {
-    margin-left: 48px;
-    width: 352px;
+	margin-left: 48px;
+	width: 352px;
 }
 
 .DesktopSimilarJobsWrapper {
-    margin-bottom: 40px;
-    margin-top: 32px;
+	margin-bottom: 40px;
+	margin-top: 32px;
 }
 
 .SkillsContainer {
-    margin-bottom: 40px;
+	margin-bottom: 40px;
 }
 
 .JobDescriptionContainer {
-    margin-bottom: 32px;
+	margin-bottom: 32px;
 }
 
 @media (max-width: 1023.98px) {
-    .Container {
-        flex-direction: column;
-    }
+	.Container {
+		flex-direction: column;
+	}
 
-    .DesktopAside {
-        margin-left: 0;
-        width: 100%;
-    }
+	.DesktopAside {
+		margin-left: 0;
+		width: 100%;
+	}
 }
 
 @media (min-width: 1024px) {
-    .Main {
-        width: 770px;
-    }
+	.Main {
+		width: 770px;
+	}
 }

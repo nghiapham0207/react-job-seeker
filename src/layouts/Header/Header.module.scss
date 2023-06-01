@@ -1,180 +1,180 @@
 .MainHeader {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 101;
-    border-bottom: 1px solid rgb(198, 198, 198);
-    // background-color: white;
+	position: sticky;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 101;
+	border-bottom: 1px solid rgb(198, 198, 198);
+	// background-color: white;
 }
 
 .MainHeader,
 .Container {
-    background: linear-gradient(to right, rgb(188, 231, 255), rgb(209, 236, 252));
+	background: linear-gradient(to right, rgb(188, 231, 255), rgb(209, 236, 252));
 }
 
 .Container {
-    display: flex;
-    align-items: center;
-    padding: 20px 0px 17px;
-    margin: auto;
-    // background-color: rgb(255, 255, 255);
-    height: var(--menu-height);
+	display: flex;
+	align-items: center;
+	padding: 20px 0px 17px;
+	margin: auto;
+	// background-color: rgb(255, 255, 255);
+	height: var(--menu-height);
 }
 
 .Logo {
-    width: 53px;
-    height: 40px;
-    max-height: 40px;
-    max-width: 90px;
-    display: block;
+	width: 53px;
+	height: 40px;
+	max-height: 40px;
+	max-width: 90px;
+	display: block;
 }
 
 .MenuItem {
-    position: relative;
-    margin-right: 20px;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
+	position: relative;
+	margin-right: 20px;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 500;
+	cursor: pointer;
 }
 
 .MenuItem a,
 .MenuItem a:visited {
-    color: black;
+	color: black;
 }
 
 .MenuItem a:active {
-    color: black;
+	color: black;
 }
 
 .MenuItem:first-of-type {
-    margin-left: 30px;
+	margin-left: 30px;
 }
 
 .MenuItem .Active::after {
-    content: "";
-    width: 100%;
-    height: 2px;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    background-color: rgb(0, 0, 0);
-    transition: all 0.2s ease-in-out 0s;
+	content: "";
+	width: 100%;
+	height: 2px;
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	background-color: rgb(0, 0, 0);
+	transition: all 0.2s ease-in-out 0s;
 }
 
 .MenuItem::after {
-    content: "";
-    transform: scale(0);
+	content: "";
+	transform: scale(0);
 }
 
 .MenuItem:hover::after {
-    content: "";
-    width: 100%;
-    height: 2px;
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    background-color: rgb(0, 0, 0);
-    transition: all 0.2s ease-in-out 0s;
-    transform: scaleX(1);
+	content: "";
+	width: 100%;
+	height: 2px;
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	background-color: rgb(0, 0, 0);
+	transition: all 0.2s ease-in-out 0s;
+	transform: scaleX(1);
 }
 
 .RightMenuContainer {
-    display: flex;
-    -webkit-box-pack: end;
-    justify-content: flex-end;
-    -webkit-box-align: center;
-    align-items: center;
-    margin-left: auto;
+	display: flex;
+	-webkit-box-pack: end;
+	justify-content: flex-end;
+	-webkit-box-align: center;
+	align-items: center;
+	margin-left: auto;
 }
 
 .RightMenuContainer .UserMenuItem:last-child {
-    margin-right: 0;
+	margin-right: 0;
 }
 
 .UserMenuItem {
-    position: relative;
-    font-size: 12px;
-    font-weight: 500;
-    margin-right: 20px;
-    text-transform: uppercase;
-    cursor: pointer;
+	position: relative;
+	font-size: 12px;
+	font-weight: 500;
+	margin-right: 20px;
+	text-transform: uppercase;
+	cursor: pointer;
 }
 
 .LanguageSwitcherContainer {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
 }
 
 .LanguageSwitcherContainer svg {
-    &:first-child {
-        margin-right: 0.6rem;
-    }
+	&:first-child {
+		margin-right: 0.6rem;
+	}
 
-    &:last-child {
-        margin-left: 0.6rem;
-    }
+	&:last-child {
+		margin-left: 0.6rem;
+	}
 }
 
 .EmployersButton {
-    background-color: transparent;
-    position: relative;
-    display: flex;
-    z-index: 1;
-    border-radius: 0px;
-    text-transform: uppercase;
-    cursor: pointer;
-    user-select: none;
+	background-color: transparent;
+	position: relative;
+	display: flex;
+	z-index: 1;
+	border-radius: 0px;
+	text-transform: uppercase;
+	cursor: pointer;
+	user-select: none;
 }
 
 .EmployersButton a {
-    padding: 5px 10px;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    background-color: var(--primary-color);
+	padding: 5px 10px;
+	font-size: 12px;
+	font-weight: 500;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	background-color: var(--primary-color);
 }
 
 .EmployersButton::after {
-    content: "";
-    opacity: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0, 0, 0, 0.5) 5px);
-    top: 5px;
-    left: 5px;
-    z-index: -1;
-    transition: all 0.2s ease 0s;
-    cursor: pointer;
-    border-radius: 0px;
+	content: "";
+	opacity: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0, 0, 0, 0.5) 5px);
+	top: 5px;
+	left: 5px;
+	z-index: -1;
+	transition: all 0.2s ease 0s;
+	cursor: pointer;
+	border-radius: 0px;
 }
 
 .EmployersButton:active {
-    transform: translate3d(5px, 5px, 0);
-    transition: all 0.2s ease 0s;
+	transform: translate3d(5px, 5px, 0);
+	transition: all 0.2s ease 0s;
 }
 
 .EmployersButton:active::after {
-    transition: all 0.2s ease 0s;
-    top: 0;
-    left: 0;
+	transition: all 0.2s ease 0s;
+	top: 0;
+	left: 0;
 }
 
 .EmployersButton:hover::after {
-    opacity: 1;
-    transition: all 0.2s ease 0s;
+	opacity: 1;
+	transition: all 0.2s ease 0s;
 }
 
 .EmployersButton:active {
-    transform: translate(5px, 5px);
+	transform: translate(5px, 5px);
 }
 
 .EndIconContainer {
-    margin-left: 10px;
-    vertical-align: middle;
+	margin-left: 10px;
+	vertical-align: middle;
 }

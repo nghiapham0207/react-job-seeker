@@ -1,13 +1,13 @@
 .TextFieldContainer {
-    position: relative;
-    display: flex;
-    flex-flow: row;
-    // margin-top: 20px;
-    align-items: center;
+	position: relative;
+	display: flex;
+	flex-flow: row;
+	// margin-top: 20px;
+	align-items: center;
 }
 
 .TextFieldContainer svg {
-    fill: var(--secondary-color);
+	fill: var(--secondary-color);
 }
 
 // .TextFieldContainer input {
@@ -16,37 +16,37 @@
 // }
 
 .TextFieldInput {
-    width: 100%;
-    position: relative;
-    padding: 13px 15px;
-    line-height: 1.5;
+	width: 100%;
+	position: relative;
+	padding: 13px 15px;
+	line-height: 1.5;
 }
 
 .TextFieldInput:focus {
-    outline-color: var(--primary-color);
+	outline-color: var(--primary-color);
 }
 
-.TextFieldInput:focus>svg {
-    fill: red;
+.TextFieldInput:focus > svg {
+	fill: red;
 }
 
 .TextFieldInput::placeholder {
-    color: transparent;
+	color: transparent;
 }
 
 .TextFieldLabel {
-    position: absolute;
-    left: 16px;
-    color: rgb(119, 119, 119);
-    pointer-events: none;
+	position: absolute;
+	left: 16px;
+	color: rgb(119, 119, 119);
+	pointer-events: none;
 }
 
-.TextFieldInput:focus~.TextFieldLabel,
-.TextFieldInput:not(:placeholder-shown)~.TextFieldLabel {
-    padding: 0 5px;
-    font-size: 12px;
-    top: 1em;
-    transform: translate3d(-10px, -20px, 0);
-    transition: all 0.2s ease 0s;
-    background: rgb(255, 255, 255);
+.TextFieldInput:focus ~ .TextFieldLabel,
+.TextFieldInput:not(:placeholder-shown) ~ .TextFieldLabel {
+	padding: 0 5px;
+	font-size: 12px;
+	top: 1em;
+	transform: translate3d(-10px, -20px, 0);
+	transition: all 0.2s ease 0s;
+	background: rgb(255, 255, 255);
 }

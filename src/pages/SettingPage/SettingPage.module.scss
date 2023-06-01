@@ -1,47 +1,45 @@
 .Title {
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 20px;
+	font-size: 22px;
+	font-weight: bold;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .Wrapper {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 60px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 60px;
 }
-
 
 .SidebarWrapper {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 40px;
+	width: 100%;
+	margin-right: 0;
+	margin-bottom: 40px;
 }
 
-
 .ContentWrapper {
-    width: 100%;
+	width: 100%;
 }
 
 @media screen and (min-width: 1024px) {
-    .Title {
-        // margin-top: 60px;
-        margin-top: 40px;
-    }
+	.Title {
+		// margin-top: 60px;
+		margin-top: 40px;
+	}
 
-    .Wrapper {
-        flex-direction: row;
-    }
+	.Wrapper {
+		flex-direction: row;
+	}
 
-    .SidebarWrapper {
-        width: 30%;
-        margin-right: 30px;
-        margin-bottom: 0;
-    }
+	.SidebarWrapper {
+		width: 30%;
+		margin-right: 30px;
+		margin-bottom: 0;
+	}
 
-    .ContentWrapper {
-        width: calc(70% - 30px);
-        min-height: 200px;
-        // min-height: 800px;
-    }
+	.ContentWrapper {
+		width: calc(70% - 30px);
+		min-height: 200px;
+		// min-height: 800px;
+	}
 }

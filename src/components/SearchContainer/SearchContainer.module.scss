@@ -1,42 +1,42 @@
 .Container {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .FieldWrapper {
-    margin-right: 12px;
-    flex: 1 1 0%;
+	margin-right: 12px;
+	flex: 1 1 0%;
 }
 
 .SearchButton {
-    & button {
-        padding: 10px 20px;
-        border-radius: 8px;
-        font-size: 14px;
-    }
+	& button {
+		padding: 10px 20px;
+		border-radius: 8px;
+		font-size: 14px;
+	}
 
-    & button:active {
-        opacity: 0.7;
-    }
+	& button:active {
+		opacity: 0.7;
+	}
 }
 
 @media screen and (max-width: 1023.98px) {
-    .Container {
-        flex-direction: column;
-        align-items: stretch;
-    }
+	.Container {
+		flex-direction: column;
+		align-items: stretch;
+	}
 
-    .FieldWrapper {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 8px;
-    }
+	.FieldWrapper {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 8px;
+	}
 }
 
 @media (min-width: 1024px) {
-    .SearchButton {
-        & button {
-            width: 170px;
-        }
-    }
+	.SearchButton {
+		& button {
+			width: 170px;
+		}
+	}
 }

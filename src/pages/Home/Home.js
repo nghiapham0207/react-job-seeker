@@ -1,6 +1,6 @@
 import GlintContainer from "../../components/GlintContainer/GlintContainer";
 import SearchSection from "../../components/SearchSection/SearchSection";
-import ValueProposition from '../../components/GlintContainer/ValueProposition';
+import ValueProposition from "../../components/GlintContainer/ValueProposition";
 import StatisticDisplay from "../../components/GlintContainer/StatisticDisplay/";
 import CareersGrid from "../../components/GlintContainer/CareersGrid/";
 import PressFeatures from "../../components/GlintContainer/PressFeatures/PressFeatures";
@@ -20,7 +20,7 @@ function Home() {
 				<Testimonial />
 			</GlintContainer>
 		</div>
-	)
+	);
 }
 
 export default Home;

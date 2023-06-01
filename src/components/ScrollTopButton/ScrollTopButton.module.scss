@@ -1,23 +1,23 @@
 .ScrollTopContainer {
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    scroll-behavior: smooth;
-    cursor: pointer;
-    z-index: 50;
-    &:active{
-        box-shadow: 0 0 0 .25rem #009cff;
-    }
+	border-radius: 50%;
+	background-color: var(--primary-color);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	scroll-behavior: smooth;
+	cursor: pointer;
+	z-index: 50;
+	&:active {
+		box-shadow: 0 0 0 0.25rem #009cff;
+	}
 }
 
 div.ScrollTopContainer {
-    color: #fff;
-    text-decoration: none;
+	color: #fff;
+	text-decoration: none;
 }

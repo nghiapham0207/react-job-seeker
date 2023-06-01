@@ -1,14 +1,13 @@
 .MainLayout {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	min-height: 100vh;
 }
 
 .MainBody {
-    flex-grow: 1;
-    -webkit-box-flex: 1;
-    // min-height: 1000px;
-    // margin-top: var(--menu-height); // fixed
+	flex-grow: 1;
+	-webkit-box-flex: 1;
+	// min-height: 1000px;
+	// margin-top: var(--menu-height); // fixed
 }
-

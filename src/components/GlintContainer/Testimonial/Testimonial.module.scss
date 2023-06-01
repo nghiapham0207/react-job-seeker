@@ -1,101 +1,101 @@
 .Container {
-    margin-top: 120px;
+	margin-top: 120px;
 }
 
 .FlexCenter {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .HeadingContainer {
-    font-size: 2em;
+	font-size: 2em;
 }
 
 .SliderContainer {
-    position: relative;
-    max-width: 1200px;
-    margin: auto;
+	position: relative;
+	max-width: 1200px;
+	margin: auto;
 }
 
 .SliderContentWrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
-    overflow: hidden;
+	position: relative;
+	display: flex;
+	align-items: center;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 // .slider-wrapper {}
 
 .SliderItemWrapper {
-    display: inline-flex;
-    flex: 0 0 auto;
-    flex-flow: row;
-    padding: 2em 4em;
+	display: inline-flex;
+	flex: 0 0 auto;
+	flex-flow: row;
+	padding: 2em 4em;
 }
 
 .slider-item {
-    width: 100%;
-    white-space: normal;
+	width: 100%;
+	white-space: normal;
 }
 
 .BlockquoteContainer {
-    position: relative;
-    width: 50%;
-    transition: all 0.2s ease 0s;
+	position: relative;
+	width: 50%;
+	transition: all 0.2s ease 0s;
 }
 
 .BlockquoteContainer:first-child {
-    margin-right: 60px;
+	margin-right: 60px;
 }
 
 .BlockquoteContainer .VerticalCenteredSvg {
-    font-size: 3em;
+	font-size: 3em;
 }
 
 .BlockquoteContainer:hover .VerticalCenteredSvg {
-    fill: red;
+	fill: red;
 }
 
 .BlockquoteContainer:hover {
-    background: rgb(11, 174, 236);
-    color: rgb(255, 255, 255);
+	background: rgb(11, 174, 236);
+	color: rgb(255, 255, 255);
 }
 
 .BlockquoteProfileWrapper {
-    position: absolute;
-    // font-size: 1.7em;
-    transform: translate(-35%, 40%);
-    line-height: 1.5;
+	position: absolute;
+	// font-size: 1.7em;
+	transform: translate(-35%, 40%);
+	line-height: 1.5;
 }
 
 // .blockquote-profile {}
 
 .ProfilePictureStyle__ProfilePictureContainer {
-    position: relative;
-    display: inline-flex;
-    // font-size: 1.7em;
+	position: relative;
+	display: inline-flex;
+	// font-size: 1.7em;
 }
 
 .ProfilePictureStyle__ProfilePictureContent {
-    position: relative;
-    width: 5em;
-    height: 5em;
-    border-radius: 50%;
+	position: relative;
+	width: 5em;
+	height: 5em;
+	border-radius: 50%;
 }
 
 .ProfilePictureStyle__ProfilePictureContent img {
-    object-fit: cover;
-    size: 119px;
-    border-radius: 50%;
+	object-fit: cover;
+	size: 119px;
+	border-radius: 50%;
 }
 
 .BlockquoteContentWrapper {
-    padding: 2.86em 2.86em 3.57em 9em;
+	padding: 2.86em 2.86em 3.57em 9em;
 }
 
 .BlockquoteTestimonyWrapper {
-    text-align: left;
+	text-align: left;
 }
 
 // .BlockquoteAuthorWrapper {}
@@ -108,64 +108,63 @@
 
 .LeftArrowContainer,
 .RightArrowContainer {
-    position: absolute;
-    display: flex;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2em;
+	position: absolute;
+	display: flex;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 2em;
 }
 
 .LeftArrowContainer {
-    left: 0;
-    cursor: not-allowed;
+	left: 0;
+	cursor: not-allowed;
 }
 
 .RightArrowContainer {
-    right: 0;
-    cursor: pointer;
-
+	right: 0;
+	cursor: pointer;
 }
 
 div:disabled.LeftArrowContainer {
-    cursor: not-allowed;
-    background-color: black;
+	cursor: not-allowed;
+	background-color: black;
 }
 
 div:disabled svg {
-    outline: 4px solid red;
+	outline: 4px solid red;
 }
 
 .VerticalCenteredSvg {
-    position: absolute;
-    top: -20px;
-    left: 120px;
-    font-size: 1em;
+	position: absolute;
+	top: -20px;
+	left: 120px;
+	font-size: 1em;
 }
 
 .NavigationContainer {
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    flex-flow: row;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	flex-flow: row;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	margin: 10px 0;
 }
 
 .NavigationItem {
-    display: inline-flex;
-    width: 8px;
-    height: 8px;
-    background: rgb(198, 198, 198);
-    border-radius: 50%;
-    margin: 0 4px;
-    cursor: pointer;
+	display: inline-flex;
+	width: 8px;
+	height: 8px;
+	background: rgb(198, 198, 198);
+	border-radius: 50%;
+	margin: 0 4px;
+	cursor: pointer;
 }
 
 .active {
-    width: 30px;
-    height: 10px;
-    background: var(--primary-color);
-    border-radius: 8px;
+	width: 30px;
+	height: 10px;
+	background: var(--primary-color);
+	border-radius: 8px;
 }

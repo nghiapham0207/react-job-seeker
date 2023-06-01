@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 
-import config from '../../../config';
+import config from "../../../config";
 import images from "../../../assets/images";
-import styles from './CareersGrid.module.scss';
+import styles from "./CareersGrid.module.scss";
 
 const cx = classNames.bind(styles);
 
@@ -162,15 +162,14 @@ function CareersGrid() {
 										<span>việc làm còn trống</span>
 									</li>
 									<li>
-										<span>122
-										</span>
+										<span>122</span>
 										<span>cơ hội việc làm</span>
 									</li>
 								</ul>
 							</div>
 						</div>
 					</a>
-					<a className={cx("GridItem", "Card-3")} href="/vn/category/design-jobs/3" >
+					<a className={cx("GridItem", "Card-3")} href="/vn/category/design-jobs/3">
 						<div className={cx("InformationContainer")}>
 							<div className={cx("InformationGrid")}>
 								<p className={cx("TitleWrapper", "InformationTitle")}>
@@ -194,7 +193,7 @@ function CareersGrid() {
 							</div>
 						</div>
 					</a>
-					<a className={cx("GridItem", "Card-4")} href="/vn/category/operations-jobs/4" >
+					<a className={cx("GridItem", "Card-4")} href="/vn/category/operations-jobs/4">
 						<div className={cx("InformationContainer")}>
 							<div className={cx("InformationGrid")}>
 								<p className={cx("TitleWrapper", "InformationTitle")}>
@@ -218,9 +217,8 @@ function CareersGrid() {
 							</div>
 						</div>
 					</a>
-					<a className={cx("GridItem", "Card-5")} href="/vn/category/marketing-jobs/5" >
+					<a className={cx("GridItem", "Card-5")} href="/vn/category/marketing-jobs/5">
 						<div className={cx("InformationContainer")}>
-
 							<div className={cx("InformationGrid")}>
 								<p className={cx("TitleWrapper", "InformationTitle")}>
 									<span>Marketing/ Tiếp thị</span>
@@ -243,7 +241,7 @@ function CareersGrid() {
 							</div>
 						</div>
 					</a>
-					<a className={cx("GridItem", "Card-12")} href="/vn/category/media-and-communications-jobs/12" >
+					<a className={cx("GridItem", "Card-12")} href="/vn/category/media-and-communications-jobs/12">
 						<div className={cx("InformationContainer")}>
 							<div className={cx("InformationGrid")}>
 								<p className={cx("TitleWrapper", "InformationTitle")}>
@@ -267,7 +265,7 @@ function CareersGrid() {
 							</div>
 						</div>
 					</a>
-				</div >
+				</div>
 				<div className="FooterContainer">
 					<Link to={config.routes.job} className={cx("FooterItem")}>
 						<div>
@@ -276,11 +274,9 @@ function CareersGrid() {
 						<img src={images.arrow} alt="arrow" className={cx("IconHolder")} />
 					</Link>
 				</div>
-			</div >
-
-
-		</div >
-	)
+			</div>
+		</div>
+	);
 }
 
 export default CareersGrid;

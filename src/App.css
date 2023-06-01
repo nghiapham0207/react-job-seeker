@@ -10,131 +10,131 @@
 @import url("./styles/styles.css");
 
 .Box__StyledBox {
-    padding-bottom: 16px;
+	padding-bottom: 16px;
 }
 
 .BookmarkButton__ButtonWrapper {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .BookmarkButton__ButtonWrapper svg {
-    width: 20px;
-    height: 20px;
+	width: 20px;
+	height: 20px;
 }
 
 .Flex__StyledFlex {
-    display: flex;
-    flex-flow: column nowrap;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    -webkit-box-align: stretch;
-    align-items: stretch;
+	display: flex;
+	flex-flow: column nowrap;
+	-webkit-box-pack: start;
+	justify-content: flex-start;
+	-webkit-box-align: stretch;
+	align-items: stretch;
 }
 
 .IconStyle__VerticalCenteredSvg {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .JobCard_JobCardContainer {
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 100%;
 }
 
 .JobCard__JobCardWrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: white;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: white;
 }
 
 .CheckMarkHotJobBadge__CheckMarkHotJobBadgeContainer {
-    display: flex;
-    justify-content: center;
-    align-items: baseline;
-    font-size: 12px;
-    width: 86px;
-    border-radius: 1.5px;
-    box-shadow: rgb(0 0 0 / 12%) 0px 2px 3.5px;
-    padding: 6px 8px;
-    max-height: 25px;
-    margin-bottom: 7px;
-    background-color: rgb(255, 122, 0);
-    color: white;
-    position: relative;
-    left: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	font-size: 12px;
+	width: 86px;
+	border-radius: 1.5px;
+	box-shadow: rgb(0 0 0 / 12%) 0px 2px 3.5px;
+	padding: 6px 8px;
+	max-height: 25px;
+	margin-bottom: 7px;
+	background-color: rgb(255, 122, 0);
+	color: white;
+	position: relative;
+	left: 20px;
 }
 
 .CheckMarkHotJobBadge__CheckMarkHotJobBadgeContainer span {
-    margin-right: 7px;
-    font-weight: 700;
+	margin-right: 7px;
+	font-weight: 700;
 }
 
 .Large-Text {
-    font-size: 18px;
+	font-size: 18px;
 }
 
 .UnstyleButton {
-    outline: none;
-    border: none;
-    background: none;
-    cursor: pointer;
+	outline: none;
+	border: none;
+	background: none;
+	cursor: pointer;
 }
 
 .UnstyleButton svg {
-    font-size: 20px;
+	font-size: 20px;
 }
 
 .DividerStyle__DividerContainer {
-    width: 100%;
-    height: 1px;
-    background: rgb(198, 198, 198);
+	width: 100%;
+	height: 1px;
+	background: rgb(198, 198, 198);
 }
 
 .ApplyButton__ApplyButton .ButtonStyle__SolidBtn {
-    border-radius: 0;
+	border-radius: 0;
 }
 
 .BookmarkButton__ButtonWrapper {
-    display: flex;
+	display: flex;
 }
 
 .BookmarkButton__BookmarkOutlineIcon {
-    width: 20px;
-    height: 20px;
+	width: 20px;
+	height: 20px;
 }
 
 @media not all and (min-width: 640px) {
-    .fresnel-greaterThanOrEqual-mobileL {
-        display: none;
-    }
+	.fresnel-greaterThanOrEqual-mobileL {
+		display: none;
+	}
 }
 
 @media not all and (max-width: 639.98px) {
-    .fresnel-lessThan-mobileL {
-        display: none;
-    }
+	.fresnel-lessThan-mobileL {
+		display: none;
+	}
 }
 
 @media not all and (max-width: 1023.98px) {
-    .fresnel-lessThan-desktopS {
-        display: none;
-    }
+	.fresnel-lessThan-desktopS {
+		display: none;
+	}
 }
 
 @media not all and (min-width: 1024px) {
-    .fresnel-greaterThanOrEqual-desktopS {
-        display: none;
-    }
+	.fresnel-greaterThanOrEqual-desktopS {
+		display: none;
+	}
 }
 
 @keyframes fadeInBottom {
-    0% {
-        /* transform: translateX(20%); */
-        opacity: 0;
-    }
+	0% {
+		/* transform: translateX(20%); */
+		opacity: 0;
+	}
 
-    100% {
-        /* transform: translateX(0); */
-        opacity: 1;
-    }
+	100% {
+		/* transform: translateX(0); */
+		opacity: 1;
+	}
 }

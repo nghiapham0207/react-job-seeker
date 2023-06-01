@@ -9,15 +9,15 @@ import bussinessTimes from "./business-times.png";
 import huffington from "./huffington.png";
 
 const images = {
-    arrow,
-    engineering,
-    proposition,
-    cna,
-    straitstimes,
-    techcrunch,
-    yahoo,
-    bussinessTimes,
-    huffington
-}
+	arrow,
+	engineering,
+	proposition,
+	cna,
+	straitstimes,
+	techcrunch,
+	yahoo,
+	bussinessTimes,
+	huffington,
+};
 
 export default images;

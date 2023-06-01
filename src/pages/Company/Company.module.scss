@@ -1,49 +1,49 @@
 .SearchBarContainer {
-    // max-width: 972px;
-    max-width: 800px;
-    margin: 30px auto;
-    position: relative;
-    display: flex;
-    align-items: center;
+	// max-width: 972px;
+	max-width: 800px;
+	margin: 30px auto;
+	position: relative;
+	display: flex;
+	align-items: center;
 }
 
 .CompanyCardGrid {
-    display: grid;
-    grid-template-columns: minmax(0px, 1fr);
-    width: 100%;
-    row-gap: 15px;
-    margin: 30px auto;
+	display: grid;
+	grid-template-columns: minmax(0px, 1fr);
+	width: 100%;
+	row-gap: 15px;
+	margin: 30px auto;
 }
 
 .PaginationContainer {
-    display: flex;
-    justify-content: center;
-    -webkit-box-pack: center;
+	display: flex;
+	justify-content: center;
+	-webkit-box-pack: center;
 }
 
 .EmptyView {
-    text-align: center;
+	text-align: center;
 }
 
 @media (min-width: 768px) {
-    .CompanyCardGrid {
-        grid-template-columns: repeat(2, minmax(0px, 1fr));
-        gap: 30px;
-    }
+	.CompanyCardGrid {
+		grid-template-columns: repeat(2, minmax(0px, 1fr));
+		gap: 30px;
+	}
 
-    .PaginationContainer {
-        justify-content: flex-end;
-        -webkit-box-pack: end;
-    }
+	.PaginationContainer {
+		justify-content: flex-end;
+		-webkit-box-pack: end;
+	}
 }
 
 @media (min-width: 1024px) {
-    .CompanyCardGrid {
-        grid-template-columns: repeat(3, minmax(0px, 1fr));
-    }
+	.CompanyCardGrid {
+		grid-template-columns: repeat(3, minmax(0px, 1fr));
+	}
 
-    .SearchBarContainer {
-        margin: 40px auto 60px;
-        // padding: 0 100px;
-    }
+	.SearchBarContainer {
+		margin: 40px auto 60px;
+		// padding: 0 100px;
+	}
 }

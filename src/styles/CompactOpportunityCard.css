@@ -1,140 +1,140 @@
 .CompactOpportunityCard__CompactJobCard {
-    display: flex;
-    flex-flow: column;
-    border: 1px solid rgb(198, 198, 198);
-    border-radius: 4px;
-    padding: 16px 12px;
+	display: flex;
+	flex-flow: column;
+	border: 1px solid rgb(198, 198, 198);
+	border-radius: 4px;
+	padding: 16px 12px;
 }
 
 .CompactJobCardList__JobCardListContainer {
-    display: grid;
-    grid-template-columns: 1fr;
+	display: grid;
+	grid-template-columns: 1fr;
 }
 
 .CompactOpportunityCard__CompactJobCardWrapper {
-    min-width: 100%;
+	min-width: 100%;
 }
 
 .CompactOpportunityCard__CompactJobCardHeader {
-    display: flex;
+	display: flex;
 }
 
 .CompactOpportunityCard__OpportunityInfoContainer {
-    margin: 10px 0;
+	margin: 10px 0;
 }
 
 .CompactOpportunityCard__OpportunityMeta {
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    font-size: 12px;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	font-size: 12px;
 }
 
 .CompactOpportunityCard__CardBottomFlexContainer {
-    margin-top: -10px;
+	margin-top: -10px;
 }
 
 .CompactOpportunityCard__BookmarkIconContainer {
-    padding-top: 5px;
+	padding-top: 5px;
 }
 
 .CompactOpportunityCard__CardAnchorWrapper {
-    position: absolute;
-    inset: 0;
+	position: absolute;
+	inset: 0;
 }
 
 .CompactOpportunityCard__CardAnchorWrapper:hover {
-    box-shadow: var(--primary-color) 0 0 8px;
-    border-radius: 4px;
+	box-shadow: var(--primary-color) 0 0 8px;
+	border-radius: 4px;
 }
 
 .CompactOpportunityCard__BookmarkIconContainer {
-    position: relative;
-    float: right;
+	position: relative;
+	float: right;
 }
 
 .CompactOpportunityCard__CompanyAvatarWrapper {
-    width: 60px;
-    height: 60px;
-    margin-right: 15px;
+	width: 60px;
+	height: 60px;
+	margin-right: 15px;
 }
 
 .CompactOpportunityCard__CompanyAvatar {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }
 
 .CompactOpportunityCard__CompactJobCardInfo {
-    width: 100%;
+	width: 100%;
 }
 
 .CompactOpportunityCard__JobTitle {
-    font-size: 16px;
-    margin-bottom: 5px;
-    margin-right: 26px;
-    font-weight: 500;
+	font-size: 16px;
+	margin-bottom: 5px;
+	margin-right: 26px;
+	font-weight: 500;
 }
 
 .CompactOpportunityCard__CompanyLink {
-    text-decoration: none;
-    color: rgb(1, 126, 183) !important;
-    font-size: 14px;
-    margin-bottom: 10px;
-    position: relative;
+	text-decoration: none;
+	color: rgb(1, 126, 183) !important;
+	font-size: 14px;
+	margin-bottom: 10px;
+	position: relative;
 }
 
 .CompactOpportunityCard__CompanyLink:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .CompactOpportunityCard__OpportunityInfoContainer {
-    margin: 10px 0;
+	margin: 10px 0;
 }
 
 .CompactOpportunityCard__OpportunityInfo {
-    display: flex;
-    flex-direction: row;
-    -webkit-box-align: center;
-    align-items: center;
-    margin-bottom: 6px;
+	display: flex;
+	flex-direction: row;
+	-webkit-box-align: center;
+	align-items: center;
+	margin-bottom: 6px;
 }
 
 .CompactOpportunityCard__OpportunityInfo svg {
-    vertical-align: middle;
-    width: 15px;
-    height: 15px;
-    margin-right: 4px;
-    color: rgb(119, 119, 119);
+	vertical-align: middle;
+	width: 15px;
+	height: 15px;
+	margin-right: 4px;
+	color: rgb(119, 119, 119);
 }
 
 .CompactOpportunityCard__OpportunityMeta {
-    display: flex;
-    padding-top: 10px;
-    margin-top: auto;
+	display: flex;
+	padding-top: 10px;
+	margin-top: auto;
 }
 
 .CompactOpportunityCard__UpdatedTimeContainer {
-    height: 100%;
-    margin-top: 10px;
+	height: 100%;
+	margin-top: 10px;
 }
 
 .CompactOpportunityCard__UpdatedTimeContainer svg {
-    margin-right: 5px;
-    color: rgb(0, 132, 100);
+	margin-right: 5px;
+	color: rgb(0, 132, 100);
 }
 
 .CompactOpportunityCard__UpdatedAtMessage {
-    color: rgb(0, 132, 100);
-    font-weight: 500;
+	color: rgb(0, 132, 100);
+	font-weight: 500;
 }
 
 @media (min-width: 768px) {
-    .CompactJobCardList__JobCardListContainer {
-        grid-template-columns: repeat(2, 1fr);
-    }
+	.CompactJobCardList__JobCardListContainer {
+		grid-template-columns: repeat(2, 1fr);
+	}
 
-    .CompactOpportunityCard__CompactJobCard {
-        height: 100%;
-    }
+	.CompactOpportunityCard__CompactJobCard {
+		height: 100%;
+	}
 }

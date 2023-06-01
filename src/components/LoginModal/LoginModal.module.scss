@@ -1,41 +1,41 @@
 .LoginModalContainer {
-    margin: 0px 15px;
+	margin: 0px 15px;
 }
 
 .ModalContainer {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    inset: 0px;
-    background: rgba(0, 0, 0, 0.65);
-    z-index: 1000;
-    overflow: auto;
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	inset: 0px;
+	background: rgba(0, 0, 0, 0.65);
+	z-index: 1000;
+	overflow: auto;
 }
 
 .ModalContainer::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 .ModalDialog {
-    position: relative;
+	position: relative;
 }
 
 .ModalContentArea {
-    width: 500px;
-    max-width: 95vw;
-    background: rgb(255, 255, 255);
-    margin: 120px auto;
+	width: 500px;
+	max-width: 95vw;
+	background: rgb(255, 255, 255);
+	margin: 120px auto;
 }
 
 .ModalHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px;
-    border-bottom: 1px solid rgb(198, 198, 198);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px;
+	border-bottom: 1px solid rgb(198, 198, 198);
 }
 
 .ModalHeader h3 {
-    text-transform: uppercase;
+	text-transform: uppercase;
 }

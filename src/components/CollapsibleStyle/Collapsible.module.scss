@@ -1,49 +1,49 @@
 .CollapsibleContainer {
-    color: black;
-    background-color: rgb(255, 255, 255);
-    cursor: pointer;
+	color: black;
+	background-color: rgb(255, 255, 255);
+	cursor: pointer;
 }
 
 .CollapsibleContainer .collapsible-title {
-    padding: 16px 0px;
+	padding: 16px 0px;
 }
 
 .CollapsibleContent {
-    outline: none;
+	outline: none;
 }
 
 .CollapsibleHeader {
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    align-items: center;
+	display: flex;
+	-webkit-box-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	align-items: center;
 }
 
 .CollapsibleHeader:hover {
-    color: rgb(1, 126, 183);
+	color: rgb(1, 126, 183);
 }
 
 .CollapsibleHeader svg {
-    display: block;
-    width: 14px;
-    height: 14px;
+	display: block;
+	width: 14px;
+	height: 14px;
 }
 
 .CollapsibleBody {
-    padding: 0px 0px 16px;
-    cursor: default;
-    animation: appear 0.3s linear 0s 1 normal none;
+	padding: 0px 0px 16px;
+	cursor: default;
+	animation: appear 0.3s linear 0s 1 normal none;
 }
 
 @keyframes appear {
-    0% {
-        opacity: 0;
-        transform: translate3d(0, 10%, 0);
-    }
+	0% {
+		opacity: 0;
+		transform: translate3d(0, 10%, 0);
+	}
 
-    100% {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-    }
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
 }

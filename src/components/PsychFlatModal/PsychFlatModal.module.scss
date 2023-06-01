@@ -1,185 +1,185 @@
 .CustomModal .modal-body {
-    padding: 0 30px 30px;
+	padding: 0 30px 30px;
 }
 
 .ModalTitle {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 18px;
+	text-align: center;
+	margin-bottom: 15px;
+	font-size: 18px;
 }
 
 .ModalImageWrapper {
-    position: relative;
-    display: flex;
-    -moz-box-pack: center;
-    justify-content: center;
-    margin-bottom: 30px;
+	position: relative;
+	display: flex;
+	-moz-box-pack: center;
+	justify-content: center;
+	margin-bottom: 30px;
 }
 
 .ModalImage {
-    position: relative;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 1px solid rgb(198, 198, 198);
-    padding: 5px;
-    background: rgb(255, 255, 255);
+	position: relative;
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	border: 1px solid rgb(198, 198, 198);
+	padding: 5px;
+	background: rgb(255, 255, 255);
 }
 
 .ModalImage.left {
-    left: 0.5em;
-    z-index: 2;
+	left: 0.5em;
+	z-index: 2;
 }
 
 .ModalImage.right {
-    right: 0.5em;
+	right: 0.5em;
 }
 
 .ModalImage img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	object-fit: cover;
 }
 
 .Section {
-    margin-bottom: 30px;
+	margin-bottom: 30px;
 }
 
 .SectionHeader {
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    margin-bottom: 20px;
-    text-transform: capitalize;
-    font-weight: 500;
-    font-size: 16px;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	margin-bottom: 20px;
+	text-transform: capitalize;
+	font-weight: 500;
+	font-size: 16px;
 }
 
 .SectionHeader svg {
-    color: rgb(119, 119, 119);
-    margin-right: 10px;
+	color: rgb(119, 119, 119);
+	margin-right: 10px;
 }
 
 .UploadResumesc__UploadArea {
-    border-width: 1px;
-    border-radius: 4px;
-    border-style: dashed;
-    border-color: rgb(0, 174, 239);
-    background-color: rgba(0, 174, 239, 0.05);
-    color: rgb(1, 126, 183);
-    //
-    transition: all 0.1s ease 0s;
-    cursor: pointer;
+	border-width: 1px;
+	border-radius: 4px;
+	border-style: dashed;
+	border-color: rgb(0, 174, 239);
+	background-color: rgba(0, 174, 239, 0.05);
+	color: rgb(1, 126, 183);
+	//
+	transition: all 0.1s ease 0s;
+	cursor: pointer;
 }
 
 .UploadResumesc__UploadArea:hover {
-    background-color: rgb(1, 126, 183);
-    border-color: rgb(1, 126, 183);
-    border-style: solid;
-    color: rgb(255, 255, 255);
+	background-color: rgb(1, 126, 183);
+	border-color: rgb(1, 126, 183);
+	border-style: solid;
+	color: rgb(255, 255, 255);
 }
 
 .UploadResumesc__UploadArea--Loaded {
-    border-width: 1px;
-    border-radius: 4px;
-    border-style: dashed;
-    border-color: rgb(0, 174, 239);
-    background-color: rgba(0, 174, 239, 0.05);
-    color: rgb(1, 126, 183);
+	border-width: 1px;
+	border-radius: 4px;
+	border-style: dashed;
+	border-color: rgb(0, 174, 239);
+	background-color: rgba(0, 174, 239, 0.05);
+	color: rgb(1, 126, 183);
 }
 
 .UploadResumesc__UploadArea .filepicker {
-    padding: 21px 0px;
-    min-height: min-content;
-    // min-height: auto;
-    // overflow: hidden;
+	padding: 21px 0px;
+	min-height: min-content;
+	// min-height: auto;
+	// overflow: hidden;
 }
 
 div.filepicker {
-    text-align: center;
-    padding: 5px;
-    background-color: transparent;
-    border-radius: 5px;
-    border: none;
-    min-height: 150px;
+	text-align: center;
+	padding: 5px;
+	background-color: transparent;
+	border-radius: 5px;
+	border: none;
+	min-height: 150px;
 }
 
 .UploadResumesc__GlintsDropzoneWrapper {
-    display: block;
+	display: block;
 }
 
 .UploadResumesc__ResumeWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 15px;
 }
 
 .UploadResumesc__ResumeName {
-    margin-bottom: 5px;
-    color: rgb(1, 126, 183);
-    font-weight: 500;
-    cursor: pointer;
-    word-break: break-all;
-    overflow: hidden;
+	margin-bottom: 5px;
+	color: rgb(1, 126, 183);
+	font-weight: 500;
+	cursor: pointer;
+	word-break: break-all;
+	overflow: hidden;
 }
 
 .UploadResumesc__ResumeDetailContainer {
-    display: flex;
-    -webkit-box-align: baseline;
-    align-items: baseline;
-    margin-bottom: 15px;
+	display: flex;
+	-webkit-box-align: baseline;
+	align-items: baseline;
+	margin-bottom: 15px;
 }
 
 .UploadResumesc__ResumeDetail {
-    color: rgb(119, 119, 119);
+	color: rgb(119, 119, 119);
 }
 
 .UploadResumesc__Dot {
-    display: inline-block;
-    width: 5px;
-    height: 5px px;
-    margin: 0px 5px;
-    background-color: rgb(198, 198, 198);
-    border-radius: 50%;
+	display: inline-block;
+	width: 5px;
+	height: 5px px;
+	margin: 0px 5px;
+	background-color: rgb(198, 198, 198);
+	border-radius: 50%;
 }
 
 .UploadResumesc__CenterIconWithText {
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    font-size: 16px;
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: center;
+	font-size: 16px;
 }
 
 .UploadResumesc__CenterIconWithText svg {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 
 .UploadResumesc__RemoveButton {
-    color: rgb(236, 39, 43);
-    cursor: pointer;
+	color: rgb(236, 39, 43);
+	cursor: pointer;
 }
 
 .ResumeHint {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    font-size: 14px;
-    color: rgb(119, 119, 119);
+	display: flex;
+	flex-direction: column;
+	margin-top: 5px;
+	margin-bottom: 0px;
+	font-size: 14px;
+	color: rgb(119, 119, 119);
 }
 
 .ApplyBtn {
-    width: 100%;
-    border-radius: 0;
+	width: 100%;
+	border-radius: 0;
 }
 
 .ApplyBtn button {
-    padding: 1em 3em;
-    appearance: none;
-    width: 100%;
-    text-transform: uppercase;
+	padding: 1em 3em;
+	appearance: none;
+	width: 100%;
+	text-transform: uppercase;
 }

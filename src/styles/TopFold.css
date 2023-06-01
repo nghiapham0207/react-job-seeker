@@ -1,118 +1,116 @@
 .TopFold__CompanyAndJobInfo {
-    display: flex;
-    padding-top: 32px;
+	display: flex;
+	padding-top: 32px;
 }
 
 .TopFold__CompanyLogo {
-    min-width: 64px;
+	min-width: 64px;
 }
 
 .TopFold__CompanyLogo img {
-    width: 70px;
+	width: 70px;
 }
 
 .TopFold__JobOverViewContainer {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    font-size: 16px;
-    margin-left: 30px;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	font-size: 16px;
+	margin-left: 30px;
 }
 
 .TopFold__JobOverViewHeader {
-    display: flex;
-    gap: 20px;
+	display: flex;
+	gap: 20px;
 }
 
 .TopFold__JobOverViewTitle {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 8px;
+	font-size: 18px;
+	font-weight: 500;
+	margin-bottom: 8px;
 }
 
 .TopFold__JobOverViewCompanyInfo {
-    display: flex;
-    flex-flow: row;
-    margin-bottom: 8px;
+	display: flex;
+	flex-flow: row;
+	margin-bottom: 8px;
 }
 
 .TopFold__JobOverViewCompanyName {
-    margin-right: 8px;
+	margin-right: 8px;
 }
 
 div.TopFold__JobOverViewCompanyName a {
-    text-decoration: none;
-    color: rgb(1, 126, 183);
+	text-decoration: none;
+	color: rgb(1, 126, 183);
 }
 
 .TopFold__JobOverViewInfoContainer {
-    font-size: 16px;
+	font-size: 16px;
 }
 
-
 .TopFold__JobOverViewInfo {
-    display: flex;
-    align-items: center;
-    -webkit-box-align: center;
-    margin-bottom: 8px;
-    color: var(--secondary-color);
+	display: flex;
+	align-items: center;
+	-webkit-box-align: center;
+	margin-bottom: 8px;
+	color: var(--secondary-color);
 }
 
 .TopFold__JobOverViewInfo svg {
-    margin-right: 8px;
+	margin-right: 8px;
 }
 
 div.TopFold__JobOverViewInfo a {
-    text-decoration: none;
-    color: rgb(1, 126, 183);
+	text-decoration: none;
+	color: rgb(1, 126, 183);
 }
 
 .TopFold__SalaryJobOverView {
-    flex-wrap: unset;
+	flex-wrap: unset;
 }
 
-
 .TopFold__BadgesAndJobOverViewTimeContainer {
-    display: flex;
-    flex-direction: column;
-    margin-top: 24px;
+	display: flex;
+	flex-direction: column;
+	margin-top: 24px;
 }
 
 .TopFold__JobOverViewTime {
-    margin-bottom: 16px;
-    font-size: 14px;
-    color: rgb(119, 119, 119);
+	margin-bottom: 16px;
+	font-size: 14px;
+	color: rgb(119, 119, 119);
 }
 
 .TopFold__JobOverViewTime svg {
-    margin-right: 8px;
+	margin-right: 8px;
 }
 
 .TopFold__PostedAt {
-    margin-right: 8px;
+	margin-right: 8px;
 }
 
 .TopFold__UpdateAt {
-    font-size: 14px;
-    color: rgb(119, 119, 119);
+	font-size: 14px;
+	color: rgb(119, 119, 119);
 }
 
 .TopFold__ButtonContainer {
-    margin-bottom: 32px;
-    display: flex;
+	margin-bottom: 32px;
+	display: flex;
 }
 
 .TopFold__ApplyButtonDesktop {
-    margin-right: 16px;
+	margin-right: 16px;
 }
 
 .TopFold__DividerContainerMobile {
-    margin-top: 10px;
-    margin-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 @media (min-width: 1024px) {
-    .TopFold__JobOverViewInfoContainer {
-        margin-left: 94px;
-    }
+	.TopFold__JobOverViewInfoContainer {
+		margin-left: 94px;
+	}
 }

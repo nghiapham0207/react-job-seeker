@@ -4,17 +4,14 @@ import ProfileInfo from "./ProfileInfo";
 import ProfileName from "./ProfileName";
 import ProfileText from "./ProfileText";
 // picture
-import {
-  ProfilePictureContainer,
-  ProfilePictureContent
-} from "./ProfilePictureStyle";
+import { ProfilePictureContainer, ProfilePictureContent } from "./ProfilePictureStyle";
 
 export {
-  UserProfileWrapper,
-  ProfilePictureWrapper,
-  ProfileInfo,
-  ProfileName,
-  ProfileText,
-  ProfilePictureContainer,
-  ProfilePictureContent
-}
+	UserProfileWrapper,
+	ProfilePictureWrapper,
+	ProfileInfo,
+	ProfileName,
+	ProfileText,
+	ProfilePictureContainer,
+	ProfilePictureContent,
+};

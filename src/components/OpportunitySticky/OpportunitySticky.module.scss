@@ -1,88 +1,88 @@
 .OpportunityStickyContainer {
-    margin-top: 32px;
-    margin-bottom: -90px; // footer mt90px
-    padding: 12px 16px;
-    position: sticky;
-    bottom: 0;
-    background-color: rgb(255, 255, 255);
-    z-index: 1;
-    box-shadow: rgb(0 0 0 / 10%) 0px -6px 12px 0px;
-    display: flex;
+	margin-top: 32px;
+	margin-bottom: -90px; // footer mt90px
+	padding: 12px 16px;
+	position: sticky;
+	bottom: 0;
+	background-color: rgb(255, 255, 255);
+	z-index: 1;
+	box-shadow: rgb(0 0 0 / 10%) 0px -6px 12px 0px;
+	display: flex;
 }
 
 .StyledGlintContainer {
-    width: 100%;
+	width: 100%;
 }
 
 .FlexingContainer {
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    width: 100%;
-    -webkit-box-pack: center;
-    justify-content: center;
-    padding-left: 20px;
-    padding-right: 30px;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	width: 100%;
+	-webkit-box-pack: center;
+	justify-content: center;
+	padding-left: 20px;
+	padding-right: 30px;
 }
 
 .JobOverViewContainer {
-    font-size: 16px;
-    width: 100%;
+	font-size: 16px;
+	width: 100%;
 }
 
 .JobOverViewHeader {
-    display: grid;
-    max-width: 50%;
+	display: grid;
+	max-width: 50%;
 }
 
 .JobOverViewTitle {
-    font-size: 18px;
-    font-weight: 500;
-    height: 30px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+	font-size: 18px;
+	font-weight: 500;
+	height: 30px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 
 .BadgesAndCompanyInfoContainer {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .JobOverViewCompanyInfo,
 .JobOverViewCompanyName {
-    display: flex;
-    flex-direction: row;
-    -webkit-box-align: center;
-    align-items: center;
-    gap: 10px;
+	display: flex;
+	flex-direction: row;
+	-webkit-box-align: center;
+	align-items: center;
+	gap: 10px;
 }
 
 .JobOverViewCompanyName a,
 .JobOverViewCompanyName a:visited {
-    text-decoration: none;
-    color: rgb(1, 126, 183);
+	text-decoration: none;
+	color: rgb(1, 126, 183);
 }
 
 .StickyButtonContainer {
-    display: flex;
-    width: unset;
-    -webkit-box-pack: unset;
-    justify-content: unset;
+	display: flex;
+	width: unset;
+	-webkit-box-pack: unset;
+	justify-content: unset;
 }
 
 .StickyButtonContainer button {
-    font-size: 14px;
-    padding: 10px 20px;
-    letter-spacing: 1px;
-    width: 200px;
-    line-height: 1.5;
-    font-weight: bold;
-    text-transform: uppercase;
+	font-size: 14px;
+	padding: 10px 20px;
+	letter-spacing: 1px;
+	width: 200px;
+	line-height: 1.5;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 @media not (min-width: 640px) {
-    .JobOverViewContainer {
-        display: none;
-    }
+	.JobOverViewContainer {
+		display: none;
+	}
 }

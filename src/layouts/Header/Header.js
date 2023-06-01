@@ -1,18 +1,18 @@
-import classNames from 'classnames/bind';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBell } from '@fortawesome/free-solid-svg-icons';
+import classNames from "classnames/bind";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBell } from "@fortawesome/free-solid-svg-icons";
 
-import styles from './Header.module.scss';
-import config from '../../config';
-import { RightArrowIcon } from '../../components/Icon';
-import LoginModal from '../../components/LoginModal/LoginModal';
-import { selectUser } from '../../redux/selector';
-import UserMenu from './UserMenu/UserMenu';
-import GlintContainer from '../../components/GlintContainer/GlintContainer';
-import { Container, ContainerRightContent } from './NavigationMobile';
-import LanguageSwitcherContainer from '../../components/LanguageSwitcher';
+import styles from "./Header.module.scss";
+import config from "../../config";
+import { RightArrowIcon } from "../../components/Icon";
+import LoginModal from "../../components/LoginModal/LoginModal";
+import { selectUser } from "../../redux/selector";
+import UserMenu from "./UserMenu/UserMenu";
+import GlintContainer from "../../components/GlintContainer/GlintContainer";
+import { Container, ContainerRightContent } from "./NavigationMobile";
+import LanguageSwitcherContainer from "../../components/LanguageSwitcher";
 import { useUserActions } from "../../contexts/userActionsContext";
 
 const cx = classNames.bind(styles);
@@ -24,18 +24,18 @@ function Header() {
 	const navigate = useNavigate();
 	const handleSignUp = () => {
 		navigate(config.routes.signUp);
-	}
+	};
 	return (
 		<div className={cx("MainHeader")}>
 			<GlintContainer>
 				{/* LoginModal */}
-				{
-					showLogin && <LoginModal
+				{showLogin && (
+					<LoginModal
 					// message={state?.showLogin ?
 					// 	<span style={{ color: 'red' }}>Trang bạn truy cập yêu cầu đăng nhập để tiếp tục</span> :
 					// 	undefined}
 					/>
-				}
+				)}
 				<div className={cx("fresnel-lessThan-desktopS")}>
 					{/* mobile menu */}
 					<Container>
@@ -51,20 +51,22 @@ function Header() {
 							<img src={"/static/images/logo.webp"} alt="icon" className={cx("Logo")} />
 						</NavLink>
 						<div className={cx("MenuItem")}>
-							{
-								currentUser ?
-									<NavLink to={config.routes.opportunities + "/explore"}
-										className={(nav) => cx({ Active: nav.isActive })}
-									>tìm việc làm</NavLink> :
-									<NavLink to={config.routes.job}
-										className={(nav) => cx({ Active: nav.isActive })}
-									>tìm việc làm</NavLink>
-							}
+							{currentUser ? (
+								<NavLink
+									to={config.routes.opportunities + "/explore"}
+									className={(nav) => cx({ Active: nav.isActive })}>
+									tìm việc làm
+								</NavLink>
+							) : (
+								<NavLink to={config.routes.job} className={(nav) => cx({ Active: nav.isActive })}>
+									tìm việc làm
+								</NavLink>
+							)}
 						</div>
 						<div className={cx("MenuItem")}>
-							<NavLink to={config.routes.company}
-								className={(nav) => cx({ Active: nav.isActive })}
-							>danh sách công ty</NavLink>
+							<NavLink to={config.routes.company} className={(nav) => cx({ Active: nav.isActive })}>
+								danh sách công ty
+							</NavLink>
 						</div>
 						{/* <div className={cx("MenuItem")}>
 							<NavLink to={config.routes.blog}
@@ -75,35 +77,38 @@ function Header() {
 							<div className={cx("UserMenuItem")}>
 								<LanguageSwitcherContainer />
 							</div>
-							{currentUser ?
+							{currentUser ? (
 								<>
 									<div className={cx("UserMenuItem")}>
 										{/* chuaw code xong */}
 										<div className={cx("DropdownStyle__DropdownContainer")}>
 											<div>
-												<button className={cx("UnstyleButton")} aria-label="Notification"
-													type="button" >
+												<button className={cx("UnstyleButton")} aria-label="Notification" type="button">
 													<FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faBell} />
 												</button>
 											</div>
 										</div>
 									</div>
-									<div className={cx("UserMenuItem")}>
-										{<UserMenu currentUser={currentUser} />}
-									</div>
-								</> :
+									<div className={cx("UserMenuItem")}>{<UserMenu currentUser={currentUser} />}</div>
+								</>
+							) : (
 								<>
-									<div onClick={handleSignUp} className={cx("MenuItem")}>đăng ký</div>
-									<div onClick={handleShowLogin} className={cx("MenuItem")}>đăng nhập</div>
+									<div onClick={handleSignUp} className={cx("MenuItem")}>
+										đăng ký
+									</div>
+									<div onClick={handleShowLogin} className={cx("MenuItem")}>
+										đăng nhập
+									</div>
 									<div className={cx("EmployersButton")}>
-										<Link
-											to={config.routes.recruitment}
-											target="_blank" >
+										<Link to={config.routes.recruitment} target="_blank">
 											dành cho nhà tuyển dụng
-											<span><RightArrowIcon className={cx("EndIconContainer")} /></span>
+											<span>
+												<RightArrowIcon className={cx("EndIconContainer")} />
+											</span>
 										</Link>
 									</div>
-								</>}
+								</>
+							)}
 						</div>
 					</nav>
 				</div>

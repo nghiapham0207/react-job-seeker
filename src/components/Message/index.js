@@ -1,5 +1,3 @@
 import WarningMessage from "./WarningMessage";
 
-export {
-  WarningMessage
-}
+export { WarningMessage };

@@ -6,11 +6,11 @@ import { forwardRef } from "react";
 const cx = classNames.bind(styles);
 
 function SuggestionDropdownContainer({ children }, ref) {
-  return (
-    <div ref={ref} className={cx("SuggestionDropdownContainer")}>
-      {children}
-    </div>
-  )
+	return (
+		<div ref={ref} className={cx("SuggestionDropdownContainer")}>
+			{children}
+		</div>
+	);
 }
 
 export default forwardRef(SuggestionDropdownContainer);

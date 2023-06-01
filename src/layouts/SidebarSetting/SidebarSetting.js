@@ -8,23 +8,21 @@ import MobileMenu from "../MobileMenu/MobileMenu";
 const cx = classNames.bind(styles);
 
 function SidebarSetting({ children }) {
-  return (
-    <div>
-      <div className={cx("DrawerContainer")}>
-        <div className={cx("fresnel-lessThan-desktopS")}>
-          <MobileMenu />
-        </div>
-        <div className={cx("MainLayout")}>
-          <Header />
-          <div className={cx("MainBody")}>
-            <SettingPage>
-              {children}
-            </SettingPage>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+	return (
+		<div>
+			<div className={cx("DrawerContainer")}>
+				<div className={cx("fresnel-lessThan-desktopS")}>
+					<MobileMenu />
+				</div>
+				<div className={cx("MainLayout")}>
+					<Header />
+					<div className={cx("MainBody")}>
+						<SettingPage>{children}</SettingPage>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default SidebarSetting;

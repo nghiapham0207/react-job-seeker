@@ -11,27 +11,25 @@ import { selectSavedJobs } from "../../redux/selector";
 const cx = classNames.bind(styles);
 
 export default function BookmarkedPage() {
-  const savedJobsState = useSelector(selectSavedJobs);
-  const savedJobs = savedJobsState.map((job) => ({ ...job.jobId }));
-  return (
-    <>
-      <TabsContainer className={"styles__JobTabList"}>
-        <TabsHeader className={"tabs-header"} />
-      </TabsContainer>
-      <GlintContainer className={cx("JobTabBody")}>
-        {
-          savedJobs.length > 0 ?
-            <>
-              <header>
-                <h2 className={cx("Title")}>
-                  Công việc đã lưu ({savedJobs.length})
-                </h2>
-              </header>
-              <JobList jobList={savedJobs} className={cx("BookmarkJobCardList")} />
-            </> :
-            <EmptyTabView />
-        }
-      </GlintContainer>
-    </>
-  )
+	const savedJobsState = useSelector(selectSavedJobs);
+	const savedJobs = savedJobsState.map((job) => ({ ...job.jobId }));
+	return (
+		<>
+			<TabsContainer className={"styles__JobTabList"}>
+				<TabsHeader className={"tabs-header"} />
+			</TabsContainer>
+			<GlintContainer className={cx("JobTabBody")}>
+				{savedJobs.length > 0 ? (
+					<>
+						<header>
+							<h2 className={cx("Title")}>Công việc đã lưu ({savedJobs.length})</h2>
+						</header>
+						<JobList jobList={savedJobs} className={cx("BookmarkJobCardList")} />
+					</>
+				) : (
+					<EmptyTabView />
+				)}
+			</GlintContainer>
+		</>
+	);
 }

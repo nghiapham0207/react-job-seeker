@@ -1,47 +1,47 @@
 .Container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 60px;
-    text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 60px;
+	text-align: center;
 }
 
 .Content {
-    padding: 1.5rem;
+	padding: 1.5rem;
 }
 
 .Icon {
-    min-width: 56px;
-    min-height: 56px;
-    color: var(--primary-color);
-    font-size: calc(1.625rem + 4.5vw);
+	min-width: 56px;
+	min-height: 56px;
+	color: var(--primary-color);
+	font-size: calc(1.625rem + 4.5vw);
 }
 
 .Code {
-    font-size: calc(1.625rem + 4.5vw);
-    font-weight: 500;
-    line-height: 1.2;
+	font-size: calc(1.625rem + 4.5vw);
+	font-weight: 500;
+	line-height: 1.2;
 }
 
 .Title {
-    margin-top: 5px;
-    font-weight: normal;
+	margin-top: 5px;
+	font-weight: normal;
 }
 
 .Description {
-    margin-top: 15px;
+	margin-top: 15px;
 }
 
 .Button {
-    justify-content: center;
-    margin-top: 15px;
-    & [type=button]{
-        width: fit-content;
-    }
+	justify-content: center;
+	margin-top: 15px;
+	& [type="button"] {
+		width: fit-content;
+	}
 }
 
 .Button a,
 .Button a:visited {
-    text-decoration: none;
-    color: white;
+	text-decoration: none;
+	color: white;
 }

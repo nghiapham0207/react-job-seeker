@@ -1,5 +1,8 @@
-{/* public routes */ }
-{/* {
+{
+	/* public routes */
+}
+{
+	/* {
 			publicRoutes.map((route, index) => {
 				const Layout = route.layout ?? DefaultLayout; // null or undefined
 				const Page = route?.component;
@@ -8,9 +11,13 @@
 						element={<Layout><Page /></Layout>} />
 				)
 			})
-		} */}
-{/* private route */ }
-{/* <Route element={<ProtectedRoute />} >
+		} */
+}
+{
+	/* private route */
+}
+{
+	/* <Route element={<ProtectedRoute />} >
 			{
 				privateRoutes.map((route, index) => {
 					const Layout = route.layout ?? DefaultLayout; // null or undefined
@@ -39,7 +46,8 @@
 					}
 				})
 			}
-		</Route> */}
+		</Route> */
+}
 
 // const initJobList = [
 //   {

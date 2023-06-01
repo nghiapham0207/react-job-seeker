@@ -1,177 +1,176 @@
 .Container {
-    max-width: 1200px;
-    display: grid;
-    grid-template-rows: auto auto auto;
-    margin: 120px auto 0;
-    row-gap: 30px;
+	max-width: 1200px;
+	display: grid;
+	grid-template-rows: auto auto auto;
+	margin: 120px auto 0;
+	row-gap: 30px;
 }
 
 .FlexCenter {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .HeadingContainer {
-    display: block;
-    font-size: 2em;
-    text-transform: uppercase;
-    font-weight: normal;
+	display: block;
+	font-size: 2em;
+	text-transform: uppercase;
+	font-weight: normal;
 }
 
 .HeadingContainer span {
-    background-image: linear-gradient(to top, red, var(--primary-color) 10%, transparent 30%);
+	background-image: linear-gradient(to top, red, var(--primary-color) 10%, transparent 30%);
 }
 
 .Label {
-    font-size: 18px;
-    color: rgb(119, 119, 119);
+	font-size: 18px;
+	color: rgb(119, 119, 119);
 }
 
 // Grid
 .GridContainer {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(3, auto);
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(3, auto);
 
-    gap: 1px;
-    background-color: rgb(221, 221, 221);
-    margin-top: 40px;
+	gap: 1px;
+	background-color: rgb(221, 221, 221);
+	margin-top: 40px;
 }
 
 .GridItem {
-    display: block;
-    background-color: rgb(255, 255, 255);
-    padding: 45px 15px 60px;
-    cursor: pointer;
-    text-decoration: none;
+	display: block;
+	background-color: rgb(255, 255, 255);
+	padding: 45px 15px 60px;
+	cursor: pointer;
+	text-decoration: none;
 }
 
 a.GridItem,
 a.GridItem:visited {
-    text-decoration: none;
-    color: rgb(1, 126, 183);
+	text-decoration: none;
+	color: rgb(1, 126, 183);
 }
 
 .GridItem:hover {
-    background-image: url("../../../assets/images/engineering.webp");
-    // background-color: rgb(69, 193, 237);
-    box-shadow: rgb(69 193 237 / 85%) 0px 0px 0px 1000px inset;
-    color: white;
+	background-image: url("../../../assets/images/engineering.webp");
+	// background-color: rgb(69, 193, 237);
+	box-shadow: rgb(69 193 237 / 85%) 0px 0px 0px 1000px inset;
+	color: white;
 }
 
 .GridItem:hover li {
-    color: rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
 }
 
 .InformationContainer {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+	position: relative;
+	display: flex;
+	flex-direction: column;
 }
 
 .InformationGrid {
-    display: grid;
-    grid-template-columns: 1fr 20px;
-    gap: 20px;
+	display: grid;
+	grid-template-columns: 1fr 20px;
+	gap: 20px;
 }
 
 .TitleWrapper {
-    font-size: 18px;
-    text-align: left;
+	font-size: 18px;
+	text-align: left;
 }
 
 .DividerWrapper {
-    width: 28px;
+	width: 28px;
 }
 
 .DividerContainer {
-    width: 100%;
-    height: 0.4em;
-    background-color: rgb(255, 242, 64);
+	width: 100%;
+	height: 0.4em;
+	background-color: rgb(255, 242, 64);
 }
 
 .UnorderedList {
-    // list-style: none;
-    color: rgba(0, 0, 0, 0.4);
-    list-style-position: inside;
-    text-align: start;
-    font-size: 15px;
-    padding-inline-start: 40px;
+	// list-style: none;
+	color: rgba(0, 0, 0, 0.4);
+	list-style-position: inside;
+	text-align: start;
+	font-size: 15px;
+	padding-inline-start: 40px;
 }
 
 .FooterItem {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    text-decoration: none;
-    list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	text-decoration: none;
+	list-style: none;
 
-    padding: 20px;
-    border-top: 1px solid rgb(221, 221, 221);
-    border-bottom: 1px solid rgb(221, 221, 221);
+	padding: 20px;
+	border-top: 1px solid rgb(221, 221, 221);
+	border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 a.FooterItem span {
-    color: rgb(1, 126, 183);
+	color: rgb(1, 126, 183);
 }
 
 .IconHolder {
-    padding-left: 10px;
+	padding-left: 10px;
 }
 
-
 @media screen and (max-width: 1024px) {
-    .GridContainer {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(5, auto);
-    }
+	.GridContainer {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(5, auto);
+	}
 }
 
 @media screen and (max-width: 768px) {
-    .GridContainer {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(10, auto);
-    }
+	.GridContainer {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(10, auto);
+	}
 }
 
 @media screen and (min-width: 992px) {
-    .Card-7 {
-        grid-area: 1/1/3/2;
-    }
+	.Card-7 {
+		grid-area: 1/1/3/2;
+	}
 
-    .Card-10 {
-        grid-area: 1/2/2/3;
-    }
+	.Card-10 {
+		grid-area: 1/2/2/3;
+	}
 
-    .Card-6 {
-        grid-area: 1/3/2/5;
-    }
+	.Card-6 {
+		grid-area: 1/3/2/5;
+	}
 
-    .Card-11 {
-        grid-area: 1/5/3/6;
-    }
+	.Card-11 {
+		grid-area: 1/5/3/6;
+	}
 
-    .Card-9 {
-        grid-area: 2/2/3/3;
-    }
+	.Card-9 {
+		grid-area: 2/2/3/3;
+	}
 
-    .Card-8 {
-        grid-area: 2/3/4/4;
-    }
+	.Card-8 {
+		grid-area: 2/3/4/4;
+	}
 
-    .Card-3 {
-        grid-area: 2/4/3/5;
-    }
+	.Card-3 {
+		grid-area: 2/4/3/5;
+	}
 
-    .Card-4 {
-        grid-area: 3/1/4/3;
-    }
+	.Card-4 {
+		grid-area: 3/1/4/3;
+	}
 
-    .Card-5 {
-        grid-area: 3/4/4/5;
-    }
+	.Card-5 {
+		grid-area: 3/4/4/5;
+	}
 
-    .Card-12 {
-        grid-area: 3/5/4/6;
-    }
+	.Card-12 {
+		grid-area: 3/5/4/6;
+	}
 }

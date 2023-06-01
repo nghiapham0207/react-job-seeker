@@ -1,3 +1,3 @@
 import ScrollTopContainer from "./ScrollTopContainer";
 
-export { ScrollTopContainer }
+export { ScrollTopContainer };

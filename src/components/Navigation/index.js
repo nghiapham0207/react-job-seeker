@@ -8,12 +8,12 @@ import NavigationProfileWrapper from "./NavigationProfileWrapper";
 import NavigationProfileText from "./NavigationProfileText";
 
 export {
-  NavigationContainer,
-  NavigationIconWrapper,
-  NavigationPaddingTop,
-  NavigationTextWrapper,
-  NavigationDivider,
-  NavigationFlexCenter,
-  NavigationProfileWrapper,
-  NavigationProfileText
-}
+	NavigationContainer,
+	NavigationIconWrapper,
+	NavigationPaddingTop,
+	NavigationTextWrapper,
+	NavigationDivider,
+	NavigationFlexCenter,
+	NavigationProfileWrapper,
+	NavigationProfileText,
+};

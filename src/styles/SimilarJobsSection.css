@@ -1,89 +1,89 @@
 .SimilarJobsSection__HeaderWrapper {
-    margin-bottom: 16px;
+	margin-bottom: 16px;
 }
 
 .SimilarJobsSection__Header {
-    font-size: 16px;
-    font-weight: bold;
+	font-size: 16px;
+	font-weight: bold;
 }
 
 .SimilarJobsSection__JobCardWrapper {
-    margin-bottom: 16px;
+	margin-bottom: 16px;
 }
 
 .SimilarJobCard__Card {
-    position: relative;
-    border-radius: 4px;
-    border: 1px solid rgb(198, 198, 198);
-    padding: 8px;
+	position: relative;
+	border-radius: 4px;
+	border: 1px solid rgb(198, 198, 198);
+	padding: 8px;
 }
 
 .SimilarJobCard__Container {
-    display: flex;
-    color: black;
+	display: flex;
+	color: black;
 }
 
 .SimilarJobCard__Logo {
-    min-width: 50px;
-    margin-right: 4px;
-    margin-top: 2px;
+	min-width: 50px;
+	margin-right: 4px;
+	margin-top: 2px;
 }
 
 .SimilarJobCard__Logo img {
-    width: 50px;
+	width: 50px;
 }
 
 .SimilarJobCard__Detail {
-    margin-left: 8px;
-    width: 252px;
+	margin-left: 8px;
+	width: 252px;
 }
 
 .SimilarJobCard__Detail a,
 .SimilarJobCard__Detail a:visited {
-    position: relative;
-    text-decoration: none;
-    color: rgb(1, 126, 183);
-    z-index: 1;
+	position: relative;
+	text-decoration: none;
+	color: rgb(1, 126, 183);
+	z-index: 1;
 }
 
 .SimilarJobCard__Title {
-    font-size: 16px;
-    font-weight: 500;
+	font-size: 16px;
+	font-weight: 500;
 }
 
 .SimilarJobCard__InfoWrapper {
-    margin-top: 4px;
-    font-size: 12px;
-    color: var(--secondary-color);
+	margin-top: 4px;
+	font-size: 12px;
+	color: var(--secondary-color);
 }
 
 .SimilarJobCard__InfoWrapper svg {
-    margin-right: 2px;
+	margin-right: 2px;
 }
 
 .SimilarJobCard__SalaryInfoContainer {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .SimilarJobCard__SalaryInfoContainer svg {
-    margin-right: 6px;
+	margin-right: 6px;
 }
 
 .SimilarJobCard__Bookmark {
-    margin-top: 5px;
-    margin-left: auto;
+	margin-top: 5px;
+	margin-left: auto;
 }
 
 .SimilarJobCard__DividerContainer {
-    margin: 8px 0;
+	margin: 8px 0;
 }
 
 .SimilarJobCard__Footer {
-    font-size: 12px;
-    color: rgb(100, 100, 100);
+	font-size: 12px;
+	color: rgb(100, 100, 100);
 }
 
 .SimilarJobCard__Footer svg {
-    margin-right: 4px;
+	margin-right: 4px;
 }

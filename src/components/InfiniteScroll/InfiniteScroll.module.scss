@@ -1,39 +1,39 @@
 .InfiniteScrollContainer {
-    display: flex;
-    flex-direction: column;
-    margin: 120px 0;
-    text-align: center;
-    color: var(--secondary-color);
+	display: flex;
+	flex-direction: column;
+	margin: 120px 0;
+	text-align: center;
+	color: var(--secondary-color);
 }
 
-.InfiniteScrollContainer>div {
-    border: .25em solid var(--primary-color);
-    border-right-color: transparent;
-    border-radius: 50%;
-    margin: 0 0 15px;
-    align-self: center;
-    -webkit-animation: spin 2s linear infinite;
-    /* Safari */
-    animation: spin 2s linear infinite;
+.InfiniteScrollContainer > div {
+	border: 0.25em solid var(--primary-color);
+	border-right-color: transparent;
+	border-radius: 50%;
+	margin: 0 0 15px;
+	align-self: center;
+	-webkit-animation: spin 2s linear infinite;
+	/* Safari */
+	animation: spin 2s linear infinite;
 }
 
 /* Safari */
 @-webkit-keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg);
-    }
+	0% {
+		-webkit-transform: rotate(0deg);
+	}
 
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
+	0% {
+		transform: rotate(0deg);
+	}
 
-    100% {
-        transform: rotate(360deg);
-    }
+	100% {
+		transform: rotate(360deg);
+	}
 }

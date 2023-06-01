@@ -3,9 +3,4 @@ import TextFieldInput from "./TextFieldInput";
 import TextFieldLabel from "./TextFieldLabel";
 import IconContainer from "./IconContainer";
 
-export {
-  TextFieldContainer,
-  TextFieldInput,
-  TextFieldLabel,
-  IconContainer
-}
+export { TextFieldContainer, TextFieldInput, TextFieldLabel, IconContainer };

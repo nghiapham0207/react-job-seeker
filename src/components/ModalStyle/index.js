@@ -4,10 +4,4 @@ import ModalContentArea from "./ModalContentArea";
 import ModalHeader from "./ModalHeader";
 import ModalBody from "./ModalBody";
 
-export {
-  ModalContainer,
-  ModalDialog,
-  ModalContentArea,
-  ModalHeader,
-  ModalBody
-}
+export { ModalContainer, ModalDialog, ModalContentArea, ModalHeader, ModalBody };

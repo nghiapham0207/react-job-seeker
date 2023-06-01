@@ -25,7 +25,7 @@ function PressFeatures() {
 			// 	return false;
 			// }
 
-			// 
+			//
 			var windowHeight = window.innerHeight;
 			var elementTop = element.getBoundingClientRect().top;
 			var elementVisible = 150;
@@ -49,8 +49,8 @@ function PressFeatures() {
 		window.addEventListener("scroll", onScroll);
 		return () => {
 			window.removeEventListener("scroll", onScroll);
-		}
-	}, [])
+		};
+	}, []);
 	return (
 		<div ref={pressFeaturesContainerRef} className={cx("Container")}>
 			<div className={cx("FlexCenter")}>
@@ -61,27 +61,15 @@ function PressFeatures() {
 				</h1>
 			</div>
 			<div className={cx("FlexBox")}>
-				<img src={images.cna}
-					alt="Channel NewsAsia" width="50px" height="45px"
-					className={cx("Image")} />
-				<img src={images.huffington}
-					alt="The Huffington Post" width="293px" height="35px"
-					className={cx("Image")} />
-				<img src={images.yahoo}
-					alt="Yahoo News" width="104px" height="45px"
-					className={cx("Image")} />
-				<img src={images.straitstimes}
-					alt="Channel NewsAsia" width="63px" height="45px"
-					className={cx("Image")} />
-				<img src={images.techcrunch}
-					alt="TechCrunch" width="181px" height="45px"
-					className={cx("Image")} />
-				<img src={images.bussinessTimes}
-					alt="Business Times" width="293px" height="28px"
-					className={cx("Image")} />
+				<img src={images.cna} alt="Channel NewsAsia" width="50px" height="45px" className={cx("Image")} />
+				<img src={images.huffington} alt="The Huffington Post" width="293px" height="35px" className={cx("Image")} />
+				<img src={images.yahoo} alt="Yahoo News" width="104px" height="45px" className={cx("Image")} />
+				<img src={images.straitstimes} alt="Channel NewsAsia" width="63px" height="45px" className={cx("Image")} />
+				<img src={images.techcrunch} alt="TechCrunch" width="181px" height="45px" className={cx("Image")} />
+				<img src={images.bussinessTimes} alt="Business Times" width="293px" height="28px" className={cx("Image")} />
 			</div>
 		</div>
-	)
+	);
 }
 
 export default PressFeatures;

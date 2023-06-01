@@ -7,15 +7,8 @@ import { CollapsibleContext } from "./CollapsibleContainer";
 const cx = classNames.bind(styles);
 
 function CollapsibleBody({ children }) {
-  const { open } = useContext(CollapsibleContext);
-  return (
-    <>
-      {open &&
-        <div className={cx("CollapsibleBody")}>
-          {children}
-        </div>}
-    </>
-  )
+	const { open } = useContext(CollapsibleContext);
+	return <>{open && <div className={cx("CollapsibleBody")}>{children}</div>}</>;
 }
 
 export default CollapsibleBody;
