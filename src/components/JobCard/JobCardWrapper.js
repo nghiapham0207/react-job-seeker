@@ -100,14 +100,18 @@ export default function JobCardWrapper({ job, index, className = "" }) {
 							<div className={"BookmarkButton__ButtonWrapper"} onClick={handleBookmark}>
 								{isLoading ? (
 									<InfiniteScrollContainer size="1.5rem" style={{ margin: "0px" }} />
-								) : savedJobs.some((savedJob) => savedJob.jobId._id === job._id) ? (
-									<FontAwesomeIcon
-										className="IconStyle__VerticalCenteredSvg"
-										style={{
-											color: "rgb(1, 126, 183)",
-										}}
-										icon={faBookmark}
-									/>
+								) : currentUser ? (
+									savedJobs.some((savedJob) => savedJob.jobId._id === job._id) ? (
+										<FontAwesomeIcon
+											className="IconStyle__VerticalCenteredSvg"
+											style={{
+												color: "rgb(1, 126, 183)",
+											}}
+											icon={faBookmark}
+										/>
+									) : (
+										<BookmarkOutlineIcon className="IconStyle__VerticalCenteredSvg" />
+									)
 								) : (
 									<BookmarkOutlineIcon className="IconStyle__VerticalCenteredSvg" />
 								)}
