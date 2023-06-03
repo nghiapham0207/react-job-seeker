@@ -1,4 +1,4 @@
-import { faGear, faPowerOff, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faFile, faGear, faPowerOff, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DrawerContainer, DrawerWrapper } from "../../components/DrawerStyle";
 import {
@@ -69,6 +69,13 @@ function MobileMenu() {
 									</NavigationFlexCenter>
 								</NavigationTextWrapper>
 							</NavigationPaddingTop>
+
+							<NavigationTextWrapper url={config.routes.myApplications}>
+								<NavigationFlexCenter>
+									<FontAwesomeIcon className={"IconStyle__VerticalCenteredSvg"} icon={faFile} />
+									<span>Đơn ứng tuyển của tôi</span>
+								</NavigationFlexCenter>
+							</NavigationTextWrapper>
 
 							<NavigationTextWrapper handleClick={handleLogout}>
 								<NavigationFlexCenter>
