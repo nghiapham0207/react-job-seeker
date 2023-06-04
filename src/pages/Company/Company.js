@@ -91,6 +91,7 @@ function Company() {
 								<div className={cx("CompanyCardGrid")}>
 									{companies.map((company) => (
 										<Fragment key={company._id}>
+											{console.log(company)}
 											<Link to={`${config.routes.company}/${company._id}`} className={cx("styles__Anchor")}>
 												<div className={cx("styles__Card")}>
 													<div className={cx("styles__CardHeader")}>
@@ -112,7 +113,7 @@ function Company() {
 													</div>
 													<div className={cx("styles__Row", "styles__InfoRow", "styles__JobCountRow")}>
 														<FontAwesomeIcon icon={faBriefcase} />
-														<span>{`${company.numJob} vị trí đang tuyển`}</span>
+														<span>{`${company.hiringJob} vị trí đang tuyển`}</span>
 													</div>
 												</div>
 											</Link>

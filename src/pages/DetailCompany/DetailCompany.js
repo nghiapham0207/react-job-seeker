@@ -51,6 +51,7 @@ function DetailCompany() {
 	if (error) {
 		return <Error />;
 	}
+	console.log(company);
 	return (
 		<GlintContainer className={cx("CompanyPage__Container")}>
 			<header className={cx("CompanyPage__Header")}>

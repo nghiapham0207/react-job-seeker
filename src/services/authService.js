@@ -3,7 +3,7 @@ import { loginSuccess, logoutSuccess } from "../redux/authSlice";
 import { createAxiosJwt, post } from "../utils/axiosAPI";
 import { path } from "../utils/axiosAPI";
 import { updateUser } from "../redux/userSlice";
-import { setBookmark } from "../redux/savedJobsSlice";
+import { clearBookmark, setBookmark } from "../redux/savedJobsSlice";
 
 export const login = async ({ username, password }, dispatch, navigate, next) => {
 	try {
@@ -11,6 +11,7 @@ export const login = async ({ username, password }, dispatch, navigate, next) =>
 		if (res.success) {
 			dispatch(loginSuccess(res.data));
 			const resUser = await getUser(res.data.accessToken, res.data.refreshToken, dispatch);
+			console.log(resUser);
 			if (resUser.isSuccess) {
 				dispatch(
 					updateUser({
@@ -51,6 +52,7 @@ export const logout = async (accessToken, refreshToken, dispatch) => {
 		if (res.data.isSuccess) {
 			dispatch(logoutSuccess());
 			dispatch(updateUser(null));
+			dispatch(clearBookmark());
 		}
 	} catch (error) {
 		console.log(error);

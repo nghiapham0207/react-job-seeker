@@ -25,6 +25,7 @@ export default function JobCardWrapper({ job, index, className = "" }) {
 	const refressToken = useSelector(selectRefreshToken);
 	const currentUser = useSelector(selectUser);
 	const savedJobs = useSelector(selectSavedJobs);
+	console.log(savedJobs);
 	const [isLoading, setIsLoading] = useState(false);
 	const { handleShowLogin } = useUserActions();
 	const handleBookmark = async () => {
@@ -101,7 +102,10 @@ export default function JobCardWrapper({ job, index, className = "" }) {
 								{isLoading ? (
 									<InfiniteScrollContainer size="1.5rem" style={{ margin: "0px" }} />
 								) : currentUser ? (
-									savedJobs.some((savedJob) => savedJob.jobId._id === job._id) ? (
+									savedJobs.some((savedJob) => {
+										console.log(savedJob);
+										return savedJob?.jobId._id === job._id;
+									}) ? (
 										<FontAwesomeIcon
 											className="IconStyle__VerticalCenteredSvg"
 											style={{

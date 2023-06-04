@@ -18,9 +18,12 @@ const savedJobsSlice = createSlice({
 				return job.jobId._id !== action.payload._id;
 			});
 		},
+		clearBookmark: (state, action) => {
+			state.savedJobs = [];
+		},
 	},
 });
 
-export const { setBookmark, addBookmark, removeBookmark } = savedJobsSlice.actions;
+export const { setBookmark, addBookmark, removeBookmark, clearBookmark } = savedJobsSlice.actions;
 
 export default savedJobsSlice.reducer;
