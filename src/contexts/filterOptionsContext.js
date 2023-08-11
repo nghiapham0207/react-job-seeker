@@ -27,6 +27,11 @@ const initState = {
 	companies: [],
 };
 
+/**
+ * lifting up state
+ * @param {*} param0
+ * @returns
+ */
 export function FilterOptionsProvider({ children }) {
 	const [filterOptions, setFilterOptions] = useState(initState);
 	return (
