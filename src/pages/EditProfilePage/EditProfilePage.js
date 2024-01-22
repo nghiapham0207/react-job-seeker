@@ -39,8 +39,14 @@ function EditProfilePage() {
 	};
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
-		file.preview = URL.createObjectURL(file);
-		setNewAvatar(file);
+		console.log(file);
+		// kb unit
+		if (file?.size / 1024 > 200) {
+			toast.error("Tệp tải lên tối đa 200kb");
+		} else {
+			file.preview = URL.createObjectURL(file);
+			setNewAvatar(file);
+		}
 	};
 	const editProfile = async () => {
 		const hasErrors = {};
@@ -83,7 +89,6 @@ function EditProfilePage() {
 					}
 				}
 			} catch (error) {
-				console.log(error);
 				if (!error.response.data.isSuccess) {
 					toast.error(error.response.data.message);
 				}
@@ -150,6 +155,7 @@ function EditProfilePage() {
 									<TextFieldInput
 										name="password"
 										ariaLabel="Tên"
+										maxLength={50}
 										isRequired
 										defaultValue={currentUser.name}
 										ref={nameRef}
@@ -178,6 +184,7 @@ function EditProfilePage() {
 									<TextFieldInput
 										name="password"
 										ariaLabel="Email"
+										maxLength={50}
 										type={"email"}
 										isRequired
 										defaultValue={currentUser.email}
@@ -207,6 +214,7 @@ function EditProfilePage() {
 									<TextFieldInput
 										name="password"
 										ariaLabel="Số điện thoại"
+										maxLength={11}
 										isRequired
 										defaultValue={currentUser.phone}
 										ref={phoneRef}

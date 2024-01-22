@@ -49,7 +49,6 @@ function ChangePasswordPage() {
 				confirmPasswordRef.current.value = "";
 			}
 		} catch (error) {
-			console.log(error.response.data);
 			if (!error.response.data.isSuccess) {
 				toast.error(error.response.data.message);
 			}
@@ -92,6 +91,7 @@ function ChangePasswordPage() {
 									<TextFieldContainer className={"aries-textfield"}>
 										<TextFieldInput
 											name="password"
+											maxLength={30}
 											ariaLabel="Mật khẩu cũ"
 											type={"password"}
 											isRequired
@@ -120,6 +120,7 @@ function ChangePasswordPage() {
 									<TextFieldContainer className={"aries-textfield"}>
 										<TextFieldInput
 											name="password"
+											maxLength={30}
 											ariaLabel="Mật khẩu mới"
 											type={"password"}
 											isRequired
@@ -148,6 +149,7 @@ function ChangePasswordPage() {
 									<TextFieldContainer className={"aries-textfield"}>
 										<TextFieldInput
 											name="password"
+											maxLength={30}
 											ariaLabel="Xác nhận mật khẩu mới"
 											type={"password"}
 											isRequired

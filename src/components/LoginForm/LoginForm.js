@@ -79,13 +79,9 @@ function LoginForm({ handleShowLogin = () => {} }) {
 						isLoading: false,
 					});
 					if (next) {
-						// toast.info("Đang chuyển hướng!", {
-						//   autoClose: 1000
-						// });
-						// navigate(next);
-						setTimeout(() => {
-							navigate(next);
-						}, 1000);
+						navigate(next, {
+							replace: true,
+						});
 					}
 				}
 			};
@@ -114,6 +110,7 @@ function LoginForm({ handleShowLogin = () => {} }) {
 								className={cx("TextFieldInput")}
 								// value={username}
 								defaultValue={"nghia"}
+								maxLength={40}
 								onChange={() => {
 									setErrors({ ...errors, username: "" });
 								}}
@@ -131,7 +128,7 @@ function LoginForm({ handleShowLogin = () => {} }) {
 								className={cx("TextFieldInput")}
 								// value={password}
 								defaultValue={"123123"}
-								maxLength="30"
+								maxLength={30}
 								onChange={(e) => {
 									// setPassword(e.target.value);
 									setErrors({ ...errors, password: "" });

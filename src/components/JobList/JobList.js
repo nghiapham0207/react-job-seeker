@@ -18,15 +18,19 @@ function JobList({ jobList, isLoading, className }) {
 	}
 	return (
 		<div className={cx("CompactJobCardList__JobCardListContainer", "styles__CompactJobCardList", className)}>
-			{jobList?.map((job, index) => {
-				return (
-					<Fragment key={job._id}>
-						<JobCardContainer>
-							<JobCardWrapper job={job} index={index} />
-						</JobCardContainer>
-					</Fragment>
-				);
-			})}
+			{jobList.length > 0 ? (
+				jobList?.map((job, index) => {
+					return (
+						<Fragment key={job._id}>
+							<JobCardContainer>
+								<JobCardWrapper job={job} index={index} />
+							</JobCardContainer>
+						</Fragment>
+					);
+				})
+			) : (
+				<div>Không tìm thấy công việc nào</div>
+			)}
 		</div>
 	);
 }

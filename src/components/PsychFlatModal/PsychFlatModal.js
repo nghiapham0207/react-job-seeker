@@ -38,11 +38,8 @@ function PsychFlatModal({ handleShowPsychFlat }) {
 	};
 	const handleFileChange = (e) => {
 		const file = e.target.files[0];
-		const lastModified = file.lastModified;
-		const date = new Date(lastModified);
-		console.log(date);
-		if (file?.size / (1024 * 1024) > 5) {
-			toast.error("Tệp tải lên tối đa 5MB");
+		if (file?.size / 1024 > 500) {
+			toast.error("Tệp tải lên tối đa 500kb");
 		} else {
 			setSelectedFile(file);
 		}
@@ -164,7 +161,7 @@ function PsychFlatModal({ handleShowPsychFlat }) {
 									color="#777777">
 									<span className={cx("HighlightText")}>
 										{
-											"Lưu ý : đảm bảo hồ sơ xin việc của bạn sử dụng ngôn ngữ trùng khớp với mô tả công việc (Ví dụ: viết CV bằng tiếng Anh nếu mô tả công việc bằng tiếng Anh)  và đăng tải dưới dạng PDF dưới 5MB."
+											"Lưu ý : đảm bảo hồ sơ xin việc của bạn sử dụng ngôn ngữ trùng khớp với mô tả công việc (Ví dụ: viết CV bằng tiếng Anh nếu mô tả công việc bằng tiếng Anh) và đăng tải dưới dạng PDF dưới 500kb."
 										}
 									</span>
 									{"Hồ sơ đã đăng tải sẽ được lưu lại cho lần nộp đơn sau."}

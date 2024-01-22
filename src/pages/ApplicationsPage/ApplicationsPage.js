@@ -48,14 +48,12 @@ export default function MyApplicationsPage() {
 		keepPreviousData: true,
 		refetchOnWindowFocus: false,
 	});
-	console.log(data);
 	const applications = data?.data.data;
 	const handlePageChange = (page) => {
 		setCurrentPage(page);
 	};
 	const totalPages = data?.data.page_total;
 	const showEmptyView = applications?.length ? applications.length < 0 : true;
-	console.log(showEmptyView);
 	return (
 		<GlintContainer>
 			<div className={cx("ApplicationsPage__TabsContainer")}>
@@ -82,7 +80,7 @@ export default function MyApplicationsPage() {
 												<div className="ApplicationInfo__Job">
 													<div className="ApplicationInfo__JobTitle">{application.idJob.name}</div>
 													<div className="ApplicationInfo__ApplicationCompanyInfo">
-														<div className="ApplicationInfo__CompanyName">{application.idJob.idCompany.name}</div>
+														<div className="ApplicationInfo__CompanyName">{application.idJob.idCompany?.name}</div>
 													</div>
 													<div className="ApplicationInfo__ActionDate">
 														<FontAwesomeIcon icon={faCalendarDays} />

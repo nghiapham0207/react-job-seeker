@@ -44,6 +44,7 @@ function PasswordReset() {
 						},
 					});
 				} catch (error) {
+					console.log(error);
 					toast.update(idToast, {
 						render: error.response.data.message,
 						closeButton: true,
@@ -51,7 +52,6 @@ function PasswordReset() {
 						type: "error",
 						isLoading: false,
 					});
-					console.log(error);
 				}
 			};
 			fetchApi();
@@ -70,6 +70,7 @@ function PasswordReset() {
 						<TextFieldContainer className={"aries-textfield"}>
 							<TextFieldInput
 								type="email"
+								maxLength={50}
 								name="email"
 								ariaLabel="Địa chỉ email"
 								value={email}

@@ -59,7 +59,6 @@ function DetailJob() {
 					setJob(res.data);
 				}
 			} catch (error) {
-				console.log(error);
 				setNotFound(true);
 			} finally {
 				setIsLoading(false);

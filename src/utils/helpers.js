@@ -110,3 +110,13 @@ export const renderRoutes = (routes) => {
 		throw new Error("Routes must be an array!");
 	}
 };
+
+/**
+ *
+ * @param {string} currencyString
+ */
+export const formatCurrencyFromString = (currencyString) => {
+	const number = currencyString.replace(/\D/g, "");
+	const currency = currencyString.replace(/\d/g, "");
+	return number ? `${new Intl.NumberFormat().format(number)} ${currency}` : `${currency}`;
+};

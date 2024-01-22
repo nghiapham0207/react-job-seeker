@@ -114,7 +114,6 @@ function SignUp() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const errs = validateForm(formData);
-		console.log(errs);
 		if (Object.keys(errs).length === 0) {
 			setErrors({});
 			// call api here
@@ -154,6 +153,7 @@ function SignUp() {
 									<div className={cx("signupWithEmail__FormWrapper")}>
 										<InputWrapper
 											name={"fullName"}
+											maxLength={50}
 											id={"sign-up-form-full-name"}
 											label={"Fullname"}
 											value={formData.fullName}
@@ -165,6 +165,7 @@ function SignUp() {
 									<div className={cx("signupWithEmail__FormWrapper")}>
 										<InputWrapper
 											name={"username"}
+											maxLength={40}
 											id={"sign-up-form-username"}
 											label={"Username"}
 											value={formData.username}
@@ -178,6 +179,7 @@ function SignUp() {
 									<div className={cx("signupWithEmail__FormWrapper")}>
 										<InputWrapper
 											name={"email"}
+											maxLength={50}
 											type="email"
 											id={"sign-up-form-email"}
 											label={"Email"}
@@ -191,6 +193,7 @@ function SignUp() {
 										<InputWrapper
 											type="password"
 											name={"password"}
+											maxLength={30}
 											id={"sign-up-form-password"}
 											label={"Password"}
 											value={formData.password}
@@ -204,6 +207,7 @@ function SignUp() {
 									<div className={cx("signupWithEmail__FormWrapper")}>
 										<InputWrapper
 											name={"numberPhone"}
+											maxLength={11}
 											id={"sign-up-form-number-phone"}
 											label={"Number Phone"}
 											type="tel"
@@ -216,6 +220,7 @@ function SignUp() {
 									<div className={cx("signupWithEmail__FormWrapper")}>
 										<InputWrapper
 											name={"confirmPassword"}
+											maxLength={30}
 											type="password"
 											id={"sign-up-form-confirm-password"}
 											label={"Confirm Password"}

@@ -50,7 +50,6 @@ export const createAxiosJwt = (accessToken, refreshToken, dispatch, navigate) =>
 			return config;
 		},
 		(error) => {
-			console.log(error);
 			return Promise.reject(error);
 		},
 	);

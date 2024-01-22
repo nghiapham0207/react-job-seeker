@@ -91,7 +91,6 @@ function Company() {
 								<div className={cx("CompanyCardGrid")}>
 									{companies.map((company) => (
 										<Fragment key={company._id}>
-											{console.log(company)}
 											<Link to={`${config.routes.company}/${company._id}`} className={cx("styles__Anchor")}>
 												<div className={cx("styles__Card")}>
 													<div className={cx("styles__CardHeader")}>
@@ -121,15 +120,17 @@ function Company() {
 									))}
 								</div>
 							)}
-							<div className={cx("PaginationContainer")}>
-								<Pagination
-									totalCount={pageLimit * totalPage}
-									totalPage={totalPage}
-									onPageChange={handlePageChange}
-									pageSize={totalPage}
-									currentPage={currentPage}
-								/>
-							</div>
+							{companies?.length > 0 && (
+								<div className={cx("PaginationContainer")}>
+									<Pagination
+										totalCount={pageLimit * totalPage}
+										totalPage={totalPage}
+										onPageChange={handlePageChange}
+										pageSize={totalPage}
+										currentPage={currentPage}
+									/>
+								</div>
+							)}
 						</>
 					)}
 				</GlintContainer>

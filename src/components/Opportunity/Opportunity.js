@@ -8,7 +8,7 @@ import { JobContext } from "../../pages/DetailJob";
 import ReadMore from "../ReadMore/ReadMore";
 import styles from "./Opportunity.module.scss";
 import { SolidBtnContainer, SolidButton } from "../ButtonStyle";
-import { dateDiff, dateString } from "../../utils/helpers";
+import { dateDiff, dateString, formatCurrencyFromString } from "../../utils/helpers";
 import { JobCardWrapper } from "../../components/JobCard";
 
 const cx = classNames.bind(styles);
@@ -17,8 +17,13 @@ function Opportunity({ openModal }) {
 	const job = useContext(JobContext);
 	const requirementRef = useRef(null);
 	useEffect(() => {
-		requirementRef.current.innerHTML = job.requirement;
+		if (Object.keys(job).length > 0) {
+			requirementRef.current.innerHTML = job.requirement;
+		}
 	}, [job]);
+	if (Object.keys(job).length <= 0) {
+		return "";
+	}
 	return (
 		<div className={cx("Container")}>
 			<main className={cx("Main")}>
@@ -48,7 +53,7 @@ function Opportunity({ openModal }) {
 					<div className={cx("TopFold__JobOverViewInfo", "TopFold__SalaryJobOverView")}>
 						<div>
 							<FontAwesomeIcon className={cx("IconStyle__VerticalCenteredSvg")} icon={faDollar} />
-							<span>{job.salary}</span>
+							<span>{formatCurrencyFromString(job.salary)}</span>
 						</div>
 					</div>
 					<div className={cx("TopFold__JobOverViewInfo")}>

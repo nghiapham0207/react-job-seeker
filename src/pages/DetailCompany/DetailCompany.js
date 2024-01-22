@@ -33,7 +33,6 @@ function DetailCompany() {
 				setCompany(companyRes.data);
 				setJobById(jobByIdRes.data);
 			} catch (error) {
-				console.log(error);
 				setError(true);
 			} finally {
 				setIsLoading(false);
@@ -51,7 +50,6 @@ function DetailCompany() {
 	if (error) {
 		return <Error />;
 	}
-	console.log(company);
 	return (
 		<GlintContainer className={cx("CompanyPage__Container")}>
 			<header className={cx("CompanyPage__Header")}>
@@ -118,19 +116,23 @@ function DetailCompany() {
 					<section ref={jobListRef} className={cx("CompanyPage__Card")}>
 						<h2 className={cx("CompanyPage__CardTitle")}>Việc làm</h2>
 						<main className={cx("CompanyPage__CardContent")}>
-							<ul className={cx("CompanyPage__JobList")}>
-								{jobById.map((job) => (
-									<li key={job._id} className={cx("CompanyPage__JobListItem")}>
-										<Link to={`/job/${job._id}`}>
-											<h3 className="CompanyPage__JobTitle">{job.name}</h3>
-											<p className={cx("CompanyPage__JobLocation")}>{job.locationWorking}</p>
-											<time className={cx("CompanyPage__JobPostedDate")}>
-												{dateString(dateDiff(job.postingDate), "Đăng ")}
-											</time>
-										</Link>
-									</li>
-								))}
-							</ul>
+							{jobById.length > 0 ? (
+								jobById.map((job) => (
+									<ul key={job._id} className={cx("CompanyPage__JobList")}>
+										<li className={cx("CompanyPage__JobListItem")}>
+											<Link to={`/job/${job._id}`}>
+												<h3 className="CompanyPage__JobTitle">{job.name}</h3>
+												<p className={cx("CompanyPage__JobLocation")}>{job.locationWorking}</p>
+												<time className={cx("CompanyPage__JobPostedDate")}>
+													{dateString(dateDiff(job.postingDate), "Đăng ")}
+												</time>
+											</Link>
+										</li>
+									</ul>
+								))
+							) : (
+								<div>Không tìm thấy việc làm đang tuyển</div>
+							)}
 						</main>
 					</section>
 				</div>

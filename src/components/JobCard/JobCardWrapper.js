@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { BookmarkOutlineIcon } from "../Icon";
-import { dateDiff, dateString } from "../../utils/helpers";
+import { dateDiff, dateString, formatCurrencyFromString } from "../../utils/helpers";
 import { createAxiosJwt, patch, path } from "../../utils/axiosAPI";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAccessToken, selectRefreshToken, selectSavedJobs, selectUser } from "../../redux/selector";
@@ -25,7 +25,6 @@ export default function JobCardWrapper({ job, index, className = "" }) {
 	const refressToken = useSelector(selectRefreshToken);
 	const currentUser = useSelector(selectUser);
 	const savedJobs = useSelector(selectSavedJobs);
-	console.log(savedJobs);
 	const [isLoading, setIsLoading] = useState(false);
 	const { handleShowLogin } = useUserActions();
 	const handleBookmark = async () => {
@@ -103,7 +102,6 @@ export default function JobCardWrapper({ job, index, className = "" }) {
 									<InfiniteScrollContainer size="1.5rem" style={{ margin: "0px" }} />
 								) : currentUser ? (
 									savedJobs.some((savedJob) => {
-										console.log(savedJob);
 										return savedJob?.jobId._id === job._id;
 									}) ? (
 										<FontAwesomeIcon
@@ -130,7 +128,7 @@ export default function JobCardWrapper({ job, index, className = "" }) {
 					</div>
 					<div className={"CompactOpportunityCard__OpportunityInfo"}>
 						<FontAwesomeIcon icon={faDollarSign} />
-						<span>{job.salary}</span>
+						<span>{formatCurrencyFromString(job.salary)}</span>
 					</div>
 					<div className={"CompactOpportunityCard__OpportunityInfo"}>
 						<FontAwesomeIcon icon={faBriefcase} />

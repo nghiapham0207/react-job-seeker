@@ -11,7 +11,6 @@ export const login = async ({ username, password }, dispatch, navigate, next) =>
 		if (res.success) {
 			dispatch(loginSuccess(res.data));
 			const resUser = await getUser(res.data.accessToken, res.data.refreshToken, dispatch);
-			console.log(resUser);
 			if (resUser.isSuccess) {
 				dispatch(
 					updateUser({
@@ -32,7 +31,6 @@ export const login = async ({ username, password }, dispatch, navigate, next) =>
 			}
 		}
 	} catch (error) {
-		console.log(error);
 		return error.response.data.message;
 	}
 };

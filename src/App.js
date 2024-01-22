@@ -10,7 +10,6 @@ import { get, path } from "./utils/axiosAPI";
 import { renderRoutes } from "./utils/helpers";
 
 const ProtectedRoute = ({ redirectPath = "/login" }) => {
-	console.log("ProtectedRoute");
 	const currentUser = useSelector(selectUser);
 	const currentPathName = window.location.pathname;
 	if (!currentUser) {
