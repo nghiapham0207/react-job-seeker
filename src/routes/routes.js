@@ -1,89 +1,228 @@
+import { Suspense, lazy } from "react";
+
 import config from "../config";
-
-import Home from "../pages/Home";
-import JobPage from "../pages/JobPage";
-import Company from "../pages/Company";
-// import BlogPage from "../pages/BlogPage";
-import DetailJob from "../pages/DetailJob";
-import ErrorPage from "../pages/ErrorPage";
-import SignUp from "../pages/SignUp";
-import ForgotPasswordPage from "../pages/ForgotPasswordPage";
-import ResetPasswordPage from "../pages/ResetPasswordPage/ResetPasswordPage";
-import SettingPage from "../pages/SettingPage/SettingPage";
-
 import HeaderOnly from "../layouts/HeaderOnly";
-import SidebarSetting from "../layouts/SidebarSetting/SidebarSetting";
-import ChangePasswordPage from "../pages/ChangePasswordPage/ChangePasswordPage";
-import EditProfilePage from "../pages/EditProfilePage/EditProfilePage";
-import DetailCompany from "../pages/DetailCompany/DetailCompany";
-import ExploreTabLayout from "../layouts/ExploreTabLayout/ExploreTabLayout";
-import BookmarkedPage from "../pages/BookmarkedPage/BookmarkedPage";
-import LoginPage from "../pages/LoginPage/LoginPage";
-import ApplicationsPage from "../pages/ApplicationsPage";
+import SidebarSetting from "../layouts/SidebarSetting";
+import ExploreTabLayout from "../layouts/ExploreTabLayout";
+
+const Home = lazy(() => import("../pages/Home"));
+const ChangePasswordPage = lazy(() => import("../pages/ChangePasswordPage"));
+const JobPage = lazy(() => import("../pages/JobPage"));
+const Company = lazy(() => import("../pages/Company"));
+const DetailJob = lazy(() => import("../pages/DetailJob"));
+const ErrorPage = lazy(() => import("../pages/ErrorPage"));
+const SignUp = lazy(() => import("../pages/SignUp"));
+const ForgotPasswordPage = lazy(() => import("../pages/ForgotPasswordPage"));
+const ResetPasswordPage = lazy(() => import("../pages/ResetPasswordPage"));
+const SettingPage = lazy(() => import("../pages/SettingPage"));
+const EditProfilePage = lazy(() => import("../pages/EditProfilePage"));
+const DetailCompany = lazy(() => import("../pages/DetailCompany"));
+const BookmarkedPage = lazy(() => import("../pages/BookmarkedPage"));
+const LoginPage = lazy(() => import("../pages/LoginPage"));
+const ApplicationsPage = lazy(() => import("../pages/ApplicationsPage"));
 
 const settingRoutes = [
 	{
 		key: "change-password",
 		path: "change-password",
-		component: ChangePasswordPage,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<ChangePasswordPage />
+			</Suspense>
+		),
 	},
-	{ key: "edit", path: "edit", component: EditProfilePage },
+	{
+		key: "edit",
+		path: "edit",
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<EditProfilePage />
+			</Suspense>
+		),
+	},
 ];
 
 const exploreRoutes = [
-	{ key: "explore", path: "explore", component: JobPage },
-	{ key: "bookmarked", path: "bookmarked", component: BookmarkedPage },
+	{
+		key: "explore",
+		path: "explore",
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<JobPage />
+			</Suspense>
+		),
+	},
+	{
+		key: "bookmarked",
+		path: "bookmarked",
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<BookmarkedPage />
+			</Suspense>
+		),
+	},
 ];
 
 export const publicRoutes = [
 	{
 		key: "0",
 		path: config.routes.login,
-		component: LoginPage,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<LoginPage />
+			</Suspense>
+		),
 		layout: HeaderOnly,
 	},
-	{ key: "1", path: config.routes.home, component: Home },
-	{ key: "2", path: config.routes.company, component: Company },
-	{ path: config.routes.detailCompany, component: DetailCompany },
-	// { key: "3", path: config.routes.blog, component: BlogPage },
-	{ key: "4", path: config.routes.error, component: ErrorPage },
-	{ key: "5", path: config.routes.job, component: JobPage },
-	{ key: "6", path: config.routes.detailJob, component: DetailJob },
+	{
+		key: "1",
+		path: config.routes.home,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<Home />
+			</Suspense>
+		),
+	},
+	{
+		key: "2",
+		path: config.routes.company,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<Company />
+			</Suspense>
+		),
+	},
+	{
+		path: config.routes.detailCompany,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<DetailCompany />
+			</Suspense>
+		),
+	},
+	{
+		key: "4",
+		path: config.routes.error,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<ErrorPage />
+			</Suspense>
+		),
+	},
+	{
+		key: "5",
+		path: config.routes.job,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<JobPage />
+			</Suspense>
+		),
+	},
+	{
+		key: "6",
+		path: config.routes.detailJob,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<DetailJob />
+			</Suspense>
+		),
+	},
 	{
 		key: "7",
 		path: config.routes.signUp,
-		component: SignUp,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<SignUp />
+			</Suspense>
+		),
 		layout: HeaderOnly,
 	},
 	{
 		key: "8",
 		path: config.routes.forgotPassword,
-		component: ForgotPasswordPage,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<ForgotPasswordPage />
+			</Suspense>
+		),
 		layout: HeaderOnly,
 	},
 	{
 		key: "9",
 		path: config.routes.resetPassword,
-		component: ResetPasswordPage,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<ResetPasswordPage />
+			</Suspense>
+		),
 		layout: HeaderOnly,
 	},
 ];
 
 // must login
 export const privateRoutes = [
-	{ key: "", path: "test", component: () => <p>test privateRoutes</p> },
-	{ key: "", path: config.routes.myApplications, component: ApplicationsPage },
+	{
+		key: "",
+		path: config.routes.myApplications,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<ApplicationsPage />
+			</Suspense>
+		),
+	},
 	{
 		key: "",
 		path: config.routes.setting,
-		component: SettingPage,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<SettingPage />
+			</Suspense>
+		),
 		layout: SidebarSetting,
 		children: settingRoutes,
 	},
 	{
 		key: "",
 		path: config.routes.opportunities,
-		component: JobPage,
+		component: () => (
+			<Suspense
+			// fallback={<InfiniteScrollContainer />}
+			>
+				<JobPage />
+			</Suspense>
+		),
 		layout: ExploreTabLayout,
 		children: exploreRoutes,
 	},

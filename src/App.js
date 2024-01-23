@@ -8,6 +8,7 @@ import { selectUser } from "./redux/selector";
 import { useEffect } from "react";
 import { get, path } from "./utils/axiosAPI";
 import { renderRoutes } from "./utils/helpers";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const ProtectedRoute = ({ redirectPath = "/login" }) => {
 	const currentUser = useSelector(selectUser);
@@ -33,13 +34,21 @@ function App() {
 	}, []);
 	return (
 		<BrowserRouter>
-			<div className="App">
-				<ToastContainer />
-				<Routes>
-					{renderRoutes(publicRoutes)}
-					{<Route element={<ProtectedRoute />}>{renderRoutes(privateRoutes)}</Route>}
-				</Routes>
-			</div>
+			<ErrorBoundary
+				fallback={
+					<div>
+						<p>Something went wrong</p>
+						<a href="/">Go to home page</a>
+					</div>
+				}>
+				<div className="App">
+					<ToastContainer />
+					<Routes>
+						{renderRoutes(publicRoutes)}
+						{<Route element={<ProtectedRoute />}>{renderRoutes(privateRoutes)}</Route>}
+					</Routes>
+				</div>
+			</ErrorBoundary>
 		</BrowserRouter>
 	);
 }

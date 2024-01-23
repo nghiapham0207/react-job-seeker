@@ -1,1 +1,3 @@
-export { default } from "./SettingPage";
+import SettingPage from "./SettingPage";
+
+export default SettingPage;

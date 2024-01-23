@@ -1,1 +1,3 @@
-export { default } from "./EditProfilePage";
+import EditProfilePage from "./EditProfilePage";
+
+export default EditProfilePage;
