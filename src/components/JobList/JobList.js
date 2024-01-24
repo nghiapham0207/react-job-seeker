@@ -18,7 +18,7 @@ function JobList({ jobList, isLoading, className }) {
 	}
 	return (
 		<div className={cx("CompactJobCardList__JobCardListContainer", "styles__CompactJobCardList", className)}>
-			{jobList.length > 0 ? (
+			{jobList?.length > 0 ? (
 				jobList?.map((job, index) => {
 					return (
 						<Fragment key={job._id}>

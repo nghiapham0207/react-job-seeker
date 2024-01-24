@@ -28,8 +28,11 @@ function ResetPasswordPage() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const hasErrors = {};
-		if (!verifyCodeRef.current.value.trim()) {
+		const verifyCode = verifyCodeRef.current.value.trim();
+		if (!verifyCode) {
 			hasErrors.verifyCode = "Bắt buộc!";
+		} else if (!/^[0-9]{6}$/.test(verifyCode)) {
+			hasErrors.verifyCode = "Mã xác nhận gồm 6 ký tự số";
 		}
 		if (!passwordRef.current.value) {
 			hasErrors.password = "Bắt buộc!";
@@ -79,6 +82,7 @@ function ResetPasswordPage() {
 						<TextFieldContainer className={"aries-textfield"}>
 							<TextFieldInput
 								name="password"
+								maxLength={6}
 								ariaLabel="Mã xác nhận"
 								ref={verifyCodeRef}
 								onChange={() => {
@@ -99,6 +103,7 @@ function ResetPasswordPage() {
 							<TextFieldInput
 								type="password"
 								name="password"
+								maxLength={30}
 								ariaLabel="Mật khẩu"
 								ref={passwordRef}
 								onChange={() => {
@@ -119,6 +124,7 @@ function ResetPasswordPage() {
 							<TextFieldInput
 								type="password"
 								name="password"
+								maxLength={30}
 								ariaLabel="Mật khẩu"
 								ref={pwConfirmRef}
 								onChange={() => {
