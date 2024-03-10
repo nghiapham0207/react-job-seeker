@@ -78,10 +78,12 @@ function DetailJob() {
 	) : (
 		<JobContext.Provider value={job}>
 			<BreadCrumbContainer>
-				<BreadCrumbInner>
-					<BreadCrumbItemWrapper active url={config.routes.job} title={"Việc Làm"} />
-					<BreadCrumbItemWrapper url={`${config.routes.job}/${job._id}`} title={job.name} />
-				</BreadCrumbInner>
+				<GlintContainer>
+					<BreadCrumbInner>
+						<BreadCrumbItemWrapper active url={config.routes.job} title={"Việc Làm"} />
+						<BreadCrumbItemWrapper url={`${config.routes.job}/${job._id}`} title={job.name} />
+					</BreadCrumbInner>
+				</GlintContainer>
 			</BreadCrumbContainer>
 			<GlintContainer>
 				<Opportunity openModal={handleShowPsychFlat} />
