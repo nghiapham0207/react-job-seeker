@@ -100,7 +100,11 @@ function Header() {
 										đăng nhập
 									</div>
 									<div className={cx("EmployersButton")}>
-										<Link to={config.routes.recruitment} target="_blank">
+										<Link
+											to="#"
+											// to={config.routes.recruitment}
+											// target="_blank"
+										>
 											dành cho nhà tuyển dụng
 											<span>
 												<RightArrowIcon className={cx("EndIconContainer")} />

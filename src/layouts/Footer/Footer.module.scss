@@ -9,7 +9,7 @@
 	padding-right: 15px;
 }
 
-.Inner > div {
+.Inner>div {
 	padding-top: 60px;
 	padding-bottom: 65px;
 }
@@ -120,6 +120,7 @@ a:visited {
 @media (min-width: 768px) {
 	.Sections0 {
 		grid-template-columns: repeat(3, 1fr);
+		gap: 60px 20px;
 	}
 }
 
@@ -128,7 +129,7 @@ a:visited {
 		display: flex;
 	}
 
-	.Inner > div {
+	.Inner>div {
 		padding-bottom: 40px;
 	}
 
@@ -136,5 +137,9 @@ a:visited {
 		max-width: 600px;
 		margin-right: 80px;
 		text-align: left;
+	}
+
+	.Sections0 {
+		gap: 60px 40px;
 	}
 }

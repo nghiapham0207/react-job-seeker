@@ -2,6 +2,8 @@
 	position: relative;
 	margin: 0px auto;
 	padding: 0 15px;
+	// screen
+	width: 100%;
 }
 
 @media (min-width: 480px) {
@@ -15,6 +17,7 @@
 	.GlintContainer {
 		padding-left: 24px;
 		padding-right: 24px;
+		max-width: 640px;
 	}
 }
 
@@ -22,11 +25,24 @@
 	.GlintContainer {
 		padding-left: 32px;
 		padding-right: 32px;
+		max-width: 768px;
 	}
 }
 
-// @media screen and (max-width: 1023.98px) {
-//     .GlintContainer{
-//         padding-top: 24px;
-//     }
-// }
+@media (min-width: 1024px) {
+	.GlintContainer {
+		max-width: 1024px;
+	}
+}
+
+@media (min-width: 1280px) {
+	.GlintContainer {
+		max-width: 1280px;
+	}
+}
+
+@media (min-width: 1536px) {
+	.GlintContainer {
+		max-width: 1536px;
+	}
+}

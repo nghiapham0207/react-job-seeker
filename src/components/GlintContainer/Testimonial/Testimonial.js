@@ -34,12 +34,15 @@ function Testimonial() {
 											<div className={cx("ProfilePictureStyle__ProfilePictureContent")}>
 												<img
 													sizes="119px"
+													width={119}
+													height={119}
 													alt="user"
-													src="https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/jiaann.jpg"
-													srcSet="https://images.glints.com/unsafe/119x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/jiaann.jpg 119w, 
-												https://images.glints.com/unsafe/238x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/jiaann.jpg 238w, 
-												https://images.glints.com/unsafe/357x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/jiaann.jpg 357w, 
-												https://images.glints.com/unsafe/476x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/jiaann.jpg 476w"
+													src="/static/images/jiaann.webp"
+													// 	src="https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/jiaann.jpg"
+													// 	srcSet="https://images.glints.com/unsafe/119x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/jiaann.jpg 119w,
+													// https://images.glints.com/unsafe/238x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/jiaann.jpg 238w,
+													// https://images.glints.com/unsafe/357x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/jiaann.jpg 357w,
+													// https://images.glints.com/unsafe/476x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/jiaann.jpg 476w"
 												/>
 											</div>
 										</div>
@@ -72,12 +75,15 @@ function Testimonial() {
 											<div className={cx("ProfilePictureStyle__ProfilePictureContent")}>
 												<img
 													sizes="119px"
+													width={119}
+													height={119}
 													alt="user"
-													src="https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/zai.png"
-													srcSet="https://images.glints.com/unsafe/119x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/zai.png 119w, 
-												https://images.glints.com/unsafe/238x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/zai.png 238w,
-												 https://images.glints.com/unsafe/357x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/zai.png 357w, 
-												 https://images.glints.com/unsafe/476x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/zai.png 476w"
+													src="/static/images/zai.webp"
+													// 	src="https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/zai.png"
+													// 	srcSet="https://images.glints.com/unsafe/119x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/zai.png 119w,
+													// https://images.glints.com/unsafe/238x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/zai.png 238w,
+													//  https://images.glints.com/unsafe/357x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/zai.png 357w,
+													//  https://images.glints.com/unsafe/476x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/zai.png 476w"
 												/>
 											</div>
 										</div>
@@ -112,8 +118,11 @@ function Testimonial() {
 												<img
 													sizes="119px"
 													alt="user"
-													src="https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/chrys.jpg"
-													srcSet="https://images.glints.com/unsafe/119x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/chrys.jpg 119w, https://images.glints.com/unsafe/238x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/chrys.jpg 238w, https://images.glints.com/unsafe/357x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/chrys.jpg 357w, https://images.glints.com/unsafe/476x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/chrys.jpg 476w"
+													width={119}
+													height={119}
+													src="/static/images/chrys.webp"
+													// src="https://images.glints.com/unsafe/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/chrys.jpg"
+													// srcSet="https://images.glints.com/unsafe/119x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/chrys.jpg 119w, https://images.glints.com/unsafe/238x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/chrys.jpg 238w, https://images.glints.com/unsafe/357x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/chrys.jpg 357w, https://images.glints.com/unsafe/476x0/glints-dashboard.s3.amazonaws.com/images/landing/testimonials/chrys.jpg 476w"
 												/>
 											</div>
 										</div>

@@ -50,27 +50,42 @@ function Company() {
 	const totalPage = data?.data.total_page || data?.data.page_total;
 	const pageLimit = data?.data.page_limit;
 	return (
-		<>
-			<GlintContainer>
-				<div className={cx("SearchBarContainer")}>
-					<input
-						className={cx("TextFieldStyled__TextFieldInput")}
-						ref={companyName}
-						onKeyDown={(e) => {
-							if (e.key === "Enter") {
-								refetch();
-							}
-						}}
-						placeholder="Tìm kiếm công ty"
-						spellCheck={false}
-					/>
-					{isRefetching && (
-						<IconContainer>
-							<InfiniteScrollContainer style={{ margin: "0px" }} size="1.6rem" />
-						</IconContainer>
-					)}
-				</div>
-			</GlintContainer>
+		<div className={cx("CompanyContainer")}>
+			<div className={cx("CompanyPage")}>
+				<GlintContainer>
+					<div className={cx("CompanySearchContainer")}>
+						<h3 className={cx("Title")}>Find your desire company and get your dream job</h3>
+						<div className={cx("SearchWrapper")}>
+							<div className={cx("SearchBarContainer")}>
+								<input
+									className={cx("InputCompany")}
+									ref={companyName}
+									onKeyDown={(e) => {
+										if (e.key === "Enter") {
+											refetch();
+										}
+									}}
+									placeholder="Tìm kiếm công ty"
+									spellCheck={false}
+								/>
+								{isRefetching && (
+									<IconContainer>
+										<InfiniteScrollContainer style={{ margin: "0px" }} size="1.6rem" />
+									</IconContainer>
+								)}
+							</div>
+							<button
+								type="button"
+								className={cx("SearchButton")}
+								onClick={() => {
+									refetch();
+								}}>
+								tìm kiếm
+							</button>
+						</div>
+					</div>
+				</GlintContainer>
+			</div>
 			{error ? (
 				<div style={{ marginTop: 40 }}>
 					<GlintContainer>
@@ -135,7 +150,7 @@ function Company() {
 					)}
 				</GlintContainer>
 			)}
-		</>
+		</div>
 	);
 }
 

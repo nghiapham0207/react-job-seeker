@@ -5,12 +5,16 @@
 	right: 0;
 	z-index: 101;
 	border-bottom: 1px solid rgb(198, 198, 198);
+	box-shadow: 0 4px 15px rgb(198, 198, 198);
+	// backdrop-filter: blur(12px);
 	// background-color: white;
 }
 
 .MainHeader,
 .Container {
-	background: linear-gradient(to right, rgb(188, 231, 255), rgb(209, 236, 252));
+	// background: linear-gradient(to right, rgb(188, 231, 255), rgb(209, 236, 252));
+	// background-color: rgba(255, 255, 255, 0.8);
+	background-color: white;
 }
 
 .Container {

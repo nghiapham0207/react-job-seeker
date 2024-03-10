@@ -1,10 +1,66 @@
-.SearchBarContainer {
-	// max-width: 972px;
-	max-width: 800px;
+.CompanyContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.CompanyPage {
+	// height: 8rem;
+	background-color: rgb(44, 131, 168);
+	// background-image: linear-gradient(rgb(77, 0, 133), rgb(141, 15, 231));
+}
+
+.CompanySearchContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	color: white;
+}
+
+.Title {
 	margin: 30px auto;
+	word-wrap: break-word;
+}
+
+.InputCompany {
 	position: relative;
+	width: 100%;
+	outline: none;
+	border: none;
+	padding: 15px;
+}
+
+.SearchWrapper {
+	display: flex;
+	flex: 1;
+	width: 100%;
+	margin: 0 auto 30px;
+	padding: 6px;
+	background-color: #fff;
+	border-radius: 999px;
+}
+
+.SearchBarContainer {
+	flex-grow: 1;
+	width: 100%;
+	position: relative;
+	margin: 0 10px;
 	display: flex;
 	align-items: center;
+}
+
+.SearchButton {
+	cursor: pointer;
+	min-width: 80px;
+	text-transform: capitalize;
+	border-radius: 999px;
+	outline: none;
+	border: none;
+	color: white;
+	font-weight: bold;
+	background-color: var(--primary-color);
 }
 
 .CompanyCardGrid {
@@ -42,8 +98,15 @@
 		grid-template-columns: repeat(3, minmax(0px, 1fr));
 	}
 
-	.SearchBarContainer {
-		margin: 40px auto 60px;
-		// padding: 0 100px;
+	.SearchWrapper {
+		margin: 60px auto 60px;
+	}
+
+	.CompanySearchContainer {
+		flex-direction: row;
+	}
+
+	.SearchButton {
+		min-width: 150px;
 	}
 }

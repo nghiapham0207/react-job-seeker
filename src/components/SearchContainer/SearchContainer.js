@@ -19,12 +19,6 @@ import { flushSync } from "react-dom";
 
 const cx = classNames.bind(styles);
 
-// const initKey = [
-//   "test 1",
-//   "test 2",
-//   "test 3"
-// ]
-
 function SearchContainer(isHomePage = false) {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -126,7 +120,7 @@ function SearchContainer(isHomePage = false) {
 			<div className={cx("FieldWrapper")}>
 				<div className={cx("TextFieldStyled__TextFieldContainer")}>
 					<input
-						className={cx("TextFieldStyled__TextFieldInput")}
+						className={cx("TextFieldInput")}
 						placeholder="Tìm kiếm việc làm"
 						spellCheck={false}
 						ref={inputRef}
@@ -178,35 +172,29 @@ function SearchContainer(isHomePage = false) {
 				</div>
 
 				{/* suggestion here */}
-				{
-					<SuggestionDropdownContainer ref={suggestionRef}>
-						<SuggestionDropdown>
-							{searchInput &&
-								showSuggestion &&
-								suggestionKey.map((item, index) => {
-									return (
-										<SearchItemWrapper
-											key={index}
-											keyword={item}
-											ref={currentActive === index ? selectedRef : null}
-											index={index}
-											isActive={currentActive === index}
-											onHover={setCurrentActive}
-											onSuggestionClick={handleSuggestionClick}
-										/>
-									);
-								})}
-						</SuggestionDropdown>
-					</SuggestionDropdownContainer>
-				}
+				<SuggestionDropdownContainer ref={suggestionRef}>
+					<SuggestionDropdown>
+						{searchInput &&
+							showSuggestion &&
+							suggestionKey.map((item, index) => {
+								return (
+									<SearchItemWrapper
+										key={index}
+										keyword={item}
+										ref={currentActive === index ? selectedRef : null}
+										index={index}
+										isActive={currentActive === index}
+										onHover={setCurrentActive}
+										onSuggestionClick={handleSuggestionClick}
+									/>
+								);
+							})}
+					</SuggestionDropdown>
+				</SuggestionDropdownContainer>
 			</div>
 			<div className={cx("FieldWrapper")}>
 				<div className={cx("TextFieldStyled__TextFieldContainer")}>
-					<input
-						className={cx("TextFieldStyled__TextFieldInput")}
-						placeholder="Thêm quốc gia hoặc thành phố"
-						defaultValue="Vietnam"
-					/>
+					<input className={cx("TextFieldInput")} placeholder="Thêm quốc gia hoặc thành phố" defaultValue="Vietnam" />
 					<div className={cx("TextFieldStyled__StartIconContainer")}>
 						<LocationIcon className={cx("IconStyle__VerticalCenteredSvg")} />
 					</div>

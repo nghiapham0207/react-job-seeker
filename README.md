@@ -30,3 +30,8 @@
 - FE: (Employer site): https://github.com/vngan94/FindingJob-SiteAdmin, [demo](https://starlit-gaufre-55c628.netlify.app/)
 - Mobile App: https://github.com/Son3a/job_seeker
 - FE: (Job Seeker site): [demo](https://job-seeker-fe.netlify.app/)
+
+## DevDependencies
+
+- source-map-explorer: phân tích file build
+- webpack-bundle-analyzer: phân tích file build
