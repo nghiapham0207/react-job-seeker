@@ -1,16 +1,15 @@
 import { ToastContainer } from "react-toastify";
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Navigate, Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
-import { privateRoutes, publicRoutes } from "./routes/routes";
 import { selectUser } from "./redux/selector";
 import { useEffect } from "react";
 import { get, path } from "./utils/axiosAPI";
-import { renderRoutes } from "./utils/helpers";
 import ErrorBoundary from "./components/ErrorBoundary";
+import getRoutes from "./routes/routes";
 
-const ProtectedRoute = ({ redirectPath = "/login" }) => {
+export const ProtectedRoute = ({ redirectPath = "/login" }) => {
 	const currentUser = useSelector(selectUser);
 	const currentPathName = window.location.pathname;
 	if (!currentUser) {
@@ -20,6 +19,9 @@ const ProtectedRoute = ({ redirectPath = "/login" }) => {
 };
 
 function App() {
+	const routes = getRoutes();
+	console.log(routes);
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -43,10 +45,7 @@ function App() {
 				}>
 				<div className="App">
 					<ToastContainer />
-					<Routes>
-						{renderRoutes(publicRoutes)}
-						{<Route element={<ProtectedRoute />}>{renderRoutes(privateRoutes)}</Route>}
-					</Routes>
+					<Routes>{routes}</Routes>
 				</div>
 			</ErrorBoundary>
 		</BrowserRouter>

@@ -1,1 +1,3 @@
-export * from "./routes";
+import getRoutes from "./routes";
+
+export default getRoutes;
