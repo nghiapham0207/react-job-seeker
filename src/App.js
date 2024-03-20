@@ -20,8 +20,6 @@ export const ProtectedRoute = ({ redirectPath = "/login" }) => {
 
 function App() {
 	const routes = getRoutes();
-	console.log(routes);
-
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
