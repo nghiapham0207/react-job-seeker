@@ -29,7 +29,7 @@ function MobileFilter({ handleShowModal, modalRef }) {
 									<CollapsibleHeader title="Thành Phố" className={"collapsible-title"} />
 									<CollapsibleBody>
 										<div className={"styles__CheckboxContainer"}>
-											{filterOptions.locationWorkings.map((item) => {
+											{filterOptions.locationWorkings?.map((item) => {
 												return <Checkbox key={item.id} obj={item} onChange={locationWorkingChange} />;
 											})}
 										</div>
@@ -42,7 +42,7 @@ function MobileFilter({ handleShowModal, modalRef }) {
 									<CollapsibleHeader title="Danh mục công việc" className={"collapsible-title"} />
 									<CollapsibleBody>
 										<div className={"styles__CheckboxContainer"}>
-											{filterOptions.occupations.map((item) => {
+											{filterOptions.occupations?.map((item) => {
 												return <Checkbox key={item.id} obj={item} onChange={occupationsChange} />;
 											})}
 										</div>
@@ -55,7 +55,7 @@ function MobileFilter({ handleShowModal, modalRef }) {
 									<CollapsibleHeader title="Công ty" className={"collapsible-title"} />
 									<CollapsibleBody>
 										<div className={"styles__CheckboxContainer"}>
-											{filterOptions.companies.map((item) => {
+											{filterOptions.companies?.map((item) => {
 												return <Checkbox key={item.id} obj={item} onChange={companiesChange} />;
 											})}
 										</div>

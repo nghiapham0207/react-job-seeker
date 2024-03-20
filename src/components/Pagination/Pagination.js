@@ -24,7 +24,7 @@ function Pagination({ onPageChange, totalCount, totalPage = 0, siblingCount = 1,
 			<li className={cx("Arrow", { disabled: currentPage === 1 })} onClick={onPrevious}>
 				<FontAwesomeIcon icon={faAngleLeft} className={cx("IconStyle__VerticalCenteredSvg")} />
 			</li>
-			{paginationRange.map((pagination) => {
+			{paginationRange?.map((pagination) => {
 				if (isNaN(Number(pagination))) {
 					return (
 						<li key={pagination} className={cx("Number", "dots")}>

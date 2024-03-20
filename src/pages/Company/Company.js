@@ -104,7 +104,7 @@ function Company() {
 								<div className={cx("EmptyView")}>{"Không có dữ liệu"}</div>
 							) : (
 								<div className={cx("CompanyCardGrid")}>
-									{companies.map((company) => (
+									{companies?.map((company) => (
 										<Fragment key={company._id}>
 											<Link to={`${config.routes.company}/${company._id}`} className={cx("styles__Anchor")}>
 												<div className={cx("styles__Card")}>

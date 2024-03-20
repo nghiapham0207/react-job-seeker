@@ -117,7 +117,7 @@ function DetailCompany() {
 						<h2 className={cx("CompanyPage__CardTitle")}>Việc làm</h2>
 						<main className={cx("CompanyPage__CardContent")}>
 							{jobById.length > 0 ? (
-								jobById.map((job) => (
+								jobById?.map((job) => (
 									<ul key={job._id} className={cx("CompanyPage__JobList")}>
 										<li className={cx("CompanyPage__JobListItem")}>
 											<Link to={`/job/${job._id}`}>

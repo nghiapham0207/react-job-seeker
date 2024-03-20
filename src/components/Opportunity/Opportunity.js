@@ -117,7 +117,7 @@ function Opportunity({ openModal }) {
 						<div className={cx("SimilarJobsSection__Header")}>Việc làm tương tự</div>
 					</div>
 					{job.relatedJob?.length > 0
-						? job.relatedJob.map((relJob) => (
+						? job.relatedJob?.map((relJob) => (
 								<JobCardWrapper key={relJob._id} job={relJob} className="SimilarJobsSection__JobCardWrapper" />
 						  ))
 						: "Không tìm thấy việc làm tương tự"}

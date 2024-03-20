@@ -58,7 +58,7 @@ function SettingPage({ url, children = <EditProfilePage /> }) {
             </UserProfileWrapper> */}
 
 						<SidebarTab>
-							{initTab.map((tab) => (
+							{initTab?.map((tab) => (
 								<Fragment key={tab.key}>
 									<SidebarItem
 										label={tab.label}

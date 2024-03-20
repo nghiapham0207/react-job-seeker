@@ -176,7 +176,7 @@ function SearchContainer(isHomePage = false) {
 					<SuggestionDropdown>
 						{searchInput &&
 							showSuggestion &&
-							suggestionKey.map((item, index) => {
+							suggestionKey?.map((item, index) => {
 								return (
 									<SearchItemWrapper
 										key={index}

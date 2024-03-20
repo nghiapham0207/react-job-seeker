@@ -12,7 +12,7 @@ const cx = classNames.bind(styles);
 
 export default function BookmarkedPage() {
 	const savedJobsState = useSelector(selectSavedJobs);
-	const savedJobs = savedJobsState.map((job) => ({ ...job.jobId }));
+	const savedJobs = savedJobsState?.map((job) => ({ ...job.jobId }));
 	return (
 		<>
 			<TabsContainer className={"styles__JobTabList"}>

@@ -66,7 +66,7 @@ export default function MyApplicationsPage() {
 					{isLoading ? (
 						<InfiniteScrollContainer />
 					) : !showEmptyView ? (
-						applications.map((application, index) => (
+						applications?.map((application, index) => (
 							<div key={index} className="ApplicationList__ApplicationCardContainer">
 								<div>
 									{" "}
