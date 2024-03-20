@@ -27,7 +27,7 @@ function FilterContainer() {
 	useEffect(() => {
 		const fetchOccupations = async () => {
 			const [resOccupations, resCompanies] = await Promise.all([get(path.occupations), get(path.companies)]);
-			const newOccupations = resOccupations?.data?.data.map((occupation) => {
+			const newOccupations = resOccupations?.data?.data?.map((occupation) => {
 				return {
 					id: occupation._id,
 					label: occupation.name,
@@ -36,7 +36,7 @@ function FilterContainer() {
 					checked: false,
 				};
 			});
-			const newCompanies = resCompanies?.data?.data.map((occupation) => {
+			const newCompanies = resCompanies?.data?.data?.map((occupation) => {
 				return {
 					id: occupation._id,
 					label: occupation.name,
@@ -65,7 +65,7 @@ function FilterContainer() {
 							<CollapsibleHeader title="Thành Phố" className={cx("collapsible-title")} />
 							<CollapsibleBody>
 								<div className={cx("styles__CheckboxContainer")}>
-									{filterOptions.locationWorkings.map((item) => {
+									{filterOptions.locationWorkings?.map((item) => {
 										return <Checkbox key={item.id} obj={item} onChange={locationWorkingChange} />;
 									})}
 								</div>
@@ -78,7 +78,7 @@ function FilterContainer() {
 							<CollapsibleHeader title="Danh mục công việc" className={cx("collapsible-title")} />
 							<CollapsibleBody>
 								<div className={cx("styles__CheckboxContainer")}>
-									{filterOptions.occupations.map((item) => {
+									{filterOptions.occupations?.map((item) => {
 										return <Checkbox key={item.id} obj={item} onChange={occupationsChange} />;
 									})}
 								</div>
@@ -91,7 +91,7 @@ function FilterContainer() {
 							<CollapsibleHeader title="Công ty" className={cx("collapsible-title")} />
 							<CollapsibleBody>
 								<div className={cx("styles__CheckboxContainer")}>
-									{filterOptions.companies.map((item) => {
+									{filterOptions.companies?.map((item) => {
 										return <Checkbox key={item.id} obj={item} onChange={companiesChange} />;
 									})}
 								</div>
